@@ -1,0 +1,524 @@
+#!/usr/bin/env python
+
+####################################################
+# Date de derniere modif : 03/2004
+# Il ne prend qu'une seule sequence fasta en entree.
+# contact : coissac@abi.snv.jussieu.fr
+####################################################
+
+import sys
+import re
+import getopt
+import sets
+
+def progressBar(pos,max):
+    percent = float(pos)/max * 100
+    bar = '#' * int(percent/2)
+    bar+= '|/-\\-'[pos % 5]
+    bar+= ' ' * (50 - int(percent/2))
+    sys.stderr.write('\r%5.1f %% |%s]' %(percent,bar))
+
+####################################################
+# fonction de comparaison des longueurs de cds (4eme champs)
+# pour les trier par ordre decroissant
+####################################################
+def complg (x,y) :    
+                      
+   if x[3]< y[3] :
+     return 1
+   elif x[3] > y[3]:
+     return -1
+   else :
+     return 0
+
+####################################################
+# fonction de comparaison des longueurs de cds (4eme champs)
+# pour les trier par ordre decroissant
+####################################################
+def ordercds (x,y) :    
+                      
+   if x[0] >  y[0] :
+     return 1
+   elif x[0] < y[0]:
+     return -1
+   else :
+      if x[1] >  y[1] :
+         return 1
+      elif x[1] < y[1]:
+         return -1
+   return 0
+
+####################################################
+# recuperation des arguments
+####################################################
+def parse_args():      
+  
+  try:  
+    opts = getopt.getopt(sys.argv[1:], 'vcil:N:I:T:F:d:')
+  except getopt.GetoptError:
+    print_usage(sys.argv[0])
+    sys.exit(2)
+
+  che=0            # valeurs par defaut
+  inc=0
+  lg=0
+  name=""
+  init = 'ATG'
+  stop = 'TAA|TAG|TGA'
+  filename = ""
+  delta=0
+
+  for elem in opts[0]:      # modification des valeurs par defaut
+    if (elem[0]=="-v"):
+	print_version()
+        sys.exit(0)
+    if (elem[0]=="-c"):
+	che=1
+    elif (elem[0]=="-i"):
+	inc=1
+    elif (elem[0]=="-l"):
+	lg=int(elem[1])
+    elif (elem[0]=="-N"):
+	name=elem[1]
+    elif (elem[0]=="-I"):
+        init = elem[1]
+    elif (elem[0]=="-T"):
+        stop = elem[1]
+    elif (elem[0]=="-F"):
+        filename = elem[1]
+    elif (elem[0]=="-d"):
+        delta = int(elem[1])
+
+  if filename =="":
+    print_usage(sys.argv[0])
+    sys.exit()
+
+  init = sets.Set(init.upper().strip().split('|'))
+  stop = sets.Set(stop.upper().strip().split('|'))
+
+  return [che, inc, name, init, stop, lg, delta,filename]
+    
+
+####################################################
+# HELP
+####################################################
+def print_usage(progname):    
+        print "usage:",progname.split("/")[-1], "-[vcil:N:I:T:]F filename"
+        print "This argument gives the version of the program:"
+        print "  -v"
+        print "This argument is needed for program execution:"
+        print "  -F filename"
+        print "     filename is the name of the fasta file"
+        print "These arguments are optional:"
+        print "  -c"
+        print "     if 2 or more CDS overlap, the optimum way passing by" 
+        print "     the longest ones are kept. This optimizes the total "
+        print "     length of CDS."
+        print "     This option also eliminates included ones          " 
+        print "  -i"
+        print "     only kept the maximum CDS (ignore the internal start"
+        print "     codons). This option is unsuitable for the -c option."
+        print "  -l min_length"
+        print "     if the length of a CDS is less than min_length, it is"
+        print "     eliminated"
+        print "  -d delta"
+        print "     if -c option is specified allow to indicate length"
+        print "     of acceptable overlap between two genes"
+        print "  -N prefix"
+        print "     the name of each CDS found will begin with this prefix"
+        print "  -I list of start codons separated by '|'"
+        print "     this option allows to change the set of initiation codons if "
+        print "     different from ATG. "
+        print "  -T list of stop codons separated by '|'"
+        print "     this option allows to change the set of termination codons if "
+        print "     different from TAG+TGA+TAA."
+        return
+
+
+####################################################
+#  Ecriture de la version
+####################################################
+     
+def print_version ():
+	print "version 0.2 created in 03/2004"
+        return
+
+####################################################
+# Gestion des erreurs de fichiers:
+####################################################
+     
+def file_open_warning(file):
+	print "Error opening", file, " for reading."
+        return
+
+
+####################################################
+# Gestion des erreurs de formats d'entree:
+####################################################
+     
+def file_fasta_warning(file):
+	print "Error ", file, "not in fasta format"
+	print "or contains more than one sequence."
+        return
+
+####################################################
+# lecture du fichier et recuperation en string
+####################################################
+
+def read_fasta (file):
+  try:
+	infile=open(file, 'r')
+  except IOError:
+	file_open_warning(file)
+	sys.exit(0)
+  k=[]
+  name = ""
+  tmp=infile.readlines()
+  if tmp[0][0] != ">":
+    file_fasta_warning(file)
+    sys.exit(3)
+  name =tmp[0].split()[0][1:]
+  i=1
+  lfile = len(tmp)
+  for x in xrange (1, len(tmp)) :
+   if tmp[x][0]!=">":
+    k.append(tmp[x].strip().upper())
+   else:
+    file_fasta_warning(file)
+    sys.exit(3)
+  return name, "".join(k)
+
+
+####################################################
+# fonction qui ecrie le mot sur nb caracteres
+####################################################
+def print_espace(mot, nb):
+  taille = len(mot)
+  result = mot
+  for i in range(taille, nb):
+    result += " "
+  return result
+
+####################################################
+# fonction qui ecrie # et va a la ligne 
+####################################################
+def print_diese(nb):
+   print "#\n" * nb,
+
+####################################################
+# fonction qui ecrie les resultats sur la sortie
+# standard
+####################################################
+
+def print_out(n, s, args, codons, cdsW, cdsC, elim, cds):
+  nb_start = [0, 0]
+  nb_stop = [0, 0]
+  for i in codons.items():
+    if i[0] >= 0:
+      nb_start[0] += i[1][0]
+      nb_stop [0] += i[1][1]
+    else:
+      nb_start[1] += i[1][0]
+      nb_stop [1] += i[1][1]
+  
+  # ecrit les caracteristiques de la sequence etudiee
+  print """\
+#**** Recherche des CDS Version 0.0 ****
+#
+# Titre    : %(title)s
+# Longueur : %(seqlength)d
+#
+#""" % {'title'     : n,
+        'seqlength' : len(s) }
+
+  if args[5]:
+    print "# Les CDS  plus petits que %d sont elimines." % args[5]
+
+  if args[1]:
+    print "# Les CDS inclus dans d'autres CDS sont elimines."
+
+  if args[0]:
+    print "# Les CDS chevauchants d'autres CDS plus grands"
+    print "# sont elimines."
+
+  print """\
+#
+# Sequence :         Brin Watson
+# Complementaire:    Brin Crick
+#
+# Analyse du brin Watson
+#
+# Nombre de codons START %(startcodon)-20s : %(startcount)8d""" % {
+                'startcodon' : "(%s)" % ', '.join(args[3]),
+                'startcount' : nb_start[0]
+               }
+
+  for i in range (1, 4):
+    print "#          Sur la phase %d : %5d" % (i,codons[i][0])
+
+  print """\
+#
+# Nombre de codons STOP  %(stopcodon)-20s : %(stopcount)8d""" % {
+                'stopcodon' : "(%s)" % ', '.join(args[4]),
+                'stopcount' : nb_stop[0]
+               }
+
+  for i in range (1, 4):
+    print "#          Sur la phase %d : %5d" % (i,codons[i][1])
+
+  print """\
+#    %(cdsW)d localises sur le brin Watson
+#
+# Analyse du brin Crick
+#
+# Nombre de codons START %(startcodon)-20s : %(startcount)8d""" % {
+                'cdsW'       : cdsW,
+                'startcodon' : "(%s)" % ', '.join(args[3]),
+                'startcount' : nb_start[1]
+               }
+
+  for i in range (1, 4):
+    print "#          Sur la phase %d : %5d" % (i,codons[-i][0])
+
+  print """\
+#
+# Nombre de codons STOP  %(stopcodon)-20s : %(stopcount)8d""" % {     
+                'stopcodon' : "(%s)" % ', '.join(args[4]), 
+                'stopcount' : nb_stop[1]  
+               }
+
+  for i in range (1, 4):
+    print "#          Sur la phase %d : %5d" % (i,codons[-i][1])
+  print """\
+#    %(cdsC)d localises sur le brin Watson
+#""" % { 'cdsC'       : cdsC }
+
+
+  # ecrit les bilans des filtres
+  if args[0]:
+    print "# %d CDS chevauchants ou inclus elimines" % elim
+  print_diese(1)
+
+  # ecrit les caracteristiques des CDS
+  print "#    Brin       Nom               Debut       Fin   Commentaire"
+  print_diese(1)
+  num = 1
+  for i in cds:
+      strand = "Watson"
+      brin   = "w"
+      if i[2] < 0:
+          strand = "Crick"
+          brin   = "c"
+      mnemo = "%s_CDS%d%c" % (args[2],num,brin)
+      num += 1
+           #    Brin       Nom             Debut     Fin       Commentaire
+      print "CDS  %-10s %-15s %7d   %7d   # %s (phase %1d)" % (strand,mnemo,i[0]+1,i[1]+1,n,abs(i[2]))
+  # ecrit la sequence
+
+  #for i in xrange(0,len(s),60):
+  #    print "SEQ  %s" % s[i:i+60]
+
+  #print "XXX"
+  return
+
+####################################################
+# fonction qui cherche le complementaire (brin) d'une expression 
+# reguliere
+####################################################
+def compl (exp):
+ c = ""
+ for i in range (1, len (exp)+1):
+   a = exp [-i]
+   if a == "A":
+      c = c + "T" 
+   elif a == "T":
+      c = c + "A" 
+   elif a == "C":
+      c = c + "G" 
+   elif a == "G":
+      c = c + "C" 
+   elif a == "(":
+      c = c + ")" 
+   elif a == ")":
+      c = c + "(" 
+   elif a == "]":
+      c = c + "[" 
+   elif a == "[":
+      c = c + "]" 
+   else:
+      c = c + a
+ return c
+
+
+####################################################
+# fonction de recherche de tous les CDS en un seul passage sur les deux brins en
+# meme temps
+####################################################
+def findAllCDS2 (s, init, stop, include,lg):  # retourne le deb, la fin, la phase et la longueur des cds
+   nb ={1 : [0,0], 2:[0,0], 3: [0,0], -1 :[0,0], -2:[0,0], -3:[0,0]} # contient pour chaque phase possible :
+   sig_stack = {1 : [], 2:[], 3: [], -1 :[], -2:[], -3:[]}
+   cstop  = sets.Set([compl(x) for x in stop])
+   cinit  = sets.Set([compl(x) for x in init])
+   cds    = []
+   cdsW   = 0
+   cdsC   = 0
+
+   lseq = len(s)
+
+   for pos in xrange(0,lseq):
+      if lseq > 100000 and not (pos % 599):
+         progressBar(pos,lseq)
+         
+      codon = s[pos:pos+3]
+      i   = pos + 2
+      phase = (pos % 3) + 1
+      rphase= -((i   % 3) + 1)
+      if codon in init:
+         nb[phase][0]+=1
+         if ((include and not sig_stack[phase]) or
+             not include):
+            sig_stack[phase].append(pos)
+
+      if codon in stop:
+         nb[phase][1]+=1
+         while sig_stack[phase]:
+            start = sig_stack[phase].pop()
+            length=i - start + 1
+            if not lg or length >= lg:
+               cds.append((start,i,phase,i - start + 1))
+               cdsW+=1
+
+      if codon in cinit:
+         nb[rphase][0]+=1
+         if sig_stack[rphase]:
+            if include:
+               if len(sig_stack[rphase]) == 1:
+                  sig_stack[rphase].append(i)
+               else:
+                  sig_stack[rphase][1]=i
+            else:
+               sig_stack[rphase].append(i)
+
+      
+      if codon in cstop:    
+         nb[rphase][1]+=1
+         pstop = -1
+         sstack= []
+         if sig_stack[rphase]:
+            pstop  = sig_stack[rphase][0]
+            sstack = sig_stack[rphase][1:]
+            while sstack:
+               start = sstack.pop()
+               length = start - pstop + 1
+               if not lg or length >= lg:
+                  cds.append((pstop,start,rphase,start - pstop + 1))
+                  cdsC+=1
+         sig_stack[rphase]=[pos]
+
+                                        # depile les ORF restant sur les
+                                        # piles reverses
+   for rphase in xrange(-3,0):
+       pstop = -1
+       sstack= []
+       if sig_stack[rphase]:
+           pstop  = sig_stack[rphase][0]
+           sstack = sig_stack[rphase][1:]
+           while sstack:
+               start = sstack.pop()
+               length = start - pstop + 1
+               if not lg or length >= lg:
+                   cds.append((pstop,start,rphase,start - pstop + 1))
+                   cdsC+=1
+       
+   cds.sort(ordercds)
+   return nb, cdsW, cdsC, cds
+
+            
+def __find_incompatible(automat,cds,state,first,start):
+    lcds = len(cds) 
+    m = first
+    while (m<lcds) and (cds[m][0] < start):
+        m+=1
+
+    if m < lcds:
+        ref = cds[m]
+        while (m<lcds) and (cds[m][0] <= ref[1]):
+            if state not in automat[m]:
+                automat[m].add(state)
+                __find_incompatible(automat,cds,m,m,cds[m][1]+1)
+            m+=1
+
+####################################################
+# fonction de filtrage (inclus, chevauchants, petits)
+####################################################
+        
+def new_filtre_cds(cds,delta=0):
+    cds.sort(ordercds)
+    automat = [sets.Set() for x in xrange(len(cds))]
+    lcds = len(cds) 
+
+    for current in xrange(-1,lcds):
+        start=-1
+        if current >= 0:
+            start=cds[current][1]
+        m = current+1
+        while (m<lcds) and (start - cds[m][0] >= delta):
+            m+=1
+        if m < lcds:
+            ref = cds[m][1]
+            while (m<lcds) and (ref - cds[m][0] > delta):
+                automat[m].add(current)
+                m+=1
+            
+    backtrack = []
+    winner = (0,)
+
+    for p in xrange(len(cds)):
+        scoremax = 0
+        best  = -1
+        for vient_de in automat[p]:
+            score = 0
+            if (vient_de >= 0):
+                score = backtrack[vient_de][0]+(cds[vient_de][3]**2)
+            if score >= scoremax:
+                scoremax = score
+                best = vient_de
+        if scoremax > winner[0]:
+            winner=(scoremax,p)
+        backtrack.append((scoremax,best))
+
+    # print automat[0:10]
+    # print backtrack
+    good = []
+    current = winner[1]
+
+    while current >= 0:
+        good.append(cds[current])
+        current = backtrack[current][1]
+
+    good.reverse()
+    return len(cds)-len(good),good
+        
+
+####################################################
+# Programme
+####################################################
+def main():
+   args=parse_args()
+   (che, inc, name, init, stop, lg, delta, filename) = args
+   name, seq = read_fasta(filename)
+   cds_fil = []
+   elim = [0,0]
+   nb_codons, cdsW, cdsC, cds = findAllCDS2(seq, init, stop, inc,lg)
+   if  che or inc:                # si tri sur chevauchants
+      elim, cds_fil = new_filtre_cds (cds,delta)
+   else :
+      cds_fil = cds [0:len(cds)]
+   #print len(cds), len(cds_fil)
+   #print cds_fil
+   print_out (name, seq, args, nb_codons, cdsW, cdsC, elim, cds_fil)
+   print >>sys.stderr,""
+
+if __name__ == '__main__':
+   main()
+
