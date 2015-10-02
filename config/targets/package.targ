@@ -15,6 +15,9 @@ PKGDIR ?= build.$(PORTNAME)
 
 PRTPATH = $(abspath $(PRTDIR))
 
+PRTPATH_BIN = $(PRTPATH)/bin
+PKG_CONFIG = $(PRTPATH)/bin/pkg-config
+
 #
 # Rules
 #
@@ -28,7 +31,17 @@ pkg.expand::
 	test -f $(PKGDIR)/configure || $(TAR) zxf $(PKGTAR) -C $(PKGDIR) --strip-components 1
 
 pkg.make:: pkg.expand
-	test -f $(PKGDIR)/Makefile || (cd $(PKGDIR) && ./configure --prefix=$(PRTPATH))
+	echo $(PKG_CONFIG)
+	test -f $(PKGDIR)/Makefile || (export PATH="$(PRTPATH_BIN):$$PATH" && \
+	                               export PKG_CONFIG=$(PKG_CONFIG) && \
+	                               export CC="$(CC)" && \
+	                               export CXX="$(CXX)" && \
+	                               export CPP="$(CPP)" && \
+	                               export CXXPP="$(CXXPP)" && \
+	                               export CFLAGS="$(CFLAGS)" && \
+	                               export LDFLAGS="$(LDFLAGS)" && \
+	                               cd $(PKGDIR) && \
+	                               ./configure --prefix=$(PRTPATH) $(CONFIGURE_OPTIONS)) 
 	$(MAKE) -C $(PKGDIR)
 
 pkg.install:: pkg.make

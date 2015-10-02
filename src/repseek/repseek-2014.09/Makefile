@@ -10,43 +10,17 @@
 # MACHINE = LINUX
 # MACHINE = OSF
 
-MACHINE = MACOSX
+include ../../../config/auto.conf
 
-
-# ???: MALLOC=-lmalloc
-# others: MALLOC =  
-# macosx debug: MALLOC =  -lMallocDebug
-MALLOC= 
 
 
 # SGI: PROTO= PROTO=1
 # others: PROTO= PROTO=0
 PROTO= PROTO=0
 
-# SGI: RANLIB= touch
-# others: RANLIB= ranlib
-
-RANLIB= ranlib 
-
-# Users can choose:
-
-#CC= cc
-CC= gcc
-
-
-CFLAGS= -O4 -Wall
-#CFLAGS= -O2 
-#CFLAGS= -pg
-#CFLAGS= -g
-
-INSTALLDIR = $$HOME/bin
-
 ##### defined
 
 SHELL = bash
-
-LDFLAGS =  -lm $(MALLOC)
-#LDFLAGS =  -g -lm $(MALLOC)
 
 SRC  = sort.c\
        help.c\
@@ -77,24 +51,18 @@ OBJ  = $(SRC:.c=.o)
 
 ## Rules
 
-default:
-	@echo "++ Repeats Search Engines ++"
-	@echo "edit Makefile and set MACHINE, RANLIB, PROTO, CC, CFLAGS and eventually MALLOC"
-	@echo " "
-	@echo "To compile: make repseek"
-	@echo "To clean:   make clean"
-
+all: repseek install
 
 %.o: %.c
-	$(CC) $(CFLAGS) -D$(MACHINE) -c -o $@ $<;
+	$(CC) $(CFLAGS) -c -o $@ $<;
 
 
 repseek:  $(OBJ) main_repseek.c
-	$(CC) $(CFLAGS)  -D$(MACHINE) -o $@ $(OBJ) main_repseek.c $(LDFLAGS);
+	$(CC) $(CFLAGS) -o $@ $(OBJ) main_repseek.c $(LDFLAGS);
 
 
 install: repseek
-	cp  repseek $(INSTALLDIR)
+	cp  repseek $(BINDIR)
 
 
 clean:

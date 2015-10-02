@@ -17,15 +17,15 @@
 # ---------------------------------------------------------------
 #
 
-include ../../config/auto.conf
+include ../../../../../config/auto.conf
 
 OSRC   = libfasta.c
 
 LOCLIB = libfasta.a 
 
-include ../../config/targets/lxlib.targ
+include ../../../../../config/targets/lxlib.targ
 
-include ../../config/targets/help.targ
+include ../../../../../config/targets/help.targ
 
 INCDIR	  =	../../include
 

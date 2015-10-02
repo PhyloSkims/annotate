@@ -15,13 +15,13 @@
 # @end:
 # ---------------------------------------------------------------
 #
-include ./config/auto.conf
+include ../../../config/auto.conf
 
 DIRS = src
 
-include ./config/targets/propagate.targ
+include ../../../config/targets/propagate.targ
 
-include ./config/targets/help.targ
+include ../../../config/targets/help.targ
 
 portclean::
 	$(MAKE) ACTION=$@ _action

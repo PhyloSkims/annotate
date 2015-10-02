@@ -21,7 +21,7 @@ DIRS =  Abisrc   \
         Fastasrc \
         Utilsrc
 
-include ../config/targets/propagate.targ
+include ../../../../config/targets/propagate.targ
 
-include ../config/targets/help.targ
+include ../../../../config/targets/help.targ
 

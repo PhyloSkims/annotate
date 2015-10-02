@@ -17,12 +17,18 @@
 #
 include ../config/auto.conf
 
-DIRS = exonerate \
+DIRS = aragorn   \
+       clustalo  \
+       exonerate \
+       hmmer3    \
        kimono    \
+       muscle    \
+       ncbiblast \
        prokov    \
+       repseek   \
        sequtils  \
-       aragorn   \
-       ncbiblast
+       sumaclust \
+       sumatra
 
 include ../config/targets/propagate.targ
 

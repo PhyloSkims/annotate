@@ -16,7 +16,7 @@
 # ---------------------------------------------------------------
 #
 
-include ../config/targets/empty.targ
+include ../../../../config/targets/empty.targ
 
 clean::
 	-\rm -f *.tst

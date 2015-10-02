@@ -25,9 +25,6 @@ include ../../config/targets/help.targ
 
 all::
 	$(MAKE) ACTION=$@ _action
-	test -d $(PRTDIR) || mkdir $(PRTDIR)
-	test -d $(BINDIR) || mkdir $(BINDIR)
-	\cp -f lxpack/ports/$(PORTNAME)/bin/* $(BINDIR)
 
 clean::
 	$(MAKE) -C lxpack portclean

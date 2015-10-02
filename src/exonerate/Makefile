@@ -2,10 +2,12 @@
 # $Id: $
 # ---------------------------------------------------------------
 # @file: Makefile
-# @desc: makefile for package exonerate
+# @desc: makefile for lxpack
 #
 # @history:
-# @+	    <Gloup> : Sept 15 : Adapted to ORG.Annot
+# @history:
+# @+	    <Gloup> : Apr 97 : Created
+# @+	    <Gloup> : Mar 02 : Updated for LXxware
 #
 # @note: should be processed with gnu compatible make
 # @note: helixware_compatible
@@ -13,12 +15,18 @@
 # @end:
 # ---------------------------------------------------------------
 #
-
 include ../../config/auto.conf
 
-PKG = exonerate-2.2.0
+DIRS = pkg-config \
+       libffi \
+       gettext \
+       glib2 \
+       exonerate
 
-include $(CFGDIR)targets/package.targ
+include ../../config/targets/propagate.targ
 
-include $(CFGDIR)targets/help.targ
+include ../../config/targets/help.targ
+
+all::
+	$(MAKE) ACTION=$@ _action
 

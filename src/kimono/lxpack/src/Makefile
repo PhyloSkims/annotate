@@ -13,7 +13,7 @@
 # ---------------------------------------------------------------
 #
 
-include ../config/auto.conf
+include ../../../../config/auto.conf
 
 PROGS  = kimono kimfit
 
@@ -29,8 +29,8 @@ OSRC   = fasta_io.c	 \
 	 kim_genetic.c	 \
 	 kim_codonskew.c
 
-include ../config/targets/lxbin.targ
-include ../config/targets/help.targ
+include ../../../../config/targets/lxbin.targ
+include ../../../../config/targets/help.targ
 
 #
 # file dependencies

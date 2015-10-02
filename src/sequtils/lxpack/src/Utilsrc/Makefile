@@ -16,7 +16,7 @@
 # ---------------------------------------------------------------
 #
 
-include ../../config/auto.conf
+include ../../../../../config/auto.conf
 
 #
 # Machine independant flags
@@ -38,8 +38,8 @@ PROGS = util_complinv	\
 
 OSRC     = $(PROGS:=.c)
 
-include ../../config/targets/lxbin.targ
-include ../../config/targets/help.targ
+include ../../../../../config/targets/lxbin.targ
+include ../../../../../config/targets/help.targ
 
 INCDIR	  =	../../include
 

@@ -14,7 +14,7 @@
 # ---------------------------------------------------------------
 #
 
-include ../config/auto.conf
+include ../../../../config/auto.conf
 
 PROGS = prokov_learn prokov_curve \
 	    prokov_score prokov_cds   \
