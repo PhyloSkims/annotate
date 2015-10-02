@@ -1,0 +1,51 @@
+#
+# $Id: $
+#
+# lxbin.targ
+#
+# default make targets for standard lx binary
+#
+# you should define the 'PROGS' and 'OSRC' variables
+# and optionnaly 'LIBS' if binaries have to be linked with libraries
+#
+# note: if main source code for binary PROG is PROG.c, there is nothing to do,
+# else (e.g. if it involves several sources files) you should also add local
+# file dependencies. e.g under the form:
+#
+# mymain:	$(OBJ) mymain_base.c mymain_help.c
+#	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+#
+#
+# 'auto.conf' should have been included
+#
+
+OBJ      = $(OSRC:.c=.o)
+
+INCDIR	 =	../include
+
+#
+# Rules
+#
+
+.PHONY: all prelib install test clean portclean
+
+all::	prelib $(PROGS) install
+	@echo "+++++++++++ binaries $(PROGS) done"
+
+prelib::
+	test -d $(PRTDIR) || mkdir $(PRTDIR)  # because some linker may complain
+	test -d $(LIBDIR) || mkdir $(LIBDIR)  # if -L$(LIBDIR) does not exist
+
+install::
+	test -d $(PRTDIR) || mkdir $(PRTDIR)
+	test -d $(BINDIR) || mkdir $(BINDIR)
+	-for f in $(PROGS) ; do \cp -f $$f $(BINDIR) ;  done
+
+test::
+
+clean::
+	-\rm -f *.o cvstatic* *% *.bak so_loc*
+	-\rm -f $(PROGS)
+
+portclean:: clean
+	-(! test -d $(BINDIR)) || (cd $(BINDIR) && \rm -f $(PROGS))

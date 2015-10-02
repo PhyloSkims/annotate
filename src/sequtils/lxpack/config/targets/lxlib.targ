@@ -1,0 +1,43 @@
+#
+# $Id: $
+#
+# lxlib.targ
+#
+# default make targets for standard lx library
+#
+# you should define the 'LOCLIB' and 'OSRC' variables
+#
+# 'auto.conf' should have been included
+#
+
+OBJ      = $(OSRC:.c=.o)
+
+INCDIR	 =	../include
+
+#
+# Rules
+#
+
+.PHONY: all lib install test clean portclean
+
+all:: lib install
+	@echo "+++++++++++ library $(LOCLIB) done"
+
+lib:: $(OBJ)
+	$(AR) $(ARFLAGS) $(LOCLIB) $(OBJ)
+	$(RANLIB) $(LOCLIB)
+
+install::
+	test -d $(PRTDIR) || mkdir $(PRTDIR)
+	test -d $(LIBDIR) || mkdir $(LIBDIR)
+	\cp -f $(LOCLIB) $(LIBDIR)
+	$(RANLIB) $(LIBDIR)/$(LOCLIB)
+
+test::
+
+clean::
+	-\rm -f *.o cvstatic* *% *.bak so_loc*
+	-\rm -f $(LOCLIB)
+
+portclean:: clean
+	-(! test -d $(LIBDIR)) || (cd $(LIBDIR) && \rm -f $(LOCLIB))

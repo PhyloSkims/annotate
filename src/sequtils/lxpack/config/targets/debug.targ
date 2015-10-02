@@ -1,0 +1,25 @@
+#
+# $Id: help.targ 1825 2013-02-26 09:39:47Z viari $
+#
+# debug.targ
+#
+# target to print debug information (dev. only)
+#
+# it defines the following targets:
+#
+# debug  : 
+#	 print debug
+#
+# it requires auto.conf
+#
+
+.PHONY: debug
+
+debug::
+	@echo "+ PORTNAME: $(PORTNAME)"
+	@echo "+ CFGPRT:   $(CFGPRT)"
+	@echo "+ CFGDIR:   $(CFGDIR)"
+	@echo "+ PRTDIR:   $(PRTDIR)"
+	@echo "+ MACHDEF:  $(MACHDEF)"
+
+

@@ -1,0 +1,14 @@
+#!/bin/csh -f
+
+set cfg = `find . -type d -name config -print | grep -v ncbi`
+
+foreach cf ($cfg) 
+  echo $cf
+  \rm -r $cf
+  cp -r ../config $cf
+end
+
+
+exit 0
+
+

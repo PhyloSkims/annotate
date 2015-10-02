@@ -1,0 +1,24 @@
+#
+# $Id: $
+#
+# epty.targ
+#
+# default empty targets (defined as double colon rules)
+#
+#
+
+#
+# Rules
+#
+
+.PHONY: all test clean portclean help
+
+all::
+
+test::
+
+clean::
+
+portclean:: clean
+
+test::

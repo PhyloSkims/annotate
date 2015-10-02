@@ -1,0 +1,20 @@
+#!/bin/csh
+#
+# check if port is installed
+#
+set ORG_HOME = `dirname $0`/..
+
+set PORTNAME = `$ORG_HOME/config/guess_port`
+
+if (-f $ORG_HOME/ports/$PORTNAME/bin/exonerate) then
+  echo "+ port $PORTNAME is correctly installed"
+  exit 0
+endif
+
+echo "! port $PORTNAME not installed"
+echo "! Please read README.txt for proper installation"
+
+exit 1
+
+
+
