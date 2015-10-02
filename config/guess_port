@@ -25,6 +25,7 @@ case ${mach}:${syst}:${rels} in
     i*86:Linux:*     )  echo i386-linux;;
     x*86*:Linux:*    )  echo i386-linux;;
     i*86:Darwin:*    )  echo i386-darwin;;
+    x*86*:Darwin:*   )  echo i386-darwin;;
     IP*:IRIX*:*      )  echo mips-irix;;
     i*86:MINGW32*:*  )  echo x86-mingw32;;
     
