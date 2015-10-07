@@ -89,9 +89,6 @@ pushTmpDir ORG.buildSCDB
 		cp LSC.direct.fasta "${IR_DATA_DIR}/LSC_RefDB.fasta"
 		cp LSC_RefDB.tgf    "${IR_DATA_DIR}/LSC_RefDB.tgf"
 		
-		makeblastdb -in "${IR_DATA_DIR}/LSC_RefDB.fasta" \
-		            -dbtype nucl \
-		            -out "${IR_DATA_DIR}/LSC_RefDB" >& /dev/null
 	loginfo "Done"
 		
 	#
@@ -163,12 +160,17 @@ pushTmpDir ORG.buildSCDB
 	
 	loginfo "Installing SSC reference databases..."
 		cp SSC.direct.fasta "${IR_DATA_DIR}/SSC_RefDB.fasta"
-		cp SSC_RefDB.tgf    "${IR_DATA_DIR}/SSC_RefDB.tgf"
-		
-		makeblastdb -in "${IR_DATA_DIR}/SSC_RefDB.fasta" \
-		            -dbtype nucl \
-		            -out "${IR_DATA_DIR}/SSC_RefDB" >& /dev/null
+		cp SSC_RefDB.tgf    "${IR_DATA_DIR}/SSC_RefDB.tgf"		
 	loginfo "Done"
 		
+	loginfo "Installing blast version of the SC_RefDB reference databases..."
+		cat "${IR_DATA_DIR}/LSC_RefDB.fasta" \
+		    "${IR_DATA_DIR}/SSC_RefDB.fasta" > SC_RefDB.fasta
+		    
+		makeblastdb -in SC_RefDB.fasta \
+		            -dbtype nucl \
+		            -out "${IR_DATA_DIR}/SC_RefDB" >& /dev/null
+	loginfo "Done"
+
 popTmpDir
 
