@@ -3,103 +3,36 @@
 #                           NORMALISATION D'UN PLASTIDE
 #
 #========================================================================================
-# Ce programme dispose de 4 fonctions pour traiter les donnees fasta issues de genbank
-# - seqlength : compte le nombre de paire de base du fichier
-# ex : seqlength $1
 #
-# - cutseq : permet de couper un morceau de la sequence
-# cutseq [x] [y]
-# [x] : coordonne du debut de la sequence a couper
-# [y] : coordonne de la fin de la sequence a couper
-# ex : cutseq $1 10 100
+# Normalize the way the chloroplaste genome sequence is linearized in the fasta file
+# The normalized sequence is: 
 #
+#               LSC + IRB + SSC + IRA
 #
-# - revcomp : donne le brin reverse
-# ex : $1 | revcomp
+# The SSC and LSC are approximatively mapped by similarity with a reference database
+# Inverted repeats (IRs) are identified for maximizing the segregation between 
+# LSC and SSC match 
+# 
 #
-# - formatfasta : permet de coller a la suite plusieurs morceaux de sequence au moment de 
-#   la reecriture
-# - joinfasta : enleve les titres au moment de la reecriture du fichier et renvoie les 
-#   informations dans la fonction formatfasta
-# ex : joinfasta $1
+#  go_normalize.sh <FASTAFILE>
 #
-#========================================================================================
-# Pour lancer le programme, utiliser les commandes : 
-# chmod +x normalize_plastid.sh
-#./normalize_plastid.sh [fichier].fasta
+#		- <FASTAFILE> : The fasta file containing the genome to normalize
 #
-# ex : seqlength $1
+#  Results are printed to the standart output
 #
-# cutseq $1 [x] [y]
-# [x]:coordonne du debut [y]:coordonne de la fin de la sequence a couper
-# ex : cutseq $1 10 100
-#
-# ex : $1 | revcomp
-#
-# ex : joinfasta $1
 #========================================================================================
 
 # -- CAUTION -- Works as long than the script 
 #               is not called through a symlink
 SCRIPT_DIR="$(dirname ${BASH_SOURCE[0]})"
-source "${SCRIPT_DIR}/../../../scripts/bash_init.sh"
+source ${SCRIPT_DIR}/../lib/lookforIR.lib.sh
 
-function lookForIR {
-
-	local QUERY="$1"
-	local MATCHES=$(basename ${QUERY})
-	      MATCHES="${MATCHES/.*/.matches}"
-	
-	local REPEATS="${MATCHES/.*/.repseek}"
-	
-	loginfo "Locating SSC and LSC by similarity..."
-		blastn -db ${SCDB} \
-		       -query ${QUERY} \
-		       -outfmt 6 \
-		       -max_target_seqs 10000 | \
-		  awk '($4 > 1000) && ($3>80) { \
-		             SAME=(($7 < $8) && ($9 < $10)) || (($7 > $8) && ($9 > $10)); \
-			 		 if ($7 < $8) \
-			 			{print substr($2,1,3),$7,$8,SAME}  \
-			 		 else \
-			 			{print substr($2,1,3),$8,$7,SAME}}' | \
-		  sort -nk 2 > ${MATCHES}
-	loginfo "Done"
-	  
-	loginfo "Looking for long inverted repeats..."
-		repseek -c -p 0.001 -i ${QUERY} 2>> /dev/null > ${REPEATS}
-		loginfo " --> $(wc -l ${REPEATS} | awk '{print $1}') repeats identified"
-	loginfo "Done"
-	
-	loginfo "Marking and selecting the best inverted repeat..."
-		local IR=( $(${PROG_DIR}/selectIR.py ${MATCHES} ${REPEATS}) )
-	loginfo "Done"
-	
-	loginfo " --> IR size : IRa = ${IR[5]} /  IRb = ${IR[7]}"
-	loginfo " --> IR Score: ${IR[8]}"
-	
-	let "deltaIR=${IR[5]} -  ${IR[7]}"
-	
-	if (( $deltaIR < -10 )) ||  (( $deltaIR > 10 )); then
-		logwarning "Differences between IR lengths ($deltaIR) is greater than 10"
-	fi
-	
-	
-	echo "${IR[@]}"
-}
 
 pushTmpDir ORG.normalize
-
-	SCDB="${IR_DATA_DIR}/SC_RefDB"
-	QUERY="${CALL_DIR}/$1"
-	MATCHES="${1/.*/.matches}"
-	REPEATS="${1/.*/.repseek}"
 
 	tmpfasta1="tmp_$$_1.fasta"
 	tmpfasta2="tmp_$$_2.fasta"
 
-
-	openLogFile "${QUERY/.*/.log}"
 
 	loginfo "Computing the genome size..."
 		genome_length=$(seqlength $QUERY)
@@ -136,7 +69,7 @@ pushTmpDir ORG.normalize
 		rm -f ${tmpfasta1}
 		QUERY=${tmpfasta2}
 
-		loginfo "Recompute location of the IR..."
+		loginfo "Recomputing location of the IR..."
 			declare -a IR=( $(lookForIR ${QUERY}) )
 		loginfo "Done"
 		
@@ -224,7 +157,7 @@ pushTmpDir ORG.normalize
 	fi
 	
 	# Merges the four parts of the genome.
-	cat ${tmpSSC} ${tmpIR1} ${tmpLSC} ${tmpIR2} | joinfasta
+	cat ${tmpLSC} ${tmpIR2} ${tmpSSC} ${tmpIR1} | joinfasta
 
 	
 	
