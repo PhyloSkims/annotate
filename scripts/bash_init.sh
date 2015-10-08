@@ -62,9 +62,57 @@ function logwarning {
 
 # Sequence related functions	
 	
+# Counts how many sequences are stored in a fasta file
+# 	- $1 : The fasta file to count
 function fastaCount {
 	grep '^>' $1 | wc -l
 }
+
+
+# compute the sequence length from a fasta sequence
+# 	- $1 : The fasta file to cut
+function seqlength {
+  cat $1 | \
+  wc |\
+  awk -v t="`head -1 $1 | wc -c`" '{print $3 - t - $1 + 1}'
+}
+
+# extract a subseq from a fasta sequence
+# 	- $1 : The fasta file to cut
+#   - $2 : First position of the subsequence (first position is numered 1), 
+#   - $3 : End of the subsequence (included in the subsequence)
+function cutseq {
+	awk -v from=$2 -v end=$3 'function printfasta(seq) {            \
+									seqlen=length(seq);             \
+									for (i=1; i <= seqlen; i+=60)    \
+									   print substr(seq,i,60);      \
+								}                                   \
+																	\
+								/^>/   {print $0}                   \
+								! /^>/ {seq=seq$0}                  \
+								END {printfasta(substr(seq,from,end-from+1))}' $1
+}
+
+# Joins a set of sequences stored in a fasta file into 
+# a single sequence
+# 	- $1 : The fasta file containing the sequences to join
+function joinfasta {
+	awk '(NR==1 && /^>/) {print $0}                                 \
+	     ! /^>/          {print $0}' $1 |                           \
+		 formatfasta
+}
+
+function formatfasta {
+	awk  'function printfasta(seq) {                                \
+									seqlen=length(seq);             \
+									for (i=1; i <= seqlen; i+=60)   \
+									   print substr(seq,i,60);      \
+								   }                                \
+								/^>/   { print $0 }                 \
+								! /^>/ { seq=seq $0 }               \
+								END    { printfasta(seq)}' $1
+}
+
 
 #
 #
@@ -114,4 +162,5 @@ export PATH
 # Force to basic international setting for a correction behaviour of AWK on mac with float
 export LANG=C
 export LC_ALL=C
+
 
