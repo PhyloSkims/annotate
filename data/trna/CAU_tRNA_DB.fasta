@@ -1,0 +1,1257 @@
+>trnI_NC_000927_29 gbac=NC_000927; trna=trnI; taxid=31312; distance=0; count=2; cluster=trnI_NC_000927; cluster_score=1.000000; cluster_center=True;
+gcatccatagcctagcggttaaggcagtcgactcataatcggaatatcgctggttcgaatccagctggat
+gca
+>trnI_NC_001568_40 gbac=NC_001568; trna=trnI; taxid=4177; distance=1; count=2; cluster=trnI_NC_001568; cluster_score=1.000000; cluster_center=True;
+gcatccatggcttaatggttaaagcgcccaactcataattggcgaatttgtaggttcaattcctactgga
+tgcac
+>trnI_NC_001865_92 gbac=NC_001865; trna=trnI; taxid=3077; distance=0; count=1; cluster=trnI_NC_001865; cluster_score=1.000000; cluster_center=True;
+gcacctatggcagagtggtcgattgcaccgcactcataatgcggtttcgaaagaacatcgttggttcaaa
+cccaactgggtgca
+>trnI_NC_003386_117 gbac=NC_003386; trna=trnI; taxid=3240; distance=0; count=1; cluster=trnI_NC_003386; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtaaaagcacccgactcataatcggcgaattcgcaggttcaattcctgttgga
+tgca
+>trnI_NC_005087_100 gbac=NC_005087; trna=trnI; taxid=3218; distance=0; count=1; cluster=trnI_NC_005087; cluster_score=1.000000; cluster_center=True;
+gcatccatagctgaacggttaaagcacccaactcataattggagaattcgcaggttcaactcctgttgga
+tgca
+>trnI_NC_006084_2 gbac=NC_006084; trna=trnI; taxid=717233; distance=1; count=137; cluster=trnI_NC_006084; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaattcctgctgga
+tgcac
+>trnI_NC_008097_91 gbac=NC_008097; trna=trnI; taxid=55564; distance=2; count=1; cluster=trnI_NC_008097; cluster_score=1.000000; cluster_center=True;
+tgtatccatggctgagcggttaaagcgcccaactcataattggagaattcgcaggttcgaatcctgctgg
+atgcatc
+>trnI_NC_008100_54 gbac=NC_008100; trna=trnI; taxid=145475; distance=0; count=1; cluster=trnI_NC_008100; cluster_score=1.000000; cluster_center=True;
+gcatctatggcagagtggtcgaatgcaccgcactcataatgcggaattataaacgtcgttggttcaaacc
+caactggatgca
+>trnI_NC_008116_50 gbac=NC_008116; trna=trnI; taxid=102822; distance=1; count=1; cluster=trnI_NC_008116; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgagtggttaaagcacccaactcataattggttttttcgcgggttcgagtcctgctgga
+tgcac
+>trnI_NC_008117_49 gbac=NC_008117; trna=trnI; taxid=35869; distance=0; count=1; cluster=trnI_NC_008117; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgagtggttaaagcacccaactcataattgggcacttcgcgggttcgagtcctgctgga
+tgca
+>trnI_NC_008336_7 gbac=NC_008336; trna=trnI; taxid=41776; distance=1; count=8; cluster=trnI_NC_008336; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctgctgga
+tgcac
+>trnI_NC_008372_89 gbac=NC_008372; trna=trnI; taxid=55999; distance=1; count=1; cluster=trnI_NC_008372; cluster_score=1.000000; cluster_center=True;
+tgtactcttggccgagcggtttaggcaatcgactcataatcgattttaggtaggttcaactcctacaggg
+tgcag
+>trnI_NC_008796_20 gbac=NC_008796; trna=trnI; taxid=334596; distance=0; count=4; cluster=trnI_NC_008796; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcaaattcgtaggttcaattcctgctgga
+tgca
+>trnI_NC_009600_128 gbac=NC_009600; trna=trnI; taxid=145286; distance=1; count=1; cluster=trnI_NC_009600; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtgggttcaattcctgctgga
+tgcac
+>trnI_NC_009681_84 gbac=NC_009681; trna=trnI; taxid=34116; distance=1; count=1; cluster=trnI_NC_009681; cluster_score=1.000000; cluster_center=True;
+tgcatgcatggctgagtggtcgatagcaacagactcataatctgtctccgttaggacatcacaggttcaa
+accctgttgcatgcaa
+>trnI_NC_009766_108 gbac=NC_009766; trna=trnI; taxid=4129; distance=0; count=1; cluster=trnI_NC_009766; cluster_score=1.000000; cluster_center=True;
+gcatccatggctaagcggttaaagcgcccaactcataattggtgaagtcgtaggttcaattcctactgga
+tgca
+>trnI_NC_009808_17 gbac=NC_009808; trna=trnI; taxid=4121; distance=1; count=4; cluster=trnI_NC_009808; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgagtggtgaaagcgcccaactcataattggcgaagtcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_009949_23 gbac=NC_009949; trna=trnI; taxid=437280; distance=1; count=4; cluster=trnI_NC_009949; cluster_score=1.000000; cluster_center=True;
+gcatccatggctaagtggttaaagcgcccaactcataattggcgaagtcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_009963_109 gbac=NC_009963; trna=trnI; taxid=476139; distance=0; count=1; cluster=trnI_NC_009963; cluster_score=1.000000; cluster_center=True;
+gcatccatggctaagtggttaaagcgcccaactcataattggtgaagtcgtaggttcaattcctactgga
+tgca
+>trnI_NC_010093_11 gbac=NC_010093; trna=trnI; taxid=263995; distance=0; count=6; cluster=trnI_NC_010093; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctgctgga
+tgca
+>trnI_NC_010109_19 gbac=NC_010109; trna=trnI; taxid=4472; distance=1; count=4; cluster=trnI_NC_010109; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcaaattcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_010359_71 gbac=NC_010359; trna=trnI; taxid=280810; distance=1; count=1; cluster=trnI_NC_010359; cluster_score=1.000000; cluster_center=True;
+gcattcatggctgaatggttaaggcacccaactcataattggcgaactcacaggttcaattcctgttgaa
+tgcac
+>trnI_NC_010361_5 gbac=NC_010361; trna=trnI; taxid=3942; distance=1; count=14; cluster=trnI_NC_010361; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtgggttcaattcctactgga
+tgcac
+>trnI_NC_010442_70 gbac=NC_010442; trna=trnI; taxid=28494; distance=1; count=1; cluster=trnI_NC_010442; cluster_score=1.000000; cluster_center=True;
+gcattcatggctgaatggttaaagcacccaactcataattggcgaattcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_010654_42 gbac=NC_010654; trna=trnI; taxid=3377; distance=1; count=2; cluster=trnI_NC_010654; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaactcgcaggttcaattcctgctgga
+tgcac
+>trnI_NC_011031_96 gbac=NC_011031; trna=trnI; taxid=55995; distance=0; count=1; cluster=trnI_NC_011031; cluster_score=1.000000; cluster_center=True;
+gcacttttggccgagcggtttaggcaatcgactcataatcgattttaggtgggttcaactcctacaaggt
+gca
+>trnI_NC_011152_10 gbac=NC_011152; trna=trnI; taxid=3332; distance=0; count=6; cluster=trnI_NC_011152; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtgaactcgcgggttcaattcctgctgga
+tgca
+>trnI_NC_011828_13 gbac=NC_011828; trna=trnI; taxid=3900; distance=1; count=5; cluster=trnI_NC_011828; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcgaagtcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_011930_18 gbac=NC_011930; trna=trnI; taxid=3324; distance=0; count=4; cluster=trnI_NC_011930; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcgaactcgcgggttcaattcctgctgga
+tgca
+>trnI_NC_011942_114 gbac=NC_011942; trna=trnI; taxid=33153; distance=1; count=1; cluster=trnI_NC_011942; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatgggtaaagcgcccaactcataattggcgaactcgcggggttcaattcctggctg
+gatgcac
+>trnI_NC_012978_33 gbac=NC_012978; trna=trnI; taxid=3074; distance=1; count=2; cluster=trnI_NC_012978; cluster_score=1.000000; cluster_center=True;
+tgcatccgtggcagagtggtcgattgcaccgcactcataatgcggctccgaaaggacatcgttggttcaa
+gtccaaccggatgcaa
+>trnI_NC_014057_125 gbac=NC_014057; trna=trnI; taxid=3888; distance=0; count=1; cluster=trnI_NC_014057; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggagaagtcgtaggttcaattcctactgga
+tgca
+>trnI_NC_014063_47 gbac=NC_014063; trna=trnI; taxid=3860; distance=0; count=1; cluster=trnI_NC_014063; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgagtggttaaagcacccaactcataattggcgaagtcgtgggttcaattcctactgga
+tgca
+>trnI_NC_014573_135 gbac=NC_014573; trna=trnI; taxid=326026; distance=1; count=1; cluster=trnI_NC_014573; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtgaagtcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_014582_129 gbac=NC_014582; trna=trnI; taxid=163694; distance=0; count=1; cluster=trnI_NC_014582; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaatttgtaggttcaattcctactgga
+tgca
+>trnI_NC_014675_45 gbac=NC_014675; trna=trnI; taxid=49763; distance=1; count=1; cluster=trnI_NC_014675; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgagtggtcaaagcacccaactcataattggagaattcgcaggttcaattcctgctgga
+tgcac
+>trnI_NC_014699_37 gbac=NC_014699; trna=trnI; taxid=3258; distance=0; count=2; cluster=trnI_NC_014699; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggttaaagcacccgactcataatcggcgaattcacaggttcaactcctgttgga
+tgca
+>trnI_NC_014874_39 gbac=NC_014874; trna=trnI; taxid=112168; distance=0; count=2; cluster=trnI_NC_014874; cluster_score=1.000000; cluster_center=True;
+gcatccgtggctgaatggttaaagcgcccaactcataattggcaaattcgtaggttcaattcctgctgga
+tgcac
+>trnI_NC_015402_122 gbac=NC_015402; trna=trnI; taxid=70216; distance=0; count=1; cluster=trnI_NC_015402; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcgaacttacaggttcaactcctgttgga
+tgca
+>trnI_NC_015645_95 gbac=NC_015645; trna=trnI; taxid=104533; distance=0; count=1; cluster=trnI_NC_015645; cluster_score=1.000000; cluster_center=True;
+gcacttttggccgagcggttgaggcaatcgactcataatcgatttaaggtaggttcaactcctacaaggt
+gca
+>trnI_NC_016065_12 gbac=NC_016065; trna=trnI; taxid=50187; distance=1; count=6; cluster=trnI_NC_016065; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtaaaagcacccaactcataattgggaagtcgcgggttcaattcctgctggat
+gcac
+>trnI_NC_016986_127 gbac=NC_016986; trna=trnI; taxid=3311; distance=1; count=1; cluster=trnI_NC_016986; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgcgggttcaattcctgctgga
+tgcac
+>trnI_NC_017006_113 gbac=NC_017006; trna=trnI; taxid=996148; distance=1; count=1; cluster=trnI_NC_017006; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggttaaagcacccgactcataatcggcgaattcacaggttcaactcctgttgga
+tgcac
+>trnI_NC_019616_126 gbac=NC_019616; trna=trnI; taxid=13750; distance=0; count=1; cluster=trnI_NC_019616; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggagagttcgtaggttcaattcctactgga
+tgca
+>trnI_NC_020147_111 gbac=NC_020147; trna=trnI; taxid=1267209; distance=0; count=1; cluster=trnI_NC_020147; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggtcaaagcacccgactcataatcggcgaattcgcaggttcaacccctgctgga
+tgca
+>trnI_NC_020259_14 gbac=NC_020259; trna=trnI; taxid=13813; distance=0; count=5; cluster=trnI_NC_020259; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggtcaaagcacccaactcataattggcgaattcacaggttcaactcctgttgga
+tgca
+>trnI_NC_020321_118 gbac=NC_020321; trna=trnI; taxid=120273; distance=0; count=1; cluster=trnI_NC_020321; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtcaaagcacccaactcataattgggaagtcgcgggttcaattcctgctggat
+gca
+>trnI_NC_020321_119 gbac=NC_020321; trna=trnI; taxid=120273; distance=1; count=1; cluster=trnI_NC_020321; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtcaaagcacccaactcataattgggaagtcgcgggttcaattcctgctggat
+gcac
+>trnI_NC_020438_75 gbac=NC_020438; trna=trnI; taxid=33097; distance=1; count=1; cluster=trnI_NC_020438; cluster_score=1.000000; cluster_center=True;
+tgcactgttggccgagcggatgaggcaaacgactcataatcgttaccagataggttcaactcctatacgg
+tgcaa
+>trnI_NC_021109_94 gbac=NC_021109; trna=trnI; taxid=330485; distance=0; count=1; cluster=trnI_NC_021109; cluster_score=1.000000; cluster_center=True;
+gcactgttggccgagcggataaggcaaacgactcataatcgttctaagataggttcaactcctatacagt
+gca
+>trnI_NC_021110_115 gbac=NC_021110; trna=trnI; taxid=147282; distance=1; count=1; cluster=trnI_NC_021110; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtaaaagcacccaactcataattgggaagtcgcaggttcaattcctgttggat
+gcac
+>trnI_NC_022136_38 gbac=NC_022136; trna=trnI; taxid=13824; distance=0; count=2; cluster=trnI_NC_022136; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggtcaaagcacccaactcataattggcgaattcgcaggttcaactcctgttgga
+tgca
+>trnI_NC_023119_120 gbac=NC_023119; trna=trnI; taxid=60851; distance=2; count=1; cluster=trnI_NC_023119; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtcaaagcgcccaactcataattgggaagtcgcgggttcaattcctgctggat
+gcacc
+>trnI_NC_023119_55 gbac=NC_023119; trna=trnI; taxid=60851; distance=0; count=1; cluster=trnI_NC_023119; cluster_score=1.000000; cluster_center=True;
+gcatctatggctgaatggtcaaagcgcccaactcataattgggaagtcacgggttcaattcctgctggat
+gca
+>trnI_NC_023120_6 gbac=NC_023120; trna=trnI; taxid=36012; distance=0; count=11; cluster=trnI_NC_023120; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtaaaagcacccaactcataattgggaagtcgcgggttcaattcctgctggat
+gca
+>trnI_NC_023131_132 gbac=NC_023131; trna=trnI; taxid=4179; distance=1; count=1; cluster=trnI_NC_023131; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggctaatttgtaggttcaattcctactgga
+tgcac
+>trnI_NC_023132_131 gbac=NC_023132; trna=trnI; taxid=223125; distance=1; count=1; cluster=trnI_NC_023132; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgattttgtaggttcaattcctactgga
+tgcac
+>trnI_NC_023260_24 gbac=NC_023260; trna=trnI; taxid=253189; distance=0; count=3; cluster=trnI_NC_023260; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctactgga
+tgca
+>trnI_NC_023356_121 gbac=NC_023356; trna=trnI; taxid=120072; distance=1; count=1; cluster=trnI_NC_023356; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcaaattcgtaggttcaattcctgctgga
+tgcac
+>trnI_NC_023449_22 gbac=NC_023449; trna=trnI; taxid=93677; distance=1; count=4; cluster=trnI_NC_023449; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcaaatttgcgggttcaattcctgctgga
+tgcac
+>trnI_NC_023465_130 gbac=NC_023465; trna=trnI; taxid=46066; distance=1; count=1; cluster=trnI_NC_023465; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgatttcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_023805_123 gbac=NC_023805; trna=trnI; taxid=1030197; distance=0; count=1; cluster=trnI_NC_023805; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattgggaagtcgcgggttcaattcctgctggat
+gca
+>trnI_NC_023833_3 gbac=NC_023833; trna=trnI; taxid=287011; distance=1; count=49; cluster=trnI_NC_023833; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcgaattcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_024022_21 gbac=NC_024022; trna=trnI; taxid=487038; distance=1; count=4; cluster=trnI_NC_024022; cluster_score=1.000000; cluster_center=True;
+tgtatccatggctgaatggtaaaagcacccaactcataattgggaagtcgcgggttcaattcctgctgga
+tgcat
+>trnI_NC_024035_27 gbac=NC_024035; trna=trnI; taxid=361561; distance=2; count=3; cluster=trnI_NC_024035; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaagtcgtaggttcaattcctactgga
+tgcacc
+>trnI_NC_024036_44 gbac=NC_024036; trna=trnI; taxid=3899; distance=0; count=2; cluster=trnI_NC_024036; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcgaagtcgtaggttcaattcctactgga
+tgca
+>trnI_NC_024157_110 gbac=NC_024157; trna=trnI; taxid=3284; distance=1; count=1; cluster=trnI_NC_024157; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggtcaaagcacccaactcataattggcgaattcacaggttcaactcctgttgga
+tgcac
+>trnI_NC_024165_134 gbac=NC_024165; trna=trnI; taxid=38716; distance=0; count=1; cluster=trnI_NC_024165; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaattcctgctgga
+tgca
+>trnI_NC_024168_48 gbac=NC_024168; trna=trnI; taxid=43943; distance=0; count=1; cluster=trnI_NC_024168; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgagtggttaaagcacccaactcataattgggcaattcgcgggttcgagtcctgctgga
+tgca
+>trnI_NC_024169_80 gbac=NC_024169; trna=trnI; taxid=184485; distance=1; count=1; cluster=trnI_NC_024169; cluster_score=1.000000; cluster_center=True;
+tgcatccatggctgagtggttaaagcacccgactcataattgggcacttcgcaggttcgaaccctgctgg
+atgcag
+>trnI_NC_024291_112 gbac=NC_024291; trna=trnI; taxid=37420; distance=0; count=1; cluster=trnI_NC_024291; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggttaaagcacccaactcataattggcgaactcacaggttcaactcctgttgga
+tgca
+>trnI_NC_024717_28 gbac=NC_024717; trna=trnI; taxid=111431; distance=1; count=2; cluster=trnI_NC_024717; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaattccggctgga
+tgcac
+>trnI_NC_024718_133 gbac=NC_024718; trna=trnI; taxid=145987; distance=1; count=1; cluster=trnI_NC_024718; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaactcctgctgga
+tgcac
+>trnI_NC_024719_30 gbac=NC_024719; trna=trnI; taxid=862994; distance=1; count=2; cluster=trnI_NC_024719; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaattcttgctgga
+tgcac
+>trnI_NC_024722_43 gbac=NC_024722; trna=trnI; taxid=863024; distance=1; count=2; cluster=trnI_NC_024722; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaattcatgctgga
+tgcac
+>trnI_NC_024732_124 gbac=NC_024732; trna=trnI; taxid=103032; distance=1; count=1; cluster=trnI_NC_024732; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggtgaattcgtaggttcaattcctactgga
+tgccc
+>trnI_NC_024845_26 gbac=NC_024845; trna=trnI; taxid=223102; distance=1; count=3; cluster=trnI_NC_024845; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcgacttcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_024945_116 gbac=NC_024945; trna=trnI; taxid=50176; distance=0; count=1; cluster=trnI_NC_024945; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggtaaaagcacccaactcataattgggaagtcgcgggttcgattcctgctggat
+gca
+>trnI_NC_025232_31 gbac=NC_025232; trna=trnI; taxid=65975; distance=1; count=2; cluster=trnI_NC_025232; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggtaatttgcgggttcaattcctgctggat
+gcac
+>trnI_NC_025305_34 gbac=NC_025305; trna=trnI; taxid=101708; distance=2; count=2; cluster=trnI_NC_025305; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcggattcgtaggttcaattcctactgga
+tgcacc
+>trnI_NC_025524_85 gbac=NC_025524; trna=trnI; taxid=40981; distance=1; count=1; cluster=trnI_NC_025524; cluster_score=1.000000; cluster_center=True;
+tgcatgcgtggctgagtggtcgatagcaacagactcataatctgtctccgataggacgtcacaggttcaa
+accctgtcgcatgcaa
+>trnI_NC_025528_77 gbac=NC_025528; trna=trnI; taxid=3083; distance=1; count=1; cluster=trnI_NC_025528; cluster_score=1.000000; cluster_center=True;
+tgcatccatggcagagcggtcgattgcaccgcactcataatgcggttctgaaaagacatcgttggttcaa
+acccaactggatgcaa
+>trnI_NC_025529_68 gbac=NC_025529; trna=trnI; taxid=173497; distance=0; count=1; cluster=trnI_NC_025529; cluster_score=1.000000; cluster_center=True;
+gcattcatggcagagtggtcgattgcaccgcactcataatgcggttctgaaaagacgtcgttggttcaaa
+cccaactgaatgca
+>trnI_NC_025531_107 gbac=NC_025531; trna=trnI; taxid=33092; distance=0; count=1; cluster=trnI_NC_025531; cluster_score=1.000000; cluster_center=True;
+gcatccatggcagagtggtcgattgcaccgcactcataatgcggttctgaaaagacgtcgttggttcaaa
+cccaactggatgca
+>trnI_NC_025532_105 gbac=NC_025532; trna=trnI; taxid=3102; distance=0; count=1; cluster=trnI_NC_025532; cluster_score=1.000000; cluster_center=True;
+gcatccatggcagagtggtcgattgcaccgcactcataatgcggctccgaaaggacatcgttggttcaaa
+cccaactggatgca
+>trnI_NC_025535_104 gbac=NC_025535; trna=trnI; taxid=1065496; distance=0; count=1; cluster=trnI_NC_025535; cluster_score=1.000000; cluster_center=True;
+gcatccatggcagagtggtcgattgcaccgcactcataatgcggccccgaaaggacgtcgttggttcaaa
+cccaactggatgca
+>trnI_NC_025536_61 gbac=NC_025536; trna=trnI; taxid=155904; distance=0; count=1; cluster=trnI_NC_025536; cluster_score=1.000000; cluster_center=True;
+gcatgcatggctgagtggtcgatagcaacggactcataatccgtctctttttagacatcgcaggttcaaa
+ccctgctgcatgca
+>trnI_NC_025537_59 gbac=NC_025537; trna=trnI; taxid=34148; distance=0; count=1; cluster=trnI_NC_025537; cluster_score=1.000000; cluster_center=True;
+gcatgcatggctgagcggttgaaagcagcagactcataatctgtttccctttagggcacacaggttcaaa
+tcctgttgcatgca
+>trnI_NC_025538_60 gbac=NC_025538; trna=trnI; taxid=160069; distance=0; count=1; cluster=trnI_NC_025538; cluster_score=1.000000; cluster_center=True;
+gcatgcatggctgagtggtcgatagcaacggactcataatccgtatccgaaaggacatcgcaggttcaaa
+ccctgctgcatgct
+>trnI_NC_025541_106 gbac=NC_025541; trna=trnI; taxid=415190; distance=0; count=1; cluster=trnI_NC_025541; cluster_score=1.000000; cluster_center=True;
+gcatccatggcagagtggtcgattgcaccgcactcataatgcggttcctaaaggacatcgttggttcaaa
+cccaactggatgca
+>trnI_NC_025542_63 gbac=NC_025542; trna=trnI; taxid=163310; distance=0; count=1; cluster=trnI_NC_025542; cluster_score=1.000000; cluster_center=True;
+gcatgcatggctgagtggtcgatagcagcggactcataatccgtctccgaaaggacatcgcaggttcaaa
+ccctgctgcatgca
+>trnI_NC_025543_64 gbac=NC_025543; trna=trnI; taxid=106203; distance=0; count=1; cluster=trnI_NC_025543; cluster_score=1.000000; cluster_center=True;
+gcatgcatggctgagtggttgaaagcaccagactcataatctgtttcctcttgaaggcacacaggttcaa
+atcctgttgcatgca
+>trnI_NC_025544_62 gbac=NC_025544; trna=trnI; taxid=163309; distance=0; count=1; cluster=trnI_NC_025544; cluster_score=1.000000; cluster_center=True;
+gcatgcatggctgagtggtcgatagcagcggactcataatccgtatccgaaaggacaacgcaggttcaaa
+ccctgctgcatgca
+>trnI_NC_025546_32 gbac=NC_025546; trna=trnI; taxid=91190; distance=1; count=2; cluster=trnI_NC_025546; cluster_score=1.000000; cluster_center=True;
+tgcatccgtggcagagtggtcgattgcaccgcactcataatgcagctcctttgggacatcgttggttcaa
+gtccaaccggatgcaa
+>trnI_NC_025549_103 gbac=NC_025549; trna=trnI; taxid=97105; distance=0; count=1; cluster=trnI_NC_025549; cluster_score=1.000000; cluster_center=True;
+gcatccatggcagagaggtcgattgcatcgcactcataatgcgatttcgaaagaacaccgttggttcaaa
+cccaactggatgta
+>trnI_NC_025668_99 gbac=NC_025668; trna=trnI; taxid=140003; distance=0; count=1; cluster=trnI_NC_025668; cluster_score=1.000000; cluster_center=True;
+gcatccatagctgaacggttaaagcacccaactcataattggagaatccgcaggttcaactcctgttgga
+tgca
+>trnI_NC_025745_25 gbac=NC_025745; trna=trnI; taxid=97044; distance=1; count=3; cluster=trnI_NC_025745; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaagtcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_026041_15 gbac=NC_026041; trna=trnI; taxid=34343; distance=1; count=5; cluster=trnI_NC_026041; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggttaaagcgcccaactcataattggcgaattcgcaggttcaattcctgctgga
+tgcac
+>trnI_NC_026203_36 gbac=NC_026203; trna=trnI; taxid=989334; distance=2; count=2; cluster=trnI_NC_026203; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcacccaactcataattggcgaattcgtaggttcaattcctactgga
+tgcacc
+>trnI_NC_026212_101 gbac=NC_026212; trna=trnI; taxid=1592803; distance=1; count=1; cluster=trnI_NC_026212; cluster_score=1.000000; cluster_center=True;
+gcatccatagctgaacggttaaagcacccaactcataattggagaattcgcaggttcaactcctgttgga
+tgcac
+>trnI_NC_026296_16 gbac=NC_026296; trna=trnI; taxid=13469; distance=2; count=5; cluster=trnI_NC_026296; cluster_score=1.000000; cluster_center=True;
+gtatccatggctgaatggtaaaagcacccaactcataattgggaagtcgcgggttcaattcctgctggat
+gcac
+>trnI_NC_026300_8 gbac=NC_026300; trna=trnI; taxid=491814; distance=0; count=7; cluster=trnI_NC_026300; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaacggttaaagcacccaactcataattggcgaattcacaggttcaactcctgttgga
+tgca
+>trnI_NC_026301_9 gbac=NC_026301; trna=trnI; taxid=3382; distance=1; count=7; cluster=trnI_NC_026301; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaactcgcgggttcaattcctgctgga
+tgcac
+>trnI_NC_026448_73 gbac=NC_026448; trna=trnI; taxid=556037; distance=0; count=1; cluster=trnI_NC_026448; cluster_score=1.000000; cluster_center=True;
+gtatccatggctgaaaggttaaagcactcaactcataattggaaaatttgtgggttcaattcctgctgga
+tgca
+>trnI_NC_026449_41 gbac=NC_026449; trna=trnI; taxid=449980; distance=1; count=2; cluster=trnI_NC_026449; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggaaaagttgtgggttcaattcctgctaga
+tgcac
+>trnI_NC_026450_52 gbac=NC_026450; trna=trnI; taxid=34341; distance=0; count=1; cluster=trnI_NC_026450; cluster_score=1.000000; cluster_center=True;
+gcatctagggctgaatggtcaaagcgcccaactcataattgggaagtcacgggttcaattcctgctggat
+gca
+>trnI_NC_026778_35 gbac=NC_026778; trna=trnI; taxid=51239; distance=1; count=2; cluster=trnI_NC_026778; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcaaactcgtaggttcaattcctactgga
+tgcac
+>trnI_NC_026786_1 gbac=NC_026786; trna=trnI; taxid=108411; distance=1; count=146; cluster=trnI_NC_026786; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcaaattcgtaggttcaattcctgctgga
+tgcac
+>trnI_NC_026892_4 gbac=NC_026892; trna=trnI; taxid=97170; distance=0; count=28; cluster=trnI_NC_026892; cluster_score=1.000000; cluster_center=True;
+gcatccatggctgaatggttaaagcgcccaactcataattggcgaactcgcgggttcaattcctgctgga
+tgca
+>trnM_NC_000927_160 gbac=NC_000927; trna=trnM; taxid=31312; distance=1; count=1; cluster=trnM_NC_000927; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcgtccgtttcatacgcggattgtcactagttcaaatctagtagca
+ggcac
+>trnM_NC_001865_155 gbac=NC_001865; trna=trnM; taxid=3077; distance=0; count=1; cluster=trnM_NC_001865; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcatccgtctcatacgcggaatgtcactagttcgaatctagtagca
+ggcacca
+>trnM_NC_003386_115 gbac=NC_003386; trna=trnM; taxid=3240; distance=0; count=1; cluster=trnM_NC_003386; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtatcgctttcataaggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_004115_106 gbac=NC_004115; trna=trnM; taxid=96477; distance=0; count=1; cluster=trnM_NC_004115; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagcggttagagtgtcgctttcatacggcgaaggtcattggttcaaatccaatagtag
+gta
+>trnM_NC_004543_219 gbac=NC_004543; trna=trnM; taxid=48387; distance=0; count=1; cluster=trnM_NC_004543; cluster_score=1.000000; cluster_center=True;
+acctacttaacttagtggttagagtatcgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_004766_101 gbac=NC_004766; trna=trnM; taxid=13818; distance=0; count=1; cluster=trnM_NC_004766; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagcggtgagagtatcgctttcatacggcgagagtcattggttcgaatccaatagtag
+gta
+>trnM_NC_005087_37 gbac=NC_005087; trna=trnM; taxid=3218; distance=0; count=3; cluster=trnM_NC_005087; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggtttagagtatcgctttcatacggcgagagtcattggttcaaatccaatagta
+ggta
+>trnM_NC_005353_56 gbac=NC_005353; trna=trnM; taxid=3055; distance=0; count=2; cluster=trnM_NC_005353; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcgtccgtttcataagctgattgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_006050_42 gbac=NC_006050; trna=trnM; taxid=34301; distance=0; count=2; cluster=trnM_NC_006050; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagtggttagagtgttgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_006084_200 gbac=NC_006084; trna=trnM; taxid=717233; distance=1; count=1; cluster=trnM_NC_006084; cluster_score=1.000000; cluster_center=True;
+tgcctacttaactcagtggttagagtatagctttcatacggcgggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_008097_201 gbac=NC_008097; trna=trnM; taxid=55564; distance=1; count=1; cluster=trnM_NC_008097; cluster_score=1.000000; cluster_center=True;
+tgcctacttaactcagtggttagagtattgctttcataaggcaagagtcattggttcaagtccaatagta
+ggcaa
+>trnM_NC_008099_138 gbac=NC_008099; trna=trnM; taxid=51324; distance=0; count=1; cluster=trnM_NC_008099; cluster_score=1.000000; cluster_center=True;
+gcctgcttaactcagtggtagagtacccgtctcatacgcggagtgtcactagttcgactctagtagcagg
+ca
+>trnM_NC_008101_147 gbac=NC_008101; trna=trnM; taxid=3088; distance=0; count=1; cluster=trnM_NC_008101; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggccagagcatccgtttcatacgcggaaagtcactagttcgaatctagtagca
+ggca
+>trnM_NC_008101_230 gbac=NC_008101; trna=trnM; taxid=3088; distance=0; count=1; cluster=trnM_NC_008101; cluster_score=1.000000; cluster_center=True;
+cgcaggatagagcagtctggtagctcgtggggctcataatcccaatgtcgcaggttcaaatcctgctcct
+gcaa
+>trnM_NC_008114_216 gbac=NC_008114; trna=trnM; taxid=160070; distance=0; count=1; cluster=trnM_NC_008114; cluster_score=1.000000; cluster_center=True;
+tgcggagtagagcagtctggtagctcgcgaggctcataatcttgaggtcgtaggttcgaatcctacctcc
+gcta
+>trnM_NC_008114_98 gbac=NC_008114; trna=trnM; taxid=160070; distance=0; count=1; cluster=trnM_NC_008114; cluster_score=1.000000; cluster_center=True;
+gcctaattagctcagttggttagagcgtccgtctcatacgcggaatgtcactagttcgaatctagtatta
+ggca
+>trnM_NC_008116_112 gbac=NC_008116; trna=trnM; taxid=102822; distance=0; count=1; cluster=trnM_NC_008116; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtatcgctttcatacggcgagagtcattggttcaaatccaatagtag
+gca
+>trnM_NC_008117_107 gbac=NC_008117; trna=trnM; taxid=35869; distance=0; count=1; cluster=trnM_NC_008117; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagcggttagagtgtcgctttcatacggcgagagtcattggttcaagtccaatagtag
+gca
+>trnM_NC_008289_172 gbac=NC_008289; trna=trnM; taxid=70448; distance=0; count=1; cluster=trnM_NC_008289; cluster_score=1.000000; cluster_center=True;
+ggctcggtagctcagtggtagagcagaggactcataatcctaaggtcacaggttcaatccccgttcgagc
+ca
+>trnM_NC_008289_187 gbac=NC_008289; trna=trnM; taxid=70448; distance=1; count=1; cluster=trnM_NC_008289; cluster_score=1.000000; cluster_center=True;
+tagcgggatagagcagtctggtagcttgtaaggctcataatcttaaggtcacaggttcaaatcctgttcc
+cgccat
+>trnM_NC_008325_26 gbac=NC_008325; trna=trnM; taxid=4039; distance=1; count=3; cluster=trnM_NC_008325; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_008372_212 gbac=NC_008372; trna=trnM; taxid=55999; distance=1; count=1; cluster=trnM_NC_008372; cluster_score=1.000000; cluster_center=True;
+tgcctgcttagctcagttggttagagcatccgtttcatacgcgggatgtcactagttcaagtctagtagt
+aggcaa
+>trnM_NC_008372_227 gbac=NC_008372; trna=trnM; taxid=55999; distance=2; count=1; cluster=trnM_NC_008372; cluster_score=1.000000; cluster_center=True;
+ttgctgggtagagcagtctggtagcttgtggggctcataaccctaaggtcgcaggttcgaatcctgcccc
+agccatc
+>trnM_NC_008454_116 gbac=NC_008454; trna=trnM; taxid=4031; distance=0; count=1; cluster=trnM_NC_008454; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggcaggagtcgttggttcaaatccaatagtag
+gca
+>trnM_NC_008457_126 gbac=NC_008457; trna=trnM; taxid=398741; distance=1; count=1; cluster=trnM_NC_008457; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtattgctttcatacggcagaagtcattggttcaaatccaatagtag
+gtac
+>trnM_NC_008535_18 gbac=NC_008535; trna=trnM; taxid=13443; distance=1; count=5; cluster=trnM_NC_008535; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_008590_9 gbac=NC_008590; trna=trnM; taxid=112509; distance=1; count=16; cluster=trnM_NC_008590; cluster_score=1.000000; cluster_center=True;
+tgcctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtaa
+>trnM_NC_009599_203 gbac=NC_009599; trna=trnM; taxid=153571; distance=0; count=1; cluster=trnM_NC_009599; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagcggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_009600_199 gbac=NC_009600; trna=trnM; taxid=145286; distance=0; count=1; cluster=trnM_NC_009600; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagtggttagagtattgctttcatacggcaagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_009601_73 gbac=NC_009601; trna=trnM; taxid=145284; distance=1; count=1; cluster=trnM_NC_009601; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcggaagtcattggttcaaatccaatagtag
+gtac
+>trnM_NC_009681_131 gbac=NC_009681; trna=trnM; taxid=34116; distance=0; count=1; cluster=trnM_NC_009681; cluster_score=1.000000; cluster_center=True;
+gcctacttagctcagttggttagagcgtccgtctcatacgcggaatgtcactagttcaaatctagtagtg
+ggta
+>trnM_NC_009681_66 gbac=NC_009681; trna=trnM; taxid=34116; distance=0; count=1; cluster=trnM_NC_009681; cluster_score=1.000000; cluster_center=True;
+cgcgggatagagcagtctggtagctcgtagggctcataatcctaaggtcacaggttcaaatcctgttccc
+gcta
+>trnM_NC_009765_48 gbac=NC_009765; trna=trnM; taxid=35886; distance=0; count=2; cluster=trnM_NC_009765; cluster_score=1.000000; cluster_center=True;
+atctacttaactcagtggttagagtactgctttcatacggcgggagtcattggttcaaatccaatagtag
+atc
+>trnM_NC_009808_44 gbac=NC_009808; trna=trnM; taxid=4121; distance=0; count=2; cluster=trnM_NC_009808; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtaccgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_009963_57 gbac=NC_009963; trna=trnM; taxid=476139; distance=1; count=2; cluster=trnM_NC_009963; cluster_score=1.000000; cluster_center=True;
+tacctacttaactcagtggttagagtactgctttcatacggcgggaggcattggttcaaatccaatagta
+ggtag
+>trnM_NC_010093_32 gbac=NC_010093; trna=trnM; taxid=263995; distance=2; count=3; cluster=trnM_NC_010093; cluster_score=1.000000; cluster_center=True;
+tacctacttaacccagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_010359_124 gbac=NC_010359; trna=trnM; taxid=280810; distance=1; count=1; cluster=trnM_NC_010359; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttggagtatcgcttccatacggcgagagtcattggttcgaatccaatagtag
+gtcc
+>trnM_NC_010433_77 gbac=NC_010433; trna=trnM; taxid=3983; distance=1; count=1; cluster=trnM_NC_010433; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcgatagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_011031_159 gbac=NC_011031; trna=trnM; taxid=55995; distance=0; count=1; cluster=trnM_NC_011031; cluster_score=1.000000; cluster_center=True;
+tgctgggtagagcagtctggtagcttgtggggctcataatcccgaggtcgcgggttcgaatcctgcccca
+gcac
+>trnM_NC_011031_162 gbac=NC_011031; trna=trnM; taxid=55995; distance=0; count=1; cluster=trnM_NC_011031; cluster_score=1.000000; cluster_center=True;
+gcctgtttagctcagttggtcagagcatccgtttcatacgcgggatgtcactagttcaaatctagtaaca
+ggca
+>trnM_NC_012052_139 gbac=NC_012052; trna=trnM; taxid=38588; distance=1; count=1; cluster=trnM_NC_012052; cluster_score=1.000000; cluster_center=True;
+gcctgcttaactcagtggtttagagtgtcgctttcatacggcgagagtcattggttcaaatccaatagta
+ggta
+>trnM_NC_012097_208 gbac=NC_012097; trna=trnM; taxid=41880; distance=1; count=1; cluster=trnM_NC_012097; cluster_score=1.000000; cluster_center=True;
+tgcctgcttagctcagtggtagagcgtccgtctcatacgcggcttgtcactagttcgaatctagtagcag
+gcaa
+>trnM_NC_012575_173 gbac=NC_012575; trna=trnM; taxid=296587; distance=0; count=1; cluster=trnM_NC_012575; cluster_score=1.000000; cluster_center=True;
+ggctcggtagcttagtggtagagcaggggactcataatcccaaggtcacaggttcaatccccgttcgagc
+ca
+>trnM_NC_012575_186 gbac=NC_012575; trna=trnM; taxid=296587; distance=1; count=1; cluster=trnM_NC_012575; cluster_score=1.000000; cluster_center=True;
+tagcgggatagagcagtctggtagcttgtaaggctcataatcttaaggtcacaggttcaaatcctgttcc
+cgccaa
+>trnM_NC_012818_102 gbac=NC_012818; trna=trnM; taxid=204586; distance=0; count=1; cluster=trnM_NC_012818; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagcggttagagtatcgctttcatacggcgagaggcattggttcgaatccaatagtag
+gta
+>trnM_NC_012978_47 gbac=NC_012978; trna=trnM; taxid=3074; distance=0; count=2; cluster=trnM_NC_012978; cluster_score=1.000000; cluster_center=True;
+agcggagtagagcagtctggtagctcgtaaggctcataaccttaaggtcgtaggttcaaatcctatctcc
+gctc
+>trnM_NC_013086_150 gbac=NC_013086; trna=trnM; taxid=88036; distance=1; count=1; cluster=trnM_NC_013086; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggtcagagtatcgctttcatacggcgagggtcattggttcgaatccaatagtag
+gta
+>trnM_NC_013823_58 gbac=NC_013823; trna=trnM; taxid=4733; distance=2; count=2; cluster=trnM_NC_013823; cluster_score=1.000000; cluster_center=True;
+tacctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_014062_202 gbac=NC_014062; trna=trnM; taxid=38684; distance=1; count=1; cluster=trnM_NC_014062; cluster_score=1.000000; cluster_center=True;
+tgcctacttaactcagtggttagagtattgctttcatacggcgagagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_014346_145 gbac=NC_014346; trna=trnM; taxid=51328; distance=1; count=1; cluster=trnM_NC_014346; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagtggttagagcacccgtttcatacgcggggtgtcactagttcaactctagtagcag
+gcac
+>trnM_NC_014346_81 gbac=NC_014346; trna=trnM; taxid=51328; distance=0; count=1; cluster=trnM_NC_014346; cluster_score=1.000000; cluster_center=True;
+cgctgggtagagcagtctggtagctcgtggggctcataatcctgaggtcgcaggttcaaatcctgcccca
+gcac
+>trnM_NC_014348_132 gbac=NC_014348; trna=trnM; taxid=104588; distance=0; count=1; cluster=trnM_NC_014348; cluster_score=1.000000; cluster_center=True;
+gcctacttgactcagcggttagagtatcgctttcatacggcgacagtcattggttcgaatccaatagtag
+gta
+>trnM_NC_014675_12 gbac=NC_014675; trna=trnM; taxid=49763; distance=0; count=7; cluster=trnM_NC_014675; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtatcgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_015084_62 gbac=NC_015084; trna=trnM; taxid=574566; distance=0; count=2; cluster=trnM_NC_015084; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagcctggtagctcgcaaggctcataatcttgaagtcgtaggttcaaatcctactccc
+gcta
+>trnM_NC_015308_8 gbac=NC_015308; trna=trnM; taxid=3981; distance=1; count=16; cluster=trnM_NC_015308; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtatcgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_015359_158 gbac=NC_015359; trna=trnM; taxid=554065; distance=3; count=1; cluster=trnM_NC_015359; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcgtccgtctcatacgcggaatgtcactagttcgagtctagtagca
+ggcacca
+>trnM_NC_015359_223 gbac=NC_015359; trna=trnM; taxid=554065; distance=0; count=1; cluster=trnM_NC_015359; cluster_score=1.000000; cluster_center=True;
+agcggagtagagcagtctggtagctcgtaaggctcataaccttaaggccgtgggttcgaatcctacctcc
+gctc
+>trnM_NC_015402_113 gbac=NC_015402; trna=trnM; taxid=70216; distance=1; count=1; cluster=trnM_NC_015402; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtatcgttttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_015645_149 gbac=NC_015645; trna=trnM; taxid=104533; distance=0; count=1; cluster=trnM_NC_015645; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggtcagagcatccgtttcatacgcgggatgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_015645_197 gbac=NC_015645; trna=trnM; taxid=104533; distance=1; count=1; cluster=trnM_NC_015645; cluster_score=1.000000; cluster_center=True;
+tcgctgggtagagcagtctggtagcttgtggggctcataaccctaaggtcgcaggttcaaatcctgcccc
+agccat
+>trnM_NC_015899_46 gbac=NC_015899; trna=trnM; taxid=161112; distance=1; count=2; cluster=trnM_NC_015899; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtag
+gtac
+>trnM_NC_015983_10 gbac=NC_015983; trna=trnM; taxid=412675; distance=0; count=10; cluster=trnM_NC_015983; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtatcgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_016063_41 gbac=NC_016063; trna=trnM; taxid=50179; distance=0; count=2; cluster=trnM_NC_016063; cluster_score=1.000000; cluster_center=True;
+acccgcttaactcagtggttagagtttcgctttcatacggcgagagtccttggttcaaatctaatagtag
+ata
+>trnM_NC_016065_39 gbac=NC_016065; trna=trnM; taxid=50187; distance=0; count=2; cluster=trnM_NC_016065; cluster_score=1.000000; cluster_center=True;
+acccacttaactcagtggttagagtatcgctctcatacggcgagggtcattggttcaaatccaatagtgg
+gta
+>trnM_NC_016471_99 gbac=NC_016471; trna=trnM; taxid=48534; distance=0; count=1; cluster=trnM_NC_016471; cluster_score=1.000000; cluster_center=True;
+gcctacttaacccagtggttagagtattgctttcatacggcggtagccattggttcaaatccaatagtag
+gta
+>trnM_NC_016728_3 gbac=NC_016728; trna=trnM; taxid=39899; distance=0; count=37; cluster=trnM_NC_016728; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_016732_184 gbac=NC_016732; trna=trnM; taxid=3046; distance=1; count=1; cluster=trnM_NC_016732; cluster_score=1.000000; cluster_center=True;
+tagcagggtagagcagtctggtagctcgtggggctcataatcccaaggtcgcaggttcaaatcctgcccc
+tgcaaa
+>trnM_NC_016733_193 gbac=NC_016733; trna=trnM; taxid=3159; distance=1; count=1; cluster=trnM_NC_016733; cluster_score=1.000000; cluster_center=True;
+tcgcgggatagagcagcctggtagctcgcaaggctcataatcttgaggtcgtaggttcgaatcctgctcc
+cgctaa
+>trnM_NC_016733_60 gbac=NC_016733; trna=trnM; taxid=3159; distance=1; count=2; cluster=trnM_NC_016733; cluster_score=1.000000; cluster_center=True;
+tgcctgcttagctcagttggctagagcatccgtttcatacgcggagtgtcactagttcgaatctagtagc
+aggcaa
+>trnM_NC_016921_11 gbac=NC_016921; trna=trnM; taxid=519533; distance=0; count=10; cluster=trnM_NC_016921; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_016986_182 gbac=NC_016986; trna=trnM; taxid=3311; distance=0; count=1; cluster=trnM_NC_016986; cluster_score=1.000000; cluster_center=True;
+acccacttaactcagtggttagagtatcgcttccatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_018051_31 gbac=NC_018051; trna=trnM; taxid=3917; distance=2; count=3; cluster=trnM_NC_018051; cluster_score=1.000000; cluster_center=True;
+tacctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtaa
+>trnM_NC_018569_157 gbac=NC_018569; trna=trnM; taxid=1208065; distance=0; count=1; cluster=trnM_NC_018569; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcatccgtctcatacgcgggttgtcactggttcaaatctagtagca
+ggca
+>trnM_NC_018569_224 gbac=NC_018569; trna=trnM; taxid=1208065; distance=0; count=1; cluster=trnM_NC_018569; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagcctggtagctcgcgaggctcataatcttgaggtcgtaggttcaaatcctactccc
+gcta
+>trnM_NC_019616_114 gbac=NC_019616; trna=trnM; taxid=13750; distance=1; count=1; cluster=trnM_NC_019616; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggcaagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_019628_177 gbac=NC_019628; trna=trnM; taxid=304445; distance=0; count=1; cluster=trnM_NC_019628; cluster_score=1.000000; cluster_center=True;
+acctacttaactcaatggttagagtatcgctttcatacggcgagagtcattggttcaagtccaatagtag
+gta
+>trnM_NC_020147_110 gbac=NC_020147; trna=trnM; taxid=1267209; distance=0; count=1; cluster=trnM_NC_020147; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagaggatcgctttcatacggcgatagtcattggttcgaatccaatagtag
+gta
+>trnM_NC_020259_127 gbac=NC_020259; trna=trnM; taxid=13813; distance=1; count=1; cluster=trnM_NC_020259; cluster_score=1.000000; cluster_center=True;
+gcctacttaacttagtggttatagtatcgctttcatacggcgagagtcattggttcaaatccaatagtag
+gtac
+>trnM_NC_020321_204 gbac=NC_020321; trna=trnM; taxid=120273; distance=3; count=1; cluster=trnM_NC_020321; cluster_score=1.000000; cluster_center=True;
+acccacttaactcagtggttagagtatcgctttcatacggcgagagtcattggttcaaatccaatagtag
+aaa
+>trnM_NC_020438_59 gbac=NC_020438; trna=trnM; taxid=33097; distance=1; count=2; cluster=trnM_NC_020438; cluster_score=1.000000; cluster_center=True;
+tagcagggtagagcagtctggtagctcgtggggctcataatcctgaggtcgcaggttcaaatcctgcccc
+tgccat
+>trnM_NC_021109_190 gbac=NC_021109; trna=trnM; taxid=330485; distance=1; count=1; cluster=trnM_NC_021109; cluster_score=1.000000; cluster_center=True;
+tcgcagggtagagcagtctggcagctcgtggggctcataatcctaaggtcgtaggttcaaatcctacccc
+tgccat
+>trnM_NC_021109_213 gbac=NC_021109; trna=trnM; taxid=330485; distance=1; count=1; cluster=trnM_NC_021109; cluster_score=1.000000; cluster_center=True;
+tgcctgcttagctcagttggttagagcgtccgtttcataagctgattgtcactagttcaaatctagtagc
+aggcat
+>trnM_NC_021111_43 gbac=NC_021111; trna=trnM; taxid=161395; distance=0; count=2; cluster=trnM_NC_021111; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtattgctttcatacggcaggagtcgttggttcaaatccaatagtag
+gta
+>trnM_NC_021121_16 gbac=NC_021121; trna=trnM; taxid=1265925; distance=0; count=7; cluster=trnM_NC_021121; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_021423_35 gbac=NC_021423; trna=trnM; taxid=4058; distance=0; count=3; cluster=trnM_NC_021423; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtattgctttcatacggcaagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_021432_20 gbac=NC_021432; trna=trnM; taxid=160538; distance=1; count=5; cluster=trnM_NC_021432; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagtggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_021433_4 gbac=NC_021433; trna=trnM; taxid=1324860; distance=1; count=31; cluster=trnM_NC_021433; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_021456_38 gbac=NC_021456; trna=trnM; taxid=3329; distance=0; count=3; cluster=trnM_NC_021456; cluster_score=1.000000; cluster_center=True;
+acccacttaactcagtggttagagtatcgctttcatacggcgagagtcgttggttcaaatccaatagtag
+gta
+>trnM_NC_021936_100 gbac=NC_021936; trna=trnM; taxid=29650; distance=1; count=1; cluster=trnM_NC_021936; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagaggttagagtattgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_022431_21 gbac=NC_022431; trna=trnM; taxid=528293; distance=0; count=5; cluster=trnM_NC_022431; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtattgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_022928_27 gbac=NC_022928; trna=trnM; taxid=136219; distance=0; count=3; cluster=trnM_NC_022928; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcggtagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_022958_217 gbac=NC_022958; trna=trnM; taxid=29695; distance=3; count=1; cluster=trnM_NC_022958; cluster_score=1.000000; cluster_center=True;
+ttgctacttaactcagtggttagagtactgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_023115_133 gbac=NC_023115; trna=trnM; taxid=86091; distance=0; count=1; cluster=trnM_NC_023115; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtattgctttcatacggcagaagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_023131_220 gbac=NC_023131; trna=trnM; taxid=4179; distance=0; count=1; cluster=trnM_NC_023131; cluster_score=1.000000; cluster_center=True;
+acctatttaactcagtggttagagtcttgctttcatatggcagaagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_023132_117 gbac=NC_023132; trna=trnM; taxid=223125; distance=1; count=1; cluster=trnM_NC_023132; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggcagtagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_023260_91 gbac=NC_023260; trna=trnM; taxid=253189; distance=0; count=1; cluster=trnM_NC_023260; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtatcgctttcatacggcgggagtcattggttcaagtccaatagtag
+gta
+>trnM_NC_023261_119 gbac=NC_023261; trna=trnM; taxid=73178; distance=0; count=1; cluster=trnM_NC_023261; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggcgggagtcgttggttcaaatccaatagtag
+gca
+>trnM_NC_023357_15 gbac=NC_023357; trna=trnM; taxid=39848; distance=0; count=7; cluster=trnM_NC_023357; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagcggttagagtatcgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_023465_120 gbac=NC_023465; trna=trnM; taxid=46066; distance=0; count=1; cluster=trnM_NC_023465; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggcggtagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_023775_128 gbac=NC_023775; trna=trnM; taxid=3075; distance=0; count=1; cluster=trnM_NC_023775; cluster_score=1.000000; cluster_center=True;
+gcctacttagctcagctggttagagcatccgtctcatacgcggaatgtcactggttcaaatccagtagta
+ggcac
+>trnM_NC_023959_233 gbac=NC_023959; trna=trnM; taxid=744259; distance=1; count=1; cluster=trnM_NC_023959; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcgggagtcgttggttcaaatccaatagtag
+gta
+>trnM_NC_024106_1 gbac=NC_024106; trna=trnM; taxid=1243775; distance=1; count=53; cluster=trnM_NC_024106; cluster_score=1.000000; cluster_center=True;
+tgcctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_024153_36 gbac=NC_024153; trna=trnM; taxid=13824; distance=0; count=3; cluster=trnM_NC_024153; cluster_score=1.000000; cluster_center=True;
+gcctacttgactcagcggttagagtatcgctttcatacggcgagagtcattggttcgaatccaatagtag
+gta
+>trnM_NC_024158_125 gbac=NC_024158; trna=trnM; taxid=397682; distance=0; count=1; cluster=trnM_NC_024158; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttggagtatcgctttcatacggcgagagtcattggttcgaatccaatagtag
+gta
+>trnM_NC_024168_122 gbac=NC_024168; trna=trnM; taxid=43943; distance=0; count=1; cluster=trnM_NC_024168; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtgtcgctttcatacggcgagagtcattggttcaagtccaatagtag
+gca
+>trnM_NC_024169_105 gbac=NC_024169; trna=trnM; taxid=184485; distance=0; count=1; cluster=trnM_NC_024169; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagcggttagagtgtcgctttcatacggcgaaagtcattggttcaagtccaatagtag
+gca
+>trnM_NC_024170_78 gbac=NC_024170; trna=trnM; taxid=55577; distance=1; count=1; cluster=trnM_NC_024170; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcagaagtcattggttcaaatccaatagtag
+gtac
+>trnM_NC_024291_123 gbac=NC_024291; trna=trnM; taxid=37420; distance=1; count=1; cluster=trnM_NC_024291; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttcagagtatcgctttcatacggcgagagtcattggttcaaatccaatagta
+ggca
+>trnM_NC_024735_19 gbac=NC_024735; trna=trnM; taxid=73824; distance=1; count=5; cluster=trnM_NC_024735; cluster_score=1.000000; cluster_center=True;
+tacctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtat
+>trnM_NC_024813_45 gbac=NC_024813; trna=trnM; taxid=4679; distance=1; count=2; cluster=trnM_NC_024813; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcggaagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_024828_151 gbac=NC_024828; trna=trnM; taxid=88271; distance=0; count=1; cluster=trnM_NC_024828; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcacccgtctcatacgcgggttgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_024829_146 gbac=NC_024829; trna=trnM; taxid=259378; distance=0; count=1; cluster=trnM_NC_024829; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggccagagcatccgtctcatacgcggatcgtcactagttcgaatctagtagca
+ggca
+>trnM_NC_024845_152 gbac=NC_024845; trna=trnM; taxid=223102; distance=1; count=1; cluster=trnM_NC_024845; cluster_score=1.000000; cluster_center=True;
+acctacttaactcaatggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_025230_14 gbac=NC_025230; trna=trnM; taxid=58215; distance=1; count=7; cluster=trnM_NC_025230; cluster_score=1.000000; cluster_center=True;
+tgcctacttaactcagtggttagagtactgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_025233_111 gbac=NC_025233; trna=trnM; taxid=1056921; distance=0; count=1; cluster=trnM_NC_025233; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtactgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_025524_214 gbac=NC_025524; trna=trnM; taxid=40981; distance=1; count=1; cluster=trnM_NC_025524; cluster_score=1.000000; cluster_center=True;
+tgcctgtttagctcagttggttagagcatccgcttcatacgcggattgtcactagttcaaatctagtaac
+aggtag
+>trnM_NC_025524_89 gbac=NC_025524; trna=trnM; taxid=40981; distance=0; count=1; cluster=trnM_NC_025524; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagtctggcagctcgcaaggctcataatcttgaggtcgtgggttcgaatcctactccc
+gcta
+>trnM_NC_025525_205 gbac=NC_025525; trna=trnM; taxid=415195; distance=1; count=1; cluster=trnM_NC_025525; cluster_score=1.000000; cluster_center=True;
+tgcctacttagctcagtggtagagcgtccgtctcatacgcggaacgtcactagttcaaatctagtagtag
+gcaa
+>trnM_NC_025526_163 gbac=NC_025526; trna=trnM; taxid=191674; distance=0; count=1; cluster=trnM_NC_025526; cluster_score=1.000000; cluster_center=True;
+gcctgtttagctcagttggttagagcatccgtctcatacgcggaatgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025526_209 gbac=NC_025526; trna=trnM; taxid=191674; distance=1; count=1; cluster=trnM_NC_025526; cluster_score=1.000000; cluster_center=True;
+ttgcgggatagagcagtctggtagctcgcgaggctcataaccttgaggtcgcaggttcaaatcctgctcc
+cgctaa
+>trnM_NC_025527_167 gbac=NC_025527; trna=trnM; taxid=37433; distance=0; count=1; cluster=trnM_NC_025527; cluster_score=1.000000; cluster_center=True;
+ggcggggtagagcagtctggtagctcgtgaggctcataatcttaaagtcgcaggttcaaatccggctccc
+gcta
+>trnM_NC_025528_130 gbac=NC_025528; trna=trnM; taxid=3083; distance=0; count=1; cluster=trnM_NC_025528; cluster_score=1.000000; cluster_center=True;
+gcctacttagctcagttggtagagcatccgtctcatacgcggattgtcactagttcaaatctagtagtag
+gca
+>trnM_NC_025528_211 gbac=NC_025528; trna=trnM; taxid=3083; distance=1; count=1; cluster=trnM_NC_025528; cluster_score=1.000000; cluster_center=True;
+ttgcgggatagagcagtctggtagctcgtgaggctcataatcttaaggtcgcaggttcgaatcctgctcc
+cgctat
+>trnM_NC_025529_64 gbac=NC_025529; trna=trnM; taxid=173497; distance=0; count=1; cluster=trnM_NC_025529; cluster_score=1.000000; cluster_center=True;
+cgcgggatagagcagcctggtagctcgcaaggctcataatcttgaggtcgcaggttcgaatcctgctccc
+gcta
+>trnM_NC_025530_235 gbac=NC_025530; trna=trnM; taxid=160064; distance=0; count=1; cluster=trnM_NC_025530; cluster_score=1.000000; cluster_center=True;
+cgcgggatagagcagcctggtagctcgcaaggctcataatcttgaggtcgtaggttcgaatcctactccc
+gcta
+>trnM_NC_025530_55 gbac=NC_025530; trna=trnM; taxid=160064; distance=0; count=2; cluster=trnM_NC_025530; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggctagagcatccgtctcatacgcggattgtcactagttcgaatctagtagca
+ggca
+>trnM_NC_025531_218 gbac=NC_025531; trna=trnM; taxid=33092; distance=0; count=1; cluster=trnM_NC_025531; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagcctggtagctcgcaaggctcataatcttgaggtcgtaggttcgaatcctgctccc
+gcta
+>trnM_NC_025531_52 gbac=NC_025531; trna=trnM; taxid=33092; distance=0; count=2; cluster=trnM_NC_025531; cluster_score=1.000000; cluster_center=True;
+gcctacttagctcagttggtagagcatccgtctcatacgcggatcgtcactagttcaagtctagtagtag
+gca
+>trnM_NC_025533_210 gbac=NC_025533; trna=trnM; taxid=312850; distance=1; count=1; cluster=trnM_NC_025533; cluster_score=1.000000; cluster_center=True;
+tgcctgcttagctcagttggttagagcatccgtctcatacgcggaatgtcactagttcaaatctagtagc
+aggcaa
+>trnM_NC_025533_231 gbac=NC_025533; trna=trnM; taxid=312850; distance=0; count=1; cluster=trnM_NC_025533; cluster_score=1.000000; cluster_center=True;
+cgcgagatagagcagtctggtagctcgcaaggctcataatcttgaggtcgcaggttcgaatcctgctctc
+gcaa
+>trnM_NC_025534_140 gbac=NC_025534; trna=trnM; taxid=480381; distance=0; count=1; cluster=trnM_NC_025534; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagtctggtagctcgcagggctcataatcctgaggtcataggttcaaatcctattccc
+gcta
+>trnM_NC_025534_154 gbac=NC_025534; trna=trnM; taxid=480381; distance=0; count=1; cluster=trnM_NC_025534; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcatccgtctcatacgcggaatgtcactagttcaagtctagtagca
+ggca
+>trnM_NC_025535_207 gbac=NC_025535; trna=trnM; taxid=1065496; distance=1; count=1; cluster=trnM_NC_025535; cluster_score=1.000000; cluster_center=True;
+tgcctgcttagctcagctggttagagcatccgtctcatacgcggaatgtcactagttcaaatctagtagc
+aggcaa
+>trnM_NC_025535_92 gbac=NC_025535; trna=trnM; taxid=1065496; distance=0; count=1; cluster=trnM_NC_025535; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagtctggtagctcgcaaggctcataatcttgaggtcgcaggttcaaatcctgctccc
+gcta
+>trnM_NC_025536_54 gbac=NC_025536; trna=trnM; taxid=155904; distance=0; count=2; cluster=trnM_NC_025536; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagctggttagagcgtccgtctcatacgcggattgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025536_93 gbac=NC_025536; trna=trnM; taxid=155904; distance=0; count=1; cluster=trnM_NC_025536; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagtctggtagctcgcaaggctcataatcttgaggtcgcaggttcgaatcctgctccc
+gcta
+>trnM_NC_025537_161 gbac=NC_025537; trna=trnM; taxid=34148; distance=0; count=1; cluster=trnM_NC_025537; cluster_score=1.000000; cluster_center=True;
+gcctgcttatctcagttggttagagaatccgtttcatacgcggaatgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025539_192 gbac=NC_025539; trna=trnM; taxid=41300; distance=1; count=1; cluster=trnM_NC_025539; cluster_score=1.000000; cluster_center=True;
+tcgcgggatagagcagcctggtagctcgcaaggctcataatcttgaggtcgtaggttcgaatcctactcc
+cgccaa
+>trnM_NC_025540_61 gbac=NC_025540; trna=trnM; taxid=249350; distance=1; count=2; cluster=trnM_NC_025540; cluster_score=1.000000; cluster_center=True;
+tgcctgcttagctcagttggttagagcatccgtctcatacgcggattgtcactagttcaaatctagtagc
+aggcag
+>trnM_NC_025541_185 gbac=NC_025541; trna=trnM; taxid=415190; distance=1; count=1; cluster=trnM_NC_025541; cluster_score=1.000000; cluster_center=True;
+ttgcgggatagagcagtctggtagctcgcaaggctcataatcttgaggtcgcaggttcgaatcctgttcc
+cgctat
+>trnM_NC_025541_53 gbac=NC_025541; trna=trnM; taxid=415190; distance=0; count=2; cluster=trnM_NC_025541; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagctggttagagcatccgtctcatacgcggattgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025542_17 gbac=NC_025542; trna=trnM; taxid=163310; distance=0; count=6; cluster=trnM_NC_025542; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcatccgtctcatacgcggaatgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025542_25 gbac=NC_025542; trna=trnM; taxid=163310; distance=1; count=3; cluster=trnM_NC_025542; cluster_score=1.000000; cluster_center=True;
+ttgcgggatagagcagcctggtagctcgcaaggctcataatcttgaggtcgtaggttcgaatcctgctcc
+cgctat
+>trnM_NC_025543_142 gbac=NC_025543; trna=trnM; taxid=106203; distance=1; count=1; cluster=trnM_NC_025543; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagctggttagagcatccgtctcatacgcgggatgtcactagttcaaatctagtagca
+ggcac
+>trnM_NC_025543_63 gbac=NC_025543; trna=trnM; taxid=106203; distance=0; count=2; cluster=trnM_NC_025543; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagcttggtagctcgcaaggctcataatcttgaggtcgcaggttcgaatcctgctccc
+gcta
+>trnM_NC_025545_141 gbac=NC_025545; trna=trnM; taxid=38881; distance=0; count=1; cluster=trnM_NC_025545; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagctggttagagcatccgtctcatacgcgggatgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025545_234 gbac=NC_025545; trna=trnM; taxid=38881; distance=0; count=1; cluster=trnM_NC_025545; cluster_score=1.000000; cluster_center=True;
+cgcgggatagagcagcctggtagctcgcaaggctcataaccttgaggtcgtaggttcgaatcctgctccc
+gcta
+>trnM_NC_025546_33 gbac=NC_025546; trna=trnM; taxid=91190; distance=0; count=3; cluster=trnM_NC_025546; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggtcagagcgtccgtctcatacgcggaatgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025547_153 gbac=NC_025547; trna=trnM; taxid=1418016; distance=3; count=1; cluster=trnM_NC_025547; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcatccgtctcatacgcggaatgtcactagttcaaatctagtagca
+ggcacca
+>trnM_NC_025547_221 gbac=NC_025547; trna=trnM; taxid=1418016; distance=1; count=1; cluster=trnM_NC_025547; cluster_score=1.000000; cluster_center=True;
+agcggagtagagcagcctggcagctcgttaggctcataacctaaaggtcgtaggttcgaatcctacctcc
+gctcc
+>trnM_NC_025548_129 gbac=NC_025548; trna=trnM; taxid=381761; distance=0; count=1; cluster=trnM_NC_025548; cluster_score=1.000000; cluster_center=True;
+tgcgggatagagcagtctggtagctcgcaaggctcataatcttgaggtcgtaggttcgaatcctgctccc
+gcta
+>trnM_NC_025548_156 gbac=NC_025548; trna=trnM; taxid=381761; distance=0; count=1; cluster=trnM_NC_025548; cluster_score=1.000000; cluster_center=True;
+gcctgcttagctcagttggttagagcatccgtctcatacgcgggttgtcactagttcaaatctagtagca
+ggca
+>trnM_NC_025549_206 gbac=NC_025549; trna=trnM; taxid=97105; distance=1; count=1; cluster=trnM_NC_025549; cluster_score=1.000000; cluster_center=True;
+tgcctgcgtagctcagttggttagagcgtccgtctcatacgcggaatgtcactagttcgaatctagtcgc
+aggcaa
+>trnM_NC_025549_225 gbac=NC_025549; trna=trnM; taxid=97105; distance=0; count=1; cluster=trnM_NC_025549; cluster_score=1.000000; cluster_center=True;
+agcggagtagagcagtctggtagctcgtaaggctcataaccttaaggtcgtaggttcgaatcctacctcc
+gctc
+>trnM_NC_025641_228 gbac=NC_025641; trna=trnM; taxid=1407619; distance=0; count=1; cluster=trnM_NC_025641; cluster_score=1.000000; cluster_center=True;
+atctacttaactcagtggttagagtattgctttcatacggcaagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_025651_121 gbac=NC_025651; trna=trnM; taxid=271221; distance=0; count=1; cluster=trnM_NC_025651; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggttagagtattgctttcatacggtgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_025652_82 gbac=NC_025652; trna=trnM; taxid=204340; distance=1; count=1; cluster=trnM_NC_025652; cluster_score=1.000000; cluster_center=True;
+gacctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagta
+ggtct
+>trnM_NC_025657_103 gbac=NC_025657; trna=trnM; taxid=351450; distance=0; count=1; cluster=trnM_NC_025657; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagcggttagagtattgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_025659_24 gbac=NC_025659; trna=trnM; taxid=459585; distance=1; count=3; cluster=trnM_NC_025659; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagtggttagagtattgctttcatacggcgggagtcgttggttcaaatccaatagtag
+gta
+>trnM_NC_025906_104 gbac=NC_025906; trna=trnM; taxid=337368; distance=1; count=1; cluster=trnM_NC_025906; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagcggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_025907_23 gbac=NC_025907; trna=trnM; taxid=337380; distance=0; count=4; cluster=trnM_NC_025907; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcaggggttagagtattgctttcatacggcgggagtcgttggttcaaatccaacagtag
+gta
+>trnM_NC_026202_109 gbac=NC_026202; trna=trnM; taxid=692148; distance=1; count=1; cluster=trnM_NC_026202; cluster_score=1.000000; cluster_center=True;
+gcctacttaactcagtggtagagtattgctttcatacggcaggagtcattggttcaaatccaatagtagg
+ta
+>trnM_NC_026220_180 gbac=NC_026220; trna=trnM; taxid=4615; distance=1; count=1; cluster=trnM_NC_026220; cluster_score=1.000000; cluster_center=True;
+tacctacttaactcagtggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_026296_90 gbac=NC_026296; trna=trnM; taxid=13469; distance=0; count=1; cluster=trnM_NC_026296; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtatcgttttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026301_108 gbac=NC_026301; trna=trnM; taxid=3382; distance=0; count=1; cluster=trnM_NC_026301; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtatcgctttcatacggcgagagtcattggttcaagtccaatagtag
+gta
+>trnM_NC_026446_2 gbac=NC_026446; trna=trnM; taxid=352370; distance=0; count=39; cluster=trnM_NC_026446; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026450_40 gbac=NC_026450; trna=trnM; taxid=34341; distance=0; count=2; cluster=trnM_NC_026450; cluster_score=1.000000; cluster_center=True;
+acccacttaactcagtggttagagtgtcgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026541_178 gbac=NC_026541; trna=trnM; taxid=125431; distance=1; count=1; cluster=trnM_NC_026541; cluster_score=1.000000; cluster_center=True;
+tacctacttaacccagtggttagagtattgctttcatatggcgggagtcattggttcaaatccaatagta
+ggtag
+>trnM_NC_026563_5 gbac=NC_026563; trna=trnM; taxid=362346; distance=0; count=25; cluster=trnM_NC_026563; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtactgctttcatacggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026565_30 gbac=NC_026565; trna=trnM; taxid=13007; distance=0; count=3; cluster=trnM_NC_026565; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagcggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026568_183 gbac=NC_026568; trna=trnM; taxid=1605147; distance=1; count=1; cluster=trnM_NC_026568; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagtggttagagtattgctttcatacggcggaagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026684_118 gbac=NC_026684; trna=trnM; taxid=35938; distance=0; count=1; cluster=trnM_NC_026684; cluster_score=1.000000; cluster_center=True;
+acctacttaactcagtggttagagtatagctttcatacggctagagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026777_181 gbac=NC_026777; trna=trnM; taxid=125444; distance=1; count=1; cluster=trnM_NC_026777; cluster_score=1.000000; cluster_center=True;
+acctacttaacccagtggttagagtattgctttcatatggcgggagtcattggttcaaatccaatagtag
+gta
+>trnM_NC_026795_136 gbac=NC_026795; trna=trnM; taxid=3130; distance=0; count=1; cluster=trnM_NC_026795; cluster_score=1.000000; cluster_center=True;
+gcctatttagctcagatggttagagcattcgtctcatacgcggaaagtcactagttcgaatctagtaata
+ggca
+>trnM_NC_026795_194 gbac=NC_026795; trna=trnM; taxid=3130; distance=1; count=1; cluster=trnM_NC_026795; cluster_score=1.000000; cluster_center=True;
+tcgcgggatagagcagtttggtagctcgcaaggctcataatcttgaggtcgtaggttcgaatcctactcc
+cgctat
+>trnM_NC_026892_7 gbac=NC_026892; trna=trnM; taxid=97170; distance=0; count=17; cluster=trnM_NC_026892; cluster_score=1.000000; cluster_center=True;
+acccacttaactcagtggttagagtatcgctttcatacggcgagagtcattggttcaaatccaatagtag
+gta
+>trnfM_NC_003386_130 gbac=NC_003386; trna=trnfM; taxid=3240; distance=0; count=1; cluster=trnfM_NC_003386; cluster_score=1.000000; cluster_center=True;
+cgcgggatagagcagcttggtagctcgtaaggctcataaccttgaggtcacgggttcaaatcccgtaccc
+gcaa
+>trnfM_NC_004543_133 gbac=NC_004543; trna=trnfM; taxid=48387; distance=0; count=1; cluster=trnfM_NC_004543; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcctggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcca
+>trnfM_NC_004766_58 gbac=NC_004766; trna=trnfM; taxid=13818; distance=0; count=1; cluster=trnfM_NC_004766; cluster_score=1.000000; cluster_center=True;
+cgcggggtggagcagcttggtagctcgcgaggctcataacctcgaggtcacgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_005087_78 gbac=NC_005087; trna=trnfM; taxid=3218; distance=1; count=1; cluster=trnfM_NC_005087; cluster_score=1.000000; cluster_center=True;
+tcgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgtctc
+cgctaa
+>trnfM_NC_006861_109 gbac=NC_006861; trna=trnfM; taxid=37429; distance=0; count=1; cluster=trnfM_NC_006861; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcgaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcca
+>trnfM_NC_008325_101 gbac=NC_008325; trna=trnfM; taxid=4039; distance=1; count=1; cluster=trnfM_NC_008325; cluster_score=1.000000; cluster_center=True;
+agcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_008407_71 gbac=NC_008407; trna=trnfM; taxid=126431; distance=1; count=1; cluster=trnfM_NC_008407; cluster_score=1.000000; cluster_center=True;
+gggcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcccgtctc
+cgcact
+>trnfM_NC_008454_37 gbac=NC_008454; trna=trnfM; taxid=4031; distance=2; count=2; cluster=trnfM_NC_008454; cluster_score=1.000000; cluster_center=True;
+ggcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtcttc
+gcaccc
+>trnfM_NC_008454_65 gbac=NC_008454; trna=trnfM; taxid=4031; distance=0; count=1; cluster=trnfM_NC_008454; cluster_score=1.000000; cluster_center=True;
+ggcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtcttc
+gcac
+>trnfM_NC_008796_7 gbac=NC_008796; trna=trnfM; taxid=334596; distance=0; count=16; cluster=trnfM_NC_008796; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_009259_102 gbac=NC_009259; trna=trnfM; taxid=3885; distance=3; count=1; cluster=trnfM_NC_009259; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcaacttggtagctcgcaaggctcataaccttgaagttacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_009600_54 gbac=NC_009600; trna=trnfM; taxid=145286; distance=2; count=1; cluster=trnfM_NC_009600; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaacc
+>trnfM_NC_009601_45 gbac=NC_009601; trna=trnfM; taxid=145284; distance=0; count=2; cluster=trnfM_NC_009601; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggttacaggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_009618_87 gbac=NC_009618; trna=trnfM; taxid=54799; distance=0; count=1; cluster=trnfM_NC_009618; cluster_score=1.000000; cluster_center=True;
+tgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcca
+>trnfM_NC_009766_13 gbac=NC_009766; trna=trnfM; taxid=4129; distance=1; count=6; cluster=trnfM_NC_009766; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_009949_48 gbac=NC_009949; trna=trnfM; taxid=437280; distance=2; count=2; cluster=trnfM_NC_009949; cluster_score=1.000000; cluster_center=True;
+agcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaacc
+>trnfM_NC_010358_15 gbac=NC_010358; trna=trnfM; taxid=3940; distance=2; count=5; cluster=trnfM_NC_010358; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagattggtagctcgcaaggctcataaccttgaggtcatgggttcgaatcccgtcccc
+gcaccc
+>trnfM_NC_010359_57 gbac=NC_010359; trna=trnfM; taxid=280810; distance=0; count=1; cluster=trnfM_NC_010359; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcggtttggtagctcgcaaggctcataaccttgaggtcataggttcgaatcctgtctcc
+gcca
+>trnfM_NC_010360_23 gbac=NC_010360; trna=trnfM; taxid=482428; distance=2; count=3; cluster=trnfM_NC_010360; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagattggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgtcccc
+gcaccc
+>trnfM_NC_010433_143 gbac=NC_010433; trna=trnfM; taxid=3983; distance=1; count=1; cluster=trnfM_NC_010433; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_010654_85 gbac=NC_010654; trna=trnfM; taxid=3377; distance=2; count=1; cluster=trnfM_NC_010654; cluster_score=1.000000; cluster_center=True;
+tgcggagtagagtagtctggtagctcgcaaggctcatacccttgaggtcacgggttcaaatcccgtcttc
+gcgt
+>trnfM_NC_011152_83 gbac=NC_011152; trna=trnfM; taxid=3332; distance=0; count=1; cluster=trnfM_NC_011152; cluster_score=1.000000; cluster_center=True;
+tgcggagtagagtagtctggtagctcgcaaggctcataaccttgaggtcacgggtcaaatcccgtctccg
+cca
+>trnfM_NC_011153_10 gbac=NC_011153; trna=trnfM; taxid=3339; distance=0; count=12; cluster=trnfM_NC_011153; cluster_score=1.000000; cluster_center=True;
+tgcggagtagagtagtctggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcca
+>trnfM_NC_011828_100 gbac=NC_011828; trna=trnfM; taxid=3900; distance=1; count=1; cluster=trnfM_NC_011828; cluster_score=1.000000; cluster_center=True;
+agcggggtagagcagcttggtagctcgtaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_011930_81 gbac=NC_011930; trna=trnfM; taxid=3324; distance=0; count=1; cluster=trnfM_NC_011930; cluster_score=1.000000; cluster_center=True;
+tgcggagtaaagtagtctggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcca
+>trnfM_NC_011954_123 gbac=NC_011954; trna=trnfM; taxid=173280; distance=0; count=1; cluster=trnfM_NC_011954; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagtagcctggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcca
+>trnfM_NC_012052_75 gbac=NC_012052; trna=trnfM; taxid=38588; distance=3; count=1; cluster=trnfM_NC_012052; cluster_score=1.000000; cluster_center=True;
+tcgcggggtagagcagcctggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgtctc
+cgctaa
+>trnfM_NC_012224_144 gbac=NC_012224; trna=trnfM; taxid=180498; distance=1; count=1; cluster=trnfM_NC_012224; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_013843_29 gbac=NC_013843; trna=trnfM; taxid=157791; distance=1; count=3; cluster=trnfM_NC_013843; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcaacttggtagctcgcaaggctcataaccttgaggttacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_014057_103 gbac=NC_014057; trna=trnfM; taxid=3888; distance=2; count=1; cluster=trnfM_NC_014057; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcaacttggtagctcgcaaggctcataaccttgaggttacgggttcaaatcccgtctcc
+gcacc
+>trnfM_NC_014062_97 gbac=NC_014062; trna=trnfM; taxid=38684; distance=2; count=1; cluster=trnfM_NC_014062; cluster_score=1.000000; cluster_center=True;
+agcggagtagagcagtttggtagctcgcgaggctcataaccttgaggtcacgggttcgattcccgtctcc
+gcta
+>trnfM_NC_014063_68 gbac=NC_014063; trna=trnfM; taxid=3860; distance=2; count=1; cluster=trnfM_NC_014063; cluster_score=1.000000; cluster_center=True;
+ggcggagtggagcaacttggtagctcgcaaggctcataaccttgaggttacgggttcaaatcctgtctcc
+gcacc
+>trnfM_NC_014569_121 gbac=NC_014569; trna=trnfM; taxid=28960; distance=1; count=1; cluster=trnfM_NC_014569; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagttcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_014569_137 gbac=NC_014569; trna=trnfM; taxid=28960; distance=1; count=1; cluster=trnfM_NC_014569; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtcccc
+gcaac
+>trnfM_NC_014569_69 gbac=NC_014569; trna=trnfM; taxid=28960; distance=1; count=1; cluster=trnfM_NC_014569; cluster_score=1.000000; cluster_center=True;
+ggcggggtagagcagcttggtagctcgcaaggctcataacctcgaggtcacgggttcaaatcccgtcccc
+gcaac
+>trnfM_NC_014573_108 gbac=NC_014573; trna=trnfM; taxid=326026; distance=1; count=1; cluster=trnfM_NC_014573; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcatgaccttgaggtcacgggttcaaatcccgtcttc
+gcaac
+>trnfM_NC_014575_84 gbac=NC_014575; trna=trnfM; taxid=3322; distance=0; count=1; cluster=trnfM_NC_014575; cluster_score=1.000000; cluster_center=True;
+tgcggagtagagtagtctggtagctcgcaaggctcataaccttgaggtcacgggttcgaatcctgtctcc
+gcca
+>trnfM_NC_014582_70 gbac=NC_014582; trna=trnfM; taxid=163694; distance=2; count=1; cluster=trnfM_NC_014582; cluster_score=1.000000; cluster_center=True;
+ggcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtcccc
+gcaacc
+>trnfM_NC_014582_89 gbac=NC_014582; trna=trnfM; taxid=163694; distance=1; count=1; cluster=trnfM_NC_014582; cluster_score=1.000000; cluster_center=True;
+tggcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtccc
+cccaac
+>trnfM_NC_014592_141 gbac=NC_014592; trna=trnfM; taxid=531291; distance=0; count=1; cluster=trnfM_NC_014592; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcgaggctcataacctcgaggtcacgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_014674_6 gbac=NC_014674; trna=trnfM; taxid=60419; distance=1; count=21; cluster=trnfM_NC_014674; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_014675_132 gbac=NC_014675; trna=trnfM; taxid=49763; distance=0; count=1; cluster=trnfM_NC_014675; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcctggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcca
+>trnfM_NC_014699_73 gbac=NC_014699; trna=trnfM; taxid=3258; distance=1; count=1; cluster=trnfM_NC_014699; cluster_score=1.000000; cluster_center=True;
+tagcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtccc
+cgcaaa
+>trnfM_NC_014874_120 gbac=NC_014874; trna=trnfM; taxid=112168; distance=0; count=1; cluster=trnfM_NC_014874; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtttcc
+gcaac
+>trnfM_NC_015083_22 gbac=NC_015083; trna=trnfM; taxid=337360; distance=1; count=4; cluster=trnfM_NC_015083; cluster_score=1.000000; cluster_center=True;
+ggcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtcccc
+gcaac
+>trnfM_NC_015083_52 gbac=NC_015083; trna=trnfM; taxid=337360; distance=1; count=2; cluster=trnfM_NC_015083; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctac
+gcaac
+>trnfM_NC_015113_145 gbac=NC_015113; trna=trnfM; taxid=40888; distance=0; count=1; cluster=trnfM_NC_015113; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_015308_40 gbac=NC_015308; trna=trnfM; taxid=3981; distance=1; count=2; cluster=trnfM_NC_015308; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_015402_142 gbac=NC_015402; trna=trnfM; taxid=70216; distance=1; count=1; cluster=trnfM_NC_015402; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtctggtagctcgcaaggctcataaccttgaggtcataggttcgaatcctgtctcc
+gccac
+>trnfM_NC_015894_3 gbac=NC_015894; trna=trnfM; taxid=161126; distance=1; count=43; cluster=trnfM_NC_015894; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_015983_43 gbac=NC_015983; trna=trnfM; taxid=412675; distance=1; count=2; cluster=trnfM_NC_015983; cluster_score=1.000000; cluster_center=True;
+tcgcggggtagagcagcttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcctgtctc
+cgcaaa
+>trnfM_NC_016063_39 gbac=NC_016063; trna=trnfM; taxid=50179; distance=1; count=2; cluster=trnfM_NC_016063; cluster_score=1.000000; cluster_center=True;
+gggcggagtagagcagtttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcccgtctc
+cgcaca
+>trnfM_NC_016069_20 gbac=NC_016069; trna=trnfM; taxid=93926; distance=0; count=4; cluster=trnfM_NC_016069; cluster_score=1.000000; cluster_center=True;
+tgcggagtagagtagtctggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcca
+>trnfM_NC_016471_112 gbac=NC_016471; trna=trnfM; taxid=48534; distance=1; count=1; cluster=trnfM_NC_016471; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcacaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_016728_64 gbac=NC_016728; trna=trnfM; taxid=39899; distance=0; count=1; cluster=trnfM_NC_016728; cluster_score=1.000000; cluster_center=True;
+ggcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_017006_139 gbac=NC_017006; trna=trnfM; taxid=996148; distance=0; count=1; cluster=trnfM_NC_017006; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_018767_135 gbac=NC_018767; trna=trnfM; taxid=538574; distance=1; count=1; cluster=trnfM_NC_018767; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcgtggtagctcgcaaggctcataacctggaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_019601_9 gbac=NC_019601; trna=trnfM; taxid=101007; distance=1; count=12; cluster=trnfM_NC_019601; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcgtggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_019616_35 gbac=NC_019616; trna=trnfM; taxid=13750; distance=5; count=2; cluster=trnfM_NC_019616; cluster_score=1.000000; cluster_center=True;
+cggggagtagagtagtctggtagctcgcaaggctcataaccttgaggtcgcgggttcaaatcccgcctcc
+ccac
+>trnfM_NC_020146_74 gbac=NC_020146; trna=trnfM; taxid=3262; distance=1; count=1; cluster=trnfM_NC_020146; cluster_score=1.000000; cluster_center=True;
+tagcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctc
+cgcaaa
+>trnfM_NC_020147_55 gbac=NC_020147; trna=trnfM; taxid=1267209; distance=1; count=1; cluster=trnfM_NC_020147; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccttctcc
+gcaa
+>trnfM_NC_020259_134 gbac=NC_020259; trna=trnfM; taxid=13813; distance=0; count=1; cluster=trnfM_NC_020259; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcctggtagctcgcaaggctcataaccttgaggtcacgggttcgaatcctgtctcc
+gcca
+>trnfM_NC_020321_114 gbac=NC_020321; trna=trnfM; taxid=120273; distance=1; count=1; cluster=trnfM_NC_020321; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcccgtctcc
+gcta
+>trnfM_NC_020363_115 gbac=NC_020363; trna=trnfM; taxid=188518; distance=1; count=1; cluster=trnfM_NC_020363; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaagtcatgggttcaaatcctttctcc
+gcaac
+>trnfM_NC_020367_111 gbac=NC_020367; trna=trnfM; taxid=101696; distance=1; count=1; cluster=trnfM_NC_020367; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcacaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_020607_14 gbac=NC_020607; trna=trnfM; taxid=395280; distance=0; count=6; cluster=trnfM_NC_020607; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_021111_50 gbac=NC_021111; trna=trnfM; taxid=161395; distance=1; count=2; cluster=trnfM_NC_021111; cluster_score=1.000000; cluster_center=True;
+tgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_021432_33 gbac=NC_021432; trna=trnfM; taxid=160538; distance=1; count=3; cluster=trnfM_NC_021432; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_021441_46 gbac=NC_021441; trna=trnfM; taxid=99815; distance=0; count=2; cluster=trnfM_NC_021441; cluster_score=1.000000; cluster_center=True;
+agcggagtagagcagtctggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcccgtctcc
+gcgc
+>trnfM_NC_021648_8 gbac=NC_021648; trna=trnfM; taxid=82538; distance=1; count=14; cluster=trnfM_NC_021648; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcaacttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_021936_129 gbac=NC_021936; trna=trnfM; taxid=29650; distance=4; count=1; cluster=trnfM_NC_021936; cluster_score=1.000000; cluster_center=True;
+cgcggagttgagcagcctggcagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gtgtc
+>trnfM_NC_022431_51 gbac=NC_022431; trna=trnfM; taxid=528293; distance=1; count=2; cluster=trnfM_NC_022431; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtcccc
+gcaac
+>trnfM_NC_022457_116 gbac=NC_022457; trna=trnfM; taxid=13601; distance=0; count=1; cluster=trnfM_NC_022457; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_022812_4 gbac=NC_022812; trna=trnfM; taxid=133946; distance=8; count=29; cluster=trnfM_NC_022812; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_022927_122 gbac=NC_022927; trna=trnfM; taxid=4664; distance=2; count=1; cluster=trnfM_NC_022927; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggttagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctc
+cgcacc
+>trnfM_NC_023090_34 gbac=NC_023090; trna=trnfM; taxid=3873; distance=1; count=2; cluster=trnfM_NC_023090; cluster_score=1.000000; cluster_center=True;
+tcgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctc
+cgcaag
+>trnfM_NC_023115_119 gbac=NC_023115; trna=trnfM; taxid=86091; distance=1; count=1; cluster=trnfM_NC_023115; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcacc
+>trnfM_NC_023119_90 gbac=NC_023119; trna=trnfM; taxid=60851; distance=1; count=1; cluster=trnfM_NC_023119; cluster_score=1.000000; cluster_center=True;
+ttgcggagtagagcagcttggtagctcgcgaggctcataaccttgaggtcacgggttcaaatcccgtctc
+cgctag
+>trnfM_NC_023121_44 gbac=NC_023121; trna=trnfM; taxid=54798; distance=0; count=2; cluster=trnfM_NC_023121; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_023131_56 gbac=NC_023131; trna=trnfM; taxid=4179; distance=0; count=1; cluster=trnfM_NC_023131; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcctgtcttc
+gcaa
+>trnfM_NC_023132_127 gbac=NC_023132; trna=trnfM; taxid=223125; distance=0; count=1; cluster=trnfM_NC_023132; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagtagtttggtatctcgcaaggctcataaccttgagatcgcaggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_023217_5 gbac=NC_023217; trna=trnfM; taxid=47602; distance=1; count=22; cluster=trnfM_NC_023217; cluster_score=1.000000; cluster_center=True;
+cgcgggatagagcagtttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgttccc
+gcaac
+>trnfM_NC_023247_16 gbac=NC_023247; trna=trnfM; taxid=152093; distance=1; count=5; cluster=trnfM_NC_023247; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcgcaggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_023259_76 gbac=NC_023259; trna=trnfM; taxid=28971; distance=1; count=1; cluster=trnfM_NC_023259; cluster_score=1.000000; cluster_center=True;
+tcgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtccc
+cgcaat
+>trnfM_NC_023260_42 gbac=NC_023260; trna=trnfM; taxid=253189; distance=2; count=2; cluster=trnfM_NC_023260; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcgcgggttcaaatcccgtctcc
+gcacc
+>trnfM_NC_023261_82 gbac=NC_023261; trna=trnfM; taxid=73178; distance=2; count=1; cluster=trnfM_NC_023261; cluster_score=1.000000; cluster_center=True;
+tgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcgtgggttcaaatcccgtcttc
+gcaacc
+>trnfM_NC_023356_128 gbac=NC_023356; trna=trnfM; taxid=120072; distance=1; count=1; cluster=trnfM_NC_023356; cluster_score=1.000000; cluster_center=True;
+cgcggagtggagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_023358_53 gbac=NC_023358; trna=trnfM; taxid=490730; distance=1; count=2; cluster=trnfM_NC_023358; cluster_score=1.000000; cluster_center=True;
+ttgcggagtggagtagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctc
+cgcaaa
+>trnfM_NC_023360_26 gbac=NC_023360; trna=trnfM; taxid=129946; distance=0; count=3; cluster=trnfM_NC_023360; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_023464_125 gbac=NC_023464; trna=trnfM; taxid=223107; distance=1; count=1; cluster=trnfM_NC_023464; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagtagtttggtagctcgcaaggctcataaccttgagatcacaggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_023465_124 gbac=NC_023465; trna=trnfM; taxid=46066; distance=0; count=1; cluster=trnfM_NC_023465; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagtagtttggtagctcacaaggctcataaccttgaggtcgcaggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_023790_38 gbac=NC_023790; trna=trnfM; taxid=103349; distance=1; count=2; cluster=trnfM_NC_023790; cluster_score=1.000000; cluster_center=True;
+ggcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_023792_17 gbac=NC_023792; trna=trnfM; taxid=124943; distance=1; count=4; cluster=trnfM_NC_023792; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_023805_27 gbac=NC_023805; trna=trnfM; taxid=1030197; distance=0; count=3; cluster=trnfM_NC_023805; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaagtcacgggttcaaatcccgtctcc
+gcta
+>trnfM_NC_024023_18 gbac=NC_024023; trna=trnfM; taxid=466205; distance=0; count=4; cluster=trnfM_NC_024023; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaagtcatgggttcaaatcccatctcc
+gcaa
+>trnfM_NC_024035_28 gbac=NC_024035; trna=trnfM; taxid=361561; distance=1; count=3; cluster=trnfM_NC_024035; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcaacttggtagctcacaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_024036_104 gbac=NC_024036; trna=trnfM; taxid=3899; distance=1; count=1; cluster=trnfM_NC_024036; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcaacttggtagctcgtaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_024061_11 gbac=NC_024061; trna=trnfM; taxid=22978; distance=1; count=10; cluster=trnfM_NC_024061; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_024166_99 gbac=NC_024166; trna=trnfM; taxid=361940; distance=1; count=1; cluster=trnfM_NC_024166; cluster_score=1.000000; cluster_center=True;
+agcggggtagagcagcttggtagctcgtaaggctcataaccttgaggtcacgggttcaaatcccgtcccc
+gcaac
+>trnfM_NC_024167_72 gbac=NC_024167; trna=trnfM; taxid=3175; distance=2; count=1; cluster=trnfM_NC_024167; cluster_score=1.000000; cluster_center=True;
+tagcggagtagagcaactaggtagctcgcaaggctcataaccttgaggttacaggttcaaatcctgtctc
+cgccaa
+>trnfM_NC_024168_63 gbac=NC_024168; trna=trnfM; taxid=43943; distance=1; count=1; cluster=trnfM_NC_024168; cluster_score=1.000000; cluster_center=True;
+ggcggagtagagcagcctggtagctcgcaaggctcataaccttgaggtcgcacgttcaaatcatgcctcc
+gccc
+>trnfM_NC_024169_67 gbac=NC_024169; trna=trnfM; taxid=184485; distance=1; count=1; cluster=trnfM_NC_024169; cluster_score=1.000000; cluster_center=True;
+ggcggagtagagcagtctggtagctcgcaaggctcataaccttgaggtcgcacgttcaaatcatgcctcc
+gccc
+>trnfM_NC_024291_131 gbac=NC_024291; trna=trnfM; taxid=37420; distance=2; count=1; cluster=trnfM_NC_024291; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcctggtagctcgcaaggctcataaccttgaggccacgggttcaaatcccgtctcc
+gcta
+>trnfM_NC_024718_2 gbac=NC_024718; trna=trnfM; taxid=145987; distance=1; count=73; cluster=trnfM_NC_024718; cluster_score=1.000000; cluster_center=True;
+gagcggagtagagcagtttggtagctcacgaggctcataaccttgaggtcacgggttcgattcccgtctc
+cgcact
+>trnfM_NC_024732_25 gbac=NC_024732; trna=trnfM; taxid=103032; distance=0; count=3; cluster=trnfM_NC_024732; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcaccggttcaaatccggtctcc
+gcaa
+>trnfM_NC_024845_126 gbac=NC_024845; trna=trnfM; taxid=223102; distance=1; count=1; cluster=trnfM_NC_024845; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagtagtttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_024945_113 gbac=NC_024945; trna=trnfM; taxid=50176; distance=0; count=1; cluster=trnfM_NC_024945; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaagccacgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_025228_96 gbac=NC_025228; trna=trnfM; taxid=65970; distance=1; count=1; cluster=trnfM_NC_025228; cluster_score=1.000000; cluster_center=True;
+agcggagtagagcagtttggtagctcacgaggctcataaccttgaggtcacgggttcgattcccgtctcc
+gcacc
+>trnfM_NC_025305_61 gbac=NC_025305; trna=trnfM; taxid=101708; distance=2; count=1; cluster=trnfM_NC_025305; cluster_score=1.000000; cluster_center=True;
+gcgcggagtagagcagtttggtagctcgcaaggctcataatcttgaagtcgcgggttcgaatcccgtctc
+cgcacgc
+>trnfM_NC_025306_36 gbac=NC_025306; trna=trnfM; taxid=198697; distance=1; count=2; cluster=trnfM_NC_025306; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_025339_41 gbac=NC_025339; trna=trnfM; taxid=4432; distance=1; count=2; cluster=trnfM_NC_025339; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_025641_79 gbac=NC_025641; trna=trnfM; taxid=1407619; distance=2; count=1; cluster=trnfM_NC_025641; cluster_score=1.000000; cluster_center=True;
+tcgcggggtaggagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtct
+tcgcaat
+>trnfM_NC_025668_106 gbac=NC_025668; trna=trnfM; taxid=140003; distance=2; count=1; cluster=trnfM_NC_025668; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcctggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcctgtctcc
+gcta
+>trnfM_NC_025744_47 gbac=NC_025744; trna=trnfM; taxid=361918; distance=2; count=2; cluster=trnfM_NC_025744; cluster_score=1.000000; cluster_center=True;
+agcggggtagagcaacttggtagctcgtaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaacc
+>trnfM_NC_025906_107 gbac=NC_025906; trna=trnfM; taxid=337368; distance=1; count=1; cluster=trnfM_NC_025906; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcttggtagctcgcaaggctcataaccttgaggtcgcgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_025906_62 gbac=NC_025906; trna=trnfM; taxid=337368; distance=1; count=1; cluster=trnfM_NC_025906; cluster_score=1.000000; cluster_center=True;
+ggcgaggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtcccc
+gcaac
+>trnfM_NC_026040_21 gbac=NC_026040; trna=trnfM; taxid=42329; distance=0; count=4; cluster=trnfM_NC_026040; cluster_score=1.000000; cluster_center=True;
+tgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gccg
+>trnfM_NC_026041_88 gbac=NC_026041; trna=trnfM; taxid=34343; distance=0; count=1; cluster=trnfM_NC_026041; cluster_score=1.000000; cluster_center=True;
+tgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgtctcc
+gctg
+>trnfM_NC_026076_12 gbac=NC_026076; trna=trnfM; taxid=40716; distance=0; count=9; cluster=trnfM_NC_026076; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_026134_140 gbac=NC_026134; trna=trnfM; taxid=138025; distance=1; count=1; cluster=trnfM_NC_026134; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataatcttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_026212_105 gbac=NC_026212; trna=trnfM; taxid=1592803; distance=2; count=1; cluster=trnfM_NC_026212; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagcctggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgtctcc
+gcta
+>trnfM_NC_026291_1 gbac=NC_026291; trna=trnfM; taxid=54469; distance=1; count=88; cluster=trnfM_NC_026291; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_026298_19 gbac=NC_026298; trna=trnfM; taxid=257623; distance=1; count=4; cluster=trnfM_NC_026298; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaagtcatgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_026299_32 gbac=NC_026299; trna=trnfM; taxid=55184; distance=1; count=3; cluster=trnfM_NC_026299; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcctgtctcc
+gcaac
+>trnfM_NC_026301_31 gbac=NC_026301; trna=trnfM; taxid=3382; distance=0; count=3; cluster=trnfM_NC_026301; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagtagtctggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcta
+>trnfM_NC_026450_91 gbac=NC_026450; trna=trnfM; taxid=34341; distance=1; count=1; cluster=trnfM_NC_026450; cluster_score=1.000000; cluster_center=True;
+ttgcggggtagagcagcttggtagctcgcgaggctcataaccttgaggtcacgggttcaaatcccgtctc
+cgctag
+>trnfM_NC_026541_118 gbac=NC_026541; trna=trnfM; taxid=125431; distance=0; count=1; cluster=trnfM_NC_026541; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctcc
+gcaa
+>trnfM_NC_026562_138 gbac=NC_026562; trna=trnfM; taxid=3483; distance=0; count=1; cluster=trnfM_NC_026562; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaa
+>trnfM_NC_026680_30 gbac=NC_026680; trna=trnfM; taxid=198914; distance=1; count=3; cluster=trnfM_NC_026680; cluster_score=1.000000; cluster_center=True;
+cgcggggtagagcaacttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_026685_77 gbac=NC_026685; trna=trnfM; taxid=58860; distance=1; count=1; cluster=trnfM_NC_026685; cluster_score=1.000000; cluster_center=True;
+tcgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctc
+cgcaaa
+>trnfM_NC_026690_24 gbac=NC_026690; trna=trnfM; taxid=3625; distance=2; count=3; cluster=trnfM_NC_026690; cluster_score=1.000000; cluster_center=True;
+ggcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcccgtctcc
+gcacc
+>trnfM_NC_026691_66 gbac=NC_026691; trna=trnfM; taxid=3627; distance=2; count=1; cluster=trnfM_NC_026691; cluster_score=1.000000; cluster_center=True;
+ggcggagtagagcaggttggtagctcgcaaggctcataaccttgaggtcacaggttcaaatcccgtctcc
+gcacc
+>trnfM_NC_026778_110 gbac=NC_026778; trna=trnfM; taxid=51239; distance=1; count=1; cluster=trnfM_NC_026778; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtctggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgtctcc
+gcaac
+>trnfM_NC_026839_117 gbac=NC_026839; trna=trnfM; taxid=105884; distance=0; count=1; cluster=trnfM_NC_026839; cluster_score=1.000000; cluster_center=True;
+cgcggagtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctcc
+gcaa

@@ -142,6 +142,9 @@ CALL_DIR="$(getAbsolutePath $(pwd))"            # Directory from where the main 
 IR_DATA_DIR="${DATA_DIR}/ir"  				  	# Directory containing data related to the 
 												# Inverted repeat strucuture
 								
+TRNA_DATA_DIR="${DATA_DIR}/trna"  				# Directory containing data related to the 
+												# Inverted repeat strucuture
+								
 
 #
 #
