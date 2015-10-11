@@ -19,11 +19,18 @@ function getAbsolutePath {
 function pushTmpDir {
 	TMP_DIR=$(mktemp -d -t "$1_proc_$$_")
 	pushd $TMP_DIR >& /dev/null
+	TMP_DIR_STACK="$TMP_DIR $TMP_DIR_STACK"
+	logdebug "Pushing temp directory $TMP_DIR"
+	logdebug "Stack : ${TMP_DIR_STACK}"
 }
 
 function popTmpDir {
+	TMP_DIR=$(echo $TMP_DIR_STACK | awk '{print $1}')
+	TMP_DIR_STACK=$(echo $TMP_DIR_STACK | awk '{$1="";print $0}')
 	popd  >& /dev/null
 	rm -rf $TMP_DIR >& /dev/null
+	logdebug "Poping temp directory $TMP_DIR"
+	logdebug "Stack : ${TMP_DIR_STACK}"
 }
 
 # Logging functions
@@ -34,30 +41,40 @@ function errcho {
 }
 
 function openLogFile {
-	LOGFILE=$1
-	touch ${LOGFILE}
+	ORG_LOGFILE=$1
+	export ORG_LOGFILE
+	touch ${ORG_LOGFILE}
 }
 
 
 function loginfo {
     errcho `date +'%Y-%m-%d %H:%M:%S'` "[OA INFO   ] $$ -- $1"
-    if [[ ! -z ${LOGFILE} ]]; then
-          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA INFO   ] $$ -- $1" >> ${LOGFILE}
+    if [[ ! -z ${ORG_LOGFILE} ]]; then
+          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA INFO   ] $$ -- $1" >> ${ORG_LOGFILE}
     fi
 }
 
 function logerror {
     errcho `date +'%Y-%m-%d %H:%M:%S'` "[OA ERROR  ] $$ -- $1"
-    if [[ ! -z ${LOGFILE} ]]; then
-          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA ERROR   ] $$ -- $1" >> ${LOGFILE}
+    if [[ ! -z ${ORG_LOGFILE} ]]; then
+          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA ERROR   ] $$ -- $1" >> ${ORG_LOGFILE}
     fi
 }
 
 function logwarning {
     errcho `date +'%Y-%m-%d %H:%M:%S'` "[OA WARNING] $$ -- $1"
-    if [[ ! -z ${LOGFILE} ]]; then
-          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA WARNING] $$ -- $1" >> ${LOGFILE}
+    if [[ ! -z ${ORG_LOGFILE} ]]; then
+          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA WARNING] $$ -- $1" >> ${ORG_LOGFILE}
     fi
+}
+
+function logdebug {
+	if [[ ! -z ${ORG_DEBUG} ]]; then
+	    errcho `date +'%Y-%m-%d %H:%M:%S'` "[OA DEBUG  ] $$ -- $1"
+	    if [[ ! -z ${ORG_LOGFILE} ]]; then
+	          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA DEBUG  ] $$ -- $1" >> ${ORG_LOGFILE}
+	    fi
+	fi
 }
 
 # Sequence related functions	

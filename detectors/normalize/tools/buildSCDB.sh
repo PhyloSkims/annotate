@@ -31,7 +31,7 @@ pushTmpDir ORG.buildSCDB
 	
 	
 	loginfo "Building LSC coorientation graph..."
-		${PROG_DIR}/coorienteSC.sh LSC.fasta 20000 ${LOGFILE} > LSC.tgf
+		${PROG_DIR}/coorienteSC.sh LSC.fasta 20000 ${ORG_LOGFILE} > LSC.tgf
 		${PROG_DIR}/cc.py LSC.tgf > LSC.cc
 		loginfo " --> $(awk '{print $1}' LSC.cc | uniq | wc -l) connected componants"
 	loginfo "Done"
@@ -73,7 +73,7 @@ pushTmpDir ORG.buildSCDB
 
 
 	loginfo "Checking LCS homogeneity..."
-		${PROG_DIR}/coorienteSC.sh LSC.direct.fasta 20000 ${LOGFILE} > LSC_RefDB.tgf		
+		${PROG_DIR}/coorienteSC.sh LSC.direct.fasta 20000 ${ORG_LOGFILE} > LSC_RefDB.tgf		
 		${PROG_DIR}/cc.py LSC_RefDB.tgf > LSC_RefDB.cc
 		NCC=$(awk '{print $1}' LSC_RefDB.cc | uniq | wc -l)
 		if (( $NCC == 1 )); then
@@ -103,7 +103,7 @@ pushTmpDir ORG.buildSCDB
 
 	
 	loginfo "Building SSC coorientation graph..."
-		${PROG_DIR}/coorienteSC.sh SSC.fasta 5000 ${LOGFILE} > SSC.tgf
+		${PROG_DIR}/coorienteSC.sh SSC.fasta 5000 ${ORG_LOGFILE} > SSC.tgf
 		${PROG_DIR}/cc.py SSC.tgf > SSC.cc
 		loginfo " --> $(awk '{print $1}' SSC.cc | uniq | wc -l) connected componants"
 	loginfo "Done"
@@ -146,7 +146,7 @@ pushTmpDir ORG.buildSCDB
 
 
 	loginfo "Checking SSC homogeneity..."
-		${PROG_DIR}/coorienteSC.sh SSC.direct.fasta 5000 ${LOGFILE} > SSC_RefDB.tgf		
+		${PROG_DIR}/coorienteSC.sh SSC.direct.fasta 5000 ${ORG_LOGFILE} > SSC_RefDB.tgf		
 		${PROG_DIR}/cc.py SSC_RefDB.tgf > SSC_RefDB.cc
 		NCC=$(awk '{print $1}' SSC_RefDB.cc | uniq | wc -l)
 		if (( $NCC == 1 )); then

@@ -27,12 +27,14 @@
 SCRIPT_DIR="$(dirname ${BASH_SOURCE[0]})"
 source ${SCRIPT_DIR}/../lib/lookforIR.lib.sh
 
+ORG_DEBUG=1
 
 pushTmpDir ORG.normalize
 
 	tmpfasta1="tmp_$$_1.fasta"
 	tmpfasta2="tmp_$$_2.fasta"
 
+	logdebug "Running on : $QUERY"
 
 	loginfo "Computing the genome size..."
 		genome_length=$(seqlength $QUERY)

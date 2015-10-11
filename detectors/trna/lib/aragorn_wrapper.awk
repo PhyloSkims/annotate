@@ -7,17 +7,9 @@ function genomeid() {
   return gid;
 }
 
-function home() {
-  "echo $ORGANNOT_HOME" | getline homedir;
-  return homedir;
-}
-
-function prog(program) {
-  return home() "/" program;
-}
-
-function trnalib(prognam) {
-  return home() "/lib/trnaCAU.ref.fasta";
+function trnalib() {
+  "echo $CAUTRNADB" | getline ref;
+  return ref
 }
 
 function awkPID() {
@@ -65,19 +57,20 @@ function patchtRNA(anticodon,trna,seq) {
   if (anticodon == "cat") {
     file=printfasta(trna "_" anticodon,seq,"");
 
-    command= prog("sumatra") " -d -n " file " " trnalib();
+    command= "sumatra -t 0.9 -x -n " file " " trnalib() " 2>> /dev/null";
     while ((command | getline output) > 0) {
       split(output,field," ");
-      n[field[2]]++;
-      d[field[2]]=field[3];
+      match(field[2],"trn.M?");
+      trna=substr(field[2],RSTART,RLENGTH);
+      n[trna]+=field[5];
     }
     close(command)
 
-    dmin=1;
+    nmax=0;
     for (i in n) {
-      dist=d[i]/n[i];
-      if (dist < dmin) {
-        dmin=dist;
+      dist=n[i];
+      if (n[i] > nmax) {
+        nmax=n[i];
         trna=i;
       }
     }
@@ -92,6 +85,42 @@ function patchtRNA(anticodon,trna,seq) {
 
 function gene2product(gene) {
   return "tRNA-" AA3[substr(gene,4,1)];
+}
+
+function emblTRNA(geneid,trna,loc,anti,intron,seq) {
+	if (loc ~ /^c/) {
+	     sub("c\\[","complement(",loc); 
+	     sub("\\]",")",loc);
+	     sub(",","..",loc)}
+	else {
+		sub("\\[","",loc);
+	    sub("\\]","",loc);
+	    sub(",","..",loc)}
+	    
+	anti=toupper(anti);
+    gsub("T","U",anti);
+    product=gene2product(trna);
+	
+	if (intron!="") {
+	   l=length(intron);
+       intron=substr(intron,2,l-2);
+       split(intron,intronpos,",");
+	   ib=intronpos[0];
+	   ie=intronpos[1];
+	   match(loc,"[0-9][0-9]*");
+	   gb=substr(loc,RSTART,RLENGTH);
+	   sub("\\.\\.",".." (gb + ib -2) "," (gb + ie) "..",loc); \
+	   sub("complement","complement(join",loc);\
+	   if (substr(loc,1,1) ~ /[0-9]/) {
+	      loc="join("loc} 
+	      loc=loc")"; 
+	      }
+	      
+	   print "FT   tRNA            " loc;
+	   print "FT                   /gene=\""trna"\"";
+	   print "FT                   /anticodon=\""anti"\"";	   
+	   print "FT                   /product=\""product"("anti")\"";
+	    
 }
 
 function gffTRNA(geneid,trna,loc,anti,intron,seq) {
@@ -139,7 +168,6 @@ function gffTRNA(geneid,trna,loc,anti,intron,seq) {
 }
 
 BEGIN {
-    print ARGV[1];
     AA1["Ala"]="A";
     AA1["Cys"]="C";
     AA1["Asp"]="D";
@@ -201,7 +229,7 @@ BEGIN {
      { seq=epissage(intron,seq);
        trna=patchtRNA(anti,trna,seq);
 #       print geneid,trna,loc,anti,"'"intron"'",seq;
-       gffTRNA(geneid,trna,loc,anti,intron,seq);
+       emblTRNA(geneid,trna,loc,anti,intron,seq);
        seq=""
      }
 
@@ -225,5 +253,5 @@ BEGIN {
 END  { seq=epissage(intron,seq);
        trna=patchtRNA(anti,trna,seq);
 #       print geneid,trna,loc,anti,"'"intron"'",seq;
-       gffTRNA(geneid,trna,loc,anti,intron,seq);
+       emblTRNA(geneid,trna,loc,anti,intron,seq);
      }

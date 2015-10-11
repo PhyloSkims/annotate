@@ -47,7 +47,9 @@ function lookForIR {
 }
 
 SCDB="${IR_DATA_DIR}/SC_RefDB"
-QUERY="${CALL_DIR}/$1"
 
-
-openLogFile "${QUERY/.*/}.log"
+if [[ ! "$1" =~ ^/ ]]; then
+	QUERY="${CALL_DIR}/$1"
+else
+	QUERY="$1"
+fi
