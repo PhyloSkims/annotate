@@ -1,0 +1,6 @@
+>RRNA4.5S_NC_026296_16 count=4; cluster_weight=9; cluster=RRNA4.5S_NC_026296_16; cluster_score=1.000000; cluster_center=True; 
+aggtcacggcgagacgagccgttaggtgataggtgtcaagtggaagtgcagtgatgcatgcagccgaggcatactaaaagaccgaaagatttgaac
+>RRNA4.5S_NC_024024_18 count=4; cluster_weight=9; cluster=RRNA4.5S_NC_026296_16; cluster_score=0.989583; cluster_center=False; 
+aggtcatggcgagacgagccgttaggtgataggtgtcaagtggaagtgcagtgatgcatgcagccgaggcatactaaaagaccgaaagatttgaac
+>RRNA4.5S_NC_023121_105 count=1; cluster_weight=9; cluster=RRNA4.5S_NC_026296_16; cluster_score=0.989691; cluster_center=False; 
+caggtcacggcgagacgagccgttaggtgataggtgtcaagtggaagtgcagtgatgcatgcagccgaggcatactaaaagaccgaaagatttgaac

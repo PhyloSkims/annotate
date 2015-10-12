@@ -1,0 +1,18 @@
+Commands used to build the plast_RRNA.hmm
+
+hmmbuild --dna -n RRNA_23S  --wpb plast_RRNA_23S.hmm  23S.goodali.fst
+hmmbuild --dna -n RRNA_16S  --wpb plast_RRNA_16S.hmm  16S.goodali.fst
+hmmbuild --dna -n RRNA_5S   --wpb plast_RRNA_5S.hmm   5S.goodali.fst
+hmmbuild --dna -n RRNA_4.5S --wpb plast_RRNA_4.5S.hmm 4.5S.goodali.fst
+
+revcomp 23S.goodali.fst  > 23S.goodali.rc.fst
+revcomp 16S.goodali.fst  > 16S.goodali.rc.fst
+revcomp 5S.goodali.fst   > 5S.goodali.rc.fst
+revcomp 4.5S.goodali.fst > 4.5S.goodali.rc.fst
+
+hmmbuild --dna -n RRNA_23S_RC  --wpb plast_RRNA_23S_RC.hmm 23S.goodali.rc.fst
+hmmbuild --dna -n RRNA_16S_RC  --wpb plast_RRNA_16S_RC.hmm 16S.goodali.rc.fst
+hmmbuild --dna -n RRNA_5S_RC   --wpb plast_RRNA_5S_RC.hmm 5S.goodali.rc.fst
+hmmbuild --dna -n RRNA_4.5S_RC --wpb plast_RRNA_4.5S_RC.hmm 4.5S.goodali.rc.fst
+
+cat plast_RRNA_*.hmm > plast_RRNA.hmm

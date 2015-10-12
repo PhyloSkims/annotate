@@ -160,7 +160,10 @@ IR_DATA_DIR="${DATA_DIR}/ir"  				  	# Directory containing data related to the
 												# Inverted repeat strucuture
 								
 TRNA_DATA_DIR="${DATA_DIR}/trna"  				# Directory containing data related to the 
-												# Inverted repeat strucuture
+												# tRNA detection
+								
+RRNA_DATA_DIR="${DATA_DIR}/rrna"  				# Directory containing data related to the 
+												# rRNA dectection
 								
 
 #

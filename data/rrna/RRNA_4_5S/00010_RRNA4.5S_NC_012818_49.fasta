@@ -1,0 +1,20 @@
+>RRNA4.5S_NC_012818_49 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=1.000000; cluster_center=True; 
+taaggtcacggcaagacgagccgtttatcaccacgataggtgccaagtggaggtgcagtaatgtatgcagctgaggcatcctaacagaccgagaggtttgaac
+>RRNA4.5S_NC_022137_50 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.980583; cluster_center=False; 
+taaggtcacggcaagacgagccgtttatcaccacgataggtgccaagtggaggtgcagtgatgcatgcagctgaggcatcctaacagaccgagaggtttgaac
+>RRNA4.5S_NC_014348_51 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.980583; cluster_center=False; 
+taaggtcacggcaagacgagccgtttatcactacgataggtgctaagtggaggtgcagtaatgtatgcagctgaggcatcctaacagaccgagaggtttgaac
+>RRNA4.5S_NC_014592_55 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.970874; cluster_center=False; 
+taaggtcacggcaagacgagccgtttatcgccacaataggtgctaagtggaggtgcagtaatgtatgcagctgaggcatcctaacagaccgagaggtttgaac
+>RRNA4.5S_NC_004766_61 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.961165; cluster_center=False; 
+taaggtcacggcaagacgagccgtttctcactacgataggtgctaagtggaagtgcagtaatgtatgcagctgaggcatcctaacagaccgagaggtttgaac
+>RRNA4.5S_NC_001319_63 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.922330; cluster_center=False; 
+taaggtcacggcaagactagccgtttatttttacgataggtgccaagtggaagtgcagtaatgtatgtagctgaggcatcctaacagaccgagagatttgaac
+>RRNA4.5S_NC_004543_64 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.922330; cluster_center=False; 
+taaggtcacggcaagatgagccgtttatcataacaataggtgccaagtagaagtgcagtaatgtatgcagctgaggcattctaacagaccgagagatttgaac
+>RRNA4.5S_NC_013086_86 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.912621; cluster_center=False; 
+tgaggtcacggcaagatgagccgtttatcataacgataggtgccaggtggaagtgcagtcatgtacgcagctgaggcatcctaacagaccgagagatttgaac
+>RRNA4.5S_NC_006861_88 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.923077; cluster_center=False; 
+aaggtcacggcaagacgagccgtttatcatcacgataggtgccaagtggaaatacagtaatgtatgcagctgaggcatcctaacagaccaagagatttgaacc
+>RRNA4.5S_NC_003386_90 count=1; cluster_weight=10; cluster=RRNA4.5S_NC_012818_49; cluster_score=0.914286; cluster_center=False; 
+aaggtcacggcaagacgagccgtttattatcacgataggtgccaagtggaagtgcagtaatgtacgcagctgaggcatcctaacagaccgatggctttgaacc

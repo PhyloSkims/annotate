@@ -1,0 +1,6 @@
+>RRNA5S_NC_020438_59 count=1; cluster_weight=3; cluster=RRNA5S_NC_020438_59; cluster_score=1.000000; cluster_center=True; 
+cttggtgctctttgctcagttggacccacaccaatccatcccgaacttggttgtgaaaaagctgaggggactgaagaactttacgggtcgccgtctggaatctcagttctagtgccagggt
+>RRNA5S_NC_005353_60 count=1; cluster_weight=3; cluster=RRNA5S_NC_020438_59; cluster_score=0.991736; cluster_center=False; 
+cttggtgctctttgctcagttggacccacaccaatccatcccgaacttggttgtgaaaaagctgaggggactgaagaactttacgggtcgccgtctggaatctcagttctagtgctagggt
+>RRNA5S_NC_021109_61 count=1; cluster_weight=3; cluster=RRNA5S_NC_020438_59; cluster_score=0.991736; cluster_center=False; 
+cttggtgctctttgctcagttggacccacaccaatccatctcgaacttggttgtgaaaaagctgaggggactgaagaactttacgggtcgccgtctggaatctcagttctagtgccagggt

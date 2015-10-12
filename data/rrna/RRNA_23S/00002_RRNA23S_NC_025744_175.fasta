@@ -1,0 +1,4 @@
+>RRNA23S_NC_025744_175 count=1; cluster_weight=2; cluster=RRNA23S_NC_025744_175; cluster_score=1.000000; cluster_center=True; 
+tctcacggagagtttgatcctggctcaggatgaacgctggcggcatgctttacacatgcaagtcggacggggag
+>RRNA23S_NC_025745_176 count=1; cluster_weight=2; cluster=RRNA23S_NC_025744_175; cluster_score=0.986486; cluster_center=False; 
+tctcacggagagtttgatcctggctcaggatgagcgctggcggcatgctttacacatgcaagtcggacggggag

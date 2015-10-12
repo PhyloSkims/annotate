@@ -28,7 +28,7 @@
                                              sub("complement\\(","",LOCUS);  \
                                              sub("\\)","",LOCUS);    \
                                             }                      \
-       /4.5S/ {split(LOCUS,POS,".");         \
+       /4\.5S/ {split(LOCUS,POS,".");         \
                                      FROM=POS[1];                  \
                                      TO=POS[3];                    \
                                      LENGTH=TO-FROM+1              \
@@ -39,7 +39,7 @@
                                            sequence=sequence seq   \
                                           }                        \
        /^\/\// && FROM    \
-                        {print ">"AC"_4.5S Strand="STRAND";",       \
+                        {print ">RRNA4.5S_"AC" Strand="STRAND";",       \
                                "cut="FROM".."TO";",                \
                                "seq_length="LENGTH";";             \
                          SS=substr(sequence,FROM,LENGTH);          \

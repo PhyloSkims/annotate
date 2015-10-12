@@ -49,6 +49,10 @@ pushTmpDir ORG.organnot
 		${PROG_DIR}/detectors/trna/bin/go_trna.sh ${QUERY} >> "${RESULTS}.annot"
 	loginfo "Done."
 	
+	loginfo "Annotating the rRNA genes..."
+		${PROG_DIR}/detectors/rrna/bin/go_rrna.sh ${QUERY} >> "${RESULTS}.annot"
+	loginfo "Done."
+	
 	
 	loginfo "Printing annotations header..."
 		echo "XX"

@@ -39,7 +39,7 @@
                                            sequence=sequence seq   \
                                           }                        \
        /^\/\// && FROM    \
-                        {print ">"AC"_16S Strand="STRAND";",       \
+                        {print ">RRNA16S_"AC" Strand="STRAND";",       \
                                "cut="FROM".."TO";",                \
                                "seq_length="LENGTH";";             \
                          SS=substr(sequence,FROM,LENGTH);          \
