@@ -63,6 +63,7 @@ function SQualifier(qual, val, _local_, s) {
 }
 
 function QQualifier(qual, val) {
+  gsub("\"", "''", val)
   SQualifier(qual, "\"" val "\"")
 }
 
@@ -124,7 +125,7 @@ function QQualifier(qual, val) {
   SQualifier("transl_table", 11)
   QQualifier("gene", gname)
   QQualifier("locus_tag", locus)
-  SQualifier("product", Product)
+  QQualifier("product", Product)
   QQualifier("inference", "similar to DNA sequence:" Simil)
   QQualifier("translation", Translat)
   
