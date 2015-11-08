@@ -7,6 +7,7 @@
 #
 # usage: go_filterbx.sh dna_fasta prot_fasta [idmin nbmin nbmax]
 #
+unsetenv ORG_SOURCED
 
 setenv ORG_HOME `dirname $0`/../../..
 source $ORG_HOME/scripts/csh_init.sh

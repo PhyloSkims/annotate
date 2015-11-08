@@ -44,8 +44,15 @@ if ($?ORG_SOURCED == 0) then
   setenv PROG_DIR `dirname $0`		                 # Directory containing
   setenv PROG_DIR `cd $PROG_DIR && pwd -P`           # the main script file
 
-  setenv LIB_DIR "$PROG_DIR/../lib"                  # Directory containing
-  setenv LIB_DIR `cd $LIB_DIR && pwd -P`             # the main script libraries
+  if (-d "$PROG_DIR/../lib") then
+    setenv LIB_DIR "$PROG_DIR/../lib"                # Directory containing
+    setenv LIB_DIR `cd $LIB_DIR && pwd -P`           # the main script libraries
+  else if (-d "$PROG_DIR/lib") then
+    setenv LIB_DIR "$PROG_DIR/lib"                   # alternate location
+    setenv LIB_DIR `cd $LIB_DIR && pwd -P`           #
+  else
+    setenv LIB_DIR "$PROG_DIR"                       # alternate location
+  endif
 
   setenv CALL_DIR `pwd -P`                           # Directory from where the
                                                      # main script is called
@@ -120,6 +127,17 @@ alias NeedDir 'if (! -d \!:1) eval Error 5 "\!:1 : directory not found"'
 alias Cat 'awk '"'"'{print "# " $0}'"'"' \!:*'
 
 alias AssignUndef 'if ($?\!:1 == 0) set \!:1=\!:2-*'
+
+# --------------------------------------
+# VT100 color codes
+# 1: normal 2: red 3: green 4: blue 5: magenta
+# --------------------------------------
+
+if ($?ORG_NO_COLOR != 0) then
+  set VTC = ('' '' '' '' '')
+else
+  set VTC = ('[m' '[0;31m' '[0;32m' '[1;34m' '[0;35m')
+endif
 
 # --------------------------------------
 # reset Stat each time

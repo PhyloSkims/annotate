@@ -15,6 +15,7 @@
 #========================================================================================
 # usage: go_cds.sh fasta
 #
+unsetenv ORG_SOURCED
 
 setenv ORG_HOME `dirname $0`/../../..
 source $ORG_HOME/scripts/csh_init.sh
@@ -49,7 +50,7 @@ Notify "running pass1: exonerate of $Genome"
 
 foreach f ($fams)
   set prot = `basename $f:r`
-  $LIB_DIR/go_pass1.sh $Fasta $prot $temp
+  $PROG_DIR/go_pass1.sh $Fasta $prot $temp
 end
 
 #

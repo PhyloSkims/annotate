@@ -17,6 +17,7 @@
 #
 # usage: go_pass1.sh fasta family [outdir]
 #
+unsetenv ORG_SOURCED
 
 setenv ORG_HOME `dirname $0`/../../..
 source $ORG_HOME/scripts/csh_init.sh
@@ -100,10 +101,10 @@ endif
 
 if ($PASS1_SPEEDUP != 0) then
 
-  $LIB_DIR/go_filterbx.sh $GenoFile $ProtFile  \
-           $PASS1_BLASTX_FILTER_IDMIN          \
-           $PASS1_BLASTX_FILTER_NBMIN          \
-           $PASS1_BLASTX_FILTER_NBMAX > D_$$
+  $PROG_DIR/go_filterbx.sh $GenoFile $ProtFile  \
+            $PASS1_BLASTX_FILTER_IDMIN          \
+            $PASS1_BLASTX_FILTER_NBMIN          \
+            $PASS1_BLASTX_FILTER_NBMAX > D_$$
 
   set n = `egrep "^>" D_$$ | wc -l`
   if ($n > 0) then
