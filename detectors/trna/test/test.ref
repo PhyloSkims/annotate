@@ -1,0 +1,52 @@
+FT   tRNA            1670..1741
+FT                   /gene="trnV"
+FT                   /anticodon="GAC"
+FT                   /product="tRNA-Val(GAC)"
+FT   tRNA            join(3769..3767,3802..4562)
+FT                   /gene="trnE"
+FT                   /anticodon="UUC"
+FT                   /product="tRNA-Glu(UUC)"
+FT   tRNA            join(4627..4625,4665..5510)
+FT                   /gene="trnA"
+FT                   /anticodon="UGC"
+FT                   /product="tRNA-Ala(UGC)"
+FT   tRNA            9317..9391
+FT                   /gene="trnR"
+FT                   /anticodon="ACG"
+FT                   /product="tRNA-Arg(ACG)"
+FT   tRNA            complement(9972..10045)
+FT                   /gene="trnN"
+FT                   /anticodon="GUU"
+FT                   /product="tRNA-Asn(GUU)"
+FT   tRNA            15583..15662
+FT                   /gene="trnL"
+FT                   /anticodon="UAG"
+FT                   /product="tRNA-Leu(UAG)"
+FT   tRNA            31301..31374
+FT                   /gene="trnN"
+FT                   /anticodon="GUU"
+FT                   /product="tRNA-Asn(GUU)"
+FT   tRNA            complement(31955..32029)
+FT                   /gene="trnR"
+FT                   /anticodon="ACG"
+FT                   /product="tRNA-Arg(ACG)"
+FT   tRNA            complement(join(35836..35834,35874..36719))
+FT                   /gene="trnA"
+FT                   /anticodon="UGC"
+FT                   /product="tRNA-Ala(UGC)"
+FT   tRNA            complement(join(36784..36782,36817..37577))
+FT                   /gene="trnE"
+FT                   /anticodon="UUC"
+FT                   /product="tRNA-Glu(UUC)"
+FT   tRNA            complement(39605..39676)
+FT                   /gene="trnV"
+FT                   /anticodon="GAC"
+FT                   /product="tRNA-Val(GAC)"
+FT   tRNA            45660..45742
+FT                   /gene="trnL"
+FT                   /anticodon="CAA"
+FT                   /product="tRNA-Leu(CAA)"
+FT   tRNA            53278..53352
+FT                   /gene="trnI"
+FT                   /anticodon="CAU"
+FT                   /product="tRNA-Ile(CAU)"

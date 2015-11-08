@@ -1,0 +1,14 @@
+#
+#
+#
+
+o pb compil muscle sous linux CentOS
+
+o nettoyer le makefile de repseek
+
+o revoir les makefile de repseek, muscle et sumatra (target clean)
+
+o CDS speedup à tester
+
+o CDS ajouter tools/dbchloro et tools/compare
+

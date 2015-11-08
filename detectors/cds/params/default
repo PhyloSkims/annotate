@@ -1,0 +1,50 @@
+#
+# CDS Searching parameters
+#
+
+#
+# general parameters 
+# (may be overriden by enviroment variables)
+#
+
+AssignUndef TMP_CLEANUP 1
+
+#
+# pass1: exonerate speedup
+#
+AssignUndef PASS1_SPEEDUP   1
+AssignUndef PASS1_SLOWDOWN  0
+
+AssignUndef PASS1_BLASTX_FILTER_IDMIN 70
+AssignUndef PASS1_BLASTX_FILTER_NBMIN 50
+AssignUndef PASS1_BLASTX_FILTER_NBMAX 200
+
+#
+# pass1: exonerate parameters
+#
+AssignUndef PASS1_PERCENT       30
+AssignUndef PASS1_MIN_INTRON    30
+AssignUndef PASS1_MAX_INTRON    6000
+AssignUndef PASS1_GENETIC_CODE  11
+AssignUndef PASS1_BESTN         10
+AssignUndef PASS1_FRAMESHIFT    -100
+
+# pass1: exonerate use Blosum62 with larger penalty for Stops
+AssignUndef PASS1_SUBMAT $MODELS_DIR/blosum62.mat
+
+# comment next lines to use default or specific splice model
+# AssignUndef SPLICE3MODEL $MODELS_DIR/splice.none.frq
+# AssignUndef SPLICE5MODEL $MODELS_DIR/splice.none.frq
+
+#
+# pass1: cluster selection parameters
+#
+AssignUndef PASS1_MAX_SPAN    10000
+AssignUndef PASS1_ALLOW_STOP  0
+
+#
+# extension parameters
+#
+AssignUndef PASS1_START_WALK  120
+AssignUndef PASS1_STOP_WALK   -1
+

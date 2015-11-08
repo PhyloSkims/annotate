@@ -1,0 +1,347 @@
+FT   gene            15766..16707
+FT                   /gene="ccsA"
+FT                   /locus_tag=""
+FT   CDS             15766..16707
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ccsA"
+FT                   /locus_tag=""
+FT                   /product=cytochrome c biogenesis protein
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp084"
+FT                   /translation="MIFSTLEHILTHISFSIVSIVITIHLITFLVDEIVKLYDSSEKGI
+FT                   IVTFFCITGLLVTRWVSSGHFPLSDLYESLIFLSWSFSLIHIIPYFKKNVLILSKITGP
+FT                   SAILTQGFATSGILTEIHQSGILVPALQSEWLIMHVSMMILGYAALLCGSLLSVALLVI
+FT                   TFRKNRKLFSKSNVFLNESFFLGENVVENTSFFCTKNYYRSQLIQQLDYWSYRVISLGF
+FT                   TFLTIGILSGAVWANEAWGSYWNWDPKETWAFITWIVFAIYLHTRTNRNLRGPNSAIVA
+FT                   SIGFLIIWICYFGVNLLGIGLHSYGSFPSTFN"
+FT   gene            complement(21114..>21653)
+FT                   /gene="ndhA_1"
+FT                   /locus_tag=""
+FT   CDS             complement(21114..>21653)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhA_1"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 1
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp085"
+FT                   /translation="LSNSLSTVDIVEAQSKYGFWGWNLWRQPIGFIVFLISSLAECERL
+FT                   PFDLPEAEEELVAGYQTEYSGIKFGLFYIASYLNLLVSSLFVTVLYLGGWNLSIPYIFV
+FT                   PDIFGINKGGKVFGTLIGIFITLAKTYLFLFIPIATRWTLPRLRMDQLLNLGWKFLLPI
+FT                   SLGNLLLTTSSQLLSL"
+FT   gene            complement(22772..23338)
+FT                   /gene="ndhA_2"
+FT                   /locus_tag=""
+FT   CDS             complement(22772..23338)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhA_2"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 1
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp085"
+FT                   /translation="MIIDTTEIETINSFSKLESLKEVYGIIWMLVPIVTLVLGITIGVL
+FT                   VIVWLEREISAGIQQRIGPEYAGPLGILQALADGTKLLLKENLIPSTGDTRLFSIGPSI
+FT                   AVISIFLSYSVIPFGDHLVLADLSIGVFFWIAISSIAPVGLLMSGYGSNNKYSFLGGLR
+FT                   AAAQSISYEIPLALCVLSISLRVIR"
+FT   gene            42910..45121
+FT                   /gene="ndhB"
+FT                   /locus_tag=""
+FT   CDS             join(42910..43780,44367..45121)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhB"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 2
+FT                   /inference="similar to DNA sequence:NC_008535:CoarCp067"
+FT                   /translation="MIWHVQNENFILDSTRIFMKAFHLLLFDGSLIFPECILIFGLILL
+FT                   LMIDSTSDQKDIPWLYFISSTSLVMSITALLFRWREEPMISFSGNFQTNNFNEIFQFLI
+FT                   LLCSTLCIPLSVEYIECTEMAITEFLLFVLTATLGGMFLCGANDLITIFVAPECFSLCS
+FT                   YLLSGYTKKDVRSNEATMKYLLMGGASSSILVHGFSWLYGSSGGEIELQEIVNGLINTQ
+FT                   MYNSPGISIALIFITVGIGFKLSPAPSHQWTPDVYEGVRFVREIPTSLSISEMFGFFKT
+FT                   PWTCRREMLSPTPVVAFLSVTSKVAASASATRIFNIPFYFSSNEWHLLLEILAILSMIL
+FT                   GNLIAITQTSMKRMLAYSSIGQIGYVIIGIIVGDSNDGYASMITYMLFYISMNLGTFAC
+FT                   IVLFGLRTGTDNIRDYAGLYTKDPFLALSLALCLLSLGGLPPLAGFFGKLYLFWCGWQA
+FT                   GLYFLVLIGLLTSVVSIYYYLKIIKLLMTGRNQEITPHVRNYRRSPLRSNNSIELSMIV
+FT                   CVIASTIPGISMNPIIAIAQDSLF"
+FT   exon            42910..43780
+FT                   /gene="ndhB"
+FT                   /locus_tag=""
+FT                   /number=1
+FT   exon            44367..45121
+FT                   /gene="ndhB"
+FT                   /locus_tag=""
+FT                   /number=2
+FT   gene            complement(16945..18447)
+FT                   /gene="ndhD"
+FT                   /locus_tag=""
+FT   CDS             complement(16945..18447)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhD"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 4
+FT                   /inference="similar to DNA sequence:NC_007898:LyesC2p017"
+FT                   /translation="MNYFPWLTIIVVFPIFAGSLIFFLPHKGNRVIRWYTICICILELL
+FT                   LTTYAFCYHFQSDDPLIQLVEDYKWIDFFDFHWRLGIDGLSIGPILLTGFITTLATLAA
+FT                   WPVTRDSRLFHFLMLAMYSGQIGLFSSRDLLLFFIMWELELIPVYLLLAMWGGKKRLYS
+FT                   ATKFILYTAGGSVFLLMGVLGVALYGSNEPTLNFETSVNQSYPVVLEIIFYIGFFIAFA
+FT                   VKSPIIPLHTWLPDTHGEAHYSTCMLLAGILLKMGAYGLIRINMELLPHAHSIFSPWLM
+FT                   IIGTIQIIYAASTSLGQRNLKKRIAYSSVSHMGFIIIGISSLTDTGLNGALLQIISHGF
+FT                   IGAALFFLAGTTYDRIRLVYLDEMGGIAIPMPKMFTMFSSFSMASLALPGMSGFVAELI
+FT                   VFFGIITGQKYLLMPKLLITFVMAIGIILTPIYSLSMPRQMFYGYKLFNAPKDSFFDSG
+FT                   PRELFLSISIFLPVIGIGIYPDFVLSLAVDKVEVILSNFFYR"
+FT   gene            complement(19062..19367)
+FT                   /gene="ndhE"
+FT                   /locus_tag=""
+FT   CDS             complement(19062..19367)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhE"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 4L
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp080"
+FT                   /translation="MILEHVLVLSAYLFSIGIYGLITSRNMVRALMCLELILNAVNINF
+FT                   VTFSDFFDNRQLKGDIFSIFVIAIAAAEAAIGLAIVSSIYRNRKSTRINQSNLLNN"
+FT   gene            complement(11509..13722)
+FT                   /gene="ndhF"
+FT                   /locus_tag=""
+FT   CDS             complement(11509..13722)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhF"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 5
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp073"
+FT                   /translation="MEQTYEYAWIIPFIPLPVPMLIGAGLILFPTATKRFRRMWAFQSV
+FT                   LLLSIVMIFSIYLSIQQINSSSVYQYVWSWIINNDFSLDFGYLIDPLTSIMSILITTVG
+FT                   IMVLIYSDNYMAHDQGYLRFFAYMSFFSTSMLGLVTSSNLIQIYIFWELVGLCSYLLIG
+FT                   FWFTRPVAANACQKAFVTNRVGDFGLLLGILGFYWITGSFEFRDLFEIFNNLIYNNELN
+FT                   FLFVTLCAVLLFAGAVAKSAQFPLHVWLPDAMEGPTPISALIHAATMVAAGIFLVARLL
+FT                   PLFRVIPYIMYLISVIGIITVLLGATLALAQKDIKRGLAYSTMSQLGYMMLALGMGSYR
+FT                   SALFHLITHAYSKALLFLGSGSIIHSMETIVGYSPAKSQNMGLMGGLRKHVPITKITFL
+FT                   LGTLSLCGIPPLACFWSKDEILNDSWLYSPIFAIIAWATAGLTAFYMFRIYLLTFEGHL
+FT                   NAHFQNYGGKQKIPFYSISLWGKNGVKKNSCLLTMNNNESTYFLSKTKYPIAKNGRKMT
+FT                   RPFMTIAHFKHKAVSSYPYESDNTMLFPIFVLGLFTLFVGAIGIPFNQEGVNLDILSKW
+FT                   LAPSINLLHPKSNNSLDWNEFLKDAVVSVSIAYFGIFIASFLYKPIYSSLKNLEFINSF
+FT                   VKKGPKRILWDKILNGIYDWSYNRAYIDAFYTRFFVGGIRGLAEFTHFVDRRVIDGMTN
+FT                   GVGVISFIVGEGIKYIGGGRISSYLFLYLAYVSVFLLVYYLLF"
+FT   gene            complement(19591..20121)
+FT                   /gene="ndhG"
+FT                   /locus_tag=""
+FT   CDS             complement(19591..20121)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhG"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 6
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp077"
+FT                   /translation="MDLSEPIHDFLLVFLGSGLILGGLGVVLLPNPIYSAFSLGLVLVC
+FT                   TSLFYILSNAYFVAAAQLLIYVGAINVLIIFAVMFMNGSEYYKDFHLWTVGDGITSMVC
+FT                   ISLFISLITTISDTSWYGIIWTTRSNQIIEQDFLSNSQQIGIHLSTDFFLPFELISIIL
+FT                   LVALIGAIAVARQ"
+FT   gene            complement(23340..24521)
+FT                   /gene="ndhH"
+FT                   /locus_tag=""
+FT   CDS             complement(23340..24521)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhH"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit 7
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp078"
+FT                   /translation="MTAPTTRKDLMIVNMGPQHPSMHGVLRLIVTLDGEDVVDCEPILG
+FT                   YLHRGMEKIAENRTIIQYLPYVTRWDYLATMFTEAITINGPEQLGNIQVPKRASYIRVI
+FT                   MLELSRIASHLLWLGPFMADIGAQTPFFYIFRERELIYDLFEAATGMRMMHNYFRIGGV
+FT                   AADLPYGWIDKCLDFCDYFLTGVAEYQKLITRNPIFLERVEGVGIIGRDEALNWGLSGP
+FT                   MLRASGIEWDLRKVDHYESYDEFDWQVQWQREGDSLARYLVRIGEMTESIKIIQQALEG
+FT                   IPGGPYENLEMRRFDRLKDPEWNDFEYRFISKKPSPTFELSKQELYVRVEAPKGELGIF
+FT                   LIGDQSVFPWRWKIRPPGFINLQILPQLVKRMKLADIMTILGSIDIIMGEVDR"
+FT   gene            complement(20526..21029)
+FT                   /gene="ndhI"
+FT                   /locus_tag=""
+FT   CDS             complement(20526..21029)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ndhI"
+FT                   /locus_tag=""
+FT                   /product=NADH dehydrogenase subunit I
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp076"
+FT                   /translation="MLPMITEFINYGQQTIRAARYIGQGFMITLSHANRLPVTIQYPYE
+FT                   KLITSERFRGRIHFEFDKCIACEVCVRVCPIDLPVVDWKLETDIRKKRLLNYSIDFGIC
+FT                   IFCGNCVEYCPTNCLSMTEEYELSTYDRHELNYNQIALGRLPMSVIDDYTIRTISNLPQ
+FT                   INNE"
+FT   gene            complement(18565..18810)
+FT                   /gene="psaC"
+FT                   /locus_tag=""
+FT   CDS             complement(18565..18810)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="psaC"
+FT                   /locus_tag=""
+FT                   /product=photosystem I subunit VII
+FT                   /inference="similar to DNA sequence:NC_022409:CEXI_CP_p076"
+FT                   /translation="MSHSVKIYDTCIGCTQCVRACPTDVLEMIPWDGCKAKQIASAPRT
+FT                   EDCVGCKRCESACPTDFLSVRVYLWHETTRSMGLAY"
+FT   gene            53817..55307
+FT                   /gene="rpl2"
+FT                   /locus_tag=""
+FT   CDS             join(53817..54201,54868..55307)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="rpl2"
+FT                   /locus_tag=""
+FT                   /product=ribosomal protein L2
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp030"
+FT                   /translation="MAIHLYKTSTPSTRNGTVDSQVKSNPRNNLIYGQRRCGKGRNARG
+FT                   IITARHRGGGHKRLYRKIDFRRNEKDIYGRIVTIEYDPNRNAYICLIHYGDGEKRYILH
+FT                   PRGAIIGDTIVSGTEVPIKMGNALPSTDMPLGTAIHNIEITLGKGGQLARAAGAVAKLI
+FT                   AKEGKSATLKLPSGEVRLISKNCSATVGQVGNVGVNQKSLGRAGSKRWLGKRPVVRGVV
+FT                   MNPVDHPHGGGEGRAPIGRKKPTTPWGYPALGRRSRKRNKYSDNLILRRRSK"
+FT   exon            53817..54201
+FT                   /gene="rpl2"
+FT                   /locus_tag=""
+FT                   /number=1
+FT   exon            54868..55307
+FT                   /gene="rpl2"
+FT                   /locus_tag=""
+FT                   /number=2
+FT   gene            53517..53798
+FT                   /gene="rpl23"
+FT                   /locus_tag=""
+FT   CDS             53517..53798
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="rpl23"
+FT                   /locus_tag=""
+FT                   /product=ribosomal protein L23
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp026"
+FT                   /translation="MDGIKYAVFTDKSIRLLGKNQYTSNVESGSTRTEIKHWVELFFGV
+FT                   KVIAMNSHRLPGKSRRMGPIMGHTMHYRRMIITLQPGYSIPPLRKKRT"
+FT   gene            14505..14672
+FT                   /gene="rpl32"
+FT                   /locus_tag=""
+FT   CDS             14505..14672
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="rpl32"
+FT                   /locus_tag=""
+FT                   /product=ribosomal protein L32
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp036"
+FT                   /translation="MAVPKKRTSTSKKRIRKNIWKRKGYWVALKAFSLAKSLSTGNSKS
+FT                   FFVRQTKINK"
+FT   gene            complement(24633..24896)
+FT                   /gene="rps15"
+FT                   /locus_tag=""
+FT   CDS             complement(24633..24896)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="rps15"
+FT                   /locus_tag=""
+FT                   /product=ribosomal protein S15
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp029"
+FT                   /translation="MVKNSVISVISQEEKKGSVEFQVFNFTNKIRRLTSHLELHKKDYL
+FT                   SQRGLKKILGKRQRLLAYLAKKNRVRYKELINRLDIRETKTR"
+FT   gene            42157..42624
+FT                   /gene="rps7"
+FT                   /locus_tag=""
+FT   CDS             42157..42624
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="rps7"
+FT                   /locus_tag=""
+FT                   /product=ribosomal protein S7
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp008"
+FT                   /translation="MSRRGTAEKKTAKSDPIYRNRLVNMLVNRILKHGKKSLAYQIIYR
+FT                   AVKKIQQKTETNPLSVLRQAIRGVTPDITVKARRVGGSTHQVPIEIGSTQGKALAIRWL
+FT                   LAASRKRPGRNMAFKLSSELVDAAKGSGDAIRKKEETHRMAEANRAFAHFR"
+FT   gene            complement(25298..30973)
+FT                   /gene="ycf1"
+FT                   /locus_tag=""
+FT   CDS             complement(25298..30973)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ycf1"
+FT                   /locus_tag=""
+FT                   /product=hypothetical chloroplast RF1
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp019"
+FT                   /translation="MIFQSFLLGNLVSLCMKIINSVVVVGLYYGFLTTFSIGPSYLFLL
+FT                   RALVMEEGTEKKVSATTGFITGQLMMFISIYYAPLHLALGRPHTITVLALPYLLFHFFW
+FT                   NNHKHFFDYGSTTRNSMRNLSIQCVFLNNLIFQLFNHFILPSSMLARLVNIYLFRCNNK
+FT                   ILFVTSGFVGWLIGHILFMKWLGLVLVWIRQNHSIRSNKYIRSNKYLVLELRNSMARIF
+FT                   SILLFITCVYYLGRIPSPILTKKLKEASKTEERVESEEERDVEIETASEMKGTKQEQEG
+FT                   STEEDPYPSPSLFSEEGWDPDKIDETEEIRVNGKDKIKDKFHSHLTETGYNNINTSNSP
+FT                   IYDYQDSYLNNNNTGNLENCKLQLLDKKNENQEQDLFWFQKPLVSLLFDYNRWNRPFRY
+FT                   IKNNRFEQAVRTEMSQYFFDTCKSDGKQKISFTYPPSLSTFWKMIKRKIPLLSLQKTLP
+FT                   NELDTQWVSTNKEKSNNLNKEFLNRLEILDKESLSLDILETRTRFCNDDTKKEYVPKMY
+FT                   DPLLNGLYRGTIKKGVSSSIINNTLLENWEKRVRLNRIHTIFLPNIDYQEFEQKAYTID
+FT                   KKPLSTEIDEFLTLINELGNEAKSSLNLKGLSLFSDQEQRRANSEKRTKFVKFVFNALD
+FT                   PNETKSGKKSIGIKEISKKVPRWSHKLITELDQQMGEFKDRASMDHQLRSRKAKRVVIF
+FT                   TDNKATKDAEEEVALISYSQQSDFRRGIITGSMRAQRRKTFISKLFQANVHSPLFVDRI
+FT                   TPLRLFSFDISELIKPILKNWTDKEGEFKILESREEQTKREEKKEKDKKEDNKRKEQAR
+FT                   IAIEEAWDTIPLAQIIRGYMLITQSILRKYILLPALIIAKNIGRMLFLQLPEWSEDLQE
+FT                   WNREMQIKCTYNGVQLSETEFPKNWLRDGIQIKILFPFCLKPWHISKLYPSRRELMKKQ
+FT                   KQKDDFCFLTVWGMEAELPFGSPRKRPSFFEPIFKELEKKIGKFKKKYFLTLKILKGKT
+FT                   KLFRKVSKETTKLFIKSIGFLKKIKKELSKVNLIVLFRFKEISESNETKKEKDYLISNQ
+FT                   IINESFRQIESGNWPNSSLIETKMKDLTNRTSTIKNKIERITKEKKKVTPEIDINPNKT
+FT                   NNIKKFESPKKIFQILKSRNTRVIWKFHYFLKLFIQRLYINLFLSIINIPRITTQLFLK
+FT                   STNKLIEKFISNNEINQEKINNKKKIHFMFISTIKKSLYNISKKNSHILCDLSYLSQAY
+FT                   VFYKLSQTQVINFSKFRSVLQYNTTSCFLKTKIKDYFKTLGIFHSELKHKKLQSYRINQ
+FT                   WKNWLRWHYQYDLSQIRWSRLMPKKWRTRVNQSCMAQNKNRNLNKWNSYEKDQLLHYKK
+FT                   ENDSELYSLSNEKDNFKKCYGYGLLAYKSINYENKSDSFFSRLPFEVQVKKNLEISYNS
+FT                   NTSKHNFVDMPGNLHINNYLRKGNILDRERNLDRKYFDWKIIHFSLRQKGDIEAWVKID
+FT                   TNSNPNTKIGINNYQIIDKIEKKGVFYLTTHQNPEKTQKNSKKFFFDWMGMNEKIFNRP
+FT                   ILNLEFWFFPEFVLLYNVYKIKPWIIPSKFLLFNLNTNKNVSQNKNQNFFLPSNKKIKI
+FT                   KNRSQEAKEPPSQRERGSDIENKGNLSPVFSKHQTDLEKDYVESDTKKGKNKKQYKSNT
+FT                   EAELDLFLKRYLLFQLRWNGALNQRMFENIKVYCLLLRLINPTKITISSIQRREMSLDI
+FT                   MLIQANLPLTDLMKKGVLIIEPIRLSVKDNGQFIMYQTIGISLIHKSKHQTNQRYREQR
+FT                   YVDKKNFDEFILQPQTQRINTEKTHFGLLVPENILWSRRRRELRIRSFFNSWNWNVVDR
+FT                   NSVFCNETNVKNWSQFLGERKPLYKDKNELIKFKFFFWPNYRLEDLACMNRYWFDTNNG
+FT                   SRFSILRIHMYPRLKIN"
+FT   gene            complement(46313..53149)
+FT                   /gene="ycf2"
+FT                   /locus_tag=""
+FT   CDS             complement(46313..53149)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="ycf2"
+FT                   /locus_tag=""
+FT                   /product=Ycf2
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp004"
+FT                   /translation="MRGHQFKSWIFELREILREIKNSHHFLDSWTQFNSVGSFIHIFFH
+FT                   QERFLKLFDPRIWSILLSRNSQGSPSNRYFTIKGVILFVVAVLIYRINNRNMVERKNLY
+FT                   LIGLLPIPMNSIGPRNDTLEESVGSSNINRLIVSLLYLPKGKKISESCFLNPKESTWVL
+FT                   PITKKCSMPESNWGSRWWRNWIGKKRDSSCKISNETVAGIEILFKEKDLKYLEFLFVYY
+FT                   MDDPIRKDHDWELFDRLSLRKSRNRINLNSGPLFEILVKHWISYLMSAFREKIPIEVEG
+FT                   FFKQQGAGSTIQSNDIEHVSHLFSRNKWAISLQNCAQFHMWQFRQDLFVSWGKNPPESD
+FT                   FLRNVSRENWIWLDNVWLVNKDRFFSKVQNVSSNIQYDSTRSSFVQVTDSSQLKGSSDQ
+FT                   SRDHLDSISNEDSEYHTLINQREIQQRKERSILWDPSFLQTERKEIESGRFPKCLSGYS
+FT                   SMSRLFTEREKQMINHLFPEEIEEFLGNPTRSVRSFFSDRWSELHLGSNPTERSTRDQK
+FT                   LLKKQQDLSFVPSRRSEKKEMVNIFKIITYLQNTVSIHPISSDPGCDMVPKDEPDMDSS
+FT                   NKISFLNKNPFFDLFHLFHDRNRGGYTLHYDFASEERFQEMADLFTLSITEPDLVYHKG
+FT                   FAFSIDSCGLDQKQFLNEARDESKKKSLLVLPPIFYEENESFSRRIRKKWVRISCGNDL
+FT                   EDPKPKIVVFASNNIMEAVTQYRLIRNLIQIQYSTYGYIRNVLNRFFLMNRSDRNFEYG
+FT                   IQRDQIGKDTLNHRTIMKYTINQYLSNLKKSQKKWFEPLILISRTERSMNRDPDAYRYK
+FT                   WSNGSKSFQEHLEQSVSKQKSRFQVVFDRLRINQYSIDWSEVIDKKDLSKSLRFFLSKS
+FT                   LLFLSKLLLFLSNSLPFFCVSFGNIPIHRSEIYIYEELKGPNDQLCNQLLESIGLQIVH
+FT                   LKKLKPFLLDDHDTSQKSKFLINGGTISPFLFNKIPKWMIDSFHTRNNRRKSFDNPDSY
+FT                   FSMIFHDQDNWLNPVKPFHRSSLISSFYKANRLRFLNNPHHFCFYWNTRFPFSVEKARI
+FT                   NNSDFTYGQFLNILFIRNKIFSLCVGKKKHAFWGRDTISPIESQVSNIFIPNDFPQSGD
+FT                   ETYNLYKSFHFPSRSDPFVRRAIYSIADISGTPLTEGQIVNFERTYCQPLSDMNLSDSE
+FT                   GKNLHQYLNFNSNMGLIHTPCSEKDLSSEKRKKWSLCLKKCVEKGQTYRTFQRDSAFST
+FT                   LSKWNLFQTYMPWFLTSTGYKYLNLIFLDTFSDLLPILSSSQKFVSIFPDIMHGSGISW
+FT                   RILQKKLCLPQWNLISEISSKCLHNLLLSEEMIHRNNESPLISTHLRSPNAREFLYSIL
+FT                   FLLLVAGYLVRTHLLFVSRASSELQTEFERVKSLMTPSSMIELRKLLDRYPTSEPNSFW
+FT                   LKNLFLVALEQLGDSLEEIRGSASGGNMLGPAYGVKSIRSKKKDWNINLIEIIDLIPNP
+FT                   INRITFSRNTRHLSHTSKEIYSLIRKRKNVNGDWIDEKIESWVANSDSIDDEEREFLVQ
+FT                   FSTLTTENRIDQILLSLTHSDHLSKNDSGYQMIEQPGAIYLRYLVDIHKKHLMNYEFNP
+FT                   SCLAERRIFLAHYQTITYSQTSCGENSFHFPSHGKPFSLRLALSPSRGILVIGSIGTGR
+FT                   SYLVKYLATNSYVPFITVFLNKFLDNKSKGFLLDEIDIDDSDDIDDSDNLDASDDIDRD
+FT                   LDTELELLTRMNGLTVDMMPEIDRFYITLQFELAKAMSPCIIWIPNIHDLDVNESNDLS
+FT                   LGLLVNHLSRDCERCSTRNILVIASTHIPQKVDPALIAPNKLNTCIKIRRLLIPQQRKH
+FT                   FFTLSYTRGFHLEKKMFHTNGFGSITMGSNARDLVALTNEVLSISITQKKSIIDTNTIR
+FT                   SALHRQTWDLRSQVRSVQDHGILFYQIGRAVAQNVLLSNCPIDPISIYMKKKSCNEGDS
+FT                   YLYKWYFELGTSMKRLTILLYLLSCSAGSVAQDLWSLSVPDEKNGITSYGLVENDSDLV
+FT                   HGLLEVEGALVGSSRTEKDCSQFDNDRVTLLLRPEPRNPLDMMQKGSWSILDQRFLYEK
+FT                   YESEFEEGEGEGALDPQEDLFNHIVWAPRIWRPWGFLFDCIERPNELGFPYWSRSFRGK
+FT                   RIIYDEEDELQENDSGFLQSGTMQYQTRDRSQGLFRISQFIWDPADPLFFLFKDQPPGS
+FT                   VFSHRELFADEEMSKGLLTSQTDPPTSLYKRWFIKNTQEKHFELLINRQRWLRTNSSLS
+FT                   NGSFRSNTLSESYQYLSNLFLSNGTLLDQMPKTLLRKRWLFPDEMKIGFM"

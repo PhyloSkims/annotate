@@ -1,0 +1,10 @@
+FT   misc_feature    1..85882
+FT                   /note="large single copy region (LSC)"
+FT   repeat_region   85883..111490
+FT                   /rpt_type=INVERTED
+FT                   /note="left inverted repeat B; IRB"
+FT   misc_feature    111491..129853
+FT                   /note="small single copy region (SSC)"
+FT   repeat_region   129854..155461
+FT                   /rpt_type=INVERTED
+FT                   /note="left inverted repeat A; IRA"

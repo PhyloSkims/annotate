@@ -1,0 +1,24 @@
+FT   rRNA            1969..3468
+FT                   /gene="rrn16S"
+FT                   /product="16S ribosomal RNA"
+FT   rRNA            complement(37878..39377)
+FT                   /gene="rrn16S"
+FT                   /product="16S ribosomal RNA"
+FT   rRNA            5664..8473
+FT                   /gene="rrn23S"
+FT                   /product="23S ribosomal RNA"
+FT   rRNA            complement(32873..35682)
+FT                   /gene="rrn23S"
+FT                   /product="23S ribosomal RNA"
+FT   rRNA            8575..8677
+FT                   /gene="rrn4.5S"
+FT                   /product="4.5S ribosomal RNA"
+FT   rRNA            complement(32669..32771)
+FT                   /gene="rrn4.5S"
+FT                   /product="4.5S ribosomal RNA"
+FT   rRNA            8934..9054
+FT                   /gene="rrn5S"
+FT                   /product="5S ribosomal RNA"
+FT   rRNA            complement(32292..32412)
+FT                   /gene="rrn5S"
+FT                   /product="5S ribosomal RNA"
