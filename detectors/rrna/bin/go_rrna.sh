@@ -33,13 +33,13 @@ pushTmpDir ORG.rrna
 	RRNA=$(basename ${QUERY})
 	
 	hmmsearch --max ${RRNADB} ${QUERY} | \
-		awk '/Query: / { \
+		$AwkCmd '/Query: / { \
 		                profil=$2; \
 		                match($3,"[0-9][0-9]*");\
 		                lprof=substr($3,RSTART,RLENGTH)} \
 		     / [0-9][0-9]* ! / { \
 		                print profil,lprof,$7,$8,$10,$11}' | \
-		awk '($3 <=5) && (($2-$4) <=5) { \
+		$AwkCmd '($3 <=5) && (($2-$4) <=5) { \
 		                full=1;$5=$5-$3+1;$6=$6+($2-$4)}  
 		               {loc=$5".."$6} \
 		     ($1 ~ /_RC$/) { \

@@ -43,7 +43,7 @@ pushTmpDir  ORG.coorienteSC
 	
 	loginfo "Running Blast..."
 		blastn -db "${BLASTDB}" -query "${DATA}" -outfmt 6 | \
-	 	awk ' \
+	 	$AwkCmd ' \
 	 	      ($4 > 1000) && ($3 > 70) \
 	 	      ($1==QUERY) && \
 	 	      ($2==SUBJECT) && \
@@ -65,7 +65,7 @@ pushTmpDir  ORG.coorienteSC
 	 	                                         LDIFF= ($3/100.*$4) }} \
 	 	                                     } \
 	          END {print QUERY,SUBJECT,LSAME,LDIFF,(LSAME>LDIFF)}' | \
-     	awk -v minlength="${MINLENGTH}" \
+     	$AwkCmd -v minlength="${MINLENGTH}" \
      		  ' (($3>minlength) || \
        			($4 > minlength)) && \
        			($3/($4+1) > 2) && \
@@ -75,7 +75,7 @@ pushTmpDir  ORG.coorienteSC
                              {print $1,$2,$5}}' | \
         sort | \
         uniq -c | \
-        awk '($1==2) {print $2,$3,$4}'
+        $AwkCmd '($1==2) {print $2,$3,$4}'
 	loginfo "Done"
 	          
 popTmpDir

@@ -15,11 +15,11 @@ function taxid {
 }
 
 function ac {
-	head -1 $1 | awk '{print $2}'
+	head -1 $1 | $AwkCmd '{print $2}'
 }
 
 function definition {
-	awk '/^DEFINITION/      {on=1}                         \
+	$AwkCmd '/^DEFINITION/      {on=1}                         \
 	     (on==1)            {printf("%s ",$0)}             \
 	     (/\.$/ && (on==1)) {on=0;print ""}' $1 |          \
 	sed 's/^DEFINITION *//' | \
@@ -33,7 +33,7 @@ function gb2fasta {
 
     echo ">${AC} taxid=${TAXID}; ${DEFINITION}"
     
-    awk '/^\/\//    {on=0}                                             \
+    $AwkCmd '/^\/\//    {on=0}                                             \
          (on==1)    {print $0}                                         \
          /^ORIGIN / {on=1}' $1 |                                       \
     sed -E 's/^ *[0-9]+ +//'   |                                       \
@@ -46,11 +46,11 @@ function findCAUtrna {
 
 	gb2fasta $1 > ${FASTATMP}
 	aragorn -i -w -seq ${FASTATMP} |                               \
-	awk '(on==1) && /^ *[0-9]+/ {on=0;print ""}                       \
+	$AwkCmd '(on==1) && /^ *[0-9]+/ {on=0;print ""}                       \
 	     (on==1)                {printf($0)}                          \
 	     /\(cat\)$/             {on=1; printf("%s ",$0)}              \
 	     END {print ""}' | \
-	awk '{print $3,$6}'  | \
+	$AwkCmd '{print $3,$6}'  | \
 	sed -E 's/c?\[([0-9]+),([0-9]+)\]/\1 \2/' | \
 	sed 's/ /:/g'
 	
@@ -58,10 +58,10 @@ function findCAUtrna {
 }
 
 function trnaAnnotations {
-    awk '/^ORIGIN/    {on=0} \
+    $AwkCmd '/^ORIGIN/    {on=0} \
          (on==1)      {print $0} \
          /^FEATURE/   {on=1}' $1 | \
-    awk '/^     [^ ]/ {print ""} \
+    $AwkCmd '/^     [^ ]/ {print ""} \
                       {printf("%s ",$0)} \
          END          {print ""}' | \
     sed 's/^ *//' | \
@@ -76,17 +76,17 @@ function trnaAnnotations {
     sed -E 's/join\(([0-9]+ [0-9]+)\)/\1/' | \
     sed 's/^tRNA *//' |  \
     sed -E 's@([0-9]+) +([0-9]+).*/gene="([^"]+)"@\1 \2 \3@' | \
-    awk '{print $1,$2,$3}' 
+    $AwkCmd '{print $1,$2,$3}' 
 }
 
 function annotateCAU {
     DISTTMP="$$.trna.dist"
 	trna=(`echo $1 | sed 's/:/ /g'`) 
-	awk -v b=${trna[0]} -v e=${trna[1]} \
+	$AwkCmd -v b=${trna[0]} -v e=${trna[1]} \
 	    '{printf("sqrt((%d - %d)^2 + (%d - %d)^2)\n",$1,b,$2,e)}' $2 | \
 	bc -l | \
 	sed 's/\..*$//' > ${DISTTMP}
-	paste ${DISTTMP} $2 | sort -nk 1 | head -1 | awk '{print $1,$4}'
+	paste ${DISTTMP} $2 | sort -nk 1 | head -1 | $AwkCmd '{print $1,$4}'
 	rm -f ${DISTTMP}
 }
 
@@ -98,7 +98,7 @@ function writeTRNA {
 	TRNATMP="$$.trna.txt"
 
 	trnaAnnotations $1 > ${TRNATMP}
-	ntrna=`wc -l ${TRNATMP} | awk '{print $1}'`
+	ntrna=`wc -l ${TRNATMP} | $AwkCmd '{print $1}'`
 
 	if (( ntrna > 0 )); then 
 		trnacau=`findCAUtrna $1`
@@ -110,7 +110,7 @@ function writeTRNA {
 		
 			if (( distance <= 10 )); then
 				echo ">${aa}_${AC} gbac=${AC}; trna=${aa}; taxid=${TAXID}; distance=${distance}; ${DEFINITION}"
-				echo "$t" | awk -F ':' '{print $3}' 
+				echo "$t" | $AwkCmd -F ':' '{print $3}' 
 			fi
 		done
 	fi

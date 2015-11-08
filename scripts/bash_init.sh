@@ -3,6 +3,8 @@
 # for setting up basic variables and functions
 #
 
+export AwkCmd="gawk"
+
 ########################
 #
 # General usage functions
@@ -25,8 +27,8 @@ function pushTmpDir {
 }
 
 function popTmpDir {
-	TMP_DIR=$(echo $TMP_DIR_STACK | awk '{print $1}')
-	TMP_DIR_STACK=$(echo $TMP_DIR_STACK | awk '{$1="";print $0}')
+	TMP_DIR=$(echo $TMP_DIR_STACK | $AwkCmd '{print $1}')
+	TMP_DIR_STACK=$(echo $TMP_DIR_STACK | $AwkCmd '{$1="";print $0}')
 	popd  >& /dev/null
 	rm -rf $TMP_DIR >& /dev/null
 	logdebug "Poping temp directory $TMP_DIR"
@@ -91,7 +93,7 @@ function fastaCount {
 function seqlength {
   cat $1 | \
   wc |\
-  awk -v t="`head -1 $1 | wc -c`" '{print $3 - t - $1 + 1}'
+  $AwkCmd -v t="`head -1 $1 | wc -c`" '{print $3 - t - $1 + 1}'
 }
 
 # extract a subseq from a fasta sequence
@@ -99,7 +101,7 @@ function seqlength {
 #   - $2 : First position of the subsequence (first position is numered 1), 
 #   - $3 : End of the subsequence (included in the subsequence)
 function cutseq {
-	awk -v from=$2 -v end=$3 'function printfasta(seq) {            \
+	$AwkCmd -v from=$2 -v end=$3 'function printfasta(seq) {            \
 									seqlen=length(seq);             \
 									for (i=1; i <= seqlen; i+=60)    \
 									   print substr(seq,i,60);      \
@@ -114,13 +116,13 @@ function cutseq {
 # a single sequence
 # 	- $1 : The fasta file containing the sequences to join
 function joinfasta {
-	awk '(NR==1 && /^>/) {print $0}                                 \
+	$AwkCmd '(NR==1 && /^>/) {print $0}                                 \
 	     ! /^>/          {print $0}' $1 |                           \
 		 formatfasta
 }
 
 function formatfasta {
-	awk  'function printfasta(seq) {                                \
+	$AwkCmd  'function printfasta(seq) {                                \
 									seqlen=length(seq);             \
 									for (i=1; i <= seqlen; i+=60)   \
 									   print substr(seq,i,60);      \

@@ -33,7 +33,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Building LSC coorientation graph..."
 		${PROG_DIR}/coorienteSC.sh LSC.fasta 20000 ${ORG_LOGFILE} > LSC.tgf
 		${PROG_DIR}/cc.py LSC.tgf > LSC.cc
-		loginfo " --> $(awk '{print $1}' LSC.cc | uniq | wc -l) connected componants"
+		loginfo " --> $($AwkCmd '{print $1}' LSC.cc | uniq | wc -l) connected componants"
 	loginfo "Done"
 
 
@@ -46,7 +46,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Extracting main connected components for LCS..."
 		rm -f LSC.direct.fasta
 		touch LSC.direct.fasta
-		for id in `awk '($1==0) {print $2}' LSC.cc`; do
+		for id in `$AwkCmd '($1==0) {print $2}' LSC.cc`; do
 			fastafetch -f LSC.fasta -i LSC.index -q "${id}" >> LSC.direct.fasta
 		done
 		loginfo " --> $(fastaCount LSC.direct.fasta) sequences"
@@ -57,7 +57,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Extracting second connected components for LCS..."
 		rm -f LSC.reverse.fasta
 		touch LSC.reverse.fasta
-		for id in `awk '($1==1) {print $2}' LSC.cc`; do
+		for id in `$AwkCmd '($1==1) {print $2}' LSC.cc`; do
 			fastafetch -f LSC.fasta -i LSC.index -q "${id}" >> LSC.reverse.fasta
 		done		
 		loginfo " --> $(fastaCount LSC.reverse.fasta) sequences"
@@ -75,7 +75,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Checking LCS homogeneity..."
 		${PROG_DIR}/coorienteSC.sh LSC.direct.fasta 20000 ${ORG_LOGFILE} > LSC_RefDB.tgf		
 		${PROG_DIR}/cc.py LSC_RefDB.tgf > LSC_RefDB.cc
-		NCC=$(awk '{print $1}' LSC_RefDB.cc | uniq | wc -l)
+		NCC=$($AwkCmd '{print $1}' LSC_RefDB.cc | uniq | wc -l)
 		if (( $NCC == 1 )); then
 			loginfo " --> $NCC connected componants"
 		else
@@ -105,7 +105,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Building SSC coorientation graph..."
 		${PROG_DIR}/coorienteSC.sh SSC.fasta 5000 ${ORG_LOGFILE} > SSC.tgf
 		${PROG_DIR}/cc.py SSC.tgf > SSC.cc
-		loginfo " --> $(awk '{print $1}' SSC.cc | uniq | wc -l) connected componants"
+		loginfo " --> $($AwkCmd '{print $1}' SSC.cc | uniq | wc -l) connected componants"
 	loginfo "Done"
 
 
@@ -119,7 +119,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Extracting main connected components for SSC..."
 		rm -f SSC.direct.fasta
 		touch SSC.direct.fasta
-		for id in `awk '($1==0) {print $2}' SSC.cc`; do
+		for id in `$AwkCmd '($1==0) {print $2}' SSC.cc`; do
 			fastafetch -f SSC.fasta -i SSC.index -q "${id}" >> SSC.direct.fasta
 		done
 		loginfo " --> $(fastaCount SSC.direct.fasta) sequences"
@@ -130,7 +130,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Extracting second connected components for SSC..."
 		rm -f SSC.reverse.fasta
 		touch SSC.reverse.fasta
-		for id in `awk '($1==1) {print $2}' SSC.cc`; do
+		for id in `$AwkCmd '($1==1) {print $2}' SSC.cc`; do
 			fastafetch -f SSC.fasta -i SSC.index -q "${id}" >> SSC.reverse.fasta
 		done		
 		loginfo " --> $(fastaCount SSC.reverse.fasta) sequences"
@@ -148,7 +148,7 @@ pushTmpDir ORG.buildSCDB
 	loginfo "Checking SSC homogeneity..."
 		${PROG_DIR}/coorienteSC.sh SSC.direct.fasta 5000 ${ORG_LOGFILE} > SSC_RefDB.tgf		
 		${PROG_DIR}/cc.py SSC_RefDB.tgf > SSC_RefDB.cc
-		NCC=$(awk '{print $1}' SSC_RefDB.cc | uniq | wc -l)
+		NCC=$($AwkCmd '{print $1}' SSC_RefDB.cc | uniq | wc -l)
 		if (( $NCC == 1 )); then
 			loginfo " --> $NCC connected componants"
 		else

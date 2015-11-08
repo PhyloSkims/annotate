@@ -1,4 +1,4 @@
-#!/usr/bin/awk -f
+#!/usr/bin/env gawk -f
 function genomeid() {
   if (gid=="") {
     gid="XXXXXXX";
