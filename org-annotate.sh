@@ -55,17 +55,17 @@ pushTmpDir ORG.organnot
 	loginfo "Done."
 	
 	loginfo "Ordering annotations..."
-		awk '/^.....[^ ]/ { \
+		awk '/^.....(misc|repeat|rRNA|tRNA|gene)/ { \
 		        match($3,"[0-9][0-9]*"); \
 		        pos=substr($3,RSTART,RLENGTH)*1000 + 1; \
-		        print pos,$0} \
-		     /^..... / { \
-		        pos++; \
+		        print pos,$0;    \
+		        next} \
+		      { pos++; \
 		        print pos,$0}' "${RESULTS}.annot" | \
-		sort -nk1 | \
+		sort -nk1 |\
 		awk '{ \
 		        match($0,"^[0-9]* ");\
-		        line=substr($0,RLENGTH+1,100000);\
+		        line=substr($0,RLENGTH+1);\
 		        print line}' 
 	loginfo "Done."
 	
