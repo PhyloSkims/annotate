@@ -11,7 +11,7 @@ source "${THIS_DIR}/../../../scripts/bash_init.sh"
 
 function fasta1li {
 
-    awk '/^>/ {if (sequence) \
+    $AwkCmd '/^>/ {if (sequence) \
                   {print sequence}; \
                print $0; \
                sequence=""} \
@@ -28,7 +28,7 @@ function dereplicate {
 		grep -v -- -- | \
 		sed -E "s/count=[0-9]+; //" | \
 		sed 's/cluster_weight/count/' | \
-		awk ' /^>/ {SEQ++;\
+		$AwkCmd ' /^>/ {SEQ++;\
 		            match($0,"count=[0-9][0-9]*;");\
 		            count=substr($0,RSTART,RLENGTH);\
 		            $1=$1"_"SEQ;\
@@ -58,7 +58,7 @@ function clustering {
 }
 
 function revcomp {
-    awk 'function printfasta(seq) {                                  \
+    $AwkCmd 'function printfasta(seq) {                                  \
             seqlen=length(seq);                                       \
             for (i=1; i <= seqlen; i+=60)                              \
               print substr(seq,i,60);                                 \

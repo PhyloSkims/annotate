@@ -2,7 +2,7 @@
 #
 
 
-  awk 'function printfasta(seq) {                                            \
+  gawk 'function printfasta(seq) {                                            \
              seqlen=length(seq);                                             \
              for (i=1; i <= seqlen; i+=60)                                   \
                  print substr(seq,i,60);                                     \

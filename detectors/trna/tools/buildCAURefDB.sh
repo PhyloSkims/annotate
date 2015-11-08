@@ -11,7 +11,7 @@ source "${THIS_DIR}/../../../scripts/bash_init.sh"
 
 function fasta1li {
 
-    awk '/^>/ {if (sequence) \
+    $AwkCmd '/^>/ {if (sequence) \
                   {print sequence}; \
                print $0; \
                sequence=""} \
@@ -28,7 +28,7 @@ function dereplicate {
 		grep -v -- -- | \
 		sed -E "s/count=[0-9]+; //" | \
 		sed 's/cluster_weight/count/' | \
-		awk ' /^>/ {SEQ++;$1=$1"_"SEQ;print $0} \
+		$AwkCmd ' /^>/ {SEQ++;$1=$1"_"SEQ;print $0} \
 			 !/^>/ {print $0}'
 }
 
@@ -52,15 +52,16 @@ function goodtrna {
 	sumatra -t 0.90 -x $QUERY $REF | \
 		sed -E 's/.(trn.M?)[_A-Z0-9]+/ \1 /' | \
 		sort -k 1,2 | \
-		awk '(OLD) && ($1!=OLD) {print OLD,c["trnM"],c["trnfM"],c["trnI"]} \
+		$AwkCmd '(OLD) && ($1!=OLD) {print OLD,c["trnM"],c["trnfM"],c["trnI"]} \
 		     (OLD !=$1)         {c["trnM"]=0;c["trnfM"]=0;c["trnI"]=0;OLD=$1} \
-		                        {c[$2]+=$5}' | awk '{p=0;} \
+		                        {c[$2]+=$5}' | \
+		$AwkCmd '{p=0;} \
 		     ($2 > $3) && ($2 > $4) { print $0,"trnM";p=1 } \
 		     ($3 > $2) && ($3 > $4) {print $0,"trnfM";p=1} \
 		     ($4 > $2) && ($4 > $3) {print $0,"trnI";p=1} \
 		     (p==0) {print $0,"----"}' |      sed 's/_/ /' | \
-		awk '{print $1"_"$2,$3,$4,$5,$1,$6}' | \
-		awk '(($2+$3+$4) > 1) && ($5==$6) {print $1}'
+		$AwkCmd '{print $1"_"$2,$3,$4,$5,$1,$6}' | \
+		$AwkCmd '(($2+$3+$4) > 1) && ($5==$6) {print $1}'
 }
 
 pushTmpDir ORG.buildSCDB
