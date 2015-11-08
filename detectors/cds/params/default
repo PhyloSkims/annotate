@@ -12,7 +12,7 @@ AssignUndef TMP_CLEANUP 1
 #
 # pass1: exonerate speedup
 #
-AssignUndef PASS1_SPEEDUP   1
+AssignUndef PASS1_SPEEDUP   0
 AssignUndef PASS1_SLOWDOWN  0
 
 AssignUndef PASS1_BLASTX_FILTER_IDMIN 70
