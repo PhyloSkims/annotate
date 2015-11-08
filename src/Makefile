@@ -28,7 +28,8 @@ DIRS = aragorn   \
        repseek   \
        sequtils  \
        sumaclust \
-       sumatra
+       sumatra   \
+       gawk
 
 include ../config/targets/propagate.targ
 
