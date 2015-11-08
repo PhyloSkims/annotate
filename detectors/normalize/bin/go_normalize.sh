@@ -24,8 +24,8 @@
 
 # -- CAUTION -- Works as long than the script 
 #               is not called through a symlink
-SCRIPT_DIR="$(dirname ${BASH_SOURCE[0]})"
-source ${SCRIPT_DIR}/../lib/lookforIR.lib.sh
+THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
+source ${THIS_DIR}/../lib/lookforIR.lib.sh
 
 ORG_DEBUG=1
 

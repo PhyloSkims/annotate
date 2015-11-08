@@ -14,6 +14,7 @@
 # gnu tar     :  version >= 1.15
 # gnu make    :  version >= 3.81
 # gcc and g++ :  version >= 3.4.6
+# gawk        :  version >= 4.0.1
 #
 # note: valid versions of gnu tar and make are in _unix_tools_
 #

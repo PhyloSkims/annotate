@@ -143,27 +143,35 @@ function formatfasta {
 #
 #
 
-# The absolute path to the ORG.Annote home direcotory
+# The absolute path to the ORG.Annot home directory
 ORG_HOME=`getAbsolutePath $(dirname ${BASH_SOURCE[0]})/..`
 
- 
-ORG_PORTNAME=`${ORG_HOME}/config/guess_port`	# The architecture running the ORG.Annnote instance
+ORG_PORTNAME=`${ORG_HOME}/config/guess_port`	# The architecture running the ORG.Annot instance
+
+BIN_DIR="${ORG_HOME}/ports/${ORG_PORTNAME}/bin" # Directory containing binaries for this port
+
+SCRIPT_DIR="${ORG_HOME}/scripts"                # Directory containing scripts utilities
 
 PROG_DIR="$(getAbsolutePath $(dirname $0))"		# Directory containing the main script file
 
-DATA_DIR="${ORG_HOME}/data"                     # Directory containing reference data for the annotation
+LIB_DIR="$(getAbsolutePath ${PROG_DIR}/../lib)"	# Directory containing the main script libraries
 
 CALL_DIR="$(getAbsolutePath $(pwd))"            # Directory from where the main script is called
 
 
-IR_DATA_DIR="${DATA_DIR}/ir"  				  	# Directory containing data related to the 
-												# Inverted repeat strucuture
+DATA_DIR="${ORG_HOME}/data"                     # Directory containing reference data for the annotation
+
+IR_DATA_DIR="${DATA_DIR}/ir"  				  	# Directory containing data related to
+												# IRs detection
+												
+TRNA_DATA_DIR="${DATA_DIR}/trna"  				# Directory containing data related to
+												# tRNAs detection
+												
+CDS_DATA_DIR="${DATA_DIR}/trna"  				# Directory containing data related to
+												# CDSs detection
 								
-TRNA_DATA_DIR="${DATA_DIR}/trna"  				# Directory containing data related to the 
-												# tRNA detection
-								
-RRNA_DATA_DIR="${DATA_DIR}/rrna"  				# Directory containing data related to the 
-												# rRNA dectection
+RRNA_DATA_DIR="${DATA_DIR}/rrna"  				# Directory containing data related to 
+												# rRNAs detection
 								
 
 #
@@ -179,11 +187,10 @@ RRNA_DATA_DIR="${DATA_DIR}/rrna"  				# Directory containing data related to the
 #
 
 # We alter the path to include the bin dir corresponding to the port
-PATH="${ORG_HOME}/ports/${ORG_PORTNAME}/bin:${PATH}"
+PATH="${SCRIPT_DIR}:${BIN_DIR}:${PATH}"
 export PATH
 
 # Force to basic international setting for a correction behaviour of AWK on mac with float
 export LANG=C
 export LC_ALL=C
-
 

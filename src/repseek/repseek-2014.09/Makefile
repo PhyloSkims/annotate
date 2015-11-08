@@ -58,7 +58,7 @@ all: repseek install
 
 
 repseek:  $(OBJ) main_repseek.c
-	$(CC) $(CFLAGS) -o $@ $(OBJ) main_repseek.c $(LDFLAGS);
+	$(CC) $(CFLAGS) -o $@ $(OBJ) main_repseek.c $(LDFLAGS) $(LDLIBS);
 
 
 install: repseek

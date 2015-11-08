@@ -5,7 +5,7 @@
 #========================================================================================
 #
 #  Annotate tRNA based on the Aragorn software predictions.
-
+#
 #  go_trna.sh <FASTAFILE>
 #
 #		- <FASTAFILE> : The fasta file containing the genome to annotate
@@ -14,10 +14,10 @@
 #
 #========================================================================================
 
-# -- CAUTION -- Works as long than the script 
+# -- CAUTION -- Works as long as the script 
 #               is not called through a symlink
-SCRIPT_DIR="$(dirname ${BASH_SOURCE[0]})"
-source "${SCRIPT_DIR}/../../../scripts/bash_init.sh"
+THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
+source "${THIS_DIR}/../../../scripts/bash_init.sh"
 
 pushTmpDir ORG.trna
 

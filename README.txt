@@ -10,22 +10,27 @@
 #
 # First check if binaries have been already compiled for your port
 #
-# $ scripts/check_port
+# $ scripts/check_port.sh
 #
 # if it prints :
 #
-# + port <PORTNAME> is correctly installed
+# + checking port compilation OK
 #
 # then everything is fine
 #
 # if it prints :
 #
-# ! port <PORTNAME> not installed
-# ! Please read README.txt for proper installation
+# + port not yet compiled
 #
 # then, you should first compile binaries for your port
 # please consult: src/README.txt for details
 #
+# if it prints smthing like
+# * XXX version A.B.C (should be >= X.Y.Z)
+# * please consider installing XXX from src/_unix_tools_
+# 
+# then, you should first compile some unix tools binaries for your port
+# please consult: src/README.txt for details
 #
 # -------------------------
 # -2- Distribution organisation
