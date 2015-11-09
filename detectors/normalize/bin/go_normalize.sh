@@ -162,7 +162,6 @@ pushTmpDir ORG.normalize
 	# Merges the four parts of the genome.
 	cat ${tmpLSC} ${tmpIR2} ${tmpSSC} ${tmpIR1} | joinfasta
 
-	exit 1
 	
 popTmpDir
 
