@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source "${THIS_DIR}/../../../scripts/bash_init.sh"
 
 SELECTIR="${PROG_DIR}/../../normalize/lib/selectIR.py"
