@@ -32,7 +32,7 @@ for line in data:
         
         for p in range(begin,end):
             chr[p]+=direction
-   
+ 
 maxSSC = float(max(abs(n) for n in chloro['SSC']))
 maxLSC = float(max(abs(n) for n in chloro['LSC']))
 

@@ -25,6 +25,7 @@ function lookForIR {
 			 			{print substr($2,1,3),$8,$7,SAME}}' | \
 		  sort -nk 2 > ${MATCHES}
 	loginfo "Done"
+
 	  
 	loginfo "Looking for long inverted repeats..."
 		repseek -c -p 0.001 -i ${QUERY} 2>> /dev/null > ${REPEATS}
