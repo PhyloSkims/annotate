@@ -12,6 +12,15 @@ function lookForIR {
 	
 	local REPEATS="${MATCHES/.*/}.repseek"
 	
+	# Blast columns:
+	# 	query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+	# We keep blast matches if : 
+	#	The match is longer than 1000
+	#   The identity is higher than 80%
+	#
+	# The match file has the following format:
+	#	LSC/SSC  begin end  same_strand=1/diff_strand=0
+	
 	loginfo "Locating SSC and LSC by similarity..."
 		blastn -db ${SCDB} \
 		       -query ${QUERY} \
@@ -31,7 +40,7 @@ function lookForIR {
 		repseek -c -p 0.001 -i ${QUERY} 2>> /dev/null > ${REPEATS}
 		loginfo " --> $(wc -l ${REPEATS} | awk '{print $1}') repeats identified"
 	loginfo "Done"
-	
+
 	loginfo "Marking and selecting the best inverted repeat..."
 		local IR=( $(${SELECTIR} ${MATCHES} ${REPEATS}) )
 	loginfo "Done"

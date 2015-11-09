@@ -34,7 +34,7 @@ pushTmpDir ORG.organnot
 	loginfo "Done."
 	
 	loginfo "Annotating the Inverted repeats and Single copies (LSC and SSC)..."
-		${PROG_DIR}/detectors/ir/bin/go_ir.sh ${QUERY} > "${RESULTS}.annot"		
+		${PROG_DIR}/detectors/ir/bin/go_ir.sh "${RESULTS}.norm.fasta" > "${RESULTS}.annot"		
 	loginfo "Done."
 	
 	loginfo "Annotating the tRNA..."

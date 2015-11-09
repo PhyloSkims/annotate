@@ -8,6 +8,12 @@ repeats = open(sys.argv[2])
 chloro    = {'LSC' : [], 'SSC' : [] }
 chlorosize =0
 
+# We scan the blast matches:
+#    We build a vector with one position per base pair counting the matches
+
+# The match file has the following format:
+#    LSC/SSC  begin end  same_strand=1/diff_strand=0
+
 for line in data:
     parts = line.strip().split()
     if len(parts) >= 4:
@@ -16,7 +22,8 @@ for line in data:
         end         = int(parts[2])
         direction   = int(parts[3])
         
-        
+        # Change the code of the direction:
+        #    reverse complement = -1
         if direction==0:
             direction=-1
             
@@ -39,36 +46,53 @@ maxLSC = float(max(abs(n) for n in chloro['LSC']))
 chloro['SSC']=[n / maxSSC for n in chloro['SSC']]
 chloro['LSC']=[n / maxLSC for n in chloro['LSC']]
 
-
 scoreMax=0
+len1Max=0
+len2Max=0
+
 imax = len(chloro['LSC'])
 
 for line in repeats:
     parts   = line.strip().split()
     
+    # First repeat position and length 
+    # (position start at 0)
     pos1    = int(parts[1]) -1
     len1    = int(parts[3])
     
+    # Second repeat position and length
+    # (position start at 0)
     pos2    = int(parts[2]) -1
     len2    = int(parts[4])
     
+    # Location of the central single copy 
+    #       - in between the two IR -
     c_begin = min(pos1 + len1,imax)
     c_end   = min(pos2,imax)
+    
+    # Location of the external single copy 
+    #       - in between the two IR -
     o_max   = min(pos1 ,imax)
     o_min   = min(pos2 + len2, imax)
     
-    c_lsc   = sum(abs(chloro['LSC'][n]) for n in range(c_begin,c_end))
-    c_ssc   = sum(abs(chloro['SSC'][n]) for n in range(c_begin,c_end))
+    # count of coherent matches for LSC and SSC on the central single copy 
+    c_lsc   = abs(sum(chloro['LSC'][n] for n in range(c_begin,c_end)))
+    c_ssc   = abs(sum(chloro['SSC'][n] for n in range(c_begin,c_end)))
 
-    o_lsc   = sum(abs(chloro['LSC'][n]) for n in range(0,o_max))
-    o_ssc   = sum(abs(chloro['SSC'][n]) for n in range(0,o_max))
+    # count of coherent matches for LSC and SSC on the external single copy 
+    #    this score is in two parts before the first copy and after the second
+    o_lsc   = sum(chloro['LSC'][n] for n in range(0,o_max))
+    o_ssc   = sum(chloro['SSC'][n] for n in range(0,o_max))
 
-    o_lsc  += sum(abs(chloro['LSC'][n]) for n in range(o_min,len(chloro['LSC'])))
-    o_ssc  += sum(abs(chloro['SSC'][n]) for n in range(o_min,len(chloro['SSC'])))
+    o_lsc  += sum(chloro['LSC'][n] for n in range(o_min,imax))
+    o_ssc  += sum(chloro['SSC'][n] for n in range(o_min,imax))
+    
+    o_lsc   = abs(o_lsc)
+    o_ssc   = abs(o_ssc)
     
     c = float(c_lsc + c_ssc)
     o = float(o_lsc + o_ssc)
-    
+        
     if c > 0:
         c_lsc /= c
         c_ssc /= c 
@@ -78,10 +102,9 @@ for line in repeats:
         o_ssc /= o 
     
     score = ((c_lsc - c_ssc) ** 2 + (o_lsc - o_ssc) ** 2) / 2.0
-    
     # print >>sys.stderr,"c.lsc = %f c.ssc = %f   o.lsc = %f o.ssc = %f score = %6.4f (len=%d)" % (c_lsc,c_ssc,o_lsc,o_ssc,score,len1)
         
-    if (score > scoreMax):
+    if (score >= scoreMax) and ((len1 > len1Max) or (len2 > len2Max)):
         scoreMax = score
         pos1Max  = pos1
         pos2Max  = pos2
@@ -99,8 +122,8 @@ c_ssc   = sum(chloro['SSC'][n] for n in range(c_begin,c_end))
 o_lsc   = sum(chloro['LSC'][n] for n in range(0,o_max))
 o_ssc   = sum(chloro['SSC'][n] for n in range(0,o_max))
 
-o_lsc  += sum(chloro['LSC'][n] for n in range(o_min,len(chloro['LSC'])))
-o_ssc  += sum(chloro['SSC'][n] for n in range(o_min,len(chloro['SSC'])))
+o_lsc  += sum(chloro['LSC'][n] for n in range(o_min,imax))
+o_ssc  += sum(chloro['SSC'][n] for n in range(o_min,imax))
 
 if abs(c_lsc) > abs(c_ssc):
     center = "LSC"  
