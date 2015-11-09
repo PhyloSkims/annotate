@@ -38,15 +38,15 @@ pushTmpDir ORG.organnot
 	loginfo "Done."
 	
 	loginfo "Annotating the tRNA..."
-		${PROG_DIR}/detectors/trna/bin/go_trna.sh ${QUERY} >> "${RESULTS}.annot"
+		${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 	loginfo "Done."
 	
 	loginfo "Annotating the rRNA genes..."
-		${PROG_DIR}/detectors/rrna/bin/go_rrna.sh ${QUERY} >> "${RESULTS}.annot"
+		${PROG_DIR}/detectors/rrna/bin/go_rrna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 	loginfo "Done."
 
 	loginfo "Annotating the CDS..."
-		${PROG_DIR}/detectors/cds/bin/go_cds.sh ${QUERY} >> "${RESULTS}.annot"
+		${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 	loginfo "Done."
 	
 	loginfo "Printing annotations header..."
@@ -96,11 +96,11 @@ pushTmpDir ORG.organnot
 			 		      freq["G"]" G; "\
 			 		      freq["T"]" T; "\
 			 		      other" other;" \
-			 }' ${QUERY}
+			 }' "${RESULTS}.norm.fasta"
 	loginfo "Done."
 	
 	loginfo "Reformating sequences..."
-		lines=$(wc -l ${QUERY} | awk '{print $1}')
+		lines=$(wc -l "${RESULTS}.norm.fasta" | awk '{print $1}')
 		awk -v lines=$lines ' \
 			! /^>/ { \
 					seq=tolower($0); \
@@ -115,7 +115,7 @@ pushTmpDir ORG.organnot
 					if (NR==lines) \
 					  {pos-=1}; \
 					printf("   %6d\n",pos) \
-			   }' ${QUERY}
+			   }' "${RESULTS}.norm.fasta"
 	loginfo "Done."
 	
 	loginfo "Closing sequence part..."
