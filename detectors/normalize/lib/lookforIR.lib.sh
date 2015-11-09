@@ -26,7 +26,7 @@ function lookForIR {
 		       -query ${QUERY} \
 		       -outfmt 6 \
 		       -max_target_seqs 10000 | \
-		  awk '($4 > 1000) && ($3>80) { \
+		  awk '($4 > 100) && ($3>80) { \
 		             SAME=(($7 < $8) && ($9 < $10)) || (($7 > $8) && ($9 > $10)); \
 			 		 if ($7 < $8) \
 			 			{print substr($2,1,3),$7,$8,SAME}  \
