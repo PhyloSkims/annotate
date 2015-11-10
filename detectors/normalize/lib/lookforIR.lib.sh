@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source "${THIS_DIR}/../../../scripts/bash_init.sh"
 
 SELECTIR="${PROG_DIR}/../../normalize/lib/selectIR.py"
@@ -10,12 +12,21 @@ function lookForIR {
 	
 	local REPEATS="${MATCHES/.*/}.repseek"
 	
+	# Blast columns:
+	# 	query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+	# We keep blast matches if : 
+	#	The match is longer than 1000
+	#   The identity is higher than 80%
+	#
+	# The match file has the following format:
+	#	LSC/SSC  begin end  same_strand=1/diff_strand=0
+	
 	loginfo "Locating SSC and LSC by similarity..."
 		blastn -db ${SCDB} \
 		       -query ${QUERY} \
 		       -outfmt 6 \
 		       -max_target_seqs 10000 | \
-		  awk '($4 > 1000) && ($3>80) { \
+		  awk '($4 > 100) && ($3>80) { \
 		             SAME=(($7 < $8) && ($9 < $10)) || (($7 > $8) && ($9 > $10)); \
 			 		 if ($7 < $8) \
 			 			{print substr($2,1,3),$7,$8,SAME}  \
@@ -23,12 +34,13 @@ function lookForIR {
 			 			{print substr($2,1,3),$8,$7,SAME}}' | \
 		  sort -nk 2 > ${MATCHES}
 	loginfo "Done"
+
 	  
 	loginfo "Looking for long inverted repeats..."
 		repseek -c -p 0.001 -i ${QUERY} 2>> /dev/null > ${REPEATS}
 		loginfo " --> $(wc -l ${REPEATS} | awk '{print $1}') repeats identified"
 	loginfo "Done"
-	
+
 	loginfo "Marking and selecting the best inverted repeat..."
 		local IR=( $(${SELECTIR} ${MATCHES} ${REPEATS}) )
 	loginfo "Done"

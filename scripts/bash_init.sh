@@ -19,7 +19,7 @@ function getAbsolutePath {
 # Manage temp directory
 
 function pushTmpDir {
-	TMP_DIR=$(mktemp -d -t "$1_proc_$$_")
+	TMP_DIR=$(mktemp -d -t "$1_proc_$$_XXXXXX")
 	pushd $TMP_DIR >& /dev/null
 	TMP_DIR_STACK="$TMP_DIR $TMP_DIR_STACK"
 	logdebug "Pushing temp directory $TMP_DIR"

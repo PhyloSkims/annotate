@@ -100,7 +100,7 @@ pushTmpDir ORG.normalize
 	tmpLSC="tmp_$$_LSC.fasta"		
 	tmpSSC="tmp_$$_SSC.fasta"		
 	
-	# Extract the first SC present in between the two IRs
+	# Extract the central SC present in between the two IRs
 	# considering it as LSC
 
 	let "beginLSC=$endIR1+1"
@@ -110,7 +110,7 @@ pushTmpDir ORG.normalize
 	strandLSC="${IR[1]}"
 
 
-	# Extract the second SC present in two parts
+	# Extract the external SC present in two parts
 	# Considering it as SSC
 	
 	let "beginSSC=$endIR2+1"
@@ -130,16 +130,17 @@ pushTmpDir ORG.normalize
 	
 		# Actually this is the oposite LSC is SSC and SSC is LSC
 
-		# Exchange the SSC and LSC sequences
+		# Exchanges the SSC and LSC sequences
 		mv ${tmpSSC}    ${tmpfasta1}
 		mv ${tmpLSC}    ${tmpSSC}
 		mv ${tmpfasta1} ${tmpLSC}
 		
-		# Exchange the IRa and IRb sequences
+		# Exchanges the IRa and IRb sequences
 		mv ${tmpIR1}    ${tmpfasta1}
 		mv ${tmpIR2}    ${tmpIR1}
 		mv ${tmpfasta1} ${tmpIR2}
 		
+		# Exchanges the strand of both the Single copies
 		tmp=${strandSSC}
 		strandSSC=${strandLSC}
 		strandLSC=${tmp}
@@ -161,7 +162,6 @@ pushTmpDir ORG.normalize
 	# Merges the four parts of the genome.
 	cat ${tmpLSC} ${tmpIR2} ${tmpSSC} ${tmpIR1} | joinfasta
 
-	
 	
 popTmpDir
 
