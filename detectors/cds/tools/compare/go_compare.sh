@@ -34,12 +34,12 @@ endif
 Notify "get genome info from $RefFile"
 
 $AwkCmd -f $LIB_DIR/$RefType.oneliner.awk $RefFile |\
-$AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/$RefType.cds.awk > R_$$
+$AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/$RefType.cds_short.awk > R_$$
 
 Notify "get prediction info from $PrdFile"
 
 $AwkCmd -f $LIB_DIR/$PrdType.oneliner.awk $PrdFile |\
-$AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/$PrdType.cds.awk > P_$$
+$AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/$PrdType.cds_short.awk > P_$$
 
 #
 # compare

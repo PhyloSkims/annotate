@@ -71,7 +71,7 @@ BEGIN {
   
   if (! TestPath(FASTA)) Error("Fasta file: '" FASTA "' not found", 1)
 
-  Seq = ReadFasta(FASTA)
+  Seq = tolower(ReadFasta(FASTA))
   LenSeq = length(Seq)
   
   RevSeq = RevComplement(Seq)

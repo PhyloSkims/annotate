@@ -44,11 +44,11 @@ if ($?ORG_SOURCED == 0) then
   setenv PROG_DIR `dirname $0`		                 # Directory containing
   setenv PROG_DIR `cd $PROG_DIR && pwd -P`           # the main script file
 
-  if (-d "$PROG_DIR/../lib") then
-    setenv LIB_DIR "$PROG_DIR/../lib"                # Directory containing
+  if (-d "$PROG_DIR/lib") then
+    setenv LIB_DIR "$PROG_DIR/lib"                   # Directory containing
     setenv LIB_DIR `cd $LIB_DIR && pwd -P`           # the main script libraries
-  else if (-d "$PROG_DIR/lib") then
-    setenv LIB_DIR "$PROG_DIR/lib"                   # alternate location
+  else if (-d "$PROG_DIR/../lib") then
+    setenv LIB_DIR "$PROG_DIR/../lib"                # alternate location
     setenv LIB_DIR `cd $LIB_DIR && pwd -P`           #
   else
     setenv LIB_DIR "$PROG_DIR"                       # alternate location
