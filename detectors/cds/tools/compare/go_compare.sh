@@ -23,6 +23,10 @@ NeedFile $PrdFile
 set RefType = $RefFile:e
 set PrdType = $PrdFile:e
 
+if ((! -e $LIB_DIR/$RefType.oneliner.awk) || (! -e $LIB_DIR/$PrdType.oneliner.awk)) then
+  Error 1 "file extension should be 'gbk' or 'embl'"
+endif
+
 #
 # parse ref and prediction
 #
