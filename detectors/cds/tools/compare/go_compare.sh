@@ -3,7 +3,7 @@
 # compare CDS annotation in reference file to predicted file
 # annotation file are in Genbank/Embl format
 #
-# usage: go_compare reference predicted
+# usage: go_compare.sh reference predicted
 #
 # output on stdout
 #
