@@ -2,12 +2,10 @@
 # $Id: $
 # ---------------------------------------------------------------
 # @file: Makefile
-# @desc: makefile for lxpack
+# @desc: makefile for package exonerate
 #
 # @history:
-# @history:
-# @+	    <Gloup> : Apr 97 : Created
-# @+	    <Gloup> : Mar 02 : Updated for LXxware
+# @+	    <Gloup> : Sept 15 : Adapted to ORG.Annot
 #
 # @note: should be processed with gnu compatible make
 # @note: helixware_compatible
@@ -15,14 +13,16 @@
 # @end:
 # ---------------------------------------------------------------
 #
+
 include ../../config/auto.conf
 
-DIRS = hmmer3
+PKG = hmmer-3.1b1
 
-include ../../config/targets/propagate.targ
+include $(CFGDIR)targets/package.targ
 
-include ../../config/targets/help.targ
+include $(CFGDIR)targets/help.targ
 
+# bug fix
 all::
-	$(MAKE) ACTION=$@ _action
+	-mkdir $(PKGDIR)/userguide
 
