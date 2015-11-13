@@ -12,5 +12,9 @@ o CDS speedup à tester
 
 o CDS ajouter tools/dbchloro et tools/compare
 
-o $red
+o concurency issue in formatdb
+
+o parameters in go_subdb.sh
+
+o models in DB_DIR
 

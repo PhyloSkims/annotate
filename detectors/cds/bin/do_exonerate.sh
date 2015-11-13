@@ -1,21 +1,21 @@
 #!/bin/csh -f
 #
-#                           Annotate CDS - Pass1
+#                           Annotate CDS - Exonerate
 #
 #========================================================================================
 #
-#  Annotate CDS of chlorodb/core proteins using exonerate
+#  Annotate CDS using exonerate
 #
-#  pass1.sh <FASTAFILE> <FAMILY> [<OUTDIR>]
+#  do_exonerate.sh <FASTAGENOM> <FASTAPROT> [<OUTDIR>]
 #
-#		- <FASTAFILE> : The fasta file containing the genome to annotate
-#		- <FAMILY>    : Name of the protein family (defined in chlorodb/core)
+#		- <FASTAGENOM> : The fasta file containing the genome to annotate
+#		- <FASTAPROT>  : The fasta file containing the protein family
 #
-#  Results are in file : `basename <FASTAFILE>:r`.<FAMILY>.res 
+#  Results are in file : `basename <FASTAGENOM>:r`.`basename <FASTAPROT>:r`.res 
 #
 #========================================================================================
 #
-# usage: go_pass1.sh fasta family [outdir]
+# usage: do_exonerate.sh dna.fasta prot.fasta [outdir]
 #
 unsetenv ORG_SOURCED
 
@@ -31,12 +31,14 @@ NeedArg 2
 
 set GenoFile = $Argv[1]
 set GenoName = `basename $GenoFile:r`
-set ProtName = $Argv[2]
-set ProtDir  = $CDS_DATA_DIR/chlorodb/core
-set ProtFile = $ProtDir/$ProtName.fst
+
+set ProtFile = $Argv[2]
+set ProtDir  = `dirname $ProtFile`
+set ProtName = `basename $ProtFile:r`
 
 NeedFile $GenoFile
 NeedFile $ProtFile
+NeedFile $ProtDir/Annot.lst
 
 set OutDir = .
 if ($#Argv >= 3) set OutDir = $3
@@ -101,7 +103,7 @@ endif
 
 if ($PASS1_SPEEDUP != 0) then
 
-  $PROG_DIR/go_filterbx.sh $GenoFile $ProtFile  \
+  $PROG_DIR/do_filterbx.sh $GenoFile $ProtFile  \
             $PASS1_BLASTX_FILTER_IDMIN          \
             $PASS1_BLASTX_FILTER_NBMIN          \
             $PASS1_BLASTX_FILTER_NBMAX > D_$$
@@ -159,8 +161,7 @@ $AwkCmd -v MAX_SPAN=$PASS1_MAX_SPAN         \
 # get annotations
 #
 
-egrep "^$ProtName " $CDS_DATA_DIR/chlorodb/core/Annot.lst |\
-  awk '{print "c annot", $0}' > T_$$
+egrep "^$ProtName " $ProtDir/Annot.lst | awk '{print "c annot", $0}' > T_$$
 
 #
 # extend start/stop

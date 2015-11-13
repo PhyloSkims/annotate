@@ -18,8 +18,8 @@ if ($?ORG_SOURCED == 0) then
   # o Verbose : default verbosity (may be changed by -v option)
   #
   
-  setenv AwkCmd        "gawk"
-  setenv Verbose       0
+  if ($?AwkCmd == 0)  setenv AwkCmd  "gawk"
+  if ($?Verbose == 0) setenv Verbose 0
   
   # --------------------------------------
   # don't change hereafter (normally)
@@ -90,11 +90,15 @@ set path = ($SCRIPT_DIR $BIN_DIR $path)
 # alias should be sourced each time
 # --------------------------------------
 
-alias Debug 'if ($Verbose) echo "# "\!:* >> /dev/stderr' 
+alias Cout 'echo `date "+%Y-%m-%d %H:%M:%S"` "[OA \!:1]" \!:2-* >> /dev/stderr'
 
-alias Notify 'echo "# "\!:* >> /dev/stderr' 
+alias Debug 'if ($Verbose) echo `date "+%Y-%m-%d %H:%M:%S"` "[OA DEBUG]" \!:* >> /dev/stderr'
 
-alias Error 'echo "[0;31m# Error "\!:2-*"[m" >> /dev/stderr; Exit \!:1' 
+alias Cat 'awk -v D="`date '"'"'+%Y-%m-%d %H:%M:%S'"'"'`" '"'"'{print D " [OA FILE ] " $0}'"'"' \!:* >> /dev/stderr'
+
+alias Notify 'Cout "INFO " \!:*'
+
+alias Error 'Cout ERROR \!:2-*; Exit \!:1' 
 
 alias Exit 'set Stat = \!:1; Debug "<--- $0 [$Stat]"; exit \!:1'
 
@@ -123,8 +127,6 @@ alias Shift 'shift Argv'
 alias NeedFile 'if (! -e \!:1) eval Error 5 "\!:1 : file not found"'
 
 alias NeedDir 'if (! -d \!:1) eval Error 5 "\!:1 : directory not found"'
-
-alias Cat 'awk '"'"'{print "# " $0}'"'"' \!:*'
 
 alias AssignUndef 'if ($?\!:1 == 0) set \!:1=\!:2-*'
 

@@ -45,28 +45,27 @@ FT                   AAAQSISYEIPLALCVLSISLRVIR"
 FT   gene            42910..45121
 FT                   /gene="ndhB"
 FT                   /locus_tag=""
-FT   CDS             join(42910..43780,44367..45121)
+FT   CDS             join(42910..43685,44365..45121)
 FT                   /codon_start=1
 FT                   /transl_table=11
 FT                   /gene="ndhB"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 2"
-FT                   /inference="similar to DNA sequence:NC_008535:CoarCp067"
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp066"
 FT                   /translation="MIWHVQNENFILDSTRIFMKAFHLLLFDGSLIFPECILIFGLILL
 FT                   LMIDSTSDQKDIPWLYFISSTSLVMSITALLFRWREEPMISFSGNFQTNNFNEIFQFLI
 FT                   LLCSTLCIPLSVEYIECTEMAITEFLLFVLTATLGGMFLCGANDLITIFVAPECFSLCS
 FT                   YLLSGYTKKDVRSNEATMKYLLMGGASSSILVHGFSWLYGSSGGEIELQEIVNGLINTQ
-FT                   MYNSPGISIALIFITVGIGFKLSPAPSHQWTPDVYEGVRFVREIPTSLSISEMFGFFKT
-FT                   PWTCRREMLSPTPVVAFLSVTSKVAASASATRIFNIPFYFSSNEWHLLLEILAILSMIL
-FT                   GNLIAITQTSMKRMLAYSSIGQIGYVIIGIIVGDSNDGYASMITYMLFYISMNLGTFAC
-FT                   IVLFGLRTGTDNIRDYAGLYTKDPFLALSLALCLLSLGGLPPLAGFFGKLYLFWCGWQA
-FT                   GLYFLVLIGLLTSVVSIYYYLKIIKLLMTGRNQEITPHVRNYRRSPLRSNNSIELSMIV
-FT                   CVIASTIPGISMNPIIAIAQDSLF"
-FT   exon            42910..43780
+FT                   MYNSPGISIALIFITVGIGFKLSPAPSHQWTPDVYEGSPTPVVAFLSVTSKVAASASAT
+FT                   RIFNIPFYFSSNEWHLLLEILAILSMILGNLIAITQTSMKRMLAYSSIGQIGYVIIGII
+FT                   VGDSNDGYASMITYMLFYISMNLGTFACIVLFGLRTGTDNIRDYAGLYTKDPFLALSLA
+FT                   LCLLSLGGLPPLAGFFGKLYLFWCGWQAGLYFLVLIGLLTSVVSIYYYLKIIKLLMTGR
+FT                   NQEITPHVRNYRRSPLRSNNSIELSMIVCVIASTIPGISMNPIIAIAQDSLF"
+FT   exon            42910..43685
 FT                   /gene="ndhB"
 FT                   /locus_tag=""
 FT                   /number=1
-FT   exon            44367..45121
+FT   exon            44365..45121
 FT                   /gene="ndhB"
 FT                   /locus_tag=""
 FT                   /number=2
@@ -79,7 +78,7 @@ FT                   /transl_table=11
 FT                   /gene="ndhD"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 4"
-FT                   /inference="similar to DNA sequence:NC_007898:LyesC2p017"
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp081"
 FT                   /translation="MNYFPWLTIIVVFPIFAGSLIFFLPHKGNRVIRWYTICICILELL
 FT                   LTTYAFCYHFQSDDPLIQLVEDYKWIDFFDFHWRLGIDGLSIGPILLTGFITTLATLAA
 FT                   WPVTRDSRLFHFLMLAMYSGQIGLFSSRDLLLFFIMWELELIPVYLLLAMWGGKKRLYS
@@ -98,7 +97,7 @@ FT                   /transl_table=11
 FT                   /gene="ndhE"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 4L"
-FT                   /inference="similar to DNA sequence:NC_001879:NitaCp085"
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp080"
 FT                   /translation="MILEHVLVLSAYLFSIGIYGLITSRNMVRALMCLELILNAVNINF
 FT                   VTFSDFFDNRQLKGDIFSIFVIAIAAAEAAIGLAIVSSIYRNRKSTRINQSNLLNN"
 FT   gene            complement(11509..13722)
@@ -178,7 +177,7 @@ FT                   /transl_table=11
 FT                   /gene="psaC"
 FT                   /locus_tag=""
 FT                   /product="photosystem I subunit VII"
-FT                   /inference="similar to DNA sequence:NC_023792:CP89_p014"
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp065"
 FT                   /translation="MSHSVKIYDTCIGCTQCVRACPTDVLEMIPWDGCKAKQIASAPRT
 FT                   EDCVGCKRCESACPTDFLSVRVYLWHETTRSMGLAY"
 FT   gene            53817..55307
@@ -190,7 +189,7 @@ FT                   /transl_table=11
 FT                   /gene="rpl2"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein L2"
-FT                   /inference="similar to DNA sequence:NC_007898:LyesC2p002"
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp030"
 FT                   /translation="MAIHLYKTSTPSTRNGTVDSQVKSNPRNNLIYGQRRCGKGRNARG
 FT                   IITARHRGGGHKRLYRKIDFRRNEKDIYGRIVTIEYDPNRNAYICLIHYGDGEKRYILH
 FT                   PRGAIIGDTIVSGTEVPIKMGNALPSTDMPLGTAIHNIEITLGKGGQLARAAGAVAKLI
@@ -213,7 +212,7 @@ FT                   /transl_table=11
 FT                   /gene="rpl23"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein L23"
-FT                   /inference="similar to DNA sequence:NC_007898:LyesC2p003"
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp026"
 FT                   /translation="MDGIKYAVFTDKSIRLLGKNQYTSNVESGSTRTEIKHWVELFFGV
 FT                   KVIAMNSHRLPGKSRRMGPIMGHTMHYRRMIITLQPGYSIPPLRKKRT"
 FT   gene            14505..14672
@@ -249,7 +248,7 @@ FT                   /transl_table=11
 FT                   /gene="rps7"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein S7"
-FT                   /inference="similar to DNA sequence:NC_007898:LyesC2p007"
+FT                   /inference="similar to DNA sequence:AC_000188:LyesCp008"
 FT                   /translation="MSRRGTAEKKTAKSDPIYRNRLVNMLVNRILKHGKKSLAYQIIYR
 FT                   AVKKIQQKTETNPLSVLRQAIRGVTPDITVKARRVGGSTHQVPIEIGSTQGKALAIRWL
 FT                   LAASRKRPGRNMAFKLSSELVDAAKGSGDAIRKKEETHRMAEANRAFAHFR"

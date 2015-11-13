@@ -47,8 +47,8 @@ $AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/$PrdType.cds_short.awk > P_$$
 
 Notify "compare bank to predictions"
 
-$AwkCmd -f $LIB_DIR/libnws.awk      \
-        -f $LIB_DIR/compareCds.awk  \
+$AwkCmd -f $LIB_DIR/libnws.awk       \
+        -f $LIB_DIR/compare.cds.awk  \
         R_$$ P_$$ > S_$$
 
 # base statistics

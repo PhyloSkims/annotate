@@ -15,6 +15,8 @@ NeedArg 1
 
 egrep '^#|^MATCH' $* | awk -f $LIB_DIR/summary.cmp.awk > compare.txt
 
+Notify "text file: compare.txt"
+
 $LIB_DIR/summarize_cmp.r 
 
 

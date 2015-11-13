@@ -5,7 +5,7 @@
 #
 # output on stdout
 #
-# usage: go_filterbx.sh dna_fasta prot_fasta [idmin nbmin nbmax]
+# usage: do_filterbx.sh dna.fasta prot.fasta [idmin nbmin nbmax]
 #
 unsetenv ORG_SOURCED
 
