@@ -278,7 +278,7 @@ FT                   /gene="ycf1"
 FT                   /locus_tag=""
 FT                   /product="hypothetical chloroplast RF1"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp019"
-FT                   /inference="detect pass:pass1:core"
+FT                   /inference="detect pass:pass1:shell"
 FT                   /translation="MIFQSFLLGNLVSLCMKIINSVVVVGLYYGFLTTFSIGPSYLFLL
 FT                   RALVMEEGTEKKVSATTGFITGQLMMFISIYYAPLHLALGRPHTITVLALPYLLFHFFW
 FT                   NNHKHFFDYGSTTRNSMRNLSIQCVFLNNLIFQLFNHFILPSSMLARLVNIYLFRCNNK
@@ -322,7 +322,7 @@ FT                   /gene="ycf2"
 FT                   /locus_tag=""
 FT                   /product="Ycf2"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp004"
-FT                   /inference="detect pass:pass1:core"
+FT                   /inference="detect pass:pass1:shell"
 FT                   /translation="MRGHQFKSWIFELREILREIKNSHHFLDSWTQFNSVGSFIHIFFH
 FT                   QERFLKLFDPRIWSILLSRNSQGSPSNRYFTIKGVILFVVAVLIYRINNRNMVERKNLY
 FT                   LIGLLPIPMNSIGPRNDTLEESVGSSNINRLIVSLLYLPKGKKISESCFLNPKESTWVL
