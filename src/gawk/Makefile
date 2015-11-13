@@ -2,12 +2,10 @@
 # $Id: $
 # ---------------------------------------------------------------
 # @file: Makefile
-# @desc: makefile for lxpack
+# @desc: makefile for package exonerate
 #
 # @history:
-# @history:
-# @+	    <Gloup> : Apr 97 : Created
-# @+	    <Gloup> : Mar 02 : Updated for LXxware
+# @+	    <Gloup> : Sept 15 : Adapted to ORG.Annot
 #
 # @note: should be processed with gnu compatible make
 # @note: helixware_compatible
@@ -15,14 +13,12 @@
 # @end:
 # ---------------------------------------------------------------
 #
+
 include ../../config/auto.conf
 
-DIRS = gawk-4
+PKG = gawk-4.1.3
 
-include ../../config/targets/propagate.targ
+include $(CFGDIR)targets/package.targ
 
-include ../../config/targets/help.targ
-
-all::
-	$(MAKE) ACTION=$@ _action
+include $(CFGDIR)targets/help.targ
 
