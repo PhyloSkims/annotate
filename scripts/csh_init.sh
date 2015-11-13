@@ -178,4 +178,4 @@ end
 # notification for debug
 # --------------------------------------
 
-Debug "---> $0"
+Debug "---> $0 $argv"

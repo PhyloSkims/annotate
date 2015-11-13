@@ -2,9 +2,11 @@
 # CDS Searching parameters
 #
 
+Notify "  using default exonerate parameters"
+
 #
 # general parameters 
-# (may be overriden by enviroment variables)
+# may be overriden by enviroment variables (AssignUndef)
 #
 
 AssignUndef TMP_CLEANUP 1
@@ -30,11 +32,11 @@ AssignUndef PASS1_BESTN         10
 AssignUndef PASS1_FRAMESHIFT    -100
 
 # pass1: exonerate use Blosum62 with larger penalty for Stops
-AssignUndef PASS1_SUBMAT $MODELS_DIR/blosum62.mat
+AssignUndef PASS1_SUBMAT $ModelsDir/blosum62.mat
 
 # comment next lines to use default or specific splice model
-# AssignUndef SPLICE3MODEL $MODELS_DIR/splice.none.frq
-# AssignUndef SPLICE5MODEL $MODELS_DIR/splice.none.frq
+# AssignUndef SPLICE3MODEL $ModelsDir/splice.none.frq
+# AssignUndef SPLICE5MODEL $ModelsDir/splice.none.frq
 
 #
 # pass1: cluster selection parameters

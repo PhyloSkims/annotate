@@ -15,47 +15,66 @@
 #
 #========================================================================================
 #
-# usage: do_exonerate.sh dna.fasta prot.fasta [outdir]
+# usage: do_exonerate.sh dna.fasta prot.fasta [model_dir [out_dir]]
 #
 unsetenv ORG_SOURCED
 
 setenv ORG_HOME `dirname $0`/../../..
 source $ORG_HOME/scripts/csh_init.sh
 
-set PARAMS_DIR = $LIB_DIR/../params
-set MODELS_DIR = $LIB_DIR/../models
-
 alias Override 'if (-e \!:2) set \!:1 = \!:2'
 
 NeedArg 2
 
-set GenoFile = $Argv[1]
+set GenoFile = $Argv[1]; Shift
 set GenoName = `basename $GenoFile:r`
 
-set ProtFile = $Argv[2]
+set ProtFile = $Argv[1]; Shift
 set ProtDir  = `dirname $ProtFile`
 set ProtName = `basename $ProtFile:r`
+set ProtType = `basename $ProtDir`
 
 NeedFile $GenoFile
 NeedFile $ProtFile
 NeedFile $ProtDir/Annot.lst
 
+set ModelsDir = $PROG_DIR/../models
+if ($#Argv > 0) then
+  set ModelsDir = $Argv[1]; Shift
+  Notify "  exonerate models : $ModelsDir"
+else
+  Warning "  using default exonerate models : $ModelsDir"
+endif
+
+NeedFile $ModelsDir/start.default.frq
+NeedFile $ModelsDir/stop.default.frq
+NeedFile $ModelsDir/splice3.default.frq
+NeedFile $ModelsDir/splice5.default.frq
+
 set OutDir = .
-if ($#Argv >= 3) set OutDir = $3
+if ($#Argv > 0) then 
+  set OutDir = $Argv[1]; Shift
+endif
+
 if (! -d $OutDir) mkdir $OutDir
+
+set ParamsDir = $PROG_DIR/../params
+
+NeedFile $ParamsDir/default
 
 #
 # general parameters
 #
 
-source $PARAMS_DIR/default
+source $ParamsDir/default
 
 #
 # family specific parameters
 #
 
-if (-e $PARAMS_DIR/$ProtName) then
-  source $PARAMS_DIR/$ProtName
+if (-e $ParamsDir/$ProtName) then
+  Notify "  override parameters with $ParamsDir/$ProtName"
+  source $ParamsDir/$ProtName
 endif
 
 #
@@ -63,23 +82,23 @@ endif
 #
 
 if ($?STARTMODEL == 0) then
-  set STARTMODEL = $MODELS_DIR/start.default.frq
-  Override STARTMODEL $MODELS_DIR/start.$ProtName.frq
+  set STARTMODEL = $ModelsDir/start.default.frq
+  Override STARTMODEL $ModelsDir/start.$ProtName.frq
 endif
 
 if ($?STOPMODEL == 0) then
-  set STOPMODEL = $MODELS_DIR/stop.default.frq
-  Override STOPMODEL $MODELS_DIR/stop.$ProtName.frq
+  set STOPMODEL = $ModelsDir/stop.default.frq
+  Override STOPMODEL $ModelsDir/stop.$ProtName.frq
 endif
 
 if ($?SPLICE3MODEL == 0) then
-  set SPLICE3MODEL = $MODELS_DIR/splice3.default.frq
-  Override SPLICE3MODEL $MODELS_DIR/splice3.$ProtName.frq
+  set SPLICE3MODEL = $ModelsDir/splice3.default.frq
+  Override SPLICE3MODEL $ModelsDir/splice3.$ProtName.frq
 endif
 
 if ($?SPLICE5MODEL == 0) then
-  set SPLICE5MODEL = $MODELS_DIR/splice5.default.frq
-  Override SPLICE5MODEL $MODELS_DIR/splice5.$ProtName.frq
+  set SPLICE5MODEL = $ModelsDir/splice5.default.frq
+  Override SPLICE5MODEL $ModelsDir/splice5.$ProtName.frq
 endif
 
 #
@@ -178,8 +197,10 @@ $AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/extend.awk             \
 # translate
 #
 
+echo "c pass pass1 $ProtType" > $base.iff
+
 $AwkCmd -v FASTA=$GenoFile -f $LIB_DIR/libutil.awk \
-        -f $LIB_DIR/translate.awk T_$$ > $base.iff
+        -f $LIB_DIR/translate.awk T_$$ >> $base.iff
 
 #
 # convert to embl

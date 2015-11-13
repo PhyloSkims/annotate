@@ -8,6 +8,7 @@ FT                   /gene="ccsA"
 FT                   /locus_tag=""
 FT                   /product="cytochrome c biogenesis protein"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp084"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MIFSTLEHILTHISFSIVSIVITIHLITFLVDEIVKLYDSSEKGI
 FT                   IVTFFCITGLLVTRWVSSGHFPLSDLYESLIFLSWSFSLIHIIPYFKKNVLILSKITGP
 FT                   SAILTQGFATSGILTEIHQSGILVPALQSEWLIMHVSMMILGYAALLCGSLLSVALLVI
@@ -24,6 +25,7 @@ FT                   /gene="ndhA_1"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 1"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp085"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="LSNSLSTVDIVEAQSKYGFWGWNLWRQPIGFIVFLISSLAECERL
 FT                   PFDLPEAEEELVAGYQTEYSGIKFGLFYIASYLNLLVSSLFVTVLYLGGWNLSIPYIFV
 FT                   PDIFGINKGGKVFGTLIGIFITLAKTYLFLFIPIATRWTLPRLRMDQLLNLGWKFLLPI
@@ -38,6 +40,7 @@ FT                   /gene="ndhA_2"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 1"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp085"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MIIDTTEIETINSFSKLESLKEVYGIIWMLVPIVTLVLGITIGVL
 FT                   VIVWLEREISAGIQQRIGPEYAGPLGILQALADGTKLLLKENLIPSTGDTRLFSIGPSI
 FT                   AVISIFLSYSVIPFGDHLVLADLSIGVFFWIAISSIAPVGLLMSGYGSNNKYSFLGGLR
@@ -52,6 +55,7 @@ FT                   /gene="ndhB"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 2"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp066"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MIWHVQNENFILDSTRIFMKAFHLLLFDGSLIFPECILIFGLILL
 FT                   LMIDSTSDQKDIPWLYFISSTSLVMSITALLFRWREEPMISFSGNFQTNNFNEIFQFLI
 FT                   LLCSTLCIPLSVEYIECTEMAITEFLLFVLTATLGGMFLCGANDLITIFVAPECFSLCS
@@ -79,6 +83,7 @@ FT                   /gene="ndhD"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 4"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp081"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MNYFPWLTIIVVFPIFAGSLIFFLPHKGNRVIRWYTICICILELL
 FT                   LTTYAFCYHFQSDDPLIQLVEDYKWIDFFDFHWRLGIDGLSIGPILLTGFITTLATLAA
 FT                   WPVTRDSRLFHFLMLAMYSGQIGLFSSRDLLLFFIMWELELIPVYLLLAMWGGKKRLYS
@@ -98,6 +103,7 @@ FT                   /gene="ndhE"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 4L"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp080"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MILEHVLVLSAYLFSIGIYGLITSRNMVRALMCLELILNAVNINF
 FT                   VTFSDFFDNRQLKGDIFSIFVIAIAAAEAAIGLAIVSSIYRNRKSTRINQSNLLNN"
 FT   gene            complement(11509..13722)
@@ -110,6 +116,7 @@ FT                   /gene="ndhF"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 5"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp073"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MEQTYEYAWIIPFIPLPVPMLIGAGLILFPTATKRFRRMWAFQSV
 FT                   LLLSIVMIFSIYLSIQQINSSSVYQYVWSWIINNDFSLDFGYLIDPLTSIMSILITTVG
 FT                   IMVLIYSDNYMAHDQGYLRFFAYMSFFSTSMLGLVTSSNLIQIYIFWELVGLCSYLLIG
@@ -133,6 +140,7 @@ FT                   /gene="ndhG"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 6"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp077"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MDLSEPIHDFLLVFLGSGLILGGLGVVLLPNPIYSAFSLGLVLVC
 FT                   TSLFYILSNAYFVAAAQLLIYVGAINVLIIFAVMFMNGSEYYKDFHLWTVGDGITSMVC
 FT                   ISLFISLITTISDTSWYGIIWTTRSNQIIEQDFLSNSQQIGIHLSTDFFLPFELISIIL
@@ -147,6 +155,7 @@ FT                   /gene="ndhH"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit 7"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp078"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MTAPTTRKDLMIVNMGPQHPSMHGVLRLIVTLDGEDVVDCEPILG
 FT                   YLHRGMEKIAENRTIIQYLPYVTRWDYLATMFTEAITINGPEQLGNIQVPKRASYIRVI
 FT                   MLELSRIASHLLWLGPFMADIGAQTPFFYIFRERELIYDLFEAATGMRMMHNYFRIGGV
@@ -164,6 +173,7 @@ FT                   /gene="ndhI"
 FT                   /locus_tag=""
 FT                   /product="NADH dehydrogenase subunit I"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp076"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MLPMITEFINYGQQTIRAARYIGQGFMITLSHANRLPVTIQYPYE
 FT                   KLITSERFRGRIHFEFDKCIACEVCVRVCPIDLPVVDWKLETDIRKKRLLNYSIDFGIC
 FT                   IFCGNCVEYCPTNCLSMTEEYELSTYDRHELNYNQIALGRLPMSVIDDYTIRTISNLPQ
@@ -178,6 +188,7 @@ FT                   /gene="psaC"
 FT                   /locus_tag=""
 FT                   /product="photosystem I subunit VII"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp065"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MSHSVKIYDTCIGCTQCVRACPTDVLEMIPWDGCKAKQIASAPRT
 FT                   EDCVGCKRCESACPTDFLSVRVYLWHETTRSMGLAY"
 FT   gene            53817..55307
@@ -190,6 +201,7 @@ FT                   /gene="rpl2"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein L2"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp030"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MAIHLYKTSTPSTRNGTVDSQVKSNPRNNLIYGQRRCGKGRNARG
 FT                   IITARHRGGGHKRLYRKIDFRRNEKDIYGRIVTIEYDPNRNAYICLIHYGDGEKRYILH
 FT                   PRGAIIGDTIVSGTEVPIKMGNALPSTDMPLGTAIHNIEITLGKGGQLARAAGAVAKLI
@@ -213,6 +225,7 @@ FT                   /gene="rpl23"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein L23"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp026"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MDGIKYAVFTDKSIRLLGKNQYTSNVESGSTRTEIKHWVELFFGV
 FT                   KVIAMNSHRLPGKSRRMGPIMGHTMHYRRMIITLQPGYSIPPLRKKRT"
 FT   gene            14505..14672
@@ -225,6 +238,7 @@ FT                   /gene="rpl32"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein L32"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp036"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MAVPKKRTSTSKKRIRKNIWKRKGYWVALKAFSLAKSLSTGNSKS
 FT                   FFVRQTKINK"
 FT   gene            complement(24633..24896)
@@ -237,6 +251,7 @@ FT                   /gene="rps15"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein S15"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp029"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MVKNSVISVISQEEKKGSVEFQVFNFTNKIRRLTSHLELHKKDYL
 FT                   SQRGLKKILGKRQRLLAYLAKKNRVRYKELINRLDIRETKTR"
 FT   gene            42157..42624
@@ -249,6 +264,7 @@ FT                   /gene="rps7"
 FT                   /locus_tag=""
 FT                   /product="ribosomal protein S7"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp008"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MSRRGTAEKKTAKSDPIYRNRLVNMLVNRILKHGKKSLAYQIIYR
 FT                   AVKKIQQKTETNPLSVLRQAIRGVTPDITVKARRVGGSTHQVPIEIGSTQGKALAIRWL
 FT                   LAASRKRPGRNMAFKLSSELVDAAKGSGDAIRKKEETHRMAEANRAFAHFR"
@@ -262,6 +278,7 @@ FT                   /gene="ycf1"
 FT                   /locus_tag=""
 FT                   /product="hypothetical chloroplast RF1"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp019"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MIFQSFLLGNLVSLCMKIINSVVVVGLYYGFLTTFSIGPSYLFLL
 FT                   RALVMEEGTEKKVSATTGFITGQLMMFISIYYAPLHLALGRPHTITVLALPYLLFHFFW
 FT                   NNHKHFFDYGSTTRNSMRNLSIQCVFLNNLIFQLFNHFILPSSMLARLVNIYLFRCNNK
@@ -305,6 +322,7 @@ FT                   /gene="ycf2"
 FT                   /locus_tag=""
 FT                   /product="Ycf2"
 FT                   /inference="similar to DNA sequence:AC_000188:LyesCp004"
+FT                   /inference="detect pass:pass1:core"
 FT                   /translation="MRGHQFKSWIFELREILREIKNSHHFLDSWTQFNSVGSFIHIFFH
 FT                   QERFLKLFDPRIWSILLSRNSQGSPSNRYFTIKGVILFVVAVLIYRINNRNMVERKNLY
 FT                   LIGLLPIPMNSIGPRNDTLEESVGSSNINRLIVSLLYLPKGKKISESCFLNPKESTWVL

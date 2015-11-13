@@ -13,7 +13,7 @@
 #  Results are printed to the standard output
 #
 #========================================================================================
-# usage: go_cds.sh fasta [db_core]
+# usage: go_cds.sh fasta [db_root]
 #
 unsetenv ORG_SOURCED
 
@@ -28,13 +28,16 @@ NeedFile $Fasta
 
 set Genome = `basename $Fasta:r`
 
-set DbCore = $CDS_DATA_DIR/chlorodb/core
+set DbRoot = $CDS_DATA_DIR/chlorodb
 
 if ($#Argv > 0) then
-  set DbCore = $Argv[1]; Shift
+  set DbRoot = $Argv[1]; Shift
 endif
 
-NeedFile $DbCore/Annot.lst
+NeedDir $DbRoot/core
+NeedFile $DbRoot/core/Annot.lst
+
+NeedDir $DbRoot/models
 
 #
 # run everything into temporary place
@@ -50,14 +53,15 @@ endif
 # pass1: run exonerate
 #
 
-set fams = `ls $DbCore/*.fst`
-
-Notify "running pass1: exonerate of $Genome on $DbCore"
-
-foreach f ($fams)
-  $PROG_DIR/do_exonerate.sh $Fasta $f $temp
+foreach dir ("core" "shell" "dust")
+  if (-d $DbRoot/$dir) then
+    set fams = `ls $DbRoot/$dir/*.fst`
+    Notify "running pass1:$dir exonerate of $Genome on $DbRoot"
+    foreach f ($fams)
+      $PROG_DIR/do_exonerate.sh $Fasta $f $DbRoot/models $temp
+    end
+  endif
 end
-
 
 #
 # pass2: transsplicing
