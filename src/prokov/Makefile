@@ -22,6 +22,3 @@ DIRS = lxpack
 include ../../config/targets/propagate.targ
 
 include ../../config/targets/help.targ
-
-all::
-	$(MAKE) ACTION=$@ _action

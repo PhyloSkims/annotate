@@ -2,7 +2,7 @@
 # $Id: $
 # ---------------------------------------------------------------
 # @file: Makefile
-# @desc: makefile for lxpack
+# @desc: makefile for exonerate
 #
 # @history:
 # @history:
@@ -26,7 +26,3 @@ DIRS = pkg-config \
 include ../../config/targets/propagate.targ
 
 include ../../config/targets/help.targ
-
-all::
-	$(MAKE) ACTION=$@ _action
-

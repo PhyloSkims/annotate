@@ -22,9 +22,3 @@ DIRS = repseek-2014.09
 include ../../config/targets/propagate.targ
 
 include ../../config/targets/help.targ
-
-all::
-	$(MAKE) ACTION=$@ _action
-
-clean::
-	$(MAKE) -C lxpack portclean
