@@ -25,6 +25,3 @@ include ../../config/targets/help.targ
 
 all::
 	$(MAKE) ACTION=$@ _action
-
-clean::
-	$(MAKE) -C lxpack portclean

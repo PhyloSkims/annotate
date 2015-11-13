@@ -22,7 +22,3 @@ include $(CFGDIR)targets/package.targ
 
 include $(CFGDIR)targets/help.targ
 
-# bug fix
-all::
-	-mkdir $(PKGDIR)/userguide
-

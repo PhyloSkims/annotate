@@ -2,29 +2,24 @@
 # $Id: $
 # ---------------------------------------------------------------
 # @file: Makefile
-# @desc: makefile for lxpack
-#
-# @history:
-# @history:
-# @+	    <Gloup> : Apr 97 : Created
-# @+	    <Gloup> : Mar 02 : Updated for LXxware
-#
-# @note: should be processed with gnu compatible make
-# @note: helixware_compatible
-#
-# @end:
+# @desc: makefile for muscle
 # ---------------------------------------------------------------
 #
 include ../../../config/auto.conf
 
-DIRS = src
+all: muscle install 
 
-include ../../../config/targets/propagate.targ
+muscle:
+	chmod +x ./mk
+	(export CXX=$(CXX) && ./mk)
 
-include ../../../config/targets/help.targ
+test:
 
-all::
-	$(MAKE) ACTION=$@ _action
+install:
+	cp muscle $(BINDIR)
+	
+clean:
+	-\rm -f *.o muscle
 
-clean::
-	$(MAKE) -C lxpack portclean
+portclean: clean
+	-\rm -f $(BINDIR)/muscle

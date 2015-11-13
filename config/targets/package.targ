@@ -31,7 +31,6 @@ pkg.expand::
 	test -f $(PKGDIR)/configure || $(TAR) zxf $(PKGTAR) -C $(PKGDIR) --strip-components 1
 
 pkg.make:: pkg.expand
-	echo $(PKG_CONFIG)
 	test -f $(PKGDIR)/Makefile || (export PATH="$(PRTPATH_BIN):$$PATH" && \
 	                               export PKG_CONFIG=$(PKG_CONFIG) && \
 	                               export CC="$(CC)" && \

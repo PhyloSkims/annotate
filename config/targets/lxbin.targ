@@ -34,7 +34,7 @@ all::	prelib $(PROGS) install
 
 prelib::
 	test -d $(PRTDIR) || mkdir $(PRTDIR)  # because some linker may complain
-	test -d $(LIBDIR) || mkdir $(LIBDIR)  # if -L$(LIBDIR) does not exist
+	test -d $(LIBDIR) || mkdir $(LIBDIR)  # if LIBDIR does not exist
 
 install::
 	test -d $(PRTDIR) || mkdir $(PRTDIR)
