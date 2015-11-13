@@ -1,0 +1,274 @@
+2015-11-13 18:01:14 [OA INFO ] uncompressing 10 entries
+2015-11-13 18:01:14 [OA INFO ] convert 10 gbk/embl entries to fasta
+2015-11-13 18:01:14 [OA INFO ] get gbk/embl info for 10 entries
+2015-11-13 18:01:15 [OA INFO ] get gbk/embl cds for 10 entries
+2015-11-13 18:01:15 [OA INFO ] get prots
+2015-11-13 18:01:15 [OA INFO ] get gbk/embl introns for 10 entries
+2015-11-13 18:01:16 [OA INFO ] Making models
+2015-11-13 18:01:16 [OA FILE ] + loading info table 
+2015-11-13 18:01:16 [OA FILE ] + loading cds table 
+2015-11-13 18:01:16 [OA FILE ] + writing patterns for core : db.core.pat.txt 
+2015-11-13 18:01:16 [OA FILE ] + writing patterns for dust : db.dust.pat.txt 
+2015-11-13 18:01:16 [OA FILE ] + writing patterns for shell : db.shell.pat.txt 
+2015-11-13 18:01:16 [OA FILE ] + writing start model: models/start.default.frq 
+2015-11-13 18:01:16 [OA FILE ] + writing stop model: models/stop.default.frq 
+2015-11-13 18:01:16 [OA FILE ] + loading intron table 
+2015-11-13 18:01:16 [OA FILE ] + writing splice3 model: models/splice3.default.frq 
+2015-11-13 18:01:16 [OA FILE ] + writing splice5 model: models/splice5.default.frq 
+2015-11-13 18:01:16 [OA FILE ] + writing uniform splice  model: models/splice.none.frq 
+2015-11-13 18:01:16 [OA FILE ] + saving db.data.Rdata 
+2015-11-13 18:01:16 [OA INFO ] Making core DB (take some time... please wait)
+2015-11-13 18:01:16 [OA INFO ] cleanup db.prot.fst
+2015-11-13 18:01:16 [OA INFO ] select by patterns
+2015-11-13 18:01:17 [OA INFO ]   pattern : rpl2 : 14
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps7 : 14
+2015-11-13 18:01:17 [OA INFO ]   pattern : rpl23 : 12
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps19 : 11
+2015-11-13 18:01:17 [OA INFO ]   pattern : rbcl : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rpl16 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rpl20 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rpl36 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps11 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps12 : 13
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps14 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps18 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps2 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps3 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps4 : 10
+2015-11-13 18:01:17 [OA INFO ]   pattern : rps8 : 10
+2015-11-13 18:01:17 [OA INFO ] output directory : db.core.pat.db
+2015-11-13 18:01:17 [OA INFO ] Making shell DB (take some time... please wait)
+2015-11-13 18:01:17 [OA INFO ] cleanup db.prot.fst
+2015-11-13 18:01:17 [OA INFO ] select by patterns
+2015-11-13 18:01:17 [OA INFO ]   pattern : atpa : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : atpb : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : atpe : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : atpf : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : atph : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : atpi : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : ccsa : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : petb : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : petg : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psaa : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psab : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psac : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psba : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psbb : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psbc : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psbd : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psbe : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psbf : 9
+2015-11-13 18:01:17 [OA INFO ]   pattern : psbh : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbi : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbj : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbk : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbl : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbn : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbt : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpl14 : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpl32 : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpob : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpoc1 : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpoc2 : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : ycf4 : 9
+2015-11-13 18:01:18 [OA INFO ]   pattern : cema : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : ndhb : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : peta : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : petd : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : psai : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : psaj : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbz : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpl22 : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpl33 : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : rpoa : 8
+2015-11-13 18:01:18 [OA INFO ]   pattern : clpp : 7
+2015-11-13 18:01:18 [OA INFO ]   pattern : rps15 : 7
+2015-11-13 18:01:18 [OA INFO ]   pattern : ycf3 : 7
+2015-11-13 18:01:18 [OA INFO ]   pattern : accd : 6
+2015-11-13 18:01:18 [OA INFO ]   pattern : infa : 6
+2015-11-13 18:01:18 [OA INFO ]   pattern : petl : 6
+2015-11-13 18:01:18 [OA INFO ]   pattern : petn : 6
+2015-11-13 18:01:18 [OA INFO ]   pattern : psbm : 6
+2015-11-13 18:01:18 [OA INFO ]   pattern : ycf12 : 6
+2015-11-13 18:01:18 [OA INFO ]   pattern : chlb : 5
+2015-11-13 18:01:18 [OA INFO ]   pattern : chll : 5
+2015-11-13 18:01:18 [OA INFO ]   pattern : matk : 5
+2015-11-13 18:01:18 [OA INFO ]   pattern : ndha : 5
+2015-11-13 18:01:18 [OA INFO ]   pattern : ndhc : 5
+2015-11-13 18:01:18 [OA INFO ]   pattern : ndhd : 5
+2015-11-13 18:01:18 [OA INFO ]   pattern : ndhe : 5
+2015-11-13 18:01:18 [OA INFO ]   pattern : ndhf : 5
+2015-11-13 18:01:19 [OA INFO ]   pattern : ndhg : 5
+2015-11-13 18:01:19 [OA INFO ]   pattern : ndhh : 5
+2015-11-13 18:01:19 [OA INFO ]   pattern : ndhi : 5
+2015-11-13 18:01:19 [OA INFO ]   pattern : ndhk : 5
+2015-11-13 18:01:19 [OA INFO ]   pattern : psam : 5
+2015-11-13 18:01:19 [OA INFO ]   pattern : rps16 : 5
+2015-11-13 18:01:19 [OA INFO ]   pattern : chli : 4
+2015-11-13 18:01:19 [OA INFO ]   pattern : chln : 4
+2015-11-13 18:01:19 [OA INFO ]   pattern : ndhj : 4
+2015-11-13 18:01:19 [OA INFO ]   pattern : rpl12 : 4
+2015-11-13 18:01:19 [OA INFO ]   pattern : rpl5 : 4
+2015-11-13 18:01:19 [OA INFO ]   pattern : rps9 : 4
+2015-11-13 18:01:19 [OA INFO ]   pattern : tufa : 4
+2015-11-13 18:01:19 [OA INFO ]   pattern : ycf2 : 5
+2015-11-13 18:01:19 [OA INFO ] output directory : db.shell.pat.db
+2015-11-13 18:01:19 [OA INFO ] Making dust DB (take some time... please wait)
+2015-11-13 18:01:19 [OA INFO ] cleanup db.prot.fst
+2015-11-13 18:01:19 [OA INFO ] select by patterns
+2015-11-13 18:01:19 [OA INFO ]   pattern : mind : 3
+2015-11-13 18:01:19 [OA INFO ]   pattern : rne : 3
+2015-11-13 18:01:19 [OA INFO ]   pattern : rpl19 : 3
+2015-11-13 18:01:19 [OA INFO ]   pattern : rpl21 : 3
+2015-11-13 18:01:19 [OA INFO ]   pattern : ycf1 : 3
+2015-11-13 18:01:19 [OA INFO ]   pattern : acpp : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : atpd : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : atpg : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : cbbx : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : ccs1 : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : clpc : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : cpeb : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : cyst : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : dnab : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : dnak : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : ftrb : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : ftsh : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : ftsw : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : groel : 2
+2015-11-13 18:01:19 [OA INFO ]   pattern : ilvb : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : ilvh : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : infb : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : orf27 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : pbsa : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : petf : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psad : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psae : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psaf : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psak : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psal : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psbv : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psbw : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : psbx : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rbcr : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rbcs : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl1 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl11 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl13 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl18 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl24 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl27 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl29 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl3 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl31 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl34 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl35 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl4 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rpl6 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rps10 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rps13 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rps17 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rps20 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rps5 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : rps6 : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : seca : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : secy : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : tatc : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : tsf : 2
+2015-11-13 18:01:20 [OA INFO ]   pattern : ycf16 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf17 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf19 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf20 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf24 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf29 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf31 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf33 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf35 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf36 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf37 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf39 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf46 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf61 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf62 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : ycf65 : 2
+2015-11-13 18:01:21 [OA INFO ]   pattern : acca : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : accb : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : apca : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : apcb : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : apcd : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : apce : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : apcf : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : argb : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : cara : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : cpca : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : cpcb : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : cpcg : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : cpea : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : cysa : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : fabh : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : ftsi : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : glnb : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : gltb : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : hlp : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : infc : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : mbpx : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : mine : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : odpa : 1
+2015-11-13 18:01:21 [OA INFO ]   pattern : odpb : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf107 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf108 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf111 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf114 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf121 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf148 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf149 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf1738 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf174 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf198 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf199 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf203 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf238 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf240 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf263 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf287 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf320 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf327 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf382 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf450 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf58 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf62 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf621 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf635 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf71 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : orf75 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : petj : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : pgma : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : prea : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : psby : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : rpl28 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : rpl9 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : rps1 : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : syfb : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : syh : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : thig : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : trpa : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : trpg : 1
+2015-11-13 18:01:22 [OA INFO ]   pattern : trxa : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf13 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf18 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf21 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf22 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf23 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf26 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf28 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf32 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf34 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf38 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf47 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf59 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf6 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf7 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf81 : 1
+2015-11-13 18:01:23 [OA INFO ]   pattern : ycf9 : 1
+2015-11-13 18:01:23 [OA INFO ] output directory : db.dust.pat.db
+2015-11-13 18:01:23 [OA INFO ] recompressing 10 entries
+2015-11-13 18:01:23 [OA INFO ] compressing 10 fasta entries

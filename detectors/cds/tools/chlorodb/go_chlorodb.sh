@@ -35,6 +35,7 @@ cd $DB_BASE/info
 #
 
 if (! -e $DB_BASE/parameters.sh) then
+  Notify "no $DB_BASE/parameters.sh found : creating one for you"
   @ n = `find $DB_BASE/download -depth 1 -type f -print | wc -l`
   @ cor_cutoff = $n / 2
   @ atg_cutoff = $n / 10
@@ -70,7 +71,9 @@ if (! -e $DB_BASE/parameters.sh) then
   echo "set DUST_PMAX             = 1e-6"        >> $DB_BASE/parameters.sh
   echo "set DUST_IDMIN            = 30"          >> $DB_BASE/parameters.sh
   echo "set DUST_SIZMIN           = 10"          >> $DB_BASE/parameters.sh
-  
+  Cat $DB_BASE/parameters.sh
+else
+  Notify "DB parameters : $DB_BASE/parameters.sh"
 endif
 
 source $DB_BASE/parameters.sh
@@ -198,12 +201,34 @@ if (-e db.core.pat.txt) then
   Notify "Making core DB (take some time... please wait)"
   $PROG_DIR/subdb/go_subdb.sh db.prot.fst db.core.pat.txt \
     $CORE_DELTA $CORE_COVMIN $CORE_PMAX $CORE_IDMIN $CORE_SIZMIN
+    
+  # add discarded entries into shell
+  if (-e db.core.pat.db/Annot.lst) then
+    sort db.core.pat.txt > A_$$
+    sort db.core.pat.db/Annot.lst > B_$$
+    join -a1 A_$$ B_$$ | awk '(NF==3) {print $0}' > C_$$
+    set n = `cat C_$$ | wc -l`
+    Notify "transfering $n discarded entries to shell"
+    cat C_$$ >> db.shell.pat.txt
+    \rm -f ?_$$
+  endif
 endif
 
 if (-e db.shell.pat.txt) then
   Notify "Making shell DB (take some time... please wait)"
   $PROG_DIR/subdb/go_subdb.sh db.prot.fst db.shell.pat.txt \
     $SHEL_DELTA $SHEL_COVMIN $SHEL_PMAX $SHEL_IDMIN $SHEL_SIZMIN
+
+  # add discarded entries into dust
+  if (-e db.shell.pat.db/Annot.lst) then
+    sort db.shell.pat.txt > A_$$
+    sort db.shell.pat.db/Annot.lst > B_$$
+    join -a1 A_$$ B_$$ | awk '(NF==3) {print $0}' >> C_$$
+    set n = `cat C_$$ | wc -l`
+    Notify "transfering $n discarded entries to dust"
+    cat C_$$ >> db.dust.pat.txt
+    \rm -f ?_$$
+  endif
 endif
 
 if (-e db.dust.pat.txt) then

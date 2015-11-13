@@ -98,6 +98,8 @@ alias Cat 'awk -v D="`date '"'"'+%Y-%m-%d %H:%M:%S'"'"'`" '"'"'{print D " [OA FI
 
 alias Notify 'Cout "INFO " \!:*'
 
+alias Warning 'Cout "WARN " \!:*'
+
 alias Error 'Cout ERROR \!:2-*; Exit \!:1' 
 
 alias Exit 'set Stat = \!:1; Debug "<--- $0 [$Stat]"; exit \!:1'

@@ -27,7 +27,7 @@ set Delta  = 0.5
 set Covmin = 30
 set Pmax   = 1e-6
 set Idmin  = 30
-set Sizmin = 5
+set Sizmin = 10
 
 if ($#Argv > 0) then
   set Delta = $Argv[1]; Shift
@@ -91,14 +91,17 @@ set noms = `awk '{print $1}' $PatFile`
 foreach nom ($noms)
   set pat = `egrep "^$nom " $PatFile | awk '{print $2}'`
   $AwkCmd -f $LIB_DIR/db.filter.pat.awk -v PAT="$pat" P_$$ > D_$$/$nom.fst
+  Report D_$$/$nom.fst "pattern_filter"
   set n = `egrep '^>' D_$$/$nom.fst | wc -l`
   Notify "  pattern : $nom : $n"
-  Report D_$$/$nom.fst "pattern_filter"
-  if ($n <= $Sizmin) \rm -f D_$$/$nom.fst
+  if ($n < $Sizmin) \rm -f D_$$/$nom.fst
 end
 
 set ok = `ls D_$$ | wc -l`
-if ($ok == 0) goto fin
+if ($ok == 0) then
+  Warning "no entries found after pattern selection (increase Sizmin = $Sizmin)"
+  goto fin
+endif
 
 #
 # select by length
@@ -115,12 +118,14 @@ foreach f (D_$$/*.fst)
   Report E_$$/$nom.fst "length_filter"
   set n = `egrep '^>' E_$$/$nom.fst | wc -l`
   Notify "  length filter : $nom : $n"
-  if ($n <= $Sizmin) \rm -f E_$$/$nom.fst
+  if ($n < $Sizmin) \rm -f E_$$/$nom.fst
 end
 
 set ok = `ls E_$$ | wc -l`
-if ($ok == 0) goto fin
-
+if ($ok == 0) then
+  Warning "no entries found after length selection (increase Sizmin = $Sizmin)"
+  goto fin
+endif
 
 #
 # select by similarity
@@ -152,12 +157,15 @@ foreach f (E_$$/*.fst)
 
   set n = `egrep '^>' F_$$/$nom.fst | wc -l`
   Notify "  blast filter : $nom : $n"
-  if ($n <= $Sizmin) \rm -f F_$$/$nom.fst
+  if ($n < $Sizmin) \rm -f F_$$/$nom.fst
   
 end
 
-set ok = `ls D_$$ | wc -l`
-if ($ok == 0) goto fin
+set ok = `ls F_$$ | wc -l`
+if ($ok == 0) then
+  Warning "no entries found after similarity selection (increase Sizmin = $Sizmin)"
+  goto fin
+endif
 
 #
 # annotations
@@ -187,7 +195,14 @@ Notify "copy $n files to $OutDir"
 #
 
 fin:
-Notify "output directory : $OutDir"
+
+set n = `find $OutDir -name \*.fst -print | wc -l`
+if ($n == 0) then
+  Warning "no entries found : removing $OutDir"
+  \rm -r $OutDir
+else
+  Notify "output directory : $OutDir : $n entries"
+endif
 
 \rm -r ?_$$
 
