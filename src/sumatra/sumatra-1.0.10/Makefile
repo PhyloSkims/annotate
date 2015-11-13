@@ -43,5 +43,8 @@ clean:
 	$(MAKE) -C ./sumalibs/libfile clean
 	$(MAKE) -C ./sumalibs/libutils clean
 
+portclean: clean
+	-rm -f $(BINDIR)/$(EXEC)
+
 install:
 	cp $(EXEC) $(BINDIR)

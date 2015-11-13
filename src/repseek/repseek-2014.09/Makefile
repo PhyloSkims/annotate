@@ -12,8 +12,6 @@
 
 include ../../../config/auto.conf
 
-
-
 # SGI: PROTO= PROTO=1
 # others: PROTO= PROTO=0
 PROTO= PROTO=0
@@ -62,15 +60,16 @@ repseek:  $(OBJ) main_repseek.c
 
 
 install: repseek
-	cp  repseek $(BINDIR)
-
+	cp repseek $(BINDIR)
 
 clean:
-	+rm -f *.o repseek
+	-rm -f *.o repseek
+
+portclean:
+	-rm -f $(BINDIR)/repseek
 
 archive:
 	\rm -rf RepSeek; mkdir RepSeek
 	cp -r $(SRC) *.h Makefile main_repseek.c *.txt RepSeek;
 	tmp=`date | awk '{print $$3$$2$$NF}'`;tar czvf RepSeek.$$tmp.tgz  RepSeek;
 	\rm -rf RepSeek
-

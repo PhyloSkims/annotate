@@ -23,7 +23,3 @@ DIRS = src \
 include ../../../config/targets/propagate.targ
 
 include ../../../config/targets/help.targ
-
-portclean::
-	$(MAKE) ACTION=$@ _action
-	(! test -d $(PRTDIR)) || \rm -r $(PRTDIR)
