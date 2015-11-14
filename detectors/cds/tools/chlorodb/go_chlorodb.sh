@@ -36,7 +36,7 @@ cd $DB_BASE/info
 
 if (! -e $DB_BASE/parameters.sh) then
   Notify "no $DB_BASE/parameters.sh found : creating one for you"
-  @ n = `find $DB_BASE/download -depth 1 -type f -print | wc -l`
+  @ n = `find $DB_BASE/download -maxdepth 1 -type f -print | wc -l`
   @ cor_cutoff = $n / 2
   @ atg_cutoff = $n / 10
   @ dbs_cutoff = $n / 4
@@ -85,7 +85,7 @@ source $DB_BASE/parameters.sh
 # temporarily uncompress
 #
 
-set ff = `find $DB_BASE/download -depth 1 -name \*.gz -print`
+set ff = `find $DB_BASE/download -maxdepth 1 -name \*.gz -print`
 
 if ($#ff != 0) then
   Notify "uncompressing $#ff entries"
@@ -98,7 +98,7 @@ endif
 # convert gbk/embl to fasta
 #
 
-set ff = `find $DB_BASE/download -depth 1 \( -name \*.gbk -or -name \*.embl \) -print`
+set ff = `find $DB_BASE/download -maxdepth 1 \( -name \*.gbk -or -name \*.embl \) -print`
 
 Notify "convert $#ff gbk/embl entries to fasta"
 
@@ -241,7 +241,7 @@ endif
 # recompress entries
 #
 
-set ff = `find $DB_BASE/download -depth 1 -type f -print`
+set ff = `find $DB_BASE/download -maxdepth 1 -type f -print`
 
 if ($#ff != 0) then
   Notify "recompressing $#ff entries"
@@ -252,7 +252,7 @@ endif
 
 # compress fasta
 
-set ff = `find $DB_BASE/fasta -depth 1 -name \*.fst -print`
+set ff = `find $DB_BASE/fasta -maxdepth 1 -name \*.fst -print`
 
 if ($#ff != 0) then
   Notify "compressing $#ff fasta entries"
