@@ -10,12 +10,13 @@ do
 done
 
 LINK_OPTS=
-if [ `uname -s` == Linux ] ; then
-    LINK_OPTS=-static
-fi
-$CXX $LINK_OPTS $ENV_LINK_OPTS -g -o muscle $ObjNames  >> muscle.make.stdout.txt 2>> muscle.make.stderr.txt
+#if [ `uname -s` == Linux ] ; then
+#    LINK_OPTS=-static
+#fi
+#$CXX $LINK_OPTS $ENV_LINK_OPTS -g -o muscle $ObjNames  >> muscle.make.stdout.txt 2>> muscle.make.stderr.txt
+$CXX $LINK_OPTS $ENV_LINK_OPTS -O -o muscle $ObjNames  >> muscle.make.stdout.txt 2>> muscle.make.stderr.txt
 tail muscle.make.stderr.txt
 
-strip muscle
-ls -lh muscle
-sum muscle
+#strip muscle
+#ls -lh muscle
+#sum muscle
