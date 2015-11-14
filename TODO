@@ -18,3 +18,8 @@ o parameters in go_subdb.sh
 
 o models in DB_DIR
 
+o check R package igraph installation
+
+o replace R igraph for cc
+
+

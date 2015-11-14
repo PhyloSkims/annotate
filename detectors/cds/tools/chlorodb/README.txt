@@ -23,17 +23,15 @@ then (after checking)
 # notes
 #
 
-this requires an installed R > 3.0.1
+calculation of models currently requires R
+(without any specific package) this will be
+replaced in the future...
 
-with the following packages
+in addition, optional graphics output (plot.models.r) 
+requires the following graphic packages :
 
-    igraph          # <- mandatory
+    grid           
+    gridExtra      
+    vcd            
+    plotrix        
 
-    grid            # <- the following are not needed
-    gridExtra       #    by scripts, but just to
-    vcd             #    produce graphics for models
-    plotrix         #    by lib/plot.models.r
-
-you can check and install them by running :
-
- lib/install.rpackages.r 

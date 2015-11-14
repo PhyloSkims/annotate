@@ -111,9 +111,7 @@ Notify "select by length"
 
 foreach f (D_$$/*.fst) 
   set nom = `basename $f:r`
-  $AwkCmd -f $LIB_DIR/db.getlen.awk $f > L_$$
-  $LIB_DIR/db.filter.len.r L_$$ $Delta |\
-    $AwkCmd '($NF == "TRUE") {print $2}' > M_$$
+  $AwkCmd -v DELTA=$Delta -f $LIB_DIR/db.filter.len.awk $f > M_$$
   $AwkCmd -v FILE=M_$$ -f $LIB_DIR/db.subdb.awk $f > E_$$/$nom.fst
   Report E_$$/$nom.fst "length_filter"
   set n = `egrep '^>' E_$$/$nom.fst | wc -l`
@@ -144,10 +142,8 @@ foreach f (E_$$/*.fst)
   
   $AwkCmd -v COVMIN=$Covmin -v PMAX=$Pmax -v IDMIN=$Idmin \
       -f $LIB_DIR/db.blastlink.awk $f.blast.out |\
-      $AwkCmd -f $LIB_DIR/db.todl.awk > G_$$
-      
-  ($LIB_DIR/db.cc.r G_$$ > $f.cc.txt) >>& db.log
-  
+  $AwkCmd -f $LIB_DIR/db.cc.awk > $f.cc.txt
+
   awk -v NAME=$nom -f $LIB_DIR/db.reportcc.awk $f.cc.txt >> $OutLog 
   
   $AwkCmd -f $LIB_DIR/db.selcc.awk $f.cc.txt > S_$$

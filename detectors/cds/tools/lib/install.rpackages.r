@@ -25,7 +25,6 @@ check("grid")
 check("gridExtra")
 check("vcd")
 check("plotrix")
-check("igraph")
 
 quit(save='no', status=0)
 
