@@ -51,6 +51,8 @@ $AwkCmd -f $LIB_DIR/libnws.awk       \
         -f $LIB_DIR/compare.cds.awk  \
         R_$$ P_$$ > S_$$
 
+egrep "^MATCH" S_$$ | grep "MISSED" | awk '{print $2}' | sort | uniq > D_$$
+
 # base statistics
 
 egrep "^MATCH" S_$$ | tr '.' ' ' | awk '{print $5}' |\
@@ -64,8 +66,6 @@ if (-d $DATA_DIR/cds/chlorodb/core) then
   sed -e 's@^.*core/@@1' | sed -e 's/.fst$//g' |\
   sort > C_$$
 
-  egrep "^MATCH" S_$$ | grep "MISSED" | awk '{print $2}' | sort | uniq > D_$$
-
   join D_$$ C_$$ > E_$$
   @ nc = `cat C_$$ | wc -l`
   @ mt = `cat D_$$ | wc -l`
@@ -74,13 +74,38 @@ if (-d $DATA_DIR/cds/chlorodb/core) then
   set LC = `cat E_$$`
 
   echo "#"                                   >> U_$$
-  echo "# $mc MISSED in ChloroDB-Core ($LC)" >> U_$$
-  echo "# $mn MISSED not in ChloroDB-Core"   >> U_$$
+  echo "# $mc MISSED in Core ($LC)"          >> U_$$
+  echo "# $mn MISSED not in Core"            >> U_$$
   echo "#"                                   >> U_$$
-  echo ""                                    >> U_$$
 endif
 
+
+# add all chloro statistics
+
+find $DATA_DIR/cds/chlorodb -maxdepth 1 -name \*.fst -print |\
+  grep -v info |\
+  sed -e 's@^.*/@@1' | sed -e 's/.fst$//g' |\
+  sort > C_$$
+
+join D_$$ C_$$ > E_$$
+@ nc = `cat C_$$ | wc -l`
+@ mt = `cat D_$$ | wc -l`
+@ mc = `cat E_$$ | wc -l`
+@ mn = $mt - $mc
+set LC = `cat E_$$`
+
+echo "#"                                   >> U_$$
+echo "# $mc MISSED in ChloroDB ($LC)"      >> U_$$
+echo "# $mn MISSED not in ChloroDB"        >> U_$$
+echo "#"                                   >> U_$$
+
+# add detailled resutls
+
+echo ""                                    >> U_$$
 cat S_$$ >> U_$$
+
+# print results
+
 
 cat U_$$
 
