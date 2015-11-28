@@ -89,10 +89,16 @@ function gene2product(gene) {
 
 function emblTRNA(geneid,trna,loc,anti,intron,seq) {
 	if (loc ~ /^c/) {
+	     complement=1;
+  		 match(loc,",[0-9][0-9]*\\]");
+		 ge=substr(loc,RSTART,RLENGTH);
+  	     match(ge,"[0-9][0-9]*");
+		 ge=substr(ge,RSTART,RLENGTH);
 	     sub("c\\[","complement(",loc); 
 	     sub("\\]",")",loc);
 	     sub(",","..",loc)}
 	else {
+	    complement=0;
 		sub("\\[","",loc);
 	    sub("\\]","",loc);
 	    sub(",","..",loc)}
@@ -105,11 +111,16 @@ function emblTRNA(geneid,trna,loc,anti,intron,seq) {
 	   l=length(intron);
        intron=substr(intron,2,l-2);
        split(intron,intronpos,",");
-	   ib=intronpos[0];
-	   ie=intronpos[1];
+	   ib=intronpos[1];
+	   ie=intronpos[2];
 	   match(loc,"[0-9][0-9]*");
 	   gb=substr(loc,RSTART,RLENGTH);
-	   sub("\\.\\.",".." (gb + ib -2) "," (gb + ie) "..",loc); \
+	   if (complement==0) {
+	   		sub("\\.\\.",".." (gb + ib - 2) "," (gb + ie) "..",loc);
+	   		}
+	   else {
+	   		sub("\\.\\.",".." (ge - ie - 1) "," (ge - ib + 2) "..",loc);
+	   }
 	   sub("complement","complement(join",loc);\
 	   if (substr(loc,1,1) ~ /[0-9]/) {
 	      loc="join("loc} 
