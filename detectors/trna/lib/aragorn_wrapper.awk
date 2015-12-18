@@ -112,7 +112,8 @@ function emblTRNA(geneid,trna,loc,anti,intron,seq) {
        intron=substr(intron,2,l-2);
        split(intron,intronpos,",");
 	   ib=intronpos[1];
-	   ie=intronpos[2];
+	   il=intronpos[2];
+	   ie=ib+il-1;
 	   match(loc,"[0-9][0-9]*");
 	   gb=substr(loc,RSTART,RLENGTH);
 	   if (complement==0) {
