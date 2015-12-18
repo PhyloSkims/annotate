@@ -140,7 +140,7 @@ function Unk(s) {
   QQualifier("locus_tag", locus)
   QQualifier("product", Product)
   QQualifier("inference", "similar to DNA sequence:" Simil)
-  QQualifier("inference", "detect pass:" PassType ":" PassInfo)
+  QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
   QQualifier("translation", Translat)
   
   if (Nexon > 1) {
