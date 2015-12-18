@@ -14,6 +14,48 @@
 THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
 source "${THIS_DIR}/scripts/bash_init.sh"
 
+#
+# Management of options
+#
+
+taxid="no"
+normalization="yes"
+irdetection="yes"
+
+# options may be followed by one colon to indicate they have a required argument
+if ! options=$(getopt -o t:ih -l ncbi-taxid:,no-ir-detection,help -- "$@")
+then
+    # something went wrong, getopt will put out an error message for us
+    exit 1
+fi
+
+set -- $options
+
+while [ $# -gt 0 ]
+do
+    case $1 in
+    -t|--ncbi-taxid) taxid="$2" ; shift;;
+    -i|--no-ir-detection)  irdetection="no" ;;
+    -h|--help)  echo "Usage:" ;  
+    			echo "    $0 "'[-t|--ncbi-taxid ###] [-n|--no-normalization] \' 
+    			echo "       [-i|--no-ir-detection] [-h|--help] <FASTAFILE>"
+    			echo
+    			echo "Options:"
+    			echo '  -t ### | --ncbi-taxid ###'
+    			echo '      ### represents the ncbi taxid associated to the sequence'
+    			echo
+    			echo '  -i     | --no-ir-detection'
+    			echo '      Does not look for inverted repeats in the plastid genome'
+               	exit 0;;
+    (--) shift; break;;
+    (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
+    (*) break;;
+    esac
+    shift
+done
+
+#############################
+
 pushTmpDir ORG.organnot
 
 	if [[ ! "$1" =~ ^/ ]]; then
@@ -27,15 +69,19 @@ pushTmpDir ORG.organnot
 	
 	rm -f ${LOG}
 	openLogFile ${LOG}
-
-	loginfo "Normalizing the structure of the Chloroplast sequence..."
-		loginfo "   LSC + IRB + SSC + IRA"
-		${PROG_DIR}/detectors/normalize/bin/go_normalize.sh ${QUERY} > "${RESULTS}.norm.fasta"
-	loginfo "Done."
 	
-	loginfo "Annotating the Inverted repeats and Single copies (LSC and SSC)..."
-		${PROG_DIR}/detectors/ir/bin/go_ir.sh "${RESULTS}.norm.fasta" > "${RESULTS}.annot"		
-	loginfo "Done."
+	if [ "$irdetection"=="yes" ]; then
+
+		loginfo "Normalizing the structure of the Chloroplast sequence..."
+			loginfo "   LSC + IRB + SSC + IRA"
+			${PROG_DIR}/detectors/normalize/bin/go_normalize.sh ${QUERY} > "${RESULTS}.norm.fasta"
+		loginfo "Done."
+		
+		loginfo "Annotating the Inverted repeats and Single copies (LSC and SSC)..."
+			${PROG_DIR}/detectors/ir/bin/go_ir.sh "${RESULTS}.norm.fasta" > "${RESULTS}.annot"		
+		loginfo "Done."
+		
+	fi
 	
 	loginfo "Annotating the tRNA..."
 		${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"

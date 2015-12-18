@@ -41,20 +41,28 @@ pkg.make:: pkg.expand
 	                               export LDFLAGS="$(LDFLAGS)" && \
 	                               cd $(PKGDIR) && \
 	                               ./configure --prefix=$(PRTPATH) $(CONFIGURE_OPTIONS)) 
-	$(MAKE) -C $(PKGDIR)
+	(export PATH="$(PRTPATH_BIN):$$PATH" && \
+	 export PKG_CONFIG=$(PKG_CONFIG) && \
+	 export CC="$(CC)" && \
+	 export CXX="$(CXX)" && \
+	 export CPP="$(CPP)" && \
+	 export CXXPP="$(CXXPP)" && \
+	 export CFLAGS="$(CFLAGS)" && \
+	 export LDFLAGS="$(LDFLAGS)" && \
+	 $(MAKE) $(MAKEOPTIONS) -C $(PKGDIR))
 
 pkg.install:: pkg.make
-	$(MAKE) -C $(PKGDIR) install
+	$(MAKE) $(MAKEOPTIONS) -C $(PKGDIR) install
 
 pkg:: pkg.install
 	@echo "+++++++++++ package $(PKG) done"
 
 test::
-	(! test -d $(PKGDIR)) || $(MAKE) -C $(PKGDIR) test
+	(! test -d $(PKGDIR)) || $(MAKE) $(MAKEOPTIONS) -C $(PKGDIR) test
 
 clean::
-	(! test -d $(PKGDIR)) || $(MAKE) -C $(PKGDIR) clean
+	(! test -d $(PKGDIR)) || $(MAKE) $(MAKEOPTIONS) -C $(PKGDIR) clean
 
 portclean::
-	(! test -d $(PKGDIR)) || $(MAKE) -C $(PKGDIR) distclean
+	(! test -d $(PKGDIR)) || $(MAKE) $(MAKEOPTIONS) -C $(PKGDIR) distclean
 	(! test -d $(PKGDIR)) || \rm -r $(PKGDIR)
