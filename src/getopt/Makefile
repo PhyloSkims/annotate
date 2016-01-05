@@ -17,8 +17,11 @@
 include ../../config/auto.conf
 
 PKG = getopt-1.1.6
-MAKEOPTIONS=prefix=$(PRTPATH)
+MAKEOPTIONS=prefix=$(PRTPATH) 
 
+ifeq ($(CFGPRT),i386-darwin)
+	LDFLAGS:=$(LDFLAGS) -lintl
+endif
 
 include $(CFGDIR)targets/package.targ
 
