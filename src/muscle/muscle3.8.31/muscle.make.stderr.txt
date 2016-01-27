@@ -1,0 +1,60 @@
+alpha.cpp:84:10: warning: enumeration value 'ALPHA_Undefined' not handled in switch [-Wswitch]
+        switch (Alpha)
+                ^
+1 warning generated.
+clust.cpp:167:10: warning: enumeration value 'JOIN_Undefined' not handled in switch [-Wswitch]
+        switch (m_JoinStyle)
+                ^
+clust.cpp:295:10: warning: enumeration value 'LINKAGE_Undefined' not handled in switch [-Wswitch]
+        switch (m_CentroidStyle)
+                ^
+clust.cpp:611:10: warning: enumeration value 'JOIN_Undefined' not handled in switch [-Wswitch]
+        switch (m_JoinStyle)
+                ^
+3 warnings generated.
+glbalndimer.cpp:123:10: warning: enumeration values 'PPSCORE_Undefined' and 'PPSCORE_SPN' not handled in switch [-Wswitch]
+        switch (g_PPScore)
+                ^
+1 warning generated.
+msa2.cpp:357:10: warning: enumeration value 'SEQWEIGHT_Undefined' not handled in switch [-Wswitch]
+        switch (Method)
+                ^
+1 warning generated.
+objscore.cpp:31:10: warning: enumeration values 'OBJSCORE_Undefined' and 'OBJSCORE_SPM' not handled in switch [-Wswitch]
+        switch (OS)
+                ^
+1 warning generated.
+objscore2.cpp:22:10: warning: enumeration value 'TERMGAPS_Undefined' not handled in switch [-Wswitch]
+        switch (g_TermGaps)
+                ^
+1 warning generated.
+params.cpp:441:10: warning: enumeration value 'PPSCORE_Undefined' not handled in switch [-Wswitch]
+        switch (g_PPScore)
+                ^
+1 warning generated.
+In file included from profdb.cpp:9:
+In file included from ./clustsetmsa.h:8:
+./msadist.h:22:10: warning: 10 enumeration values not handled in switch: 'DISTANCE_Undefined', 'DISTANCE_Kmer6_6', 'DISTANCE_Kmer20_3'... [-Wswitch]
+                switch(m_Distance)
+                       ^
+1 warning generated.
+profilefrommsa.cpp:230:10: warning: enumeration value 'ALPHA_Undefined' not handled in switch [-Wswitch]
+        switch (g_Alpha)
+                ^
+1 warning generated.
+In file included from refine.cpp:9:
+In file included from ./clustsetmsa.h:8:
+./msadist.h:22:10: warning: 10 enumeration values not handled in switch: 'DISTANCE_Undefined', 'DISTANCE_Kmer6_6', 'DISTANCE_Kmer20_3'... [-Wswitch]
+                switch(m_Distance)
+                       ^
+1 warning generated.
+subfams.cpp:44:25: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+        for (unsigned i = 0; i < uNodeCount; ++i)
+                             ~ ^ ~~~~~~~~~~
+1 warning generated.
+In file included from treefrommsa.cpp:5:
+In file included from ./clustsetmsa.h:8:
+./msadist.h:22:10: warning: 10 enumeration values not handled in switch: 'DISTANCE_Undefined', 'DISTANCE_Kmer6_6', 'DISTANCE_Kmer20_3'... [-Wswitch]
+                switch(m_Distance)
+                       ^
+1 warning generated.

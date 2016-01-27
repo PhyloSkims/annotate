@@ -30,7 +30,8 @@ DIRS = aragorn   \
        sumaclust \
        sumatra   \
        gawk      \
-       getopt
+       getopt    \
+       cd-hit
 
 include ../config/targets/propagate.targ
 
