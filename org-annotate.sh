@@ -29,7 +29,7 @@ then
     exit 1
 fi
 
-set -- $options
+eval set -- "$options"
 
 while [ $# -gt 0 ]
 do
@@ -63,13 +63,14 @@ pushTmpDir ORG.organnot
 	else
 		QUERY="$1"
 	fi
+	
 
 	RESULTS=$(basename ${QUERY/.*/})
 	LOG="${CALL_DIR}/${RESULTS}.log"
 	
 	rm -f ${LOG}
 	openLogFile ${LOG}
-	
+		
 	if [ "$irdetection"=="yes" ]; then
 
 		loginfo "Normalizing the structure of the Chloroplast sequence..."
