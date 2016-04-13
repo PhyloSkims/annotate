@@ -78,13 +78,14 @@ if ($?ORG_SOURCED == 0) then
   setenv LANG C
   setenv LC_ALL C
 
+  # --------------------------------------
+  # path should be set each time
+  # --------------------------------------
+	
+  set path = ($SCRIPT_DIR $BIN_DIR $path)
+	
+
 endif
-
-# --------------------------------------
-# path should be set each time
-# --------------------------------------
-
-set path = ($SCRIPT_DIR $BIN_DIR $path)
 
 # --------------------------------------
 # alias should be sourced each time
