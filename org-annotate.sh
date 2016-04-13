@@ -21,9 +21,10 @@ source "${THIS_DIR}/scripts/bash_init.sh"
 taxid="no"
 normalization="yes"
 irdetection="yes"
+organism="no"
 
 # options may be followed by one colon to indicate they have a required argument
-if ! options=$(getopt -o t:ih -l ncbi-taxid:,no-ir-detection,help -- "$@")
+if ! options=$(getopt -o t:o:ih -l ncbi-taxid:,organism,no-ir-detection,help -- "$@")
 then
     # something went wrong, getopt will put out an error message for us
     exit 1
@@ -36,6 +37,7 @@ do
     case $1 in
     -t|--ncbi-taxid) taxid="$2" ; shift;;
     -i|--no-ir-detection)  irdetection="no" ;;
+    -o|--organism) organism="$2" ; shift;;
     -h|--help)  echo "Usage:" ;  
     			echo "    $0 "'[-t|--ncbi-taxid ###] [-n|--no-normalization] \' 
     			echo "       [-i|--no-ir-detection] [-h|--help] <FASTAFILE>"
@@ -96,8 +98,20 @@ pushTmpDir ORG.organnot
 		${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 	loginfo "Done."
 	
-	loginfo "Printing annotations header..."
+	loginfo "Printing minimal header..."
+		echo "ID   XXX; XXX; circular; genomic DNA; XXX; XXX; $(seqlength ${RESULTS}.norm.fasta) BP."
 		echo "XX"
+		echo "AC   XXX;"
+		echo "XX"
+		if [[ "${organism}" == "no" ]]; then
+			echo "DE   {organism} plastid, complete genome."
+		else
+			echo "DE   $(echo ${organism} | tr '_' ' ') plastid, complete genome."
+		fi
+		echo "XX"	
+	loginfo "Done."
+
+	loginfo "Printing annotations header..."
     	echo "FH   Key             Location/Qualifiers"
 	loginfo "Done."
 	
