@@ -31,7 +31,8 @@ DIRS = aragorn   \
        sumatra   \
        gawk      \
        getopt    \
-       cd-hit
+       cd-hit	 \
+       tcsh
 
 include ../config/targets/propagate.targ
 

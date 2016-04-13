@@ -1,4 +1,4 @@
-#!/bin/csh -f
+#!/bin/env tcsh -f
 
 setenv Verbose 0
 

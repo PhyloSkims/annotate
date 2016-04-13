@@ -1,4 +1,4 @@
-#!/bin/csh -f
+#!/bin/env tcsh -f
 #
 #                           Annotate CDS - Exonerate
 #
