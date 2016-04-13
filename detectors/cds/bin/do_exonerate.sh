@@ -122,7 +122,7 @@ endif
 
 if ($PASS1_SPEEDUP != 0) then
 
-  $PROG_DIR/do_filterbx.sh $GenoFile $ProtFile  \
+  tcsh -f $PROG_DIR/do_filterbx.sh $GenoFile $ProtFile  \
             $PASS1_BLASTX_FILTER_IDMIN          \
             $PASS1_BLASTX_FILTER_NBMIN          \
             $PASS1_BLASTX_FILTER_NBMAX > D_$$

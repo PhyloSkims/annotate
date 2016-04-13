@@ -14,6 +14,7 @@
 THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
 source "${THIS_DIR}/scripts/bash_init.sh"
 
+
 #
 # Management of options
 #
@@ -95,10 +96,10 @@ pushTmpDir ORG.organnot
 	loginfo "Done."
 
 	loginfo "Annotating the CDS..."
-		${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+		tcsh -f ${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 	loginfo "Done."
 	
-	loginfo "Printing minimal header..."
+	loginfo "Printing minimal header..."		
 		echo "ID   XXX; XXX; circular; genomic DNA; XXX; XXX; $(seqlength ${RESULTS}.norm.fasta) BP."
 		echo "XX"
 		echo "AC   XXX;"
