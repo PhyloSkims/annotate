@@ -1,4 +1,4 @@
-#!/bin/env tcsh -f
+#!/usr/bin/env tcsh -f
 #
 #                           Annotate CDS 
 #

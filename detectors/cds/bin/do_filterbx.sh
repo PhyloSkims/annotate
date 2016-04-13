@@ -1,4 +1,4 @@
-#!/bin/env tcsh -f
+#!/usr/bin/env tcsh -f
 #
 # filter a DB thru BlastX
 # usually to speedup further DB search 
