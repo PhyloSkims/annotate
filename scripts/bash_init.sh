@@ -117,8 +117,15 @@ function cutseq {
 # 	- $1 : The fasta file containing the sequences to join
 function joinfasta {
 	$AwkCmd '(NR==1 && /^>/) {print $0}                                 \
-	     ! /^>/          {print $0}' $1 |                           \
+	     ! /^>/          {print $0}' "${1}" |                           \
 		 formatfasta
+}
+
+function fasta1line {
+	$AwkCmd  '(/^>/ && seq !="") {print seq}          \
+	          /^>/               {print $0;seq=""}    \
+	          !/^>/              {seq=seq $0}         \
+	          END                {print seq}' "${1}"
 }
 
 function formatfasta {
@@ -129,7 +136,7 @@ function formatfasta {
 								   }                                \
 								/^>/   { print $0 }                 \
 								! /^>/ { seq=seq $0 }               \
-								END    { printfasta(seq)}' $1
+								END    { printfasta(seq)}' "${1}"
 }
 
 
@@ -169,7 +176,7 @@ IR_DATA_DIR="${DATA_DIR}/ir"  				  	# Directory containing data related to
 TRNA_DATA_DIR="${DATA_DIR}/trna"  				# Directory containing data related to
 												# tRNAs detection
 												
-CDS_DATA_DIR="${DATA_DIR}/trna"  				# Directory containing data related to
+CDS_DATA_DIR="${DATA_DIR}/cds"  				# Directory containing data related to
 												# CDSs detection
 								
 RRNA_DATA_DIR="${DATA_DIR}/rrna"  				# Directory containing data related to 
