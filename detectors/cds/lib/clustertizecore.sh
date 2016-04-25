@@ -1,0 +1,81 @@
+#!/bin/bash
+
+THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
+
+source "${THIS_DIR}/../../../scripts/bash_init.sh"
+
+CORELIB="${CDS_DATA_DIR}/chlorodb/core"
+
+
+function clusterize() {
+ 
+ 	local prot="${1}"
+ 	local fastain="${prot}.fst"
+ 	local cdhitout="${prot}.cdhit"
+ 	local fasta1="${prot}.1l.fst"
+ 	
+ 	rm -rf "${prot}"
+ 	mkdir -p "${prot}"
+ 	
+ 	cd-hit -i "${fastain}" \
+ 	       -o "${prot}/${cdhitout}" \
+ 	       -c 0.6 -G 1 \
+ 	       -g 1 -s 0.8 \
+ 	       -b 150 -p 1 \
+ 	       -d 0 -n 3
+ 	       
+ 	fasta1line "${fastain}" > "${prot}/${fasta1}"
+ 	
+ 	pushd "$prot"
+ 	
+ 	rm -rf "*.cluster.*.ids"
+ 	$AwkCmd -v prot="$prot" \
+ 	        '/^>/   {cluster=$2} \
+ 	         ! /^>/ {sub("\\.\\.*$","",$3); \
+ 	                 filename=prot".cluster."cluster".ids"; \
+ 	                 print $3 >> filename ; \
+ 	                 close(filename) }' "${cdhitout}.clstr"
+ 	                 
+ 	for ids in *.cluster.*.ids ; do
+ 		cluster=$(printf "%03d" $(echo "${ids}" | $AwkCmd -F'.' '{print $3}'))
+ 		size=$(wc -l "$ids" | $AwkCmd  '{print $1}')
+ 		fsize=$(printf '%05d' $size)
+
+ 		alignment="${prot}.cluster.${fsize}.${cluster}.fst"
+ 	    
+ 	    if (( size > 1 )) ; then
+	 	    egrep -f "$ids" -A 1 "${fasta1}" | \
+	 	    egrep -v -- '^--$' | \
+	 	    clustalo -i -  > "$alignment"
+	 	else
+	 	    egrep -f "$ids" -A 1 "${fasta1}" | \
+	 	    egrep -v -- '^--$' > "$alignment"
+	    fi
+	 		
+ 	    if (( size >= 10 )) ; then
+ 	    	egrep -f "$ids" -A 1 "${fasta1}" | \
+	 	    egrep -v -- '^--$' | \
+	 	    formatfasta >> "$prot.clean.fst"
+ 	    fi
+ 	    
+ 	    rm -f "$ids"
+ 	    
+ 	done 
+ 	
+ 	rm -f "${fasta1}"
+ 	rm -f "${cdhitout}"
+ 	
+ 	popd
+ 	       
+}
+ 
+
+
+pushd $CORELIB
+
+for prot in *.fst ; do
+	prot="${prot/.fst/}"
+	clusterize "$prot"
+done
+
+popd
