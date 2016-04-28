@@ -32,7 +32,8 @@ DIRS = aragorn   \
        gawk      \
        getopt    \
        cd-hit	 \
-       tcsh
+       tcsh      \
+       ITSx
 
 include ../config/targets/propagate.targ
 
