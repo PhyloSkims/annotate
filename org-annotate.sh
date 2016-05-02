@@ -60,7 +60,7 @@ function usage {
 if ! options=$(getopt -o t:o:icrmh -l ncbi-taxid:,organism,no-ir-detection,chloroplast,nuclear-rdna,mitochondrion,help -- "$@")
 then
     # something went wrong, getopt will put out an error message for us
-    exit 1
+    usage $0 1
 fi
 
 eval set -- "$options"
@@ -82,10 +82,10 @@ do
     shift
 done
 
-echo $type
 #############################
 
 pushTmpDir ORG.organnot
+
 
 	if [[ ! "$1" =~ ^/ ]]; then
 		QUERY="${CALL_DIR}/$1"
@@ -96,9 +96,11 @@ pushTmpDir ORG.organnot
 
 	RESULTS=$(basename ${QUERY/.*/})
 	LOG="${CALL_DIR}/${RESULTS}.log"
+
 	
 	rm -f ${LOG}
 	openLogFile ${LOG}
+
 
 	case "$types" in 
 		chloro) 
@@ -156,9 +158,9 @@ pushTmpDir ORG.organnot
 			exit 1
 			;;
 		*) 
-			echo usage $0 1;;
+			usage $0 1;;
 	esac
-					
+						
 	if [[ "${organism}" == "no" ]]; then
 		organism="{organism}"
 	else
