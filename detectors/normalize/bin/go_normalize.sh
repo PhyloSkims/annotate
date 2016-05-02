@@ -41,128 +41,134 @@ pushTmpDir ORG.normalize
 		loginfo " --> $genome_length bp"
 	loginfo "Done"
 	
-	IR=( $(lookForIR ${QUERY}) )
+	IRDetected=1
+	IR=( $(lookForIR ${QUERY}) ) || IRDetected=0
 	
-	posIR1=${IR[4]}
-	posIR2=${IR[6]}
+	if (( IRDetected == 1 )) ; then
 	
-	let "lenIR= ( ${IR[5]} +  ${IR[7]} ) / 2 " 
-
-	let "endIR2=$posIR2 + $lenIR - 1"
-	let "endIR1=$posIR1 + $lenIR - 1"
-	
-	if (( "$endIR2" >= "$genome_length" )) ; then	
-		loginfo "IRB is at the end of the original sequence"
+		posIR1=${IR[4]}
+		posIR2=${IR[6]}
 		
-		#
-		# We just move the IRB at the begining of the sequence
-		#
-		
-		# Extract the IRB sequence
-		let "posCut=($endIR1+$posIR2)/2"
-		cutseq ${QUERY} ${posCut} ${genome_length} > ${tmpfasta1}
-
-		# Append the remaining part of the genome		
-		let "posCut=$posCut-1"
-		cutseq ${QUERY} 1 ${posCut} >> ${tmpfasta1}
-		
-		# merges both the parts
-		joinfasta ${tmpfasta1} > ${tmpfasta2}
-		rm -f ${tmpfasta1}
-		QUERY=${tmpfasta2}
-
-		loginfo "Recomputing location of the IR..."
-			declare -a IR=( $(lookForIR ${QUERY}) )
-		loginfo "Done"
-		
-		posIR1="${IR[4]}"
-		posIR2="${IR[6]}"
-		
-		let "lenIR=(${IR[5]} +  ${IR[7]}) / 2 " 
+		let "lenIR= ( ${IR[5]} +  ${IR[7]} ) / 2 " 
 	
 		let "endIR2=$posIR2 + $lenIR - 1"
 		let "endIR1=$posIR1 + $lenIR - 1"
 		
-	fi		
+		if (( "$endIR2" >= "$genome_length" )) ; then	
+			loginfo "IRB is at the end of the original sequence"
+			
+			#
+			# We just move the IRB at the begining of the sequence
+			#
+			
+			# Extract the IRB sequence
+			let "posCut=($endIR1+$posIR2)/2"
+			cutseq ${QUERY} ${posCut} ${genome_length} > ${tmpfasta1}
 	
-	tmpIR1="tmp_$$_IR1.fasta"		
-	tmpIR2="tmp_$$_IR2.fasta"		
+			# Append the remaining part of the genome		
+			let "posCut=$posCut-1"
+			cutseq ${QUERY} 1 ${posCut} >> ${tmpfasta1}
+			
+			# merges both the parts
+			joinfasta ${tmpfasta1} > ${tmpfasta2}
+			rm -f ${tmpfasta1}
+			QUERY=${tmpfasta2}
 	
-	#enregistre les deux fragments IRa et IRb complet
-	cutseq ${QUERY} ${posIR1} ${endIR1} > ${tmpIR1}
-	cutseq ${QUERY} ${posIR2} ${endIR2} > ${tmpIR2}
-	
-	let "lenSC1=$posIR1 -1 + ($genome_length - endIR2)"
-	let "lenSC2=$posIR2 - $endIR1"
-	
-	center="${IR[0]}"
+			loginfo "Recomputing location of the IR..."
+				declare -a IR=( $(lookForIR ${QUERY}) )
+			loginfo "Done"
+			
+			posIR1="${IR[4]}"
+			posIR2="${IR[6]}"
+			
+			let "lenIR=(${IR[5]} +  ${IR[7]}) / 2 " 
 		
-	tmpLSC="tmp_$$_LSC.fasta"		
-	tmpSSC="tmp_$$_SSC.fasta"		
-	
-	# Extract the central SC present in between the two IRs
-	# considering it as LSC
-
-	let "beginLSC=$endIR1+1"
-	let "endLSC=$posIR2-1"
-	cutseq ${QUERY} ${beginLSC} ${endLSC} > ${tmpLSC}
-
-	strandLSC="${IR[1]}"
-
-
-	# Extract the external SC present in two parts
-	# Considering it as SSC
-	
-	let "beginSSC=$endIR2+1"
-	cutseq ${QUERY} ${beginSSC} ${genome_length} > ${tmpSSC}
-
-	let "endSSC=$posIR1-1"
-	cutseq ${QUERY} 1 ${endSSC} >> ${tmpSSC}
-
-	joinfasta ${tmpSSC} > ${tmpfasta1}
-	mv ${tmpfasta1} ${tmpSSC}
-	
-	strandSSC="${IR[3]}"
-	
-	
-
-	if [[ "$center" == "SSC" ]]; then
-	
-		# Actually this is the oposite LSC is SSC and SSC is LSC
-
-		# Exchanges the SSC and LSC sequences
-		mv ${tmpSSC}    ${tmpfasta1}
-		mv ${tmpLSC}    ${tmpSSC}
-		mv ${tmpfasta1} ${tmpLSC}
+			let "endIR2=$posIR2 + $lenIR - 1"
+			let "endIR1=$posIR1 + $lenIR - 1"
+			
+		fi		
 		
-		# Exchanges the IRa and IRb sequences
-		mv ${tmpIR1}    ${tmpfasta1}
-		mv ${tmpIR2}    ${tmpIR1}
-		mv ${tmpfasta1} ${tmpIR2}
+		tmpIR1="tmp_$$_IR1.fasta"		
+		tmpIR2="tmp_$$_IR2.fasta"		
 		
-		# Exchanges the strand of both the Single copies
-		tmp=${strandSSC}
-		strandSSC=${strandLSC}
-		strandLSC=${tmp}
+		#enregistre les deux fragments IRa et IRb complet
+		cutseq ${QUERY} ${posIR1} ${endIR1} > ${tmpIR1}
+		cutseq ${QUERY} ${posIR2} ${endIR2} > ${tmpIR2}
 		
-	fi
+		let "lenSC1=$posIR1 -1 + ($genome_length - endIR2)"
+		let "lenSC2=$posIR2 - $endIR1"
+		
+		center="${IR[0]}"
+			
+		tmpLSC="tmp_$$_LSC.fasta"		
+		tmpSSC="tmp_$$_SSC.fasta"		
+		
+		# Extract the central SC present in between the two IRs
+		# considering it as LSC
 	
-	# Reverse complement the SSC if needed
-	if [[ "${strandSSC}" == "-" ]]; then
-		fastarevcomp -f ${tmpSSC} > ${tmpfasta1}
+		let "beginLSC=$endIR1+1"
+		let "endLSC=$posIR2-1"
+		cutseq ${QUERY} ${beginLSC} ${endLSC} > ${tmpLSC}
+	
+		strandLSC="${IR[1]}"
+	
+	
+		# Extract the external SC present in two parts
+		# Considering it as SSC
+		
+		let "beginSSC=$endIR2+1"
+		cutseq ${QUERY} ${beginSSC} ${genome_length} > ${tmpSSC}
+	
+		let "endSSC=$posIR1-1"
+		cutseq ${QUERY} 1 ${endSSC} >> ${tmpSSC}
+	
+		joinfasta ${tmpSSC} > ${tmpfasta1}
 		mv ${tmpfasta1} ${tmpSSC}
-	fi
+		
+		strandSSC="${IR[3]}"
+		
+		
 	
-	# Reverse complement the LSC if needed
-	if [[ "${strandLSC}" == "-" ]]; then
-		fastarevcomp -f ${tmpLSC} > ${tmpfasta1}
-		mv ${tmpfasta1} ${tmpLSC}
-	fi
+		if [[ "$center" == "SSC" ]]; then
+		
+			# Actually this is the oposite LSC is SSC and SSC is LSC
 	
-	# Merges the four parts of the genome.
-	cat ${tmpLSC} ${tmpIR2} ${tmpSSC} ${tmpIR1} | joinfasta
+			# Exchanges the SSC and LSC sequences
+			mv ${tmpSSC}    ${tmpfasta1}
+			mv ${tmpLSC}    ${tmpSSC}
+			mv ${tmpfasta1} ${tmpLSC}
+			
+			# Exchanges the IRa and IRb sequences
+			mv ${tmpIR1}    ${tmpfasta1}
+			mv ${tmpIR2}    ${tmpIR1}
+			mv ${tmpfasta1} ${tmpIR2}
+			
+			# Exchanges the strand of both the Single copies
+			tmp=${strandSSC}
+			strandSSC=${strandLSC}
+			strandLSC=${tmp}
+			
+		fi
+		
+		# Reverse complement the SSC if needed
+		if [[ "${strandSSC}" == "-" ]]; then
+			fastarevcomp -f ${tmpSSC} > ${tmpfasta1}
+			mv ${tmpfasta1} ${tmpSSC}
+		fi
+		
+		# Reverse complement the LSC if needed
+		if [[ "${strandLSC}" == "-" ]]; then
+			fastarevcomp -f ${tmpLSC} > ${tmpfasta1}
+			mv ${tmpfasta1} ${tmpLSC}
+		fi
+		
+		# Merges the four parts of the genome.
+		cat ${tmpLSC} ${tmpIR2} ${tmpSSC} ${tmpIR1} | joinfasta
 
-	
+	else
+		# No IR detected --> normalization has no effect
+		cat ${QUERY}
+	fi
 popTmpDir
 
 exit 0

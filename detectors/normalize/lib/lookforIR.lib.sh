@@ -38,8 +38,15 @@ function lookForIR {
 	  
 	loginfo "Looking for long inverted repeats..."
 		repseek -c -p 0.001 -i ${QUERY} 2>> /dev/null > ${REPEATS}
-		loginfo " --> $(wc -l ${REPEATS} | awk '{print $1}') repeats identified"
+		nrepeat="$(wc -l ${REPEATS} | awk '{print $1}')"
 	loginfo "Done"
+
+	if (( nrepeat == 0 )) ; then
+		logwarning "No inverted repeat identified"
+		return 1
+	fi
+
+	loginfo " --> ${nrepeat} repeats identified"
 
 	loginfo "Marking and selecting the best inverted repeat..."
 		local IR=( $(${SELECTIR} ${MATCHES} ${REPEATS}) )
