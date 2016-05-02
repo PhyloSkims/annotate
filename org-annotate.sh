@@ -23,9 +23,41 @@ taxid="no"
 normalization="yes"
 irdetection="yes"
 organism="no"
+types="chloro"
+
+function usage {
+	echo "Usage:" ;  
+	echo "    $1 "'[-t|--ncbi-taxid ###] [-n|--no-normalization] \' 
+	echo '       [-i|--no-ir-detection] [-h|--help] \ '
+	echo '       [-o|--organism <organism_name>]  \ '
+	echo '       [-c|--chloroplast|-r|--nuclear-rdna|-m|--mitochondrion] <FASTAFILE>' 
+	echo
+	echo "Options:"
+	echo '  -t ### | --ncbi-taxid ###'
+	echo '      ### represents the ncbi taxid associated to the sequence'
+	echo
+	echo '  -i     | --no-ir-detection'
+	echo '      Does not look for inverted repeats in the plastid genome'
+	echo
+	echo '  -o     | --organism <organism_name>'
+	echo '      Allows for specifiying the organism name in the embl generated file'
+	echo '      Spaces have to be substituted by underscore ex : Abies_alba'
+	echo
+	echo '  -c     | --chloroplast'
+	echo '      Selects for the annotation of a chloroplast genome'
+	echo '      This is the default mode'
+	echo
+	echo '  -r     | --nuclear-rdna'
+	echo '      Selects for the annotation of the rDNA nuclear cistron'
+	echo
+	echo '  -m     | --mitochondrion'
+	echo '      Selects for the annotation of an animal mitochondrion genome'
+   	exit $2
+}
+
 
 # options may be followed by one colon to indicate they have a required argument
-if ! options=$(getopt -o t:o:ih -l ncbi-taxid:,organism,no-ir-detection,help -- "$@")
+if ! options=$(getopt -o t:o:icrmh -l ncbi-taxid:,organism,no-ir-detection,chloroplast,nuclear-rdna,mitochondrion,help -- "$@")
 then
     # something went wrong, getopt will put out an error message for us
     exit 1
@@ -36,20 +68,13 @@ eval set -- "$options"
 while [ $# -gt 0 ]
 do
     case $1 in
-    -t|--ncbi-taxid) taxid="$2" ; shift;;
+    -t|--ncbi-taxid) taxid="$2" ; shift ;;
     -i|--no-ir-detection)  irdetection="no" ;;
-    -o|--organism) organism="$2" ; shift;;
-    -h|--help)  echo "Usage:" ;  
-    			echo "    $0 "'[-t|--ncbi-taxid ###] [-n|--no-normalization] \' 
-    			echo "       [-i|--no-ir-detection] [-h|--help] <FASTAFILE>"
-    			echo
-    			echo "Options:"
-    			echo '  -t ### | --ncbi-taxid ###'
-    			echo '      ### represents the ncbi taxid associated to the sequence'
-    			echo
-    			echo '  -i     | --no-ir-detection'
-    			echo '      Does not look for inverted repeats in the plastid genome'
-               	exit 0;;
+    -o|--organism) organism="$2" ; shift ;;
+    -c|--chloroplast) types="chloro" ;;
+    -r|--nuclear-rdna) types="nucrdna" ;;
+    -m|--mitochondrion) types="mito" ;;
+    -h|--help)  usage $0 0;;
     (--) shift; break;;
     (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
     (*) break;;
@@ -57,6 +82,7 @@ do
     shift
 done
 
+echo $type
 #############################
 
 pushTmpDir ORG.organnot
@@ -73,43 +99,78 @@ pushTmpDir ORG.organnot
 	
 	rm -f ${LOG}
 	openLogFile ${LOG}
-		
-	if [ "$irdetection"=="yes" ]; then
 
-		loginfo "Normalizing the structure of the Chloroplast sequence..."
-			loginfo "   LSC + IRB + SSC + IRA"
-			${PROG_DIR}/detectors/normalize/bin/go_normalize.sh ${QUERY} > "${RESULTS}.norm.fasta"
-		loginfo "Done."
+	case "$types" in 
+		chloro) 
+			loginfo "Annotating a plant chloroplast genome..."
+	
+			if [ "$irdetection"=="yes" ]; then
 		
-		loginfo "Annotating the Inverted repeats and Single copies (LSC and SSC)..."
-			${PROG_DIR}/detectors/ir/bin/go_ir.sh "${RESULTS}.norm.fasta" > "${RESULTS}.annot"		
-		loginfo "Done."
+				loginfo "Normalizing the structure of the Chloroplast sequence..."
+					loginfo "   LSC + IRB + SSC + IRA"
+					${PROG_DIR}/detectors/normalize/bin/go_normalize.sh ${QUERY} > "${RESULTS}.norm.fasta"
+				loginfo "Done."
+				
+				loginfo "Annotating the Inverted repeats and Single copies (LSC and SSC)..."
+					${PROG_DIR}/detectors/ir/bin/go_ir.sh "${RESULTS}.norm.fasta" > "${RESULTS}.annot"		
+				loginfo "Done."
+				
+			fi
+			
+			loginfo "Annotating the tRNA..."
+				${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+			loginfo "Done."
+			
+			loginfo "Annotating the rRNA genes..."
+				${PROG_DIR}/detectors/rrna/bin/go_rrna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+			loginfo "Done."
 		
+			loginfo "Annotating the CDS..."
+				tcsh -f ${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+			loginfo "Done."
+			
+			topology="circular"
+			defline="plastid, complete genome"
+			;;
+		nucrdna) 
+			loginfo "Annotating a plant rDNA cistron..."
+			
+			loginfo "Normalizing the structure of the cistron sequence..."
+				${PROG_DIR}/detectors/normalizerdna/bin/go_normalizerdna.sh ${QUERY} > "${RESULTS}.norm.fasta"
+			loginfo "Done."
+			
+			loginfo "Annotating the rRNA genes..."
+				${PROG_DIR}/detectors/nucrrna/bin/go_nucrrna.sh "${RESULTS}.norm.fasta" > "${RESULTS}.annot"
+			loginfo "Done."
+
+			topology="linear"
+			defline="18S rRNA gene, ITS1, 5.8S rRNA gene, ITS2 and 28S rRNA gene"
+			;;
+		mito) 
+			loginfo "Annotating an animal mitochondrial genome..."
+			logerror "Not yet implemented"
+
+			topology="circular"
+			defline="mitochondrion, complete genome"
+
+			exit 1
+			;;
+		*) 
+			echo usage $0 1;;
+	esac
+					
+	if [[ "${organism}" == "no" ]]; then
+		organism="{organism}"
+	else
+		organism="$(echo ${organism} | tr '_' ' ')"
 	fi
 	
-	loginfo "Annotating the tRNA..."
-		${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
-	loginfo "Done."
-	
-	loginfo "Annotating the rRNA genes..."
-		${PROG_DIR}/detectors/rrna/bin/go_rrna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
-	loginfo "Done."
-
-	loginfo "Annotating the CDS..."
-		tcsh -f ${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
-	loginfo "Done."
-	
 	loginfo "Printing minimal header..."		
-		echo "ID   XXX; XXX; circular; genomic DNA; XXX; XXX; $(seqlength ${RESULTS}.norm.fasta) BP."
+		echo "ID   XXX; XXX; ${topology}; genomic DNA; XXX; XXX; $(seqlength ${RESULTS}.norm.fasta) BP."
 		echo "XX"
 		echo "AC   XXX;"
+		echo "DE   ${organism} ${defline}."
 		echo "XX"
-		if [[ "${organism}" == "no" ]]; then
-			echo "DE   {organism} plastid, complete genome."
-		else
-			echo "DE   $(echo ${organism} | tr '_' ' ') plastid, complete genome."
-		fi
-		echo "XX"	
 	loginfo "Done."
 
 	loginfo "Printing annotations header..."

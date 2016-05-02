@@ -25,31 +25,44 @@ PRTPATH = $(abspath $(PRTDIR))
 DATADIR = $(CFGDIR)../data
 DATAITS = $(DATADIR)/its
 
+HMMPRESS= $(BINDIR)/hmmpress
+
+HMMDIR  = $(PKGDIR)/ITSx_db/HMMs
+HMMS    = $(wildcard $(HMMDIR)/*.hmm)
+HMMP    = $(patsubst %.hmm,%.hmm.h3p,$(HMMS))
+HMMI    = $(patsubst %.hmm,%.hmm.h3i,$(HMMS))
+HMMM    = $(patsubst %.hmm,%.hmm.h3m,$(HMMS))
+
 #
 # Rules
 #
 
 .PHONY: all clean test portclean pkg pkg.expand pkg.install
 
-all:: pkg
+%.hmm.h3i: %.hmm
+	echo $(HMMPRESS)
+	(! test -s $< ) || $(HMMPRESS) -f $<
+
+all:: pkg.install
 
 pkg.expand::
 	test -d $(PKGDIR) || mkdir $(PKGDIR)
 	$(TAR) zxf $(PKGTAR) -C $(PKGDIR) --strip-components 1
 
-pkg.install:: pkg.expand
+pkg.install:: pkg
 	@mkdir -p $(BINDIR)
 	@cp $(PKGDIR)/ITSx $(BINDIR)
 	@mkdir -p $(DATAITS)
 	@cp -r $(PKGDIR)/ITSx_db $(DATAITS)
 	@echo "+++++++++++ package $(PKG) done"
 
-pkg:: pkg.install
+pkg:: pkg.expand clean $(HMMI) 
 
 test::
 	echo No test available
 	
 clean::
+	\rm -f $(HMMP) $(HMMI) $(HMMM)
 	echo Done
 
 portclean::

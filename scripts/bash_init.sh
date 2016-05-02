@@ -182,6 +182,12 @@ CDS_DATA_DIR="${DATA_DIR}/cds"  				# Directory containing data related to
 RRNA_DATA_DIR="${DATA_DIR}/rrna"  				# Directory containing data related to 
 												# rRNAs detection
 								
+NUCRRNA_DATA_DIR="${DATA_DIR}/nucrrna"  				# Directory containing data related to 
+												# rRNAs detection
+								
+ITS_DATA_DIR="${DATA_DIR}/its"  				# Directory containing data related to 
+												# rRNAs detection
+								
 
 #
 #
