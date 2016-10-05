@@ -129,11 +129,13 @@ function fasta1line {
 }
 
 function formatfasta {
-	$AwkCmd  'function printfasta(seq) {                                \
+	$AwkCmd  'function printfasta(seq) {                            \
 									seqlen=length(seq);             \
 									for (i=1; i <= seqlen; i+=60)   \
 									   print substr(seq,i,60);      \
 								   }                                \
+								(seq && /^>/) { printfasta(seq);    \
+                                                seq=""}             \
 								/^>/   { print $0 }                 \
 								! /^>/ { seq=seq $0 }               \
 								END    { printfasta(seq)}' "${1}"

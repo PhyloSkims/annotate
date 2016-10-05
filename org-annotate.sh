@@ -151,7 +151,7 @@ pushTmpDir ORG.organnot
 					loginfo "Done."
 				
 					loginfo "Annotating the CDS..."
-						tcsh -f ${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+						tcsh -f ${PROG_DIR}/detectors/cds/bin/go_cds.csh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 					loginfo "Done."
 					
 					if (( partial == 0 )) ; then 
