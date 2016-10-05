@@ -55,10 +55,10 @@ endif
 
 foreach dir ("core" "shell" "dust")
   if (-d $DbRoot/$dir) then
-    set fams = `ls $DbRoot/$dir/*.fst`
+    set fams = `ls $DbRoot/$dir/*.clean.fst`
     Notify "running pass1:$dir exonerate of $Genome on $DbRoot"
     foreach f ($fams)
-      tcsh -f $PROG_DIR/do_exonerate.sh $Fasta $f $DbRoot/models $temp
+      tcsh -f $PROG_DIR/do_exonerate.csh $Fasta $f $DbRoot/models $temp
     end
   endif
 end

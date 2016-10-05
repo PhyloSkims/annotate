@@ -31,7 +31,7 @@ set GenoName = `basename $GenoFile:r`
 
 set ProtFile = $Argv[1]; Shift
 set ProtDir  = `dirname $ProtFile`
-set ProtName = `basename $ProtFile:r`
+set ProtName = `basename $ProtFile | $AwkCmd -F'.' '{print $1}'`
 set ProtType = `basename $ProtDir`
 
 NeedFile $GenoFile
@@ -122,7 +122,7 @@ endif
 
 if ($PASS1_SPEEDUP != 0) then
 
-  tcsh -f $PROG_DIR/do_filterbx.sh $GenoFile $ProtFile  \
+  tcsh -f $PROG_DIR/do_filterbx.csh $GenoFile $ProtFile  \
             $PASS1_BLASTX_FILTER_IDMIN          \
             $PASS1_BLASTX_FILTER_NBMIN          \
             $PASS1_BLASTX_FILTER_NBMAX > D_$$

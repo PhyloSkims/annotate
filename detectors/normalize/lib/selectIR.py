@@ -1,12 +1,18 @@
 #!/usr/bin/env python
 
 import sys 
+from math import lgamma
+from math import log
 
 data    = open(sys.argv[1])
 repeats = open(sys.argv[2])
 
 chloro    = {'LSC' : [], 'SSC' : [] }
 chlorosize =0
+
+def lpbinom(x,n,p):
+    lprob = log(p) * x + log(1-p) * (n-x) + lgamma(n+1) - lgamma(x+1) - lgamma(n-x+1)
+    return lprob
 
 # We scan the blast matches:
 #    We build a vector with one position per base pair counting the matches
@@ -102,6 +108,7 @@ for line in repeats:
         o_ssc /= o 
     
     score = ((c_lsc - c_ssc) ** 2 + (o_lsc - o_ssc) ** 2) / 2.0
+    # pvalue= 
     # print >>sys.stderr,"c.lsc = %f c.ssc = %f   o.lsc = %f o.ssc = %f score = %6.4f (len=%d)" % (c_lsc,c_ssc,o_lsc,o_ssc,score,len1)
         
     if (score >= scoreMax) and ((len1 > len1Max) or (len2 > len2Max)):
