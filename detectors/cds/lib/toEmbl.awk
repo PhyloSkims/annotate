@@ -95,6 +95,7 @@ function Unk(s) {
 
 /^c begin_entry/ {
   Nexon = 0
+	FrameShift=0
   delete Exon
   next
 }
@@ -107,6 +108,9 @@ function Unk(s) {
   Exon[Nexon]["indels"] = $9 "+" $12
   modif = $15; gsub("\"", "", modif)
   Exon[Nexon]["modif"]  = modif
+
+	if ( $0 ~ /frameshifts +[0-9]+/)
+		FrameShift=1
   next
 }
 
@@ -123,34 +127,39 @@ function Unk(s) {
 
 /^c end_entry/ {
 
-  GeneName = Unk(GeneName)
-  PassType = Unk(PassType)
-  
-  gname = (Ngene == 1 ? GeneName : GeneName "_" ++Igene)
-  locus = ""
-  
-  Feature("gene", GeneLocation())
-  QQualifier("gene", gname)
-  QQualifier("locus_tag", locus)
-  
-  Feature("CDS", CdsLocation())
-  SQualifier("codon_start", 1)
-  SQualifier("transl_table", 11)
-  QQualifier("gene", gname)
-  QQualifier("locus_tag", locus)
-  QQualifier("product", Product)
-  QQualifier("inference", "similar to DNA sequence:" Simil)
-  QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
-  QQualifier("translation", Translat)
-  
-  if (Nexon > 1) {
-    for (i = 1 ; i <= Nexon ; i++) {
-      Feature("exon", ExonLocation(i))
-      QQualifier("gene", gname)
-      QQualifier("locus_tag", locus)
-      SQualifier("number", Exon[1]["strand"] == "+" ? i : Nexon-i+1)
-    }
-  }
+	GeneName = Unk(GeneName)
+	PassType = Unk(PassType)
+	  
+	gname = (Ngene == 1 ? GeneName : GeneName "_" ++Igene)
+	locus = ""
+	  
+	Feature("gene", GeneLocation())
+	QQualifier("gene", gname)
+	QQualifier("locus_tag", locus)
+	if (FrameShift)
+		QQualifier("pseudogene","unknown")
+		  
+	Feature("CDS", CdsLocation())
+	SQualifier("codon_start", 1)
+	SQualifier("transl_table", 11)
+	QQualifier("gene", gname)
+	QQualifier("locus_tag", locus)
+	if (FrameShift)
+		QQualifier("pseudogene","unknown")
+	QQualifier("product", Product)
+	QQualifier("inference", "similar to DNA sequence:" Simil)
+	QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
+	if (FrameShift==0)
+		QQualifier("translation", Translat)
+	  
+	if (Nexon > 1) {
+		for (i = 1 ; i <= Nexon ; i++) {
+	    	Feature("exon", ExonLocation(i))
+	    	QQualifier("gene", gname)
+	    	QQualifier("locus_tag", locus)
+	    	SQualifier("number", Exon[1]["strand"] == "+" ? i : Nexon-i+1)
+	    }
+	  }
 }
 
 
