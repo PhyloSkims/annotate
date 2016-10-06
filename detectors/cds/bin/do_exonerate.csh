@@ -150,20 +150,25 @@ endif
 #
 
 Notify "  running exonerate of $GenoName on $ProtName"
-exonerate --model protein2genome            \
-          --percent $PASS1_PERCENT          \
-          --showalignment TRUE              \
-          --showvulgar TRUE                 \
-          --showtargetgff TRUE              \
-          --geneticcode $PASS1_GENETIC_CODE \
-          --minintron $PASS1_MIN_INTRON     \
-          --maxintron $PASS1_MAX_INTRON     \
-          --bestn $PASS1_BESTN              \
-          --frameshift $PASS1_FRAMESHIFT    \
-          --proteinsubmat $PASS1_SUBMAT     \
-          --splice3 $SPLICE3MODEL           \
-          --splice5 $SPLICE5MODEL           \
-          $DbFile $GenoFile > $base.exo.raw
+exonerate \
+	--model protein2genome            \
+    --percent $PASS1_PERCENT          \
+    --showalignment TRUE              \
+    --showvulgar TRUE                 \
+    --showtargetgff TRUE              \
+    --geneticcode $PASS1_GENETIC_CODE \
+    --minintron $PASS1_MIN_INTRON     \
+    --maxintron $PASS1_MAX_INTRON     \
+    --bestn $PASS1_BESTN              \
+    --frameshift $PASS1_FRAMESHIFT    \
+    --proteinsubmat $PASS1_SUBMAT     \
+    --splice3 $SPLICE3MODEL           \
+    --splice5 $SPLICE5MODEL           \
+    --refine region                   \
+    --refineboundary 5000             \
+    --singlepass FALSE                \
+    --dpmemory 128                    \
+    $DbFile $GenoFile > $base.exo.raw
 CheckAbort 20 "exonerate failure"
 
 #

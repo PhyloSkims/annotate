@@ -94,10 +94,10 @@ function Unk(s) {
 }
 
 /^c begin_entry/ {
-  Nexon = 0
+	Nexon = 0
 	FrameShift=0
-  delete Exon
-  next
+	delete Exon
+	next
 }
 
 /^e exon/ {
@@ -105,12 +105,39 @@ function Unk(s) {
   Exon[Nexon]["from"]   = $3
   Exon[Nexon]["to"]     = $4
   Exon[Nexon]["strand"] = $6
-  Exon[Nexon]["indels"] = $9 "+" $12
-  modif = $15; gsub("\"", "", modif)
-  Exon[Nexon]["modif"]  = modif
 
-	if ( $0 ~ /frameshifts +[0-9]+/)
-		FrameShift=1
+	match($0, / insertions +([0-9]+) +/, arr)
+	if (arr[1])
+		insertions=arr[1]
+	else
+		insertions=0
+		
+	match($0, / insertions +([0-9]+) +/, arr)
+	if (arr[1])
+		deletions=arr[1]
+	else
+		deletions=0
+				
+	Exon[Nexon]["indels"] = insertions "+" $deletions
+		
+	match($0, / modifier +"([^"]*)"/, arr)
+	if (arr[1])
+		modif=substr(arr[1],1,1)
+	else
+		modif=""
+	if (modif == "=")
+		modif=""
+		
+	Exon[Nexon]["modif"]  = modif
+
+	match($0, / frameshifts +([-0-9]+)/, arr)
+	if (arr[1]) {
+		FrameShift=FrameShift+1
+		Exon[Nexon]["frameshift"] = arr[1]
+	}
+	else
+		Exon[Nexon]["frameshift"] = 0
+	
   next
 }
 
@@ -144,8 +171,13 @@ function Unk(s) {
 	SQualifier("transl_table", 11)
 	QQualifier("gene", gname)
 	QQualifier("locus_tag", locus)
-	if (FrameShift)
+	if (FrameShift) {
 		QQualifier("pseudogene","unknown")
+		if (FrameShift > 1)
+			QQualifier("note","nonfunctional due to frameshifts in "FrameShift" exons")
+		else
+			QQualifier("note","nonfunctional due to a frameshift")
+		}
 	QQualifier("product", Product)
 	QQualifier("inference", "similar to DNA sequence:" Simil)
 	QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
@@ -157,6 +189,15 @@ function Unk(s) {
 	    	Feature("exon", ExonLocation(i))
 	    	QQualifier("gene", gname)
 	    	QQualifier("locus_tag", locus)
+	    	
+	    	if (Exon[i]["frameshift"]) {
+				QQualifier("pseudogene","unknown")
+				if (Exon[i]["frameshift"] > 0)
+					QQualifier("note","frameshifted by insertion of " Exon[i]["frameshift"] " bp")
+				else
+					QQualifier("note","frameshifted by deletion of " -Exon[i]["frameshift"] " bp")
+			}
+	    			    		
 	    	SQualifier("number", Exon[1]["strand"] == "+" ? i : Nexon-i+1)
 	    }
 	  }
