@@ -7,6 +7,7 @@ BEGIN {
   if (IDMIN == "")  IDMIN  = 80
   if (NBMIN == "")  NBMIN  = 50
   if (NBMAX == "")  NBMAX  = 200
+  if (COMIN == "")  COMIN  = 0.8  
 }
 
 /^#/ { next }

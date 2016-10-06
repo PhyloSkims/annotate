@@ -167,7 +167,7 @@ exonerate \
     --refine region                   \
     --refineboundary 5000             \
     --singlepass FALSE                \
-    --dpmemory 128                    \
+    --dpmemory 1024                   \
     $DbFile $GenoFile > $base.exo.raw
 CheckAbort 20 "exonerate failure"
 
