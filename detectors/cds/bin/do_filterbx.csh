@@ -12,6 +12,9 @@ unsetenv ORG_SOURCED
 setenv ORG_HOME `dirname $0`/../../..
 source $ORG_HOME/scripts/csh_init.sh
 
+set ParamsDir = $PROG_DIR/../params
+set ModelsDir = $PROG_DIR/../models
+
 NeedArg 2
 
 set GenoFile = $Argv[1]; Shift
@@ -19,6 +22,14 @@ set ProtFile = $Argv[1]; Shift
 
 NeedFile $GenoFile
 NeedFile $ProtFile
+NeedFile $ParamsDir/default
+
+#
+# general parameters
+#
+
+source $ParamsDir/default
+
 
 set IDMIN = 70
 set NBMIN = 50
@@ -43,7 +54,9 @@ endif
 #
 
 Notify "  blasting $ProtFile"
-blastx -query $GenoFile -db $ProtFile -outfmt 7   |\
+blastx 	-query $GenoFile -db $ProtFile -outfmt 7   \
+		-query_gencode $PASS1_BLASTX_FILTER_GCODE  \
+		-max_intron_length $PASS1_MAX_INTRON      |\
   $AwkCmd -v IDMIN=$IDMIN                          \
           -v NBMIN=$NBMIN                          \
           -v NBMAX=$NBMAX                          \
