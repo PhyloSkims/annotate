@@ -61,7 +61,7 @@ function usage {
 
 
 function fastaIterator() {
-	awk '/^>/ {if (seq) printf("%s\f",seq); seq=""} \
+	$AwkCmd '/^>/ {if (seq) printf("%s\f",seq); seq=""} \
 	          {if (seq) seq=seq"\n"; seq=seq $1} \
 	          END {print seq}' "$1"
 }
@@ -119,7 +119,7 @@ pushTmpDir ORG.organnot
 		if [[ ! -z "${sequence}" ]] ; then
 			echo "${sequence}" > toannotate.fasta
 			
-			seqid=$(awk '(NR==1) {print substr($1,2,1000)}' toannotate.fasta)
+			seqid=$($AwkCmd '(NR==1) {print substr($1,2,1000)}' toannotate.fasta)
 			
 			case "$types" in 
 				chloro) 
@@ -246,17 +246,20 @@ pushTmpDir ORG.organnot
 			loginfo "Done."
 			
 			loginfo "Ordering annotations..."
-				awk '/^.....(misc|repeat|rRNA|tRNA|gene|source)/ { \
+				$AwkCmd '(entry && /^.....(misc|repeat|rRNA|tRNA|gene|source)/) { \
+                           print pos,entry } \
+					 /^.....(misc|repeat|rRNA|tRNA|gene|source)/ { \
 				        match($3,"[0-9][0-9]*"); \
 				        pos=substr($3,RSTART,RLENGTH)*1000 + 1; \
-				        print pos,$0;    \
+				        entry=$0;    \
 				        next} \
-				      { pos++; \
-				        print pos,$0}' "${RESULTS}.annot" | \
+				      { entry=entry "@" $0} \
+ 					END {print pos,entry}' "${RESULTS}.annot" | \
 				sort -nk1 |\
-				awk '{ \
+				$AwkCmd '{ \
 				        match($0,"^[0-9]* ");\
 				        line=substr($0,RLENGTH+1);\
+						gsub("@","\n",line); \
 				        print line}' 
 			loginfo "Done."
 			
@@ -267,7 +270,7 @@ pushTmpDir ORG.organnot
 			loginfo "Done."
 			
 			loginfo "Computing statistics on nucleotide usage..."
-				awk '! /^>/ { \
+				$AwkCmd '! /^>/ { \
 					    seq=toupper($0); \
 						gsub(" ","",seq); \
 					    lseq=length(seq); \
@@ -293,8 +296,8 @@ pushTmpDir ORG.organnot
 			loginfo "Done."
 			
 			loginfo "Reformating sequences..."
-				lines=$(wc -l "${RESULTS}.norm.fasta" | awk '{print $1}')
-				awk -v lines=$lines ' \
+				lines=$(wc -l "${RESULTS}.norm.fasta" | $AwkCmd '{print $1}')
+				$AwkCmd -v lines=$lines ' \
 					! /^>/ { \
 							seq=tolower($0); \
 							gsub(" ","",seq); \
