@@ -1,4 +1,4 @@
 #
 # pass1: exonerate parameters
 #
-AssignUndef PASS1_PERCENT       10
+set PASS1_PERCENT=10
