@@ -218,31 +218,31 @@ pushTmpDir ORG.organnot
 			loginfo "Done."
 
 			loginfo "Printing the source feature"
-					echo "FT   source          1..${sl}"                               >> "${RESULTS}.annot"
+					echo "FT   source          1..${sl}"                               
 
 				if [[ "${organism}" != "{organism}" ]] ; then 
-					echo "FT                   /organism=\"${organism}\""              >> "${RESULTS}.annot"
+					echo "FT                   /organism=\"${organism}\""              
 				fi	
 				
 				case "${types}" in 
 					chloro)  
-						echo "FT                   /organelle=\"plastid:chloroplast\"" >> "${RESULTS}.annot"
+						echo "FT                   /organelle=\"plastid:chloroplast\"" 
 					;;
 					mito)    
-						echo "FT                   /organelle=\"mitochondrion\""       >> "${RESULTS}.annot"
+						echo "FT                   /organelle=\"mitochondrion\""       
 					;;
 					*) 
 						loginfo "Nuclear sequence"
 					;;
 				esac
 				
-					echo "FT                   /mol_type=\"genomic DNA\""              >> "${RESULTS}.annot"
+					echo "FT                   /mol_type=\"genomic DNA\""              
 				
 				if [[ "${taxid}" != "no" ]] ; then 
-					echo "FT                   /db_xref=\"taxon:${taxid}\""            >> "${RESULTS}.annot"
+					echo "FT                   /db_xref=\"taxon:${taxid}\""            
 				fi
 				
-				#	echo "FT                   /country=\"Poland: Bialowieza Forest\"" >> "${RESULTS}.annot"
+				#	echo "FT                   /country=\"Poland: Bialowieza Forest\"" 
 			loginfo "Done."
 			
 			loginfo "Ordering annotations..."
