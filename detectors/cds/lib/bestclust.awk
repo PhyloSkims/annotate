@@ -77,7 +77,7 @@ BEGIN {
 }
 
 END {
-
+  ClustScoreMax=0
   # make clusters
   pi = -1
   for (i in Cover) {
@@ -103,12 +103,29 @@ END {
       Clust[clusno]["score"] = score
       Clust[clusno]["strand"] = Entry[i]["strand"]
       Clust[clusno]["entry"] = i
+      
+      if (score > ClustScoreMax)
+      	ClustScoreMax=score
     }
   }
 
-  # print cluster info
-  print "c nclust", NbClust+0
+  
+  # Consider only cluster with at least 95% of the best score
+  
+  NbClustOk=0
   for (i = 1 ; i <= NbClust ; i++) {
+    if (Clust[i]["score"] >= ClustScoreMax * 0.95) 
+    	NbClustOk++
+    else
+    	Clust[i]["score"]=0
+
+  }
+
+
+  # print cluster info
+  print "c nclust", NbClustOk+0
+  for (i = 1 ; i <= NbClust ; i++) {
+  	if (Clust[i]["score"] == 0) continue
     print "c cluster", i, "from", Clust[i]["from"], "to", Clust[i]["to"],\
           "strand", Clust[i]["strand"], "score", Clust[i]["score"]
   }
