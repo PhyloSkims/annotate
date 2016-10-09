@@ -185,7 +185,7 @@ $AwkCmd -v MAX_SPAN=$PASS1_MAX_SPAN         \
 # get annotations
 #
 
-egrep "^$ProtName " $ProtDir/Annot.lst | awk '{print "c annot", $0}' > T_$$
+egrep "^$ProtName " $ProtDir/Annot.lst | $AwkCmd '{print "c annot", $0}' > T_$$
 
 #
 # extend start/stop
