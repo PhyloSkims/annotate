@@ -303,7 +303,7 @@ pushTmpDir ORG.organnot
 							gsub(" ","",seq); \
 							printf("     ") ;\
 							for (i=0; i < 6; i++) { \
-								f=substr(seq,i * 10, 10); \
+								f=substr(seq,i * 10 + 1, 10); \
 								pos+=length(f); \
 								f = f  substr("          ",1,10-length(f)); \
 								printf("%s ",f) \
