@@ -44,7 +44,7 @@ AssignUndef PASS1_SUBMAT $ModelsDir/blosum62.mat
 # pass1: cluster selection parameters
 #
 AssignUndef PASS1_MAX_SPAN    10000
-AssignUndef PASS1_ALLOW_STOP  0
+AssignUndef PASS1_ALLOW_STOP  1
 
 #
 # extension parameters
