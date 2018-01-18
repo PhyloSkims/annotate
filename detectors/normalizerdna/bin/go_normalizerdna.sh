@@ -23,7 +23,6 @@ source "${THIS_DIR}/../../../scripts/bash_init.sh"
 pushTmpDir ORG.its
 
 	loginfo "Normalizing nuclear rDNA cistron..."
-
 	RRNADB="${NUCRRNA_DATA_DIR}/plants/nuc_RRNA.hmm"
 	
 	if [[ ! "$1" =~ ^/ ]]; then
@@ -32,6 +31,7 @@ pushTmpDir ORG.its
 		QUERY="$1"
 	fi
 
+	loginfo "Sequence length $(seqlength ${QUERY})"
 
 	strand=( $(hmmsearch --max ${RRNADB} ${QUERY} | \
 				$AwkCmd '/Query: / { \
@@ -55,7 +55,8 @@ pushTmpDir ORG.its
 		if [[ "${strand[0]}" == "Forward" ]] ; then
 			cat ${QUERY}
 		else
-			fastarevcomp -f ${QUERY}
+			loginfo "Revert complement rDNA cluster cistron"
+			fastarevcomp  ${QUERY} 
 		fi
 	else
 		logerror "Cannot determine the Cistron orientation"
