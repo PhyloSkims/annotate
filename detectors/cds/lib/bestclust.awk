@@ -46,6 +46,7 @@ BEGIN {
   Entry[NbEntry]["to"] = $5+0
   Entry[NbEntry]["score"] = $6+0
   Entry[NbEntry]["strand"] = $7
+  Entry[NbEntry]["stop"] = (Align !~ "\\*")
   if (valid) {
     for (i = $4+0 ; i <= $5+0; i++)
       Cover[i] = 1

@@ -93,6 +93,12 @@ do
     shift
 done
 
+loginfo "Annotating mode.....: $types"
+loginfo "IR detection mode...: $irdetection"
+loginfo "Organism............: $organism"
+loginfo "Partial mode........: $partial"
+
+
 #############################
 
 pushTmpDir ORG.organnot
@@ -125,7 +131,7 @@ pushTmpDir ORG.organnot
 				chloro) 
 					loginfo "Annotating a plant chloroplast genome..."
 					
-					if [[ "$irdetection"=="yes" ]] && (( partial == 0 )) ; then
+					if [[ "$irdetection" == "yes" ]] && (( partial == 0 )) ; then
 				
 						loginfo "Normalizing the structure of the Chloroplast sequence..."
 							loginfo "   LSC + IRB + SSC + IRA"
@@ -137,6 +143,7 @@ pushTmpDir ORG.organnot
 						loginfo "Done."
 						
 					else
+						loginfo "No normalization of the structure of the Chloroplast sequence..."
 						cat toannotate.fasta > "${RESULTS}.norm.fasta"
 						rm -f "${RESULTS}.annot"
 						touch "${RESULTS}.annot"
@@ -167,7 +174,7 @@ pushTmpDir ORG.organnot
 					loginfo "Annotating a plant rDNA cistron..."
 					
 					loginfo "Normalizing the structure of the cistron sequence..."
-						${PROG_DIR}/detectors/normalizerdna/bin/go_normalizerdna.sh toannotate.fasta > "${RESULTS}.norm.fasta"
+						${PROG_DIR}/detectors/normalizerdna/bin/go_normalizerdna.sh toannotate.fasta > "${RESULTS}.norm.fasta"								
 					loginfo "Done."
 					
 					loginfo "Annotating the rRNA genes..."
@@ -232,7 +239,7 @@ pushTmpDir ORG.organnot
 						echo "FT                   /organelle=\"mitochondrion\""       
 					;;
 					*) 
-						loginfo "Nuclear sequence"
+						loginfo "Nuclear sequence"  
 					;;
 				esac
 				
@@ -297,6 +304,10 @@ pushTmpDir ORG.organnot
 			
 			loginfo "Reformating sequences..."
 				lines=$(wc -l "${RESULTS}.norm.fasta" | $AwkCmd '{print $1}')
+				
+				loginfo "Sequence length $(seqlength ${RESULTS}.norm.fasta)"
+				loginfo "lines $lines"
+				formatfasta "${RESULTS}.norm.fasta" | \
 				$AwkCmd -v lines=$lines ' \
 					! /^>/ { \
 							seq=tolower($0); \
@@ -311,7 +322,7 @@ pushTmpDir ORG.organnot
 							if (NR==lines) \
 							  {pos-=1}; \
 							printf("   %6d\n",pos) \
-					   }' "${RESULTS}.norm.fasta"
+					   }'
 			loginfo "Done."
 			
 			loginfo "Closing sequence part..."
