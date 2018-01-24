@@ -73,7 +73,7 @@ cp $temp/ $Genome.cds.fasta $Genome.cds.fasta
 # pass3: prokov
 #
 
-$PROG_DIR/do_prokov.sh $Fasta $Genome.cds.fasta $temp
+# $PROG_DIR/do_prokov.sh $Fasta $Genome.cds.fasta $temp
 
 #
 # end : output on stdout
