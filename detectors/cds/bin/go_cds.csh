@@ -63,6 +63,8 @@ foreach dir ("core" "shell" "dust")
   endif
 end
 
+cp $temp/ $Genome.cds.fasta $Genome.cds.fasta 
+
 #
 # pass2: transsplicing
 #
@@ -70,6 +72,8 @@ end
 #
 # pass3: prokov
 #
+
+$PROG_DIR/do_prokov.sh $Fasta $Genome.cds.fasta $temp
 
 #
 # end : output on stdout
