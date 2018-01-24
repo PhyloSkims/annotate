@@ -110,8 +110,21 @@ set base = $OutDir/$GenoName.$ProtName
 #
 # Alias the genome filename to a short name 
 # to circumvent a bug in exonerate 
+
+echo $GenoFile | grep '^/' > /dev/null
+if ( $status == 1 ) then
+	set AbsGenoFile = `pwd`/$GenoFile
+	set DirGenoFile = `dirname $AbsGenoFile`
+	set DirGenoFile = `(cd $DirGenoFile;pwd)`
+	set AbsGenoFile = $DirGenoFile/`basename $AbsGenoFile`
+else
+	set AbsGenoFile = $GenoFile
+endif
+
 set ShortLink = $OutDir/genome.fasta
-ln -s $GenoFile $ShortLink
+ln -s $AbsGenoFile $ShortLink
+Notify "  Building input shortcut $AbsGenoFile --> $ShortLink"
+ls -l $ShortLink
 
 #
 # skip exonerate calculations if already done
