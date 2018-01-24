@@ -43,11 +43,31 @@ NeedDir $DbRoot/models
 # run everything into temporary place
 #
 
-set temp = $Genome.tmp
+set temp = `hostname`.$$.Genome.tmp
 if (! -d $temp) then
   Notify "making directory $temp"
   mkdir $temp
 endif
+
+#
+# find the absolute path of the fasta genome file
+#
+echo $Fasta | grep '^/' > /dev/null
+if ( $status == 1 ) then
+	set AbsGenoFile = `pwd`/$Fasta
+	set DirGenoFile = `dirname $AbsGenoFile`
+	set DirGenoFile = `(cd $DirGenoFile;pwd)`
+	set AbsGenoFile = $DirGenoFile/`basename $AbsGenoFile`
+else
+	set AbsGenoFile = $Fasta
+endif
+
+pushd $temp
+ln -s $AbsGenoFile genome.fasta
+popd
+
+set Fasta = $temp/genome.fasta
+
 
 #
 # pass1: run exonerate
@@ -63,7 +83,7 @@ foreach dir ("core" "shell" "dust")
   endif
 end
 
-cp $temp/ $Genome.cds.fasta $Genome.cds.fasta 
+cp $temp/$Genome.cds.fasta $Genome.cds.fasta 
 
 #
 # pass2: transsplicing

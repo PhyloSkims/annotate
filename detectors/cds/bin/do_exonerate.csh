@@ -108,25 +108,6 @@ endif
 set base = $OutDir/$GenoName.$ProtName
 
 #
-# Alias the genome filename to a short name 
-# to circumvent a bug in exonerate 
-
-echo $GenoFile | grep '^/' > /dev/null
-if ( $status == 1 ) then
-	set AbsGenoFile = `pwd`/$GenoFile
-	set DirGenoFile = `dirname $AbsGenoFile`
-	set DirGenoFile = `(cd $DirGenoFile;pwd)`
-	set AbsGenoFile = $DirGenoFile/`basename $AbsGenoFile`
-else
-	set AbsGenoFile = $GenoFile
-endif
-
-set ShortDir  = `mktemp -d`
-set ShortLink = $ShortDir/genome.fasta
-ln -s $AbsGenoFile $ShortLink
-Notify "  Building input shortcut $AbsGenoFile --> $ShortLink"
-
-#
 # skip exonerate calculations if already done
 #
 
@@ -141,7 +122,7 @@ endif
 
 if ($PASS1_SPEEDUP != 0) then
 
-  tcsh -f $PROG_DIR/do_filterbx.csh $ShortLink $ProtFile  \
+  tcsh -f $PROG_DIR/do_filterbx.csh $GenoFile $ProtFile  \
             $PASS1_BLASTX_FILTER_IDMIN          \
             $PASS1_BLASTX_FILTER_NBMIN          \
             $PASS1_BLASTX_FILTER_NBMAX > D_$$
@@ -187,7 +168,7 @@ exonerate \
     --refineboundary 5000             \
     --singlepass FALSE                \
     --dpmemory 1024                   \
-    $DbFile $ShortLink > $base.exo.raw
+    $DbFile $GenoFile > $base.exo.raw
 CheckAbort 20 "exonerate failure"
 
 #
@@ -211,7 +192,7 @@ egrep "^$ProtName " $ProtDir/Annot.lst | $AwkCmd '{print "c annot", $0}' > T_$$
 #
 
 $AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/extend.awk             \
-                                -v FASTA=$ShortLink                 \
+                                -v FASTA=$GenoFile                 \
                                 -v START_MODEL=$STARTMODEL         \
                                 -v STOP_MODEL=$STOPMODEL           \
                                 -v START_WALK=$PASS1_START_WALK    \
@@ -223,14 +204,14 @@ $AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/extend.awk             \
 
 echo "c pass pass1 $ProtType" > $base.iff
 
-$AwkCmd -v FASTA=$ShortLink -f $LIB_DIR/libutil.awk \
+$AwkCmd -v FASTA=$GenoFile -f $LIB_DIR/libutil.awk \
         -f $LIB_DIR/translate.awk T_$$ >> $base.iff
         
 #
 # extract CDS
 #
 
-$AwkCmd -v FASTA=$ShortLink -f $LIB_DIR/libutil.awk \
+$AwkCmd -v FASTA=$GenoFile -f $LIB_DIR/libutil.awk \
         -f $LIB_DIR/cds.awk T_$$ >> $OutDir/$GenoName.cds.fasta
 
 
@@ -244,8 +225,6 @@ $AwkCmd -f $LIB_DIR/toEmbl.awk $base.iff |\
 #
 # end
 #
-
-rm -rf $ShortDir
 
 Notify "  output file: $base.res"
 
