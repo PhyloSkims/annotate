@@ -319,8 +319,6 @@ pushTmpDir ORG.organnot
 								f = f  substr("          ",1,10-length(f)); \
 								printf("%s ",f) \
 							}; \
-							if (NR==lines) \
-							  {pos-=1}; \
 							printf("   %6d\n",pos) \
 					   }'
 			loginfo "Done."
