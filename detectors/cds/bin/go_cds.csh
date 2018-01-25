@@ -83,7 +83,7 @@ foreach dir ("core" "shell" "dust")
   endif
 end
 
-cp $temp/$Genome.cds.fasta $Genome.cds.fasta 
+cp $temp/genome.cds.fasta $Genome.cds.fasta 
 
 #
 # pass2: transsplicing
