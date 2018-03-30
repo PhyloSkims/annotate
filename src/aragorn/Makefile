@@ -16,7 +16,7 @@
 #
 include ../../config/auto.conf
 
-OSRC = aragorn1.2.36.c
+OSRC = aragorn1.2.38.c
 
 PROGS = aragorn
 
