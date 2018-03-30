@@ -16,7 +16,7 @@
 
 include ../../../config/auto.conf
 
-PKG = clustal-omega-1.2.1
+PKG = clustal-omega-1.2.4
 
 include $(CFGDIR)targets/package.targ
 
