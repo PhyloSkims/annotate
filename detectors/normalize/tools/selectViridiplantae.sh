@@ -1,8 +1,18 @@
 #!/bin/bash
 
-grep -A 1 '  ORGANISM' $* | \
+
+(                                          \
+	for f in $* ; do                       \
+		if [[ "$f" =~ \.gz$ ]] ; then      \
+			GREP=zgrep;                    \
+	    else                               \
+			GREP=grep;                     \
+	    fi;                                \
+		${GREP} -H -A 1 '  ORGANISM' $f;   \
+    done                                   \
+) | \
   grep -B 1 Viridiplantae | \
   gawk '{print $1}' | \
   grep '\.gbk' | \
-  sed -E 's/(^.*\.gbk).$/\1/' | \
+  sed -E 's/(^.*\.gbk(.gz)?).$/\1/' | \
   uniq
