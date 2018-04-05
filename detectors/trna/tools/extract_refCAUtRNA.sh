@@ -10,15 +10,39 @@ THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
 source "${THIS_DIR}/../../../scripts/bash_init.sh"
 
 function taxid {
-	egrep '/db_xref="taxon:[0-9]+"' $1 | \
+	local gbk=$1
+	local CAT=cat
+	
+	if [[ "$gbk" =~ \.gz$ ]] ; then
+		CAT=gzcat
+	fi
+
+	$CAT $gbk | \
+	egrep '/db_xref="taxon:[0-9]+"' | \
 	sed -E 's@ +/db_xref="taxon:([0-9]+)"@\1@'
 }
 
 function ac {
-	head -1 $1 | $AwkCmd '{print $2}'
+local gbk=$1
+	local CAT=cat
+	
+	if [[ "$gbk" =~ \.gz$ ]] ; then
+		CAT=gzcat
+	fi
+
+	$CAT $gbk | \
+	head -1 | $AwkCmd '{print $2}'
 }
 
 function definition {
+	local gbk=$1
+	local CAT=cat
+	
+	if [[ "$gbk" =~ \.gz$ ]] ; then
+		CAT=gzcat
+	fi
+
+	$CAT $gbk | \
 	$AwkCmd '/^DEFINITION/      {on=1}                         \
 	     (on==1)            {printf("%s ",$0)}             \
 	     (/\.$/ && (on==1)) {on=0;print ""}' $1 |          \
@@ -27,15 +51,23 @@ function definition {
 }
 
 function gb2fasta {
+	local gbk=$1
+	local CAT=cat
+	
+	if [[ "$gbk" =~ \.gz$ ]] ; then
+		CAT=gzcat
+	fi
+
 	AC=`ac $1`
 	TAXID=`taxid $1`
 	DEFINITION=`definition $1`
 
     echo ">${AC} taxid=${TAXID}; ${DEFINITION}"
     
-    $AwkCmd '/^\/\//    {on=0}                                             \
+    $CAT $gbk | \
+    $AwkCmd '/^\/\//    {on=0}                                         \
          (on==1)    {print $0}                                         \
-         /^ORIGIN / {on=1}' $1 |                                       \
+         /^ORIGIN / {on=1}'    |                                       \
     sed -E 's/^ *[0-9]+ +//'   |                                       \
     sed 's/ //g'
 }
@@ -58,9 +90,17 @@ function findCAUtrna {
 }
 
 function trnaAnnotations {
+	local gbk=$1
+	local CAT=cat
+	
+	if [[ "$gbk" =~ \.gz$ ]] ; then
+		CAT=gzcat
+	fi
+	
+	$CAT $gbk | \
     $AwkCmd '/^ORIGIN/    {on=0} \
          (on==1)      {print $0} \
-         /^FEATURE/   {on=1}' $1 | \
+         /^FEATURE/   {on=1}' | \
     $AwkCmd '/^     [^ ]/ {print ""} \
                       {printf("%s ",$0)} \
          END          {print ""}' | \
@@ -91,13 +131,20 @@ function annotateCAU {
 }
 
 function writeTRNA {
-	TAXID=`taxid $1`	
-	AC=`ac $1`
-	DEFINITION=`definition $1`
+	local gbk=$1
+	local CAT=cat
+	
+	if [[ "$gbk" =~ \.gz$ ]] ; then
+		CAT=gzcat
+	fi
 
-	TRNATMP="$$.trna.txt"
+	local TAXID=`taxid $gbk`	
+	local AC=`ac $gbk`
+	local DEFINITION=`definition $gbk`
 
-	trnaAnnotations $1 > ${TRNATMP}
+	local TRNATMP="$$.trna.txt"
+
+	trnaAnnotations $gbk > ${TRNATMP}
 	ntrna=`wc -l ${TRNATMP} | $AwkCmd '{print $1}'`
 
 	if (( ntrna > 0 )); then 

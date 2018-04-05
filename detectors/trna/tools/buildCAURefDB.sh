@@ -13,55 +13,36 @@ function fasta1li {
 
     $AwkCmd '/^>/ {if (sequence) \
                   {print sequence}; \
-               print $0; \
-               sequence=""} \
-         !/^>/ {sequence = sequence $0} \
-         END {print sequence}' $1
+                   print $0; \
+                   sequence=""} \
+            !/^>/ {sequence = sequence $0} \
+            END   {print sequence}' $1
 }
 
-function dereplicate {
-	DATA=$1
-	sumaclust -t 1 $DATA | \
-		fasta1li | \
-		grep -A 1 '^>' | \
-		grep -A1 'cluster_center=True;' | \
-		grep -v -- -- | \
-		sed -E "s/count=[0-9]+; //" | \
-		sed 's/cluster_weight/count/' | \
-		$AwkCmd ' /^>/ {SEQ++;$1=$1"_"SEQ;print $0} \
-			 !/^>/ {print $0}'
-}
 
-function extractSeqs {
-	rm -f $$.index
-	fastaindex -f $1 \
-	           -i $$.index
-	
-	for id in `cat $2`; do
-		fastafetch -f $1 \
-				   -i $$.index \
-				   -q $id 
-	done
-	
-	rm -f $$.index
-}
+function filtertrna() {
 
-function goodtrna {
-    local QUERY=$1
-    local REF=$2
-	sumatra -t 0.90 -x $QUERY $REF | \
-		sed -E 's/.(trn.M?)[_A-Z0-9]+/ \1 /' | \
-		sort -k 1,2 | \
-		$AwkCmd '(OLD) && ($1!=OLD) {print OLD,c["trnM"],c["trnfM"],c["trnI"]} \
-		     (OLD !=$1)         {c["trnM"]=0;c["trnfM"]=0;c["trnI"]=0;OLD=$1} \
-		                        {c[$2]+=$5}' | \
-		$AwkCmd '{p=0;} \
-		     ($2 > $3) && ($2 > $4) { print $0,"trnM";p=1 } \
-		     ($3 > $2) && ($3 > $4) {print $0,"trnfM";p=1} \
-		     ($4 > $2) && ($4 > $3) {print $0,"trnI";p=1} \
-		     (p==0) {print $0,"----"}' |      sed 's/_/ /' | \
-		$AwkCmd '{print $1"_"$2,$3,$4,$5,$1,$6}' | \
-		$AwkCmd '(($2+$3+$4) > 1) && ($5==$6) {print $1}'
+	$AwkCmd -F '_' 'BEGIN       {RS=">"}                                      \
+            (! /^$/)    {trna=$1;                                     \
+                         ac=$2"_"$3;}                                 \
+            (ac!=oldac &&                                             \
+             trnas["trnfM"]==1 &&                                     \
+             trnas["trnM"]==1 &&                                      \
+             trnas["trnI"]==1                                         \
+            )           {print seqs}                                  \
+            (ac!=oldac) {trnas["trnfM"]=0;                            \
+                         trnas["trnM"]=0;                             \
+                         trnas["trnI"]=0;                             \
+                         seqs="";                                     \
+                         oldac=ac                                     \
+                         }                                            \
+            (! /^$/)    {seqs=seqs"\n>"$0;                            \
+            			 trnas[trna]=1;}                              \
+            END         {if (trnas["trnfM"]==1 &&                     \
+                             trnas["trnM"]==1 &&                      \
+                             trnas["trnI"]==1)                        \
+                             print seqs}' $1 |                        \
+    egrep -v "^ *$"
 }
 
 pushTmpDir ORG.buildSCDB
@@ -79,46 +60,13 @@ pushTmpDir ORG.buildSCDB
 		${PROG_DIR}/extract_refCAUtRNA.sh ${VIRIDIPLANTAE} | \
 			fasta1li | \
 			egrep -A 1 '^>trn(I|M|fM)' | \
-			grep -v -- -- > ${CAUFILE}
+			grep -v -- --  | \
+			filtertrna > ${CAUFILE}
 	loginfo "Done"
-
-	loginfo "Sorting the CAU tRNA..."
-	
-		loginfo "Extract and dereplicate trnI..."
-		egrep -A 1 '^>trnI_'  ${CAUFILE} | grep -v -- -- > trnI.fasta
-		dereplicate trnI.fasta > trnCAU.fasta
 		
-		loginfo "Extract and dereplicate trnM..."
-		egrep -A 1 '^>trnM_'  ${CAUFILE} | grep -v -- -- > trnM.fasta
-		dereplicate trnM.fasta >> trnCAU.fasta
-		
-		loginfo "Extract and dereplicate trnfM..."
-		egrep -A 1 '^>trnfM_' ${CAUFILE} | grep -v -- -- > trnfM.fasta
-		dereplicate trnfM.fasta >> trnCAU.fasta
-		
-	loginfo "Done"
-	
-	loginfo "Cleaning the CAU tRNA..."
-
-		loginfo "First pass..."
-		
-		goodtrna 	trnCAU.fasta trnCAU.fasta 	 > trnCAU.good.ids
-		extractSeqs trnCAU.fasta trnCAU.good.ids > trnCAU.good.fasta
-
-		loginfo " --> $(wc -l trnCAU.good.ids) sequences kept"
-		
-		loginfo "Second pass..."
-		
-		goodtrna 	trnCAU.fasta trnCAU.good.fasta > trnCAU.good.ids
-		extractSeqs trnCAU.fasta trnCAU.good.ids   > trnCAU.good.fasta	
-		
-		loginfo " --> $(wc -l trnCAU.good.ids) sequences kept"
-
-	loginfo "Done"
-	
 	loginfo "Installing the CAU tRNA database..."
 		
-		cp trnCAU.good.fasta "${TRNA_DATA_DIR}/CAU_tRNA_DB.fasta"
+		cp ${CAUFILE} "${TRNA_DATA_DIR}/CAU_tRNA_DB.fasta"
 
 	loginfo "Done"
 
