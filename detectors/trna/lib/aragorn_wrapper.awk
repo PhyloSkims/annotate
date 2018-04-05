@@ -54,40 +54,76 @@ function epissage(intron,seq) {
 }
 
 function patchtRNA(anticodon,trna,seq) {
+	
+  delete res;
+  delete maxi;
+  delete score;
+  delete field;
+  delete f2;
+  
   if (anticodon == "cat") {
     file=printfasta(trna "_" anticodon,seq,"");
 
-    command= "sumatra -t 0.9 -x -n " file " " trnalib() " 2>> /dev/null";
+  command= "sumatra -x -n " file " " trnalib() " 2>> /dev/null";
     while ((command | getline output) > 0) {
       split(output,field," ");
-      match(field[2],"trn.M?");
-      trna=substr(field[2],RSTART,RLENGTH);
-      n[trna]+=field[5];
+  	  sub("_"," ",field[2]);
+  	  split(field[2],f2," ");
+  	  trna=f2[1];
+  	  ac=f2[2];
+      res[ac][trna]=field[3];
     }
     close(command)
-
-    nmax=0;
-    for (i in n) {
-      dist=n[i];
-      if (n[i] > nmax) {
-        nmax=n[i];
-        trna=i;
-      }
+    
+    i=0;
+    for (ac in res) {
+    	max=0;
+    	for (trna in res[ac]) {
+    		s=res[ac][trna]
+    		if (s > max) {
+    			max=s
+    			tmax=trna
+    		}
+    	}
+		i++;
+		maxi[tmax][ac]=1
+    }
+        
+    score["trnfM"]=0;
+    score["trnM"]=0;
+    score["trnI"]=0;
+    
+    for (trna in maxi) {
+    	score[trna]=length(maxi[trna])
     }
 
+    scores="alternative CAU scores :"
+    max=0
+    for (trna in score) {
+      if (score[trna] > max) {
+        max=score[trna];
+        tmax=trna;
+      }
+      scores=scores" "trna"=" score[trna];
+    }
+    trna=tmax
   }
   else {
     trna="trn" AA1[substr(trna,6,3)];
+    scores="-"
   }
+  
 
-  return trna;
+  resultat=trna"@"scores
+
+  return resultat;
 }
 
 function gene2product(gene) {
   return "tRNA-" AA3[substr(gene,4,1)];
 }
 
-function emblTRNA(geneid,trna,loc,anti,intron,seq) {
+function emblTRNA(geneid,trna,loc,anti,intron,notes,seq) {
 	if (loc ~ /^c/) {
 	     complement=1;
   		 match(loc,",[0-9][0-9]*\\]");
@@ -132,7 +168,10 @@ function emblTRNA(geneid,trna,loc,anti,intron,seq) {
 	   print "FT                   /gene=\""trna"\"";
 	   print "FT                   /anticodon=\""anti"\"";	   
 	   print "FT                   /product=\""product"("anti")\"";
-	    
+	   print "FT                   /inference=\"Aragorn-1.2.38\"";
+	   if (notes!="-")
+		   print "FT                   /note=\""notes"\"";	   
+	   
 }
 
 function gffTRNA(geneid,trna,loc,anti,intron,seq) {
@@ -239,9 +278,12 @@ BEGIN {
 
  ((geneid != "") && /^[0-9]+/ && ! /genes found/) \
      { seq=epissage(intron,seq);
-       trna=patchtRNA(anti,trna,seq);
+
+	   xxx=patchtRNA(anti,trna,seq)
+       split(xxx,trnadata,"@");
+
 #       print geneid,trna,loc,anti,"'"intron"'",seq;
-       emblTRNA(geneid,trna,loc,anti,intron,seq);
+	   emblTRNA(geneid,trnadata[1],loc,anti,intron,trnadata[2],seq);
        seq=""
      }
 
@@ -263,7 +305,10 @@ BEGIN {
      }
 
 END  { seq=epissage(intron,seq);
-       trna=patchtRNA(anti,trna,seq);
+
+	   xxx=patchtRNA(anti,trna,seq)
+       split(xxx,trnadata,"@");
+       
 #       print geneid,trna,loc,anti,"'"intron"'",seq;
-       emblTRNA(geneid,trna,loc,anti,intron,seq);
+       emblTRNA(geneid,trnadata[1],loc,anti,intron,trnadata[2],seq);
      }
