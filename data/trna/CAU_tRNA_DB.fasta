@@ -6,12 +6,6 @@ acctacttaactcagtggttagagtactgctttcatacggcgggagtcattggttcaaatccaatagtaggta
 gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctactggatgcac
 >trnI_AC_000188 gbac=AC_000188; trna=trnI; taxid=4081; distance=1; 
 gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctactggatgcac
->trnM_NC_000925 gbac=NC_000925; trna=trnM; taxid=2787; distance=1; 
-tgcatctgtggccgaggggccgaaggcagcggactcataatccgccatttcgaaagagacgtcgctggttcgaatccagccagatgcat
->trnfM_NC_000925 gbac=NC_000925; trna=trnfM; taxid=2787; distance=2; 
-tcgcggggtagagcagtctggtagctcgtcgggctcataacccgaaggtcaatggttcaaatccattccccgctat
->trnI_NC_000925 gbac=NC_000925; trna=trnI; taxid=2787; distance=1; 
-tggctcagtagctcagtggttagagcaggggattcataagcccaaggtcgcaggttcaaatcccgcttgagccat
 >trnM_NC_000927 gbac=NC_000927; trna=trnM; taxid=31312; distance=1; 
 gcctgcttagctcagttggttagagcgtccgtttcatacgcggattgtcactagttcaaatctagtagcaggcac
 >trnfM_NC_000927 gbac=NC_000927; trna=trnfM; taxid=31312; distance=0; 
@@ -36,12 +30,6 @@ tgcctacttaactcagtggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtaggtag
 gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaattcctgctggatgcac
 >trnI_NC_001666 gbac=NC_001666; trna=trnI; taxid=4577; distance=1; 
 gcatccatggctgaatggttaaagcgcccaactcataattggtaaatttgcgggttcaattcctgctggatgcac
->trnfM_NC_001675 gbac=NC_001675; trna=trnfM; taxid=2762; distance=0; 
-cgcggagtagagcagtttggtagctcgtcgggctcataacccgaaggtcagtggttcaaatccactctccgcaa
->trnM_NC_001675 gbac=NC_001675; trna=trnM; taxid=2762; distance=2; 
-tgcatctgtggccgagcggttgaaggcagcgggctcataatccgtcatctgaaaagatatcactggttcgaatccagtcagatgcatc
->trnI_NC_001675 gbac=NC_001675; trna=trnI; taxid=2762; distance=1; 
-tggctcggtagctcagtggtagagcaggggactcataagcccttggtcgtgggttcaaatcccacttgagccat
 >trnI_NC_001865 gbac=NC_001865; trna=trnI; taxid=3077; distance=0; 
 gcacctatggcagagtggtcgattgcaccgcactcataatgcggtttcgaaagaacatcgttggttcaaacccaactgggtgca
 >trnfM_NC_001865 gbac=NC_001865; trna=trnfM; taxid=3077; distance=0; 
@@ -70,12 +58,6 @@ acctacttaactcagcggttagagtattgctttcatacggcgggagtcattggttcaaatccaatagtaggta
 gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctactggatgcac
 >trnI_NC_002202 gbac=NC_002202; trna=trnI; taxid=3562; distance=1; 
 gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctactggatgcac
->trnI_NC_002652 gbac=NC_002652; trna=trnI; taxid=3037; distance=1; 
-tgcatttatggcagagaggacgatagcacgggactcataatctcgttccgaaaggacatcgctggttcaaatccagctgaatgcat
->trnfM_NC_002652 gbac=NC_002652; trna=trnfM; taxid=3037; distance=0; 
-ggcgaagtagagtaaaaggttagctcgtgggcctcatgaccccaaggttaaaggttcgaatcctttcttcgcca
->trnM_NC_002652 gbac=NC_002652; trna=trnM; taxid=3037; distance=0; 
-ggttcaatagctcaaaggtagagcataggattcataagcctcaggtcacaagttcaaatcttgtttgaacca
 >trnfM_NC_002762 gbac=NC_002762; trna=trnfM; taxid=4565; distance=2; 
 gagcggagtagagcagtttggtagctcacgaggctcataaccttgaggtcacgggttcgattcccgtctccgcact
 >trnM_NC_002762 gbac=NC_002762; trna=trnM; taxid=4565; distance=1; 
@@ -116,12 +98,6 @@ cgcggggtggagcagcttggtagctcgcgaggctcataacctcgaggtcacgggttcaaatcccgtctccgcaa
 gcctacttaactcagcggtgagagtatcgctttcatacggcgagagtcattggttcgaatccaatagtaggta
 >trnI_NC_004766 gbac=NC_004766; trna=trnI; taxid=13818; distance=0; 
 gcatccatggctgaacggtcaaagcacccaactcataattggcgaattcacaggttcaactcctgttggatgca
->trnM_NC_004799 gbac=NC_004799; trna=trnM; taxid=280699; distance=1; 
-tgcatctatggccgagcggcttaaggcagcggactcataatccgtggacaagaatttgtcatcgctggttcgaatccagctggatgcat
->trnfM_NC_004799 gbac=NC_004799; trna=trnfM; taxid=280699; distance=0; 
-cgcggagtagagcagtctggtagctcgtcgggctcataacccgaaggccaatggttcaaatccattctccgcta
->trnI_NC_004799 gbac=NC_004799; trna=trnI; taxid=280699; distance=0; 
-ggctcagtagctcagaggttagagcgggggactcataagcctcaggtcgtaggttcaaatcttacctgagcca
 >trnfM_NC_005086 gbac=NC_005086; trna=trnfM; taxid=13333; distance=0; 
 cgcggggtagagcagtttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctccgcaa
 >trnM_NC_005086 gbac=NC_005086; trna=trnM; taxid=13333; distance=1; 
@@ -320,18 +296,6 @@ acctacttaactcagtggttagagtattgctttcatacggcgagagtcattggttcaaatccaatagtaggta
 gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctactggatgcac
 >trnI_NC_008535 gbac=NC_008535; trna=trnI; taxid=13443; distance=1; 
 gcatccatggctgaatggttaaagcgcccaactcataattggcgaattcgtaggttcaattcctactggatgcac
->trnI_NC_008588 gbac=NC_008588; trna=trnI; taxid=2850; distance=0; 
-ggctctgtagctcagtggttagagcaggggactcataagcccaaggtcgtaggttcaaatcccaccagagcca
->trnfM_NC_008588 gbac=NC_008588; trna=trnfM; taxid=2850; distance=1; 
-tcgcggagtagagcagcctggtagctcgttgggctcataacccgaaggtcaatggttcaaatccattctccgctag
->trnM_NC_008588 gbac=NC_008588; trna=trnM; taxid=2850; distance=1; 
-tgcattcgtggccgagtggttgaaggcaccggactcataatccgttttcctctggaacgtcactggttcgaacccagtcgaatgcag
->trnM_NC_008589 gbac=NC_008589; trna=trnM; taxid=35128; distance=0; 
-gcattcgtggccgagtggttgaaggcaccggactcataatccgttttcctctggaacgtcactggttcgaacccagtcggatgca
->trnI_NC_008589 gbac=NC_008589; trna=trnI; taxid=35128; distance=0; 
-ggctctgtagctcagtggttagagcaggggactcataagcccaaggtcgtaggttcaaatcccaccagagcca
->trnfM_NC_008589 gbac=NC_008589; trna=trnfM; taxid=35128; distance=1; 
-tcgcggagtagagcagtctggtagctcgttgggctcataacccgaaggtcaatggttcaaatccattctccgctag
 >trnfM_NC_008590 gbac=NC_008590; trna=trnfM; taxid=112509; distance=1; 
 gagcggagtagagcagtttggtagctcacgaggctcataaccttgaggtcacgggttcgattcccgtctccgcact
 >trnM_NC_008590 gbac=NC_008590; trna=trnM; taxid=112509; distance=1; 
@@ -732,12 +696,6 @@ acctacttaactcagtggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagtaggta
 cgcggagtagagcaacttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcccgtctccgcaac
 >trnI_NC_011163 gbac=NC_011163; trna=trnI; taxid=3827; distance=1; 
 gcatccatggctgaatggttaaagcacccaactcataattggcgaagtcgtaggttcaattcctactggatgcac
->trnI_NC_011600 gbac=NC_011600; trna=trnI; taxid=109269; distance=1; 
-tggctttgtagctcagtggttagagcaggggactcataagcccaaggtcgcaggttcaaatcccgccaaagccaa
->trnM_NC_011600 gbac=NC_011600; trna=trnM; taxid=109269; distance=1; 
-tgcatccgtggccgagcggttgatggcaacgggctcataatccgttttcctttggaacaccactggttcaaatccagtcggatgcaa
->trnfM_NC_011600 gbac=NC_011600; trna=trnfM; taxid=109269; distance=0; 
-agcggagtagagcagcatggtagctcgttgggctcataacccgaaggtcagaggttcaaatccactctccgcta
 >trnI_NC_011828 gbac=NC_011828; trna=trnI; taxid=3900; distance=1; 
 gcatccatggctgaatggttaaagcacccaactcataattggcgaagtcgtaggttcaattcctactggatgcac
 >trnfM_NC_011828 gbac=NC_011828; trna=trnfM; taxid=3900; distance=1; 
@@ -828,20 +786,6 @@ acctacttaactcagtggttagagtattgctttcatacggcaggagtcattggttcaaatccaatagtaggta
 ggcggagtggagcaacttggtagctcgcaaggctcataaccttgaggttacgggttcaaatcctgtctccgcacc
 >trnI_NC_014063 gbac=NC_014063; trna=trnI; taxid=3860; distance=0; 
 gcatccatggctgagtggttaaagcacccaactcataattggcgaagtcgtgggttcaattcctactggatgca
->trnfM_NC_014340 gbac=NC_014340; trna=trnfM; taxid=505693; distance=0; 
-aatgaaatagagcagtatggccagctcgccgggctcatgccccggaggtcacaggttcaactcctgttttcatta
->trnI_NC_014340 gbac=NC_014340; trna=trnI; taxid=505693; distance=0; 
-gactctgtagcttagttggttagagcatgggattcataagcccaaggtcgtaggttcaaatccaaccagagtca
->trnM_NC_014340 gbac=NC_014340; trna=trnM; taxid=505693; distance=0; 
-atacctatggctgagaggtcgaaagcactagactcataatctagctccaaatggaatcgatggttcaaatccatctaggtata
->trnI_NC_014345 gbac=NC_014345; trna=trnI; taxid=348535; distance=0; 
-ggctctgtagctcagtaggtcagagcgcgggactcataagcccaaggccgcaggttcaaatcctgccagagtcac
->trnM_NC_014345 gbac=NC_014345; trna=trnM; taxid=348535; distance=0; 
-gtacccgtggctgagcggtcgaaagcgatggactcataatccattctcttataagcatcagtggttcgaacccactcgggtaca
->trnfM_NC_014345 gbac=NC_014345; trna=trnfM; taxid=348535; distance=0; 
-ggcggggtagagcagcgcggtacagctcatcgggctcatgacccggaggtcagtggttcgaccccactccccgctc
->trnfM_NC_014345 gbac=NC_014345; trna=trnfM; taxid=348535; distance=0; 
-ggcggggtagagcagcgcggtacagctcatcgggctcatgacccggaggtcagtggttcgaccccactccccgctc
 >trnfM_NC_014348 gbac=NC_014348; trna=trnfM; taxid=104588; distance=0; 
 cgcggggtagagcagcttggtagctcgcaaggctcataaccttgaggtcacgggttcaaatcctgtctccgcaa
 >trnM_NC_014348 gbac=NC_014348; trna=trnM; taxid=104588; distance=0; 
@@ -2190,12 +2134,6 @@ gcctacttaactcagtggttagagtattgctttcatacggcagtagtcattggttcaaatccaatagtaggta
 cgcggagtagagtagtttggtatctcgcaaggctcataaccttgagatcgcaggttcaaatcctgtctccgcaa
 >trnI_NC_023132 gbac=NC_023132; trna=trnI; taxid=223125; distance=1; 
 gcatccatggctgaatggttaaagcgcccaactcataattggcgattttgtaggttcaattcctactggatgcac
->trnM_NC_023133 gbac=NC_023133; trna=trnM; taxid=35688; distance=0; 
-ggctcagtagctcagtggttagagcaggggactcataagcccaaggtcgcaggttcaaatcccgcctgagcca
->trnI_NC_023133 gbac=NC_023133; trna=trnI; taxid=35688; distance=0; 
-gcatctgtggccgagtggccgaaggcaacggactcataatccgtttctcgtaagagacgtcgctggttcgaacccagccggatgca
->trnfM_NC_023133 gbac=NC_023133; trna=trnfM; taxid=35688; distance=0; 
-cgcggggtagagcagtctggtagctcgtcgggctcataacccgaaagtcaatggttcaaatccattccccgcta
 >trnfM_NC_023213 gbac=NC_023213; trna=trnfM; taxid=47600; distance=1; 
 cgcgggatagagcagtttggtagctcgcaaggctcataaccttgaggtcatgggttcaaatcccgttcccgcaac
 >trnM_NC_023213 gbac=NC_023213; trna=trnM; taxid=47600; distance=0; 
