@@ -1,0 +1,13 @@
+/fasta_io.o
+/kim_alphabet.o
+/kim_codonskew.o
+/kim_counter.o
+/kim_distance.o
+/kim_genetic.o
+/kim_indexer.o
+/kim_mixer.o
+/kim_sequence.o
+/kim_util.o
+/kim_zone.o
+/kimfit
+/kimono

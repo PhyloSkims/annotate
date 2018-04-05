@@ -1,0 +1,6 @@
+/fasta_header_handler.o
+/fasta_header_parser.o
+/fasta_seq_writer.o
+/header_mem_handler.o
+/libfasta.a
+/sequence.o

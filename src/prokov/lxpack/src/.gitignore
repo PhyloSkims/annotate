@@ -1,0 +1,9 @@
+/fasta_io.o
+/libkov_io.o
+/libkov_proba.o
+/libkov_util.o
+/prokov_cds
+/prokov_curve
+/prokov_learn
+/prokov_orf
+/prokov_score
