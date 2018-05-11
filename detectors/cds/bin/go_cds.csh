@@ -62,9 +62,9 @@ else
 	set AbsGenoFile = $Fasta
 endif
 
-pushd $temp
+pushd $temp >& /dev/null
 ln -s $AbsGenoFile genome.fasta
-popd
+popd >& /dev/null
 
 set Fasta = $temp/genome.fasta
 
