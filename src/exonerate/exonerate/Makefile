@@ -16,7 +16,7 @@
 
 include ../../../config/auto.conf
 
-PKG = exonerate-2.2.0_EC
+PKG = exonerate-2.4.0
 
 include $(CFGDIR)targets/package.targ
 
