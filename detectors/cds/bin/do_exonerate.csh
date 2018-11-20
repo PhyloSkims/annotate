@@ -151,7 +151,8 @@ endif
 
 Notify "  running exonerate of $GenoName on $ProtName"
 exonerate \
-	--model protein2genome            \
+    --model protein2genome            \
+#    -E -S no                         \
     --percent $PASS1_PERCENT          \
     --showalignment TRUE              \
     --showvulgar TRUE                 \
@@ -168,6 +169,7 @@ exonerate \
     --refineboundary 5000             \
     --singlepass FALSE                \
     --dpmemory 1024                   \
+    --ryo "@@INFO@@ %et %ps" \
     $DbFile $GenoFile > $base.exo.raw
 CheckAbort 20 "exonerate failure"
 
@@ -180,6 +182,15 @@ $AwkCmd -v MAX_SPAN=$PASS1_MAX_SPAN         \
         -v ALLOW_STOP=$PASS1_ALLOW_STOP     \
         -v EXCLUDE=$GenoName                \
         -f $LIB_DIR/bestclust.awk $base.exo.raw > $base.exo.best
+
+if ( -z $base.exo.best) then
+	if ( $PASS1_ALLOW_STOP == "0" && $PASS1_LOOK_FOR_PSEUDO == "1" ) then
+		$AwkCmd -v MAX_SPAN=$PASS1_MAX_SPAN         \
+		        -v ALLOW_STOP=1     \
+		        -v EXCLUDE=$GenoName                \
+		        -f $LIB_DIR/bestclust.awk $base.exo.raw > $base.exo.best		
+	endif
+endif
 
 #
 # get annotations
