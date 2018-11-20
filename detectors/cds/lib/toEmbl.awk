@@ -181,12 +181,15 @@ function Unk(s) {
 	QQualifier("product", Product)
 	QQualifier("inference", "similar to DNA sequence:" Simil)
 	QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
-	if (match(Translat,/\*/)>0) {
-		QQualifier("pseudogene","unknown")
-		QQualifier("note","nonfunctional due to stop codon")
-	}
-	if (FrameShift==0)
+	if (FrameShift==0) {
+		if (match(Translat,/\*/)>0) {
+			QQualifier("pseudogene","unknown")
+			QQualifier("note","nonfunctional due to stop codon")
+		}
+		
 		QQualifier("translation", Translat)
+	}
+		
 	  
 	if (Nexon > 1) {
 		for (i = 1 ; i <= Nexon ; i++) {
