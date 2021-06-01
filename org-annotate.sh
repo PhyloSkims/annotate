@@ -22,6 +22,9 @@ source "${THIS_DIR}/scripts/bash_init.sh"
 taxid="no"
 normalization="yes"
 irdetection="yes"
+cdsdetection="yes"
+trnadetection="yes"
+rrnadetection="yes"
 organism="no"
 types="chloro"
 partial=0
@@ -71,7 +74,7 @@ function fastaIterator() {
 }
 
 # options may be followed by one colon to indicate they have a required argument
-if ! options=$(getopt -o t:o:icrmhpl: -l ncbi-taxid:,organism,no-ir-detection,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help -- "$@")
+if ! options=$(getopt -o t:o:icrmhpl:CTR -l ncbi-taxid:,organism,no-ir-detection,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help,no-cds,no-trna,no-rrna -- "$@")
 then
     # something went wrong, getopt will put out an error message for us
     usage $0 1
@@ -91,6 +94,9 @@ do
     -p|--partial) partial="1" ;;
     -l|--min-length) minlength="$2" ; shift ;;
     -h|--help)  usage $0 0;;
+	-C|--no-cds) cdsdetection="no";;
+	-T|--no-trna) trnadetection="no";;
+	-R|--no-rrna) rrnadetection="no";;
     (--) shift; break;;
     (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
     (*) break;;
@@ -158,17 +164,23 @@ pushTmpDir ORG.organnot
 							touch "${RESULTS}.annot"
 						fi
 						
-						loginfo "Annotating the tRNA..."
+						if [[ "$trnadetection" == "yes" ]] ; then
+							loginfo "Annotating the tRNA..."
 							${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
-						loginfo "Done."
+							loginfo "Done."
+						fi
 						
-						loginfo "Annotating the rRNA genes..."
+						if [[ "$rrnadetection" == "yes" ]] ; then
+							loginfo "Annotating the rRNA genes..."
 							${PROG_DIR}/detectors/rrna/bin/go_rrna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
-						loginfo "Done."
+							loginfo "Done."
+						fi
 					
-						loginfo "Annotating the CDS..."
+						if [[ "$cdsdetection" == "yes" ]] ; then
+							loginfo "Annotating the CDS..."
 							tcsh -f ${PROG_DIR}/detectors/cds/bin/go_cds.csh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
-						loginfo "Done."
+							loginfo "Done."
+						fi
 						
 						if (( partial == 0 )) ; then 
 							topology="circular"
