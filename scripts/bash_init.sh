@@ -5,6 +5,13 @@
 
 export AwkCmd="gawk"
 
+# setup the LC_ALL environment variable (for Linux mostly)
+# so the GNU tools (like sort) will work properly
+  
+export LANG=C
+export LC_ALL=C
+
+
 ########################
 #
 # General usage functions
@@ -96,6 +103,16 @@ function seqlength {
   $AwkCmd -v t="`head -1 $1 | wc -c`" '{print $3 - t - $1 + 1}'
 }
 
+function readfirstfastaseq {
+	awk '(/^>/ && first) {on=0}
+	     (on) {seq=seq $1}
+	     (/^>/ && ! first) { first = 1
+	                         on = 1
+	                       } 
+	     END {print seq}
+	    ' $*
+}
+
 # extract a subseq from a fasta sequence
 # 	- $1 : The fasta file to cut
 #   - $2 : First position of the subsequence (first position is numered 1), 
@@ -139,6 +156,54 @@ function formatfasta {
 								/^>/   { print $0 }                 \
 								! /^>/ { seq=seq $0 }               \
 								END    { printfasta(seq)}' "${1}"
+}
+
+# Reverse complement a DNA string 
+#    - $1 : The DNA string to reverse complement
+function reversecomp {
+	echo $1 \
+	| tr 'Aa' '@!' | tr 'Tt' 'Aa' | tr '@!' 'Tt' \
+	| tr 'Cc' '@!' | tr 'Gg' 'Cc' | tr '@!' 'Gc' \
+	| tr 'Mm' '@!' | tr 'Kk' 'Mm' | tr '@!' 'Kk' \
+	| tr 'Rr' '@!' | tr 'Yy' 'Rr' | tr '@!' 'Yy' \
+	| tr 'Ww' '@!' | tr 'Ss' 'Ww' | tr '@!' 'Ss' \
+	| tr 'Bb' '@!' | tr 'Vv' 'Bb' | tr '@!' 'Vv' \
+	| tr 'Dd' '@!' | tr 'Hh' 'Dd' | tr '@!' 'Hh' \
+	| rev
+}
+
+#
+# Process management related function
+#
+
+function timeoutcmd() {
+  local seconde=$1
+  shift
+
+  $* &
+
+  local mainpid=$!
+  sleep $seconde &
+  local sleeppid=$!
+
+  local nproc=$(ps $mainpid $sleeppid | tail -n +2 | wc -l)
+
+  while (( nproc > 1 )) ; do
+    sleep 1
+    nproc=$(ps $mainpid $sleeppid | tail -n +2 | wc -l)
+  done
+
+  local timealive=$(ps $sleeppid | tail -n +2 | wc -l)
+
+  if (( timealive > 0 )) ; then
+    kill -9 $sleeppid
+  else
+        if (( $(ps $mainpid | tail -n +2 | wc -l) > 0 )) ; then
+                kill -9 $mainpid
+        logwarning "Timeout after ${seconde}s on command : $*"
+                return 1
+        fi
+  fi
 }
 
 

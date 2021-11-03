@@ -89,6 +89,8 @@ cp $temp/genome.cds.fasta $Genome.cds.fasta
 # pass2: transsplicing
 #
 
+$PROG_DIR/do_rps12.sh $Fasta > $temp/$Genome.rps12.res
+
 #
 # pass3: prokov
 #
