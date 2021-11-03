@@ -65,7 +65,7 @@ function patchtRNA(anticodon,trna,seq) {
     file=printfasta(trna "_" anticodon,seq,"");
 
   command= "sumatra -x -n " file " " trnalib() " 2>> /dev/null";
-    while ((command | getline output) > 0) {
+  while ((command | getline output) > 0) {
       split(output,field," ");
   	  sub("_"," ",field[2]);
   	  split(field[2],f2," ");
