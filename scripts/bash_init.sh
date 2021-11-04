@@ -25,8 +25,16 @@ function getAbsolutePath {
 
 # Manage temp directory
 
-function pushTmpDir {
+function mktempdir {
+	local TMP_DIR
 	TMP_DIR=$(mktemp -d -t "$1_proc_$$_XXXXXX")
+	logdebug "Creating temp directory $TMP_DIR"
+	echo $TMP_DIR
+}
+
+function pushTmpDir {
+	local TMP_DIR
+	TMP_DIR=$(mktempdir "$1")
 	pushd $TMP_DIR >& /dev/null
 	TMP_DIR_STACK="$TMP_DIR $TMP_DIR_STACK"
 	logdebug "Pushing temp directory $TMP_DIR"
@@ -34,8 +42,9 @@ function pushTmpDir {
 }
 
 function popTmpDir {
-	TMP_DIR=$(echo $TMP_DIR_STACK | $AwkCmd '{print $1}')
-	TMP_DIR_STACK=$(echo $TMP_DIR_STACK | $AwkCmd '{$1="";print $0}')
+	local TMP_DIR
+	TMP_DIR=$($AwkCmd '{print $1}' <<< $TMP_DIR_STACK)
+	TMP_DIR_STACK=$($AwkCmd '{$1="";print $0}' <<< $TMP_DIR_STACK)
 	popd  >& /dev/null
 	rm -rf $TMP_DIR >& /dev/null
 	logdebug "Poping temp directory $TMP_DIR"
@@ -84,6 +93,42 @@ function logdebug {
 	          echo `date +'%Y-%m-%d %H:%M:%S'` "[OA DEBUG  ] $$ -- $1" >> ${ORG_LOGFILE}
 	    fi
 	fi
+}
+
+# 
+# Asserts that the number of arguments passed to the script
+# is at least equal to the first argument of the function.
+#
+# needarg 3
+#
+# requires that the script is called at least with 3 arguments
+#
+__ORG_ANNOT_ARGS_SCRIPT_COUNT__=$#
+function needarg {
+	if (( $__ORG_ANNOT_ARGS_SCRIPT_COUNT__ < $1 )) ; then
+	    logerror "not enougth arguments provided"
+		exit 1
+	fi
+}
+
+function needfile {
+	if [[ ! -e $1 ]] ; then 
+		logerror "File $1 doesn't exist"
+		exit 1
+	fi
+}
+
+function needdir {
+	if [[ ! -d $1 ]] ; then 
+		logerror "Directory $1 doesn't exist"
+		exit 1
+	fi
+}
+function assignundef {
+    local value=$(eval echo \${$1+x})
+    if [[ -z "$value" ]] ; then 
+       eval $1=$2
+    fi
 }
 
 # Sequence related functions	
