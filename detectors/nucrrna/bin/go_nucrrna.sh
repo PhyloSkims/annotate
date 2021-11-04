@@ -50,7 +50,7 @@ pushTmpDir ORG.its
     if [[ ${#TSU[@]}=="2" ]]  ; then
 		echo "FT   rRNA            ${TSU[0]}..${TSU[1]}"
 		echo 'FT                   /gene="5.8S rRNA"'
-		echo 'FT                   /product="5.8S ribosomal nuclear RNA"'
+		echo 'FT                   /product="5.8S ribosomal RNA"'
 	fi
 	
     if [[ ${#ITS2[@]}=="2" ]]  ; then
@@ -61,23 +61,26 @@ pushTmpDir ORG.its
     
 
 	hmmsearch --max ${RRNADB} ${QUERY} | \
-		$AwkCmd '/Query: / { \
-		                profil=$2; \
-		                match($3,"[0-9][0-9]*");\
-		                lprof=substr($3,RSTART,RLENGTH)} \
-		     / [0-9][0-9]* ! / { \
+		$AwkCmd '/Query: / { 
+		                profil=$2
+		                match($3,"[0-9][0-9]*");
+		                lprof=substr($3,RSTART,RLENGTH)} 
+		     / [0-9][0-9]* ! / { 
 		                print profil,lprof,$7,$8,$10,$11}' | \
-		$AwkCmd '($3 <=5) && (($2-$4) <=5) { \
-		                full=1;$5=$5-$3+1;$6=$6+($2-$4)}  \
-		               {loc=$5".."$6} \
-		     ($1 ~ /_RC$/) { \
-		                loc="complement("loc")"} \
-		     (full==1) {match($1,"_..*S");\
-		                rrna=substr($1,RSTART+1,RLENGTH-1);\
-		                print "FT   rRNA            " loc; \
-		                print "FT                   /gene=\"rrn"rrna"\""
-		                print "FT                   /product=\""rrna" ribosomal RNA\"";\
-		                full=0
+		$AwkCmd '($3 <=5) && (($2-$4) <=5) { 
+		                  full=1;$5=$5-$3+1;$6=$6+($2-$4)
+						}  
+		                { loc=$5".."$6 } 
+		         ($1 ~ /_RC$/) { 
+		                  loc="complement("loc")" 
+						} 
+		         (full==1) { 
+					      match($1,"_..*S")
+		                  rrna=substr($1,RSTART+1,RLENGTH-1)
+		                  print "FT   rRNA            " loc
+		                  print "FT                   /gene=\""rrna" rRNA\""
+		                  print "FT                   /product=\""rrna" ribosomal RNA\""
+		                  full=0
 		                }'	
 
     loginfo "Done."
