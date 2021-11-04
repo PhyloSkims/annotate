@@ -23,6 +23,8 @@ taxid="no"
 normalization="yes"
 irdetection="yes"
 cdsdetection="yes"
+cdsdetection_pass1="yes"
+cdsdetection_pass2="yes"
 trnadetection="yes"
 rrnadetection="yes"
 organism="no"
@@ -63,6 +65,21 @@ function usage {
 	echo
 	echo '  -l     | --min-length'
 	echo '      Indicates for partial mode the minimum length of contig to annotate'
+	echo
+	echo '  -C     | --no-cds'
+	echo '      Do not annotate CDS'
+	echo
+	echo '  -D     | --no-cds-pass1'
+	echo '      Do not annotate core CDS'
+	echo
+	echo '  -E     | --no-cds-pass2'
+	echo '      Do not annotate rps12 CDS'
+	echo
+	echo '  -T     | --no-trna'
+	echo '      Do not look for transfert RNA'
+	echo
+	echo '  -R     | --no-rrna'
+	echo '      Do not look for ribosomal RNA'
    	exit $2
 }
 
@@ -74,7 +91,7 @@ function fastaIterator() {
 }
 
 # options may be followed by one colon to indicate they have a required argument
-if ! options=$(getopt -o t:o:icrmhpl:CTR -l ncbi-taxid:,organism,no-ir-detection,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help,no-cds,no-trna,no-rrna -- "$@")
+if ! options=$(getopt -o t:o:icrmhpl:CDETR -l ncbi-taxid:,organism,no-ir-detection,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help,no-cds,no-cds-pass1,no-cds-pass2,no-trna,no-rrna -- "$@")
 then
     # something went wrong, getopt will put out an error message for us
     usage $0 1
@@ -95,6 +112,8 @@ do
     -l|--min-length) minlength="$2" ; shift ;;
     -h|--help)  usage $0 0;;
 	-C|--no-cds) cdsdetection="no";;
+	-D|--no-cds-pass1) cdsdetection_pass1="no";;
+	-E|--no-cds-pass2) cdsdetection_pass2="no";;
 	-T|--no-trna) trnadetection="no";;
 	-R|--no-rrna) rrnadetection="no";;
     (--) shift; break;;
@@ -106,6 +125,11 @@ done
 
 loginfo "Annotating mode.....: $types"
 loginfo "IR detection mode...: $irdetection"
+loginfo "CDS detection mode..: $cdsdetection"
+loginfo "           pass 1...: $cdsdetection_pass1"
+loginfo "           pass 2...: $cdsdetection_pass2"
+loginfo "tRNA detection mode.: $trnadetection"
+loginfo "rRNA detection mode.: $rrnadetection"
 loginfo "Organism............: $organism"
 loginfo "Partial mode........: $partial"
 loginfo "Minimum length......: $minlength"
@@ -178,7 +202,9 @@ pushTmpDir ORG.organnot
 					
 						if [[ "$cdsdetection" == "yes" ]] ; then
 							loginfo "Annotating the CDS..."
-							tcsh -f ${PROG_DIR}/detectors/cds/bin/go_cds.csh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+							cdsdetection_pass1=$cdsdetection_pass1 \
+								cdsdetection_pass2=$cdsdetection_pass2 \
+								${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 							loginfo "Done."
 						fi
 						
