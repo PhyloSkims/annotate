@@ -47,8 +47,8 @@ pushTmpDir ORG.rrna
 		     (full==1) {match($1,"_..*S");\
 		                rrna=substr($1,RSTART+1,RLENGTH-1);\
 		                print "FT   rRNA            " loc; \
-		                print "FT                   /gene=\"rrn"rrna"\""
-		                print "FT                   /product=\""rrna" ribosomal RNA\"";\
+		                  print "FT                   /gene=\""rrna" rRNA\""
+		                  print "FT                   /product=\""rrna" ribosomal RNA\""
 		                full=0
 		                }'	
 
