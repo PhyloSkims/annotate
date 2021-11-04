@@ -31,6 +31,12 @@ else
 	QUERY="$1"
 fi
 
+if (( $# > 1 )) ; then
+    TEMP=$2
+else
+    TEMP=""
+fi
+
 DBROOT="$CDS_DATA_DIR/chlorodb/RPS12"
 RPS12DB="${DBROOT}/RPS12_DB.clean.fst"
 DELTA=50
@@ -77,6 +83,7 @@ blastx \
         | sort \
         | uniq > "dbsel.txt"
 
+
     #
     # Extract corresponding protein sequences
     # from the RPS12 database.
@@ -91,10 +98,11 @@ blastx \
         | $AwkCmd '# Normalizes the writing of the forward and reverse strand matches
                    ($7 <= $8) {print $7,$8,$9,$10,"F"} 
                    ($7 >  $8) {print $8,$7,$9,$10,"R"}' \
-        | sort -un \
+        | sort -n  \
+        | uniq \
         | $AwkCmd  'function overlap(x1,y1,x2,y2) {  
-                      return (((x1 <= x2) && (x2 <= (y1+1))) || 
-                              ((x2 <= x1) && (x1 <= (y2+1)))) 
+                      return (((x1+0 <= x2+0) && ((y1+1) >= x2+0)) || 
+                              ((x2+0 <= x1+0) && ((y2+1) >= x1+0))) 
                     } 
                     function min(a,b) {return (a <= b) ? a:b } 
                     function max(a,b) {return (a >= b) ? a:b }
@@ -134,7 +142,7 @@ blastx \
                         } 
                     {print $0,i} 
                   ' \
-        | sort -nk 1 \
+        | sort -nk 6  \
         | $AwkCmd 'function min(a,b) {return (a <= b) ? a:b } 
                    (old6 == 1) {
                         print old
@@ -156,7 +164,7 @@ blastx \
                      old = $0
                      old1 = $1
                      old6= $6
-                   }' \
+                   }'  \
         | $AwkCmd -v delta="$DELTA" \
                   -v seqlen="$SEQLEN" \
                   -v chloro="$SEQUENCE" \
@@ -238,6 +246,16 @@ blastx \
                }
              '
 
+    nrps12=$(ls -1 rps12_fragments_*.fasta | wc -l)
+
+    if (( nrps12 > 1 )) ; then
+        message="$nrps12 versions"
+    else
+        message="$nrps12 version"
+    fi
+
+    loginfo "$message of the gene rps12 detected."
+
     #
     # Run exonarate on every fragment of chloroplast
     #
@@ -260,6 +278,12 @@ blastx \
 
 
         for f in *.res ; do
+            mv $f $f.ori
+            if [[ -z "$TEMP" ]] ; then
+                dest="/dev/stdout"
+            else
+                dest="$TEMP/$f"
+            fi
             header=$(head -1 ${f/.rps12.res/.fasta})
             L2=$(sed -E 's/^.*limit=([0-9]+);.*$/\1/' <<< $header)
             S1=$(sed -E 's/^.*strand1=(R|F);.*$/\1/' <<< $header)
@@ -268,7 +292,7 @@ blastx \
             F2=$(sed -E 's/^.*from2=([0-9]+);.*$/\1/' <<< $header)
             T1=$(sed -E 's/^.*to1=([0-9]+);.*$/\1/' <<< $header)
             T2=$(sed -E 's/^.*to2=([0-9]+);.*$/\1/' <<< $header)
-            cat $f \
+            cat $f.ori \
             | $AwkCmd -v S1="$S1" -v F1="$F1" -v T1="$T1" \
                       -v S2="$S2" -v F2="$F2" -v T2="$T2" -v L2="$L2" \
                 '
@@ -358,8 +382,7 @@ blastx \
                  $0 = line
               }
           {print $0}
-        '
-
+        ' > $dest
         done
         
     
@@ -399,3 +422,12 @@ exit 0
 # location=join(complement(52867..52980),109583..109818,110316..110358);
 # >RPS12_2 parts=2 limit=254; from1=52787; to1=53030; strand1=R; from2=109521; to2=110405; strand2=F;
 # join\((complement\([0-9]+\.\.[0-9]+\),)+complement\([0-9]+\.\.[0-9]+\)\)
+
+# cat NC_010654.annot.embl | awk -v tag="agser" 'BEGIN {n=0} /\locus_tag/ {n++; sub(/""/, sprintf("\"%s%04d\"",tag,n),$0)} {print $0}' | less
+
+# BRR.chloro_1	NC_018117_rps12_2	96.08	102	4	0	99022	98717	36	137	9e-57	195
+# BRR.chloro_1	NC_018117_rps12_2	96.08	102	4	0	141187	141492	36	137	9e-57	195
+# BRR.chloro_1	NC_018117_rps12_2	94.87	39	2	0	70611	70495	1	39	2e-16	78.6
+
+
+
