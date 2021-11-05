@@ -435,10 +435,11 @@ pushTmpDir ORG.organnot
 						echo "XX"
 						echo "PR   Project:${project};"              
 						echo "XX"
+						echo "DE   XXX"
+					else
+						split80 "${organism} ${defline}." "DE   "
 					fi	
 					
-					split80 "${organism} ${defline}." "DE   "
-					echo "DE   "
 					echo "XX"
 				loginfo "Done."
 			
@@ -482,9 +483,9 @@ pushTmpDir ORG.organnot
 				loginfo "Done."
 				
 				loginfo "Ordering annotations..."
-					$AwkCmd '(entry && /^.....(misc|repeat|rRNA|tRNA|gene|source)/) { \
+					$AwkCmd '(entry && /^.....(misc|repeat|rRNA|tRNA|CDS|source)/) { \
 	                           print pos,entry } \
-						 /^.....(misc|repeat|rRNA|tRNA|gene|source)/ { \
+						 /^.....(misc|repeat|rRNA|tRNA|CDS|source)/ { \
 					        match($3,"[0-9][0-9]*"); \
 					        pos=substr($3,RSTART,RLENGTH)*1000 + 1; \
 					        entry=$0;    \
