@@ -168,7 +168,7 @@ function emblTRNA(geneid,trna,loc,anti,intron,notes,seq) {
 	   print "FT                   /gene=\""trna"\"";
 	   print "FT                   /anticodon=\""anti"\"";	   
 	   print "FT                   /product=\""product"("anti")\"";
-	   print "FT                   /inference=\"Aragorn-1.2.38\"";
+#	   print "FT                   /inference=\"Aragorn-1.2.38\"";
 	   if (notes!="-")
 		   print "FT                   /note=\""notes"\"";	   
 	   

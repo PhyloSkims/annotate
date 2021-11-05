@@ -371,7 +371,7 @@ blastx \
                  n = split($0,parts,",")
                  j = 1
                  for (i = 1; i <= n; i++) {
-                     if (length(line) + length(parts[i]) > 79) {
+                     if (length(line) + length(parts[i]) > 78) {
                          print line ","
                          line = "FT                   "
                          j = i

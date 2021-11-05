@@ -160,11 +160,11 @@ function Unk(s) {
 	gname = (Ngene == 1 ? GeneName : GeneName "_" ++Igene)
 	locus = ""
 	  
-	Feature("gene", GeneLocation())
-	QQualifier("gene", gname)
-	QQualifier("locus_tag", locus)
-	if (FrameShift)
-		QQualifier("pseudogene","unknown")
+	# Feature("gene", GeneLocation())
+	#QQualifier("gene", gname)
+	#QQualifier("locus_tag", locus)
+	#if (FrameShift)
+	#	QQualifier("pseudogene","unknown")
 		  
 	Feature("CDS", CdsLocation())
 	SQualifier("codon_start", 1)
@@ -180,7 +180,7 @@ function Unk(s) {
 		}
 	QQualifier("product", Product)
 	QQualifier("inference", "similar to DNA sequence:" Simil)
-	QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
+	# QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
 	if (FrameShift==0) {
 		if (match(Translat,/\*/)>0) {
 			QQualifier("pseudogene","unknown")
