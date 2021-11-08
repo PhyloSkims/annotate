@@ -58,3 +58,24 @@ please consult: `src/README.txt` for details
 @TODO : scripts description
 
 test
+
+## -4- Nix packages
+
+- `aragorn` : Version: 1.2.38 (maintainer Bruno Bzeznik)
+- `clustalo`
+- `exonerate` : Version: 2.4.0 (maintainer Bruno Bzeznik)
+- `hmmer` : Version: 3.3.2 (maintainer Markus J. Ankenbrand)
+- `kimono`
+- `muscle` : Version: 3.8.31 (maintainer Renato Alves)
+- `blast` : Version: 2.11.0 (maintainer Luis Pedro Coelho)
+- `prokov` :
+- `repseek`
+- `sequtils`
+- `sumaclust` : Version: 1.0.34 (maintainer Bruno Bzeznik)
+- `sumatra` : Version: 1.0.34 (maintainer Bruno Bzeznik)
+- `gawk` : Version: 5.1.0
+- `getopt` : Version: 1.1.6
+- `cd-hit` : Version: 4.8.1 (maintainer Bruno Bzeznik)
+- `tcsh` : Version: 6.22.03 (maintainer Anderson Torres)
+- `ITSx` : Version: 1.1.1 (maintainer Anderson Torres)
+
