@@ -49,6 +49,7 @@ pushTmpDir ORG.rrna
 		                print "FT   rRNA            " loc; \
 		                  print "FT                   /gene=\""rrna" rRNA\""
 		                  print "FT                   /product=\""rrna" ribosomal RNA\""
+						  print "FT                   /locus_tag=\"\"";
 		                full=0
 		                }'	
 

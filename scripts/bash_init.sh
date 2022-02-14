@@ -206,9 +206,9 @@ function formatfasta {
 # Reverse complement a DNA string 
 #    - $1 : The DNA string to reverse complement
 function reversecomp {
-	echo $1 \
+	echo $* \
 	| tr 'Aa' '@!' | tr 'Tt' 'Aa' | tr '@!' 'Tt' \
-	| tr 'Cc' '@!' | tr 'Gg' 'Cc' | tr '@!' 'Gc' \
+	| tr 'Cc' '@!' | tr 'Gg' 'Cc' | tr '@!' 'Gg' \
 	| tr 'Mm' '@!' | tr 'Kk' 'Mm' | tr '@!' 'Kk' \
 	| tr 'Rr' '@!' | tr 'Yy' 'Rr' | tr '@!' 'Yy' \
 	| tr 'Ww' '@!' | tr 'Ss' 'Ww' | tr '@!' 'Ss' \

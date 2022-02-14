@@ -497,10 +497,29 @@ pushTmpDir ORG.organnot
 					        match($0,"^[0-9]* ");\
 					        line=substr($0,RLENGTH+1);\
 							gsub("@","\n",line); \
-					        print line}' 
+					        print line}' > "${RESULTS}.sorted.annot"
 				loginfo "Done."
 				
-				
+				if [[ "$idprefix" != "no" ]] ; then
+				    loginfo "Adding locus tags..."
+					cat "${RESULTS}.sorted.annot" \
+					| $AwkCmd -v idprefix="$idprefix" '
+					    BEGIN {n=1}
+						/^FT +\/locus_tag=""/ {
+							sub(/locus_tag=""/,"locus_tag=\""idprefix"_"n"\"",$0);
+							n++;
+						}
+						{
+							print $0
+						}
+					'
+				    loginfo "Locus tags done."
+				else
+				    loginfo "Clearing locus tags done."
+					egrep -v '^FT +\/locus_tag=""' \
+					        "${RESULTS}.sorted.annot"
+				    loginfo "Clearing of tags done."
+				fi
 				
 				loginfo "Closing annotations table..."
 					echo "XX"
