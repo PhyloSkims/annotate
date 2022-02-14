@@ -43,6 +43,8 @@ cdsdetection_pass2="yes"
 trnadetection="yes"
 rrnadetection="yes"
 idprefix="no"
+tagprefix="no"
+locusshift=1
 organism="no"
 country="no"
 specimen="no"
@@ -102,6 +104,15 @@ function usage {
 	echo '      to build the complete id. This id is used only if'
 	echo '      an ENA project is specified.'
  	echo
+	echo '  -L     | --locus-prefix <prefix>'
+	echo '      Prefix used to build the locus tag of every annotated genes'
+	echo '      generated locus tags follow the pattern : prefix_###,'
+	echo '      where ### is a number following the order of gene in the embl file'
+	echo '      starting at locus tag shift (default 1).'
+	echo
+	echo '  -S     | --locus-shift <###>'
+	echo '      Start number for building locus tags'
+	echo
 	echo ' Annotation of partial sequences'
 	echo '  -p     | --partial'
 	echo '      Indicates that the genome sequence is partial and therefore in several contigs'
@@ -194,7 +205,7 @@ function fastaIterator() {
 }
 
 # options may be followed by one colon to indicate they have a required argument
-if ! options=$(getopt -o s:t:o:b:P:i:fcrmhpl:NICDETR -l specimen:,ncbi-taxid:,organism:,country:,project:,id-prefix:,not-force-ncbi,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help,no-normalization,no-ir-detection,no-cds,no-cds-pass1,no-cds-pass2,no-trna,no-rrna -- "$@")
+if ! options=$(getopt -o s:t:o:b:P:i:fcrmhpl:NICDETRL:S: -l specimen:,ncbi-taxid:,organism:,country:,project:,id-prefix:,not-force-ncbi,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help,no-normalization,no-ir-detection,no-cds,no-cds-pass1,no-cds-pass2,no-trna,no-rrna,locus-prefix:,locus-shift: -- "$@")
 then
     # something went wrong, getopt will put out an error message for us
     usage $0 1
@@ -214,6 +225,8 @@ do
     -o|--organism) organism="$2" ; shift ;;
     -P|--project) project="$2" ; shift ;;
     -i|--id-prefix) idprefix="$2" ; shift ;;
+    -L|--locus-prefix) tagprefix="$2" ; shift ;;
+    -S|--locus-shift) locusshift="$2" ; shift ;;
     -f|--not-force-ncbi)  resetorganism="no" ;;
     -p|--partial) partial="1" ;;
     -l|--min-length) minlength="$2" ; shift ;;
@@ -232,6 +245,8 @@ do
     shift
 done
 
+loginfo "Locus tag prefix provided: $tagprefix"
+loginfo "Locus tag numbered from..: $locusshift"
 loginfo "NCBI taxid provided......: $taxid"
 
 if [[ "$taxid" != "no" ]] ; then
@@ -500,14 +515,14 @@ pushTmpDir ORG.organnot
 					        print line}' > "${RESULTS}.sorted.annot"
 				loginfo "Done."
 				
-				if [[ "$idprefix" != "no" ]] ; then
-				    loginfo "Adding locus tags..."
+				if [[ "$tagprefix" != "no" ]] ; then
+				    loginfo "Adding locus tags from number: $locusshift..."
 					cat "${RESULTS}.sorted.annot" \
-					| $AwkCmd -v idprefix="$idprefix" '
-					    BEGIN {n=1}
+					| $AwkCmd -v tagprefix="$tagprefix" \
+					          -v locusshift="$locusshift" '
 						/^FT +\/locus_tag=""/ {
-							sub(/locus_tag=""/,"locus_tag=\""idprefix"_"n"\"",$0);
-							n++;
+							sub(/locus_tag=""/,"locus_tag=\""tagprefix"_"locusshift"\"",$0);
+							locusshift++;
 						}
 						{
 							print $0
