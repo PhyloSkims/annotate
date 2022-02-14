@@ -191,23 +191,23 @@ function Unk(s) {
 	}
 		
 	  
-	if (Nexon > 1) {
-		for (i = 1 ; i <= Nexon ; i++) {
-	    	Feature("exon", ExonLocation(i))
-	    	QQualifier("gene", gname)
-	    	QQualifier("locus_tag", locus)
+	# if (Nexon > 1) {
+	# 	for (i = 1 ; i <= Nexon ; i++) {
+	#     	Feature("exon", ExonLocation(i))
+	#     	QQualifier("gene", gname)
+	#     	QQualifier("locus_tag", locus)
 	    	
-	    	if (Exon[i]["frameshift"]) {
-				QQualifier("pseudogene","unknown")
-				if (Exon[i]["frameshift"] > 0)
-					QQualifier("note","frameshifted by insertion of " Exon[i]["frameshift"] " bp")
-				else
-					QQualifier("note","frameshifted by deletion of " -Exon[i]["frameshift"] " bp")
-			}
+	#     	if (Exon[i]["frameshift"]) {
+	# 			QQualifier("pseudogene","unknown")
+	# 			if (Exon[i]["frameshift"] > 0)
+	# 				QQualifier("note","frameshifted by insertion of " Exon[i]["frameshift"] " bp")
+	# 			else
+	# 				QQualifier("note","frameshifted by deletion of " -Exon[i]["frameshift"] " bp")
+	# 		}
 	    			    		
-	    	SQualifier("number", Exon[1]["strand"] == "+" ? i : Nexon-i+1)
-	    }
-	  }
+	#     	SQualifier("number", Exon[1]["strand"] == "+" ? i : Nexon-i+1)
+	#     }
+	#   }
 }
 
 

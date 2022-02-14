@@ -264,9 +264,9 @@ blastx \
         export PASS1_SPEEDUP=0
         cp $DBROOT/Annot.lst RPS12
 
-        for f in rps12_fragments_*.fasta ; do
+        for fasta in rps12_fragments_*.fasta ; do
             tcsh -f ${PROG_DIR}/do_exonerate.csh \
-                $f \
+                $fasta \
                 "RPS12/rps12.fasta" \
                 $DBROOT/../models $(pwd)
         done
