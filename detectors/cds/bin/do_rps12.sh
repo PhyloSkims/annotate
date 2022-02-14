@@ -263,12 +263,13 @@ blastx \
     #
         export PASS1_SPEEDUP=0
         cp $DBROOT/Annot.lst RPS12
-
+        nbseq = 0
         for fasta in rps12_fragments_*.fasta ; do
             tcsh -f ${PROG_DIR}/do_exonerate.csh \
                 $fasta \
                 "RPS12/rps12.fasta" \
                 $DBROOT/../models $(pwd)
+            ((nbseq=nbseq+1))
         done
 
     #
@@ -276,8 +277,9 @@ blastx \
     # fragment to the chloroplaste genome coordinates 
     #
 
-
+        n=0
         for f in *.res ; do
+            ((n=n+1))
             mv $f $f.ori
             if [[ -z "$TEMP" ]] ; then
                 dest="/dev/stdout"
@@ -382,9 +384,17 @@ blastx \
                  $0 = line
               }
           {print $0}
+        ' | \
+        $AwkCmd -v n=$n -v nbseq=$nbseq '
+            /^FT +\/gene="rps12"/ && (nbseq > 1) {
+                sub(/rps12/,"rps12_" n,$0)
+            }
+            {
+                print $0
+            }       
         ' > $dest
         done
-        
+         
     
 popTmpDir
 
