@@ -6,10 +6,13 @@
 #
 #  Annotate CDS using exonerate
 #
-#  do_exonerate.sh <FASTAGENOM> <FASTAPROT> [<OUTDIR>]
+#  do_exonerate.sh <PASS> <FASTAGENOM> <FASTAPROT> <ANNOTFILE> <MODELDIR> [<OUTDIR>]
 #
+#   - <PASS>       : the pass running exonarate
 #		- <FASTAGENOM> : The fasta file containing the genome to annotate
 #		- <FASTAPROT>  : The fasta file containing the protein family
+#   - <ANNOTFILE>  : The annotation file used to add product info
+#	  - <MODELDIR>   : Directory containing model parameters for exonerate
 #
 #  Results are in file : `basename <FASTAGENOM>:r`.`basename <FASTAPROT>:r`.res 
 #
@@ -26,17 +29,21 @@ alias Override 'if (-e \!:2) set \!:1 = \!:2'
 
 NeedArg 2
 
+set Pass = $Argv[1]; Shift
 set GenoFile = $Argv[1]; Shift
 set GenoName = `basename $GenoFile:r`
 
 set ProtFile = $Argv[1]; Shift
 set ProtDir  = `dirname $ProtFile`
+set DBDir    = `dirname $ProtDir`
 set ProtName = `basename $ProtFile | $AwkCmd -F'.' '{print $1}'`
 set ProtType = `basename $ProtDir`
 
+set AnnotFile = $Argv[1]; Shift
+
 NeedFile $GenoFile
 NeedFile $ProtFile
-NeedFile $ProtDir/Annot.lst
+NeedFile $AnnotFile
 
 set ModelsDir = $PROG_DIR/../models
 if ($#Argv > 0) then
@@ -188,7 +195,7 @@ if ( -z $base.exo.best) then
 		$AwkCmd -v MAX_SPAN=$PASS1_MAX_SPAN         \
 		        -v ALLOW_STOP=1     \
 		        -v EXCLUDE=$GenoName                \
-		        -f $LIB_DIR/bestclust.awk $base.exo.raw > $base.exo.best		
+		        -f $LIB_DIR/bestclust.awk $base.exo.raw > $base.exo.best	
 	endif
 endif
 
@@ -196,7 +203,16 @@ endif
 # get annotations
 #
 
-egrep "^$ProtName " $ProtDir/Annot.lst | $AwkCmd '{print "c annot", $0}' > T_$$
+set sp_match=`awk '/^e similarity/ {print $12}' $base.exo.best | head -1`
+
+if ( ${%sp_match} > 0 ) then
+  set sp_ac=`awk -v sp="$sp_match" '($1 ~ sp) {sub(/SP_AC=/,"",$2); sub(/;$/,"",$2); print $2} ' $DbFile`
+   echo "             " patch ac $sp_match to $sp_ac > /dev/stderr
+  sed "s/$sp_match/$sp_ac/g" $base.exo.best > T_$$
+  mv T_$$ $base.exo.best
+endif
+
+egrep "^$ProtName " $AnnotFile | $AwkCmd '{print "c annot", $0}' > T_$$
 
 #
 # extend start/stop
@@ -213,7 +229,7 @@ $AwkCmd -f $LIB_DIR/libutil.awk -f $LIB_DIR/extend.awk             \
 # translate
 #
 
-echo "c pass pass1 $ProtType" > $base.iff
+echo "c pass $Pass $ProtType" > $base.iff
 
 $AwkCmd -v FASTA=$GenoFile -f $LIB_DIR/libutil.awk \
         -f $LIB_DIR/translate.awk T_$$ >> $base.iff

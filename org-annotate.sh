@@ -40,6 +40,7 @@ irdetection="yes"
 cdsdetection="yes"
 cdsdetection_pass1="yes"
 cdsdetection_pass2="yes"
+cdsdetection_pass3="yes"
 trnadetection="yes"
 rrnadetection="yes"
 idprefix="no"
@@ -53,6 +54,7 @@ resetorganism="yes"
 types="chloro"
 partial=0
 minlength=0
+listfile="no"
 
 function usage {
 	echo "Usage:" ;  
@@ -113,6 +115,9 @@ function usage {
 	echo '  -S     | --locus-shift <###>'
 	echo '      Start number for building locus tags'
 	echo
+	echo '  --list-file <FILENAME>'
+	echo '      The chomosome list file name to file for ENA submmission'
+	echo
 	echo ' Annotation of partial sequences'
 	echo '  -p     | --partial'
 	echo '      Indicates that the genome sequence is partial and therefore in several contigs'
@@ -128,13 +133,16 @@ function usage {
 	echo '      Does not look for inverted repeats in the plastid genome'
 	echo
 	echo '  -C     | --no-cds'
-	echo '      Do not annotate CDS'
+	echo '      Do not annotate CDSs'
 	echo
 	echo '  -D     | --no-cds-pass1'
-	echo '      Do not annotate core CDS'
+	echo '      Do not annotate core CDSs'
 	echo
 	echo '  -E     | --no-cds-pass2'
 	echo '      Do not annotate rps12 CDS'
+	echo
+	echo '  -F     | --no-cds-pass3'
+	echo '      Do not annotate shell and dust CDSs'
 	echo
 	echo '  -T     | --no-trna'
 	echo '      Do not look for transfert RNA'
@@ -205,7 +213,7 @@ function fastaIterator() {
 }
 
 # options may be followed by one colon to indicate they have a required argument
-if ! options=$(getopt -o s:t:o:b:P:i:fcrmhpl:NICDETRL:S: -l specimen:,ncbi-taxid:,organism:,country:,project:,id-prefix:,not-force-ncbi,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help,no-normalization,no-ir-detection,no-cds,no-cds-pass1,no-cds-pass2,no-trna,no-rrna,locus-prefix:,locus-shift: -- "$@")
+if ! options=$(getopt -o s:t:o:b:P:i:fcrmhpl:NICDEFTRL:S: -l specimen:,ncbi-taxid:,organism:,country:,project:,id-prefix:,not-force-ncbi,chloroplast,nuclear-rdna,mitochondrion,partial,min-length:,help,no-normalization,no-ir-detection,no-cds,no-cds-pass1,no-cds-pass2,no-cds-pass3,no-trna,no-rrna,locus-prefix:,locus-shift:,list-file: -- "$@")
 then
     # something went wrong, getopt will put out an error message for us
     usage $0 1
@@ -236,8 +244,10 @@ do
 	-C|--no-cds) cdsdetection="no";;
 	-D|--no-cds-pass1) cdsdetection_pass1="no";;
 	-E|--no-cds-pass2) cdsdetection_pass2="no";;
+	-F|--no-cds-pass3) cdsdetection_pass3="no";;
 	-T|--no-trna) trnadetection="no";;
 	-R|--no-rrna) rrnadetection="no";;
+	--list-file) listfile="$2" ; shift;;
     (--) shift; break;;
     (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
     (*) break;;
@@ -248,6 +258,10 @@ done
 loginfo "Locus tag prefix provided: $tagprefix"
 loginfo "Locus tag numbered from..: $locusshift"
 loginfo "NCBI taxid provided......: $taxid"
+
+if [[ "$listfile" != "no" ]] ; then
+	loginfo "contig info saved in.....: $listfile"
+fi
 
 if [[ "$taxid" != "no" ]] ; then
 	scientificname=$(ncbiscientificname $taxid)
@@ -268,6 +282,7 @@ loginfo "IR detection mode........: $irdetection"
 loginfo "CDS detection mode.......: $cdsdetection"
 loginfo "           pass 1........: $cdsdetection_pass1"
 loginfo "           pass 2........: $cdsdetection_pass2"
+loginfo "           pass 3........: $cdsdetection_pass3"
 loginfo "tRNA detection mode......: $trnadetection"
 loginfo "rRNA detection mode......: $rrnadetection"
 loginfo "Organism.................: $organism"
@@ -309,7 +324,8 @@ pushTmpDir ORG.organnot
 			if (( sl >= minlength )) ; then
 			
 				seqid=$($AwkCmd '(NR==1) {print substr($1,2,1000)}' toannotate.fasta)
-				
+				# seqid=$(tr "." "_" <<< ${seqid})
+
 				case "$types" in 
 					chloro) 
 						loginfo "Annotating a plant chloroplast genome..."
@@ -351,8 +367,9 @@ pushTmpDir ORG.organnot
 					
 						if [[ "$cdsdetection" == "yes" ]] ; then
 							loginfo "Annotating the CDS..."
-							cdsdetection_pass1=$cdsdetection_pass1 \
+							    cdsdetection_pass1=$cdsdetection_pass1 \
 								cdsdetection_pass2=$cdsdetection_pass2 \
+								cdsdetection_pass3=$cdsdetection_pass3 \
 								${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 							loginfo "Done."
 						fi
@@ -364,8 +381,19 @@ pushTmpDir ORG.organnot
 							topology="linear"
 							defline="plastid, partial sequence"
 						fi
+
+						if [[ "$listfile" != "no" ]] ; then
+							if (( partial == 0 )) ; then
+								echo "${seqid}	CHL	Circular-Chromosome	Chloroplast" >>  ${CALL_DIR}/$listfile
+							else
+								echo "${seqid}	CHL" >>  ${CALL_DIR}/$listfile
+							fi
+						fi
+
+						notAnnoted  "${RESULTS}.annot" "${RESULTS}.norm.fasta" 100 > ${CALL_DIR}/not_annotated.fasta
 						;;
 						
+
 					nucrdna) 
 						loginfo "Annotating a plant rDNA cistron..."
 						
@@ -387,8 +415,8 @@ pushTmpDir ORG.organnot
 						        | grep "/gene=" \
 								| sed -E 's@^FT */gene="([^"]*)".*$@\1@' \
 								| sort -u \
-								| awk '{printf("%s;",$0)}' \
-								| awk 'BEGIN        {i=1} 
+								| $AwkCmd '{printf("%s;",$0)}' \
+								| $AwkCmd 'BEGIN        {i=1} 
 								       /18S rRNA;/  {gene[i]="18S rRNA"; i++} 
 									   /ITS1;/      {gene[i]="ITS1"; i++} 
 									   /5.8S rRNA;/ {gene[i]="5.8S rRNA"; i++} 
@@ -442,7 +470,6 @@ pushTmpDir ORG.organnot
 					echo "AC   XXX;"
 					echo "XX"
 					if [[ "${project}" != "no" ]] ; then 
-					sequence_number
 						if [[ "$idprefix" != "no" ]] ; then
 							seqid="${idprefix}${sequence_number}"
 						fi

@@ -145,7 +145,7 @@ function fastaCount {
 function seqlength {
   cat $1 | \
   wc |\
-  $AwkCmd -v t="`head -1 $1 | wc -c`" '{print $3 - t - $1 + 1}'
+  $AwkCmd -v t="$(head -1 $1 | wc -c)" '{print $3 - t - $1 + 1}'
 }
 
 function readfirstfastaseq {
@@ -215,6 +215,49 @@ function reversecomp {
 	| tr 'Bb' '@!' | tr 'Vv' 'Bb' | tr '@!' 'Vv' \
 	| tr 'Dd' '@!' | tr 'Hh' 'Dd' | tr '@!' 'Hh' \
 	| rev
+}
+
+
+function annotatedParts() {
+    egrep -A 3 "^FT   (CDS|rRNA|tRNA)" $1 \
+    | egrep -v -- '^--' \
+    | egrep -v '^FT +/' \
+    | egrep -o '[0-9]+\.\.[0-9]+' \
+    | awk -F'.' '($1 > $3) {x=$3;$3=$1;$1=x} {print $1"-"$3}' \
+    | sort -n
+}
+
+
+function notAnnoted() {
+    local annotations=$1
+    local genome=$2
+    local genomesize=$(seqlength $genome)
+    local minimum=$3
+    local from=1
+
+    for part in $(annotatedParts ${annotations}) ; do
+        loc=( $(tr '-' ' ' <<< $part) )
+        begin=${loc[0]}
+        end=${loc[1]}
+
+
+        if (( ( begin - from ) >= minimum )) ; then
+           cutseq "${genome}" $from $(( begin - 1 )) \
+            | $AwkCmd -v from=$from -v to=$(( begin - 1 )) '
+                /^>/ {$0=$1 " from=" from "; to=" to ";"}
+                {print $0}
+            '
+        fi
+        from=$((end+1))
+    done
+
+    if (( ( genomesize - from + 1 ) >= minimum )) ; then
+        cutseq "${genome}" $from $genomesize \
+        | $AwkCmd -v from=$from -v to=$genomesize '
+            /^>/ {$0=$1 " from=" from "; to=" to ";"}
+            {print $0}
+        '
+    fi
 }
 
 #

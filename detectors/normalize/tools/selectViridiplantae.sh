@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# -- CAUTION -- Works as long than the script 
+#               is not called through a symlink
+THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
+source "${THIS_DIR}/../../../scripts/bash_init.sh"
+
 
 (                                          \
 	for f in $* ; do                       \
@@ -12,7 +17,7 @@
     done                                   \
 ) | \
   grep -B 1 Viridiplantae | \
-  gawk '{print $1}' | \
+  $AwkCmd '{print $1}' | \
   grep '\.gbk' | \
   sed -E 's/(^.*\.gbk(.gz)?).$/\1/' | \
   uniq

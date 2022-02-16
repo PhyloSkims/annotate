@@ -35,19 +35,22 @@ Genome=$(basename ${Fasta%.*})
 # DbRoot is set to its default values except 
 # if the second argument precise another DbRoot
 
-DbRoot="$CDS_DATA_DIR/chlorodb"
+DbRoot="$CDS_DATA_DIR/sp_chlorodb"
 
 if (( $# > 0)) ; then
   DbRoot="$1"; Shift
 fi
 
+AnnotFile="$DbRoot/Annot.lst" 
+
 needdir $DbRoot
 needdir $DbRoot/core
-needfile $DbRoot/core/Annot.lst
+needfile $AnnotFile
 needdir $DbRoot/models
 
 assignundef cdsdetection_pass1 yes
 assignundef cdsdetection_pass2 yes
+assignundef cdsdetection_pass3 yes
 
 temp=$(mktempdir $(hostname))
 
@@ -63,32 +66,46 @@ Fasta="$temp/genome.fasta"
 #
 
 if [[ "$cdsdetection_pass1" == "yes" ]] ; then
-    for dir in "core" "shell" "dust" ; do
+    for dir in "core" ; do
     if [[ -d $DbRoot/$dir ]] ; then
-        fams=$(ls $DbRoot/$dir/*.clean.fst)
+        fams=$(ls $DbRoot/$dir/*.fst)
         loginfo "running pass1:$dir exonerate of $Genome on $DbRoot"
         for f in $fams ; do
-        tcsh -f $PROG_DIR/do_exonerate.csh $Fasta $f $DbRoot/models $temp
+        tcsh -f $PROG_DIR/do_exonerate.csh Pass1 $Fasta $f $AnnotFile $DbRoot/models $temp
         done
     fi
     done
 
-    cp $temp/genome.cds.fasta $Genome.cds.fasta 
-
+    mv $temp/genome.cds.fasta $Genome.cds_pass1.fasta 
 fi
 
 
 #
-# pass2: transsplicing
+# pass2: RPS12 gene with transsplicing 
 #
 
 if [[ "$cdsdetection_pass2" == "yes" ]] ; then
+    loginfo "running pass2:rps12 exonerate of $Genome on $DbRoot"
     $PROG_DIR/do_rps12.sh $Fasta $temp
 fi
 
 #
-# pass3: prokov
+# pass3: run exonerate on shell and dust
 #
+
+if [[ "$cdsdetection_pass3" == "yes" ]] ; then
+    for dir in "shell" ; do
+    if [[ -d $DbRoot/$dir ]] ; then
+        fams=$(ls $DbRoot/$dir/*.fst)
+        loginfo $fams
+        loginfo "running pass3:$dir exonerate of $Genome on $DbRoot"
+        for f in $fams ; do
+          tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
+        done
+    fi
+    done
+    mv $temp/genome.cds.fasta $Genome.cds_pass2.fasta 
+fi
 
 # $PROG_DIR/do_prokov.sh $Fasta $Genome.cds.fasta $temp
 

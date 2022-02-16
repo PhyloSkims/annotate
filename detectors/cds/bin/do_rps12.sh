@@ -37,9 +37,12 @@ else
     TEMP=""
 fi
 
-DBROOT="$CDS_DATA_DIR/chlorodb/RPS12"
-RPS12DB="${DBROOT}/RPS12_DB.clean.fst"
+DBROOT="$CDS_DATA_DIR/sp_chlorodb/RPS12"
+RPS12DB="${DBROOT}/rps12.fst"
 DELTA=50
+
+AnnotFile="$CDS_DATA_DIR/sp_chlorodb/Annot.lst"
+ModelsDir="$CDS_DATA_DIR/sp_chlorodb/models"
 
 SEQLEN=$(seqlength "${QUERY}")
 SEQUENCE=$(readfirstfastaseq "${QUERY}") 
@@ -61,7 +64,9 @@ blastx \
                 BEGIN {BEST_EVAL = 1e-40; 
                        OUT = 0} 
                 /^#/ {next} 
-                ($2 == PREV_CDS) { HSPs = HSPs "\n" $0;} 
+                ($2 == PREV_CDS) && (($11 + 0.0) < (1e-5 + 0.0)) { 
+                    HSPs = HSPs "\n" $0;
+                    } 
                 
                 (OUT < 20) && ($2 != PREV_CDS) && (BEST_EVAL < (1e-20 + 0.0)) { 
                     if (PREV_CDS) print HSPs; 
@@ -75,6 +80,7 @@ blastx \
                 (BEST_EVAL > ($11 + 0.0)) {BEST_EVAL = ($11 + 0.0)} 
           ' > "rps12_locate.hsps"
 
+    
     #
     # Extracting protein ids from selected blast HSPs
     #
@@ -82,7 +88,6 @@ blastx \
     $AwkCmd '{print $2}' "rps12_locate.hsps" \
         | sort \
         | uniq > "dbsel.txt"
-
 
     #
     # Extract corresponding protein sequences
@@ -134,7 +139,7 @@ blastx \
                         }
                     }
         ' \
-        | sort -nk 3 \
+        | sort -nk 3  \
         | $AwkCmd '($3 != old3 || $4 != old4) { 
                           i++
                           old3=$3 
@@ -262,13 +267,14 @@ blastx \
     # It should be one or two fragments
     #
         export PASS1_SPEEDUP=0
-        cp $DBROOT/Annot.lst RPS12
-        nbseq = 0
+        nbseq=0
         for fasta in rps12_fragments_*.fasta ; do
             tcsh -f ${PROG_DIR}/do_exonerate.csh \
+                Pass2 \
                 $fasta \
                 "RPS12/rps12.fasta" \
-                $DBROOT/../models $(pwd)
+                $AnnotFile \
+                $ModelsDir $(pwd)
             ((nbseq=nbseq+1))
         done
 

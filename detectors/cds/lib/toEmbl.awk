@@ -142,8 +142,7 @@ function Unk(s) {
 }
 
 /^e similarity/ {
-  split($12, a, "@")
-  Simil = a[1] ":" a[2]
+  Simil = a[1] "UniProtKB/Swiss-Prot:" $12
   next
 }
 
@@ -179,7 +178,7 @@ function Unk(s) {
 			QQualifier("note","nonfunctional due to a frameshift")
 		}
 	QQualifier("product", Product)
-	QQualifier("inference", "similar to DNA sequence:" Simil)
+	QQualifier("inference", "similar to " Simil)
 	# QQualifier("inference", "org.annot -- detect pass:" PassType ":" PassInfo)
 	if (FrameShift==0) {
 		if (match(Translat,/\*/)>0) {
