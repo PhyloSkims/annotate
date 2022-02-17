@@ -19,6 +19,7 @@ include ../config/auto.conf
 
 DIRS = aragorn   \
        clustalo  \
+       gnuparallel \
        exonerate \
        hmmer3    \
        kimono    \
