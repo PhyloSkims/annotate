@@ -46,8 +46,8 @@ pushTmpDir ORG.rrna
 		                loc="complement("loc")"} \
 		     (full==1) {match($1,"_..*S");\
 		                rrna=substr($1,RSTART+1,RLENGTH-1);\
-		                print "FT   rRNA            " loc; \
-		                  print "FT                   /gene=\""rrna" rRNA\""
+		                  print "FT   rRNA            " loc; \
+		                  print "FT                   /gene=\"rrn"rrna"\""
 		                  print "FT                   /product=\""rrna" ribosomal RNA\""
 						  print "FT                   /locus_tag=\"\"";
 		                full=0
