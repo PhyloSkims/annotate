@@ -66,15 +66,15 @@ Fasta="$temp/genome.fasta"
 #
 
 if [[ "$cdsdetection_pass1" == "yes" ]] ; then
-    for dir in "core" ; do
+    ( for dir in "core" ; do
     if [[ -d $DbRoot/$dir ]] ; then
         fams=$(ls $DbRoot/$dir/*.fst)
         loginfo "running pass1:$dir exonerate of $Genome on $DbRoot"
         for f in $fams ; do
-        tcsh -f $PROG_DIR/do_exonerate.csh Pass1 $Fasta $f $AnnotFile $DbRoot/models $temp
+        echo tcsh -f $PROG_DIR/do_exonerate.csh Pass1 $Fasta $f $AnnotFile $DbRoot/models $temp
         done
     fi
-    done
+    done ) | parallel -j 8
 
     mv $temp/genome.cds.fasta $Genome.cds_pass1.fasta 
 fi
@@ -94,16 +94,16 @@ fi
 #
 
 if [[ "$cdsdetection_pass3" == "yes" ]] ; then
-    for dir in "shell" ; do
+    (for dir in "shell" ; do
     if [[ -d $DbRoot/$dir ]] ; then
         fams=$(ls $DbRoot/$dir/*.fst)
         loginfo $fams
         loginfo "running pass3:$dir exonerate of $Genome on $DbRoot"
         for f in $fams ; do
-          tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
+          echo tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
         done
     fi
-    done
+    done) | parallel -j 8
     mv $temp/genome.cds.fasta $Genome.cds_pass2.fasta 
 fi
 

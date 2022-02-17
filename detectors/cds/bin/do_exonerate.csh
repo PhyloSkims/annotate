@@ -127,7 +127,10 @@ endif
 # speedup exonerate 
 #
 
-if ($PASS1_SPEEDUP != 0) then
+set AvgLengh = `$AwkCmd '/>/ {nseq++} \\!/>/ {lseq+=length($0)} END {print int(lseq/nseq)}' $ProtFile`
+Notify "  Protein $ProtName has an average length of $AvgLengh"
+
+if (($PASS1_SPEEDUP != 0) && ($AvgLengh > $PASS1_BLASTX_FILTER_MINLEN)) then
 
   tcsh -f $PROG_DIR/do_filterbx.csh $GenoFile $ProtFile  \
             $PASS1_BLASTX_FILTER_IDMIN          \
@@ -135,20 +138,24 @@ if ($PASS1_SPEEDUP != 0) then
             $PASS1_BLASTX_FILTER_NBMAX > D_$$
 
   set n = `egrep "^>" D_$$ | wc -l`
-  if ($n > 0) then
+  if ($n >= $PASS1_SLOWDOWN) then
     Notify "  $n sequences kept"
     set DbFile = D_$$
   else
-    Notify "  no sequence match"
-    if ($PASS1_SLOWDOWN != 0) then
-      Notify "  reverting to original $ProtName"
+    if ($PASS1_SLOWDOWN > 0) then
+      Notify "  not enought sequence match (only $n)"
+      Notify "  reverting to complete $ProtName db"
       set DbFile = $ProtFile
     else
+      Notify "  no blast match for $ProtName stop annotation"
       echo "" > $base.exo.raw
       goto parse
     endif
   endif
 else
+  if ($AvgLengh <= $PASS1_BLASTX_FILTER_MINLEN) then
+    Notify "  too short protein, reverting to original $ProtName"
+  endif
   set DbFile = $ProtFile
 endif
 
@@ -207,7 +214,7 @@ set sp_match=`awk '/^e similarity/ {print $12}' $base.exo.best | head -1`
 
 if ( ${%sp_match} > 0 ) then
   set sp_ac=`awk -v sp="$sp_match" '($1 ~ sp) {sub(/SP_AC=/,"",$2); sub(/;$/,"",$2); print $2} ' $DbFile`
-   echo "             " patch ac $sp_match to $sp_ac > /dev/stderr
+  Notify "  for $ProtName patches swiss ID $sp_match to AC $sp_ac"
   sed "s/$sp_match/$sp_ac/g" $base.exo.best > T_$$
   mv T_$$ $base.exo.best
 endif
