@@ -206,6 +206,192 @@ function split80 {
 	  '
 }
 
+function over_junction() {
+	local genome_length=$1
+
+	$AwkCmd -v genome_length=$genome_length '
+		function split_location(location,      p, status, newloc) {
+			delete(state)
+			delete(newloc)
+			level = 0
+			state[level] = ""
+			subloc = location
+			newloc[level] = ""
+			locpart = ""
+			start = 0
+			pending = 0
+
+			while(length(subloc)>0) {
+				first_letter = substr(subloc,1,1)
+				
+				switch (first_letter) {
+					case "j" :
+						print "entereing in join" > /dev/stderr
+						subloc = substr(subloc,6)
+						level++
+						state[level] = "join"
+						break
+					case "c" :
+						print "entereing in complement" > /dev/stderr
+						subloc = substr(subloc,12)
+						level++
+						state[level] = "complement"
+						break
+					case "," :
+						print "next exon" > /dev/stderr
+						subloc = substr(subloc,2)
+						newloc[level] = newloc[level] ","
+						break
+					case ")" :
+						print "Ending "state[level] > /dev/stderr
+						subloc = substr(subloc,2)
+						level--
+						newloc[level] = newloc[level] state[level+1] "(" newloc[level+1] ")"
+						if (pending == 1) {
+							level--
+							newloc[level] = newloc[level] state[level+1] "(" newloc[level+1] ")"
+						}
+						break
+					default :
+						print "Matching location: " subloc > /dev/stderr
+						p = match(subloc,/[0-9]+\.\.[0-9]+/)
+						piece = substr(subloc,RSTART,RLENGTH)
+						subloc= substr(subloc,RLENGTH+1)
+						p = match(piece,/[0-9]+/)                   
+						from = substr(piece,RSTART,RLENGTH)
+						piece = substr(piece,RLENGTH+1)
+						p = match(piece,/[0-9]+/)                   
+						to = substr(piece,RSTART,RLENGTH)
+						if ((genome_length+0 >= from+0) &&
+							(genome_length+0 <= to+0)) {
+								status = "overlap"
+								level++
+								state[level] = "join"
+								pending = 1
+								piece = from ".." genome_length ",1.."(to - genome_length)
+							} else {
+								status = "out"
+							}
+						newloc[level] = newloc[level] piece
+						print p, RSTART, from, to, status, piece > /dev/stderr
+						break
+				}
+			}
+			return newloc[0]
+		}
+
+		function cut_location(location) {
+			pos = match(location,/,[^,]*$/)
+			right = ""
+
+			if (pos > 80) {
+				while (pos > 80) {
+					right = substr(location,pos+1) right
+					location = substr(location,1,pos)
+					pos = match(location,/,[^,]*,$/)
+				}
+
+				if (pos > 0) {
+					right = substr(location,pos+1) right
+					location = substr(location,1,pos)
+				}
+			}
+			
+			if (right !="") {
+				right = "\nFT                   " right
+				if (length(right) > 80) {
+					right = cut_location(right)
+				}
+				location = location right
+			} 
+			return location
+		}
+		
+		/^FT   [^ ]/ && (feature != "") {
+			if (status != "remove") {
+				if (status == "overlap") {
+					print cut_location(fttype location)
+					print "FT                   /note=\"" fttype " crosses the IR boundary\""
+				} else {
+					print cut_location(fttype location)
+				}
+				print feature
+			}
+
+			feature = ""
+			fttype  = ""
+			position= ""
+		} 
+
+		(feature != "") {
+			feature = feature "\n" $0
+		}
+
+		#
+		# Begining of a feature
+		#
+		/^FT   [^ ]/ {
+			fttype=$2
+			plocation=$3
+			fttype=substr($0,1,21)
+		} 
+
+		#
+		# Following of a location
+		#
+		/^FT    +[^ \/]/ && (plocation != "") {
+			plocation = plocation $2
+		}
+
+		#
+		# End of the location
+		# And begining of the feature description
+		# 
+		/^FT +\// && (plocation != "") {
+			feature = $0
+			location = plocation
+			split(location,parts,/\.\./)
+			delete p
+			pmin=1000000000
+			pmax=0
+
+			for (i in parts) {
+				pos = match(parts[i],/[0-9]+/)
+				if (pos+0 > 0) {
+					j++
+					p[i] = substr(parts[i], RSTART , RLENGTH)
+					if (p[i]+0 > pmax+0) { pmax = p[i]}
+					if (p[i]+0 < pmin+0) { pmin = p[i]}
+				}
+			}
+
+			status = "ok"
+			if (pmin+0 > genome_length+0) {
+				status = "remove"
+			} else {
+				if (pmax+0 > genome_length+0) {
+				status = "overlap"
+				location = split_location(location)
+				}
+			}
+			plocation=""
+		}
+
+		END {
+			if (status != "remove") {
+				if (status == "overlap") {
+					print fttype location
+					print "FT                   /note=\"CDS crosses the IR boundary\""
+				} else {
+					print fttype location
+				}
+				print feature
+			}
+
+		}
+		' $2
+}
+
 function fastaIterator() {
 	$AwkCmd '/^>/ {if (seq) printf("%s\f",seq); seq=""} \
 	          {if (seq) seq=seq"\n"; seq=seq $1} \
@@ -352,6 +538,22 @@ pushTmpDir ORG.organnot
 							rm -f "${RESULTS}.annot"
 							touch "${RESULTS}.annot"
 						fi
+
+						#
+						# We are annotating a circular sequence
+						#
+						# 2kb of the beginnig of the sequence is added to its end
+						# to allow for overlaping feature
+						#
+						add_circular_extension=0
+						if (( partial == 0 )) ; then
+							loginfo "Extends the sequence to allows for features overlaping juction"
+							cp "${RESULTS}.norm.fasta" "${RESULTS}.norm.orig.fasta"
+							cp "${RESULTS}.norm.fasta" "${RESULTS}.norm.frgs.fasta"
+							cutseq "${RESULTS}.norm.orig.fasta" 1 2000 >> "${RESULTS}.norm.frgs.fasta"
+							joinfasta "${RESULTS}.norm.frgs.fasta" > "${RESULTS}.norm.fasta"
+							add_circular_extension=1
+						fi
 						
 						if [[ "$trnadetection" == "yes" ]] ; then
 							loginfo "Annotating the tRNA..."
@@ -372,6 +574,14 @@ pushTmpDir ORG.organnot
 								cdsdetection_pass3=$cdsdetection_pass3 \
 								${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
 							loginfo "Done."
+						fi
+
+						if (( add_circular_extension == 1 )) ; then
+							mv "${RESULTS}.norm.orig.fasta" "${RESULTS}.norm.fasta"
+							cp "${RESULTS}.annot" "${CALL_DIR}/${RESULTS}.annot.circular"
+							over_junction $sl "${RESULTS}.annot" > "${RESULTS}.circular.annot"
+							mv "${RESULTS}.circular.annot" "${RESULTS}.annot"
+							add_circular_extension=0
 						fi
 						
 						if (( partial == 0 )) ; then 
