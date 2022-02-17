@@ -7,3 +7,4 @@
 data/cds/sp_chlorodb/genes
 data/cds/sp_chlorodb/rawdata
 phylonorway
+src/gnuparallel/build.i386-darwin
