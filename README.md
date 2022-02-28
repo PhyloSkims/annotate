@@ -69,7 +69,7 @@ test
 - `muscle` : Version: 3.8.31 (maintainer Renato Alves)
 - `blast` : Version: 2.11.0 (maintainer Luis Pedro Coelho)
 - `prokov` :
-- `repseek`
+- `repseek` : Version 9Sep2014 (maintainer Bruno Bzeznik)
 - `sequtils`
 - `sumaclust` : Version: 1.0.34 (maintainer Bruno Bzeznik)
 - `sumatra` : Version: 1.0.34 (maintainer Bruno Bzeznik)
