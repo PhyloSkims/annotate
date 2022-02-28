@@ -62,7 +62,7 @@ test
 ## -4- Nix packages
 
 - `aragorn` : Version: 1.2.38 (maintainer Bruno Bzeznik)
-- `clustalo`
+- `clustalo` : = clustal-omega Version 1.2.4 (maintainer Bruno Bzeznik)
 - `exonerate` : Version: 2.4.0 (maintainer Bruno Bzeznik)
 - `hmmer` : Version: 3.3.2 (maintainer Markus J. Ankenbrand)
 - `kimono`
