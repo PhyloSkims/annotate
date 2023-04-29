@@ -752,9 +752,44 @@ pushTmpDir ORG.organnot
 					        print line}' > "${RESULTS}.sorted.annot"
 				loginfo "Done."
 				
+				loginfo "Unifying gene names"
+					$AwkCmd '
+					(FNR==NR) && /^FT                   \/gene="/ {
+						gene = substr($0,29,100)
+						gene = substr(gene,0,length(gene)-1)
+						occurrence[gene]++
+					}
+
+					(FNR==1) && (FNR!=NR) {
+						for(gene in occurrence){
+						if (occurrence[gene]==1) {
+							delete occurrence[gene]
+						} else {
+							occurrence[gene] = 1
+						}
+						}
+					}
+
+					(FNR!=NR) && /^FT                   \/gene="/ {
+						gene = substr($0,29,100)
+						gene = substr(gene,0,length(gene)-1)
+						n = occurrence[gene]
+						if (n > 0) {
+							$0="FT                   /gene=\""gene"_"n"\""
+							occurrence[gene]++
+						}
+					}
+
+					(FNR!=NR) {
+						print $0
+					}
+					' "${RESULTS}.sorted.annot" "${RESULTS}.sorted.annot" \
+					  > "${RESULTS}.uniq_gene.annot"
+				log-Pinfo "Done."
+
 				if [[ "$tagprefix" != "no" ]] ; then
 				    loginfo "Adding locus tags from number: $locusshift..."
-					cat "${RESULTS}.sorted.annot" \
+					cat "${RESULTS}.uniq_gene.annot" \
 					| $AwkCmd -v tagprefix="$tagprefix" \
 					          -v locusshift="$locusshift" '
 						/^FT +\/locus_tag=""/ {
@@ -769,9 +804,10 @@ pushTmpDir ORG.organnot
 				else
 				    loginfo "Clearing locus tags done."
 					egrep -v '^FT +\/locus_tag=""' \
-					        "${RESULTS}.sorted.annot"
+					        "${RESULTS}.uniq_gene.annot"
 				    loginfo "Clearing of tags done."
 				fi
+				
 				
 				loginfo "Closing annotations table..."
 					echo "XX"
