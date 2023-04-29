@@ -98,6 +98,14 @@ function _AssertCode(name, _local_, n, i1, i2, i3, b1, b2, b3) {
       for (i3 = 1 ; i3 <= 4 ; i3++) {
         b3 = substr(_NucOrder, i3, 1)
         _GenCod[name][b1 ""  b2 "" b3] = substr(_Cod2Aa[name], ++n, 1)
+        if (name in  _Cod2Start) {
+          _GenStart[name][b1 ""  b2 "" b3] = substr(_Cod2Start[name], n, 1)
+          if (_GenStart[name][b1 ""  b2 "" b3] == "-") {
+            _GenStart[name][b1 ""  b2 "" b3] = _GenCod[name][b1 ""  b2 "" b3]
+          }
+        } else {
+          _GenStart[name][b1 ""  b2 "" b3] = _GenCod[name][b1 ""  b2 "" b3]
+        }
       }
     }
   }
@@ -105,16 +113,24 @@ function _AssertCode(name, _local_, n, i1, i2, i3, b1, b2, b3) {
   return 1
 }
 
-function Translate(seq, codname, _local_, n, i, c, p) {
+function Translate(seq, modif, codname, _local_, n, i, c, p) {
   if (codname == 0) codname = "universal"
+  print "u codname " codname " " _Cod2Aa[name]
+  p= ""
   _AssertCode(codname)
   seq = toupper(seq)
+
   n = length(seq)
-  p = ""
   for (i = 1 ; i <= n ; i += 3) {
     c = substr(seq, i, 3)
-    p = p "" ((c in _GenCod[codname]) ? _GenCod[codname][c] : "X")
+    if (i == 1 && modif == "=" )
+       aa = ((c in _GenStart[codname]) ? _GenStart[codname][c] : "X")
+    else 
+       aa = ((c in _GenCod[codname]) ? _GenCod[codname][c] : "X")
+
+    p = p "" aa
   }
+
   return p
 }
 
@@ -168,6 +184,7 @@ BEGIN {
                                 #2  AAAACCCCGGGGTTTTAAAACCCCGGGGTTTTAAAACCCCGGGGTTTTAAAACCCCGGGGTTTT
                                 #3  ACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
   _Cod2Aa["universal"]           = "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSS*CWCLFLF"
+  _Cod2Aa["chloroplast"]         = "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSS*CWCLFLF"
   _Cod2Aa["mito-yeast"]          = "KNKNTTTTRSRSMIMIQHQHPPPPRRRRTTTTEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF"
   _Cod2Aa["mito-vertebrates"]    = "KNKNTTTT*S*SMIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF"
   _Cod2Aa["mito-insects"]        = "KNKNTTTTSSSSMIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSWCWCLFLF"
@@ -176,4 +193,10 @@ BEGIN {
   _Cod2Aa["ciliata"]             = "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVVQYQYSSSS*CWCLFLF"
   _Cod2Aa["euplotes"]            = "KNKNTTTTRSRSIIMIQHQHPPPPRRRRLLLLEDEDAAAAGGGGVVVV*Y*YSSSSCCWCLFLF"
   _Cod2Aa["candida"]             = "KNKNTTTTRSRSIIMIQHQHPPPPRRRRXLSLEDEDAAAAGGGGVVVV*Y*YSSSS*CWCLFLF"
+
+                                #1  AAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCGGGGGGGGGGGGGGGGTTTTTTTTTTTTTTTT
+                                #2  AAAACCCCGGGGTTTTAAAACCCCGGGGTTTTAAAACCCCGGGGTTTTAAAACCCCGGGGTTTT
+                                #3  ACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
+  _Cod2Start["universal"]        = "------------M-----------------M-------------------------------M-"
+  _Cod2Start["chloroplast"]      = "------------MMMM--------------M---------------M---------------M-"
 }
