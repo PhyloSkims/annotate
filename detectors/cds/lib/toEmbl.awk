@@ -96,7 +96,9 @@ function Unk(s) {
 /^c begin_entry/ {
 	Nexon = 0
 	FrameShift=0
+ 	nte = 0
 	delete Exon
+	delete TransExcep
 	next
 }
 
@@ -151,6 +153,12 @@ function Unk(s) {
   next
 }
 
+
+/^e trans_exception/ {
+  TransExcep[++nte] = "(pos:"$3",aa:"$4")"     # /transl_except=(pos:<location>,aa:<amino_acid>)
+  next
+}
+
 /^c end_entry/ {
 
 	GeneName = Unk(GeneName)
@@ -184,6 +192,10 @@ function Unk(s) {
 		if (match(Translat,/\*/)>0) {
 			QQualifier("pseudogene","unknown")
 			QQualifier("note","nonfunctional due to stop codon")
+		}
+
+		for (ie = 1 ; ie <= nte; ie++) {
+		   SQualifier("transl_except", TransExcep[ie])
 		}
 		
 		QQualifier("translation", Translat)
