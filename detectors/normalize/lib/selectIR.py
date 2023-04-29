@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys 
 from math import lgamma
@@ -32,6 +32,7 @@ for line in data:
         #    reverse complement = -1
         if direction==0:
             direction=-1
+
             
         if end > chlorosize:
             extsize =  end - chlorosize 

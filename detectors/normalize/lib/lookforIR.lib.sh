@@ -25,17 +25,18 @@ function lookForIR {
 		blastn -db ${SCDB} \
 		       -query ${QUERY} \
 		       -outfmt 6 \
-		       -max_target_seqs 10000 | \
-		  awk '($4 > 100) && ($3>80) { \
-		             SAME=(($7 < $8) && ($9 < $10)) || (($7 > $8) && ($9 > $10)); \
-			 		 if ($7 < $8) \
-			 			{print substr($2,1,3),$7,$8,SAME}  \
-			 		 else \
-			 			{print substr($2,1,3),$8,$7,SAME}}' | \
+		       -max_target_seqs 10000  | \
+		  awk -v id_match=80 -v lmin=100 \
+		     '($4 > lmin) && (($3+0)>id_match) { 
+		             SAME=(($7 < $8) && ($9 < $10)) || (($7 > $8) && ($9 > $10)); 
+			 		 if ($7 < $8) 
+			 			{print substr($2,1,3),$7,$8,SAME}  
+			 		 else 
+			 			{print substr($2,1,3),$8,$7,SAME}
+			  }' | \
 		  sort -nk 2 > ${MATCHES}
-	loginfo "Done"
+	loginfo "Done $(wc -l ${MATCHES} | awk '{print $1}') matches identified"
 
-	  
 	loginfo "Looking for long inverted repeats..."
 		repseek -c -p 0.001 -i ${QUERY} 2>> /dev/null > ${REPEATS}
 		nrepeat="$(wc -l ${REPEATS} | awk '{print $1}')"
