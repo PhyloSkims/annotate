@@ -120,10 +120,24 @@ function patchtRNA(anticodon,trna,seq) {
 }
 
 function gene2product(gene) {
-  return "tRNA-" AA3[substr(gene,4,1)];
+  return "RNA-" AA3[substr(gene,4,1)];
 }
 
-function emblTRNA(geneid,trna,loc,anti,intron,notes,seq) {
+function gene2aa(gene,anticodon) {
+  aa1=substr(gene,4,1)
+  if (aa1=="f") aa1="M"
+  if (aa1=="I" && anticodon=="CAU") aa1="M"
+
+  return AA3[aa1];
+}
+
+function emblTRNA(geneid,trna,loc,anti,antip,intron,notes,seq) {
+  if (intron!="") {
+	   l=length(intron);
+     intron=substr(intron,2,l-2);
+     split(intron,intronpos,",");
+  }
+
 	if (loc ~ /^c/) {
 	     complement=1;
   		 match(loc,",[0-9][0-9]*\\]");
@@ -132,21 +146,54 @@ function emblTRNA(geneid,trna,loc,anti,intron,notes,seq) {
 		 ge=substr(ge,RSTART,RLENGTH);
 	     sub("c\\[","complement(",loc); 
 	     sub("\\]",")",loc);
-	     sub(",","..",loc)}
+	     sub(",","..",loc)
+       antistart=ge - antip + 1
+       antiloc="complement(" antistart - 2 ".." antistart ")"
+       if (intron!="") {
+          delta = intronpos[1] - antip - 1
+          if (delta==1 || delta==2) {
+          start= ge - (intronpos[1] + intronpos[2] -1) - 2 + delta 
+          end= ge - (intronpos[1] + intronpos[2] -1)
+          if (start!=end) antie1=start".."end; else antie1=start
+          start= ge - intronpos[1] + 2
+          end=start + delta - 1 
+          if (start!=end) antie2=start".."end; else antie2=start
+          antiloc="complement(join("antie1","antie2"))"
+          }
+     } 
+  }
 	else {
 	    complement=0;
 		sub("\\[","",loc);
 	    sub("\\]","",loc);
-	    sub(",","..",loc)}
+      split(loc,locparts,",")
+	    sub(",","..",loc)
+      split(loc,locparts,",")
+	    sub(",","..",loc)
+      antistart=locparts[1]+antip-1
+      antiloc=antistart".."(antistart+2)
+
+      if (intron!="") {
+        delta = intronpos[1] - antip
+        # print delta, intronpos[1], intronpos[2], antip,ge
+        if (delta == 1 || delta == 2) {
+          start=antistart
+          end=antistart + delta - 1
+          if (start!=end) antie1=start".."end; else antie1=start
+          start=locparts[1] + ( intronpos[1] + intronpos[2] - 1)
+          end=start + 2 - delta
+          if (start!=end) antie2=start".."end; else antie2=start
+          antiloc="join("antie1","antie2")"
+        }
+      } 
+  }
 	    
-	anti=toupper(anti);
+	  anti=toupper(anti);
     gsub("T","U",anti);
     product=gene2product(trna);
+    aa=gene2aa(trna,anti)
 	
 	if (intron!="") {
-	   l=length(intron);
-       intron=substr(intron,2,l-2);
-       split(intron,intronpos,",");
 	   ib=intronpos[1];
 	   il=intronpos[2];
 	   ie=ib+il-1;
@@ -156,19 +203,20 @@ function emblTRNA(geneid,trna,loc,anti,intron,notes,seq) {
 	   		sub("\\.\\.",".." (gb + ib - 2) "," (gb + ie) "..",loc);
 	   		}
 	   else {
-	   		sub("\\.\\.",".." (ge - ie - 1) "," (ge - ib + 2) "..",loc);
+	   		sub("\\.\\.",".." (ge - ie) "," (ge - ib + 2) "..",loc);
 	   }
 	   sub("complement","complement(join",loc);\
 	   if (substr(loc,1,1) ~ /[0-9]/) {
 	      loc="join("loc} 
 	      loc=loc")"; 
-	      }
+	  
+    }
 	      
 	   print "FT   tRNA            " loc;
-	   print "FT                   /gene=\""trna"\"";
-	   print "FT                   /anticodon=\""anti"\"";	   
+	   print "FT                   /gene=\"t" product "(" anti ")\"";
+	   print "FT                   /anticodon=(pos:" antiloc ",aa:" aa ",seq:" tolower(anti) ")";	   
 #	   print "FT                   /note=\"*anticodon: "anti"\"";
-	   print "FT                   /product=\""product"("anti")\"";
+	   print "FT                   /product=\"transfer " product "(" anti ")\"";
      print "FT                   /locus_tag=\"\"";
 #	   print "FT                   /inference=\"Aragorn-1.2.38\"";
 	   if (notes!="-")
@@ -285,7 +333,7 @@ BEGIN {
        split(xxx,trnadata,"@");
 
 #       print geneid,trna,loc,anti,"'"intron"'",seq;
-	   emblTRNA(geneid,trnadata[1],loc,anti,intron,trnadata[2],seq);
+	   emblTRNA(geneid,trnadata[1],loc,anti,antip,intron,trnadata[2],seq);
        seq=""
      }
 
@@ -294,7 +342,7 @@ BEGIN {
      { geneid=$1;
        trna  =$2;
        loc   =$3;
-       lseq  =$4;
+       antip  =$4;
        x=$5;
        split($5,intron_desc,"i");
        anti  =substr(intron_desc[1],2,3);
@@ -312,5 +360,5 @@ END  { seq=epissage(intron,seq);
        split(xxx,trnadata,"@");
        
 #       print geneid,trna,loc,anti,"'"intron"'",seq;
-       emblTRNA(geneid,trnadata[1],loc,anti,intron,trnadata[2],seq);
+       emblTRNA(geneid,trnadata[1],loc,anti,antip,intron,trnadata[2],seq);
      }
