@@ -398,6 +398,17 @@ blastx \
             {
                 print $0
             }       
+        ' | \
+        $AwkCmd '
+            #
+            # Adds the trans_splicing qualifier
+            #
+            /^FT                   \/translation=/ {
+                print "FT                   /trans_splicing"
+            }
+            {
+                print $0
+            }       
         ' > $dest
         done
          
@@ -446,4 +457,4 @@ exit 0
 # BRR.chloro_1	NC_018117_rps12_2	94.87	39	2	0	70611	70495	1	39	2e-16	78.6
 
 
-
+# /trans_splicing
