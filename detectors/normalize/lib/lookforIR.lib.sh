@@ -56,9 +56,9 @@ function lookForIR {
 	loginfo " --> IR size : IRa = ${IR[5]} /  IRb = ${IR[7]}"
 	loginfo " --> IR Score: ${IR[8]}"
 	
-	let "deltaIR=${IR[5]} -  ${IR[7]}"
+	deltaIR=$((IR[5] - IR[7]))
 	
-	if (( $deltaIR < -10 )) ||  (( $deltaIR > 10 )); then
+	if (( deltaIR < -10 )) ||  (( deltaIR > 10 )); then
 		logwarning "Differences between IR lengths ($deltaIR) is greater than 10"
 	fi
 	
