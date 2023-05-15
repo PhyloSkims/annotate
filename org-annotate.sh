@@ -785,7 +785,7 @@ pushTmpDir ORG.organnot
 					}
 					' "${RESULTS}.sorted.annot" "${RESULTS}.sorted.annot" \
 					  > "${RESULTS}.uniq_gene.annot"
-				log-Pinfo "Done."
+				loginfo "Done."
 
 				if [[ "$tagprefix" != "no" ]] ; then
 				    loginfo "Adding locus tags from number: $locusshift..."
