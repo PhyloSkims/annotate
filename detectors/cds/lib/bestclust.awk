@@ -13,13 +13,13 @@ BEGIN {
   if (EXCLUDE == "") EXCLUDE = 0
 }
 
-/^\# --- START OF GFF DUMP ---/ {
+/^# --- START OF GFF DUMP ---/ {
   State = "gff"
   NbEntry++
   next
 }
 
-/^\# --- END OF GFF DUMP ---/ {
+/^# --- END OF GFF DUMP ---/ {
   State = 0
   next
 }
@@ -32,7 +32,7 @@ BEGIN {
   next
 }
 
-/^\#/ { next }
+/^#/ { next }
 
 (State == 0) { next }
 
