@@ -30,10 +30,8 @@ DIRS = aragorn   \
        sequtils  \
        sumaclust \
        sumatra   \
-       gawk      \
        getopt    \
        cd-hit	 \
-       tcsh      \
        ITSx
 
 include ../config/targets/propagate.targ
