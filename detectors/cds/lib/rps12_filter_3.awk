@@ -6,7 +6,7 @@ function min(a,b) {return (a <= b) ? a:b }
                     x=x substr(s,i,1)
                 return x
               }    
-                     
+
 function swapchar(s,a,b) {
                 gsub(a,"@",s)
                 gsub(b,a,s)
@@ -31,6 +31,37 @@ function revcomp(s) {
                 s = swapchar(s,"d","h")
                 return rev(s)
               }
+
+function extractFirstSequence(file) {
+    # Variables
+    sequence = ""
+    inSequence = 0
+
+    # Lecture du fichier
+    while ((getline line < file) > 0) {
+        # Ignorer les lignes commençant par ">"
+        if (substr(line, 1, 1) == ">") {
+            if (inSequence == 1)
+                break;  # Sortir si nous avons déjà extrait la première séquence
+            else
+                inSequence = 1;  # Commencer à extraire la séquence
+        } else if (inSequence == 1) {
+            # Supprimer les espaces et retours chariot de la séquence
+            gsub(/[[:space:]]/, "", line);
+            sequence = sequence line;
+        }
+    }
+
+    # Fermer le fichier
+    close(file);
+
+    # Retourner la première séquence
+    return sequence;
+}
+
+BEGIN {
+    chloro = extractFirstSequence(chloro)
+}
     {   from = max(1,$1 - delta)
         to   = min($2 + delta,seqlen)
         sequence = substr(chloro,from,to-from+1)

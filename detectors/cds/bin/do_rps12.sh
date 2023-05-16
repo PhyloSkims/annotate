@@ -118,9 +118,8 @@ blastx \
         | $AwkCmd -f $LIB_DIR/rps12_filter_2.awk \
         | $AwkCmd -v delta="$DELTA" \
                   -v seqlen="$SEQLEN" \
-                  -v chloro="$SEQUENCE" \
+                  -v chloro="${QUERY}" \
                   -f $LIB_DIR/rps12_filter_3.awk
-
 
     nrps12=$(ls -1 rps12_fragments_*.fasta | wc -l)
 
