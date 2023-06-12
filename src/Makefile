@@ -18,11 +18,8 @@
 include ../config/auto.conf
 
 DIRS = aragorn   \
-       clustalo  \
        exonerate \
-       hmmer3    \
        kimono    \
-       muscle    \
        ncbiblast \
        prokov    \
        repseek   \
@@ -30,8 +27,11 @@ DIRS = aragorn   \
        sumaclust \
        sumatra   \
        getopt    \
-       cd-hit	 \
        ITSx
+#       muscle    \
+#       clustalo  \
+#       cd-hit	 \
+#       hmmer3    \
 
 include ../config/targets/propagate.targ
 
