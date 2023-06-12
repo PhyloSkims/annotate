@@ -18,6 +18,7 @@
 include ../config/auto.conf
 
 DIRS = aragorn   \
+       hmmer3    \
        exonerate \
        kimono    \
        ncbiblast \
@@ -31,7 +32,6 @@ DIRS = aragorn   \
 #       muscle    \
 #       clustalo  \
 #       cd-hit	 \
-#       hmmer3    \
 
 include ../config/targets/propagate.targ
 
