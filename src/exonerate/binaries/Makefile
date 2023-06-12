@@ -38,7 +38,7 @@ extract:
 	
 install: extract
 	test -d $(BINDIR) || mkdir $(BINDIR)
-	cd $(PKGDIR)/bin && \cp -f $(PROGS) $(BINPATH)
+	cd $(PKGDIR)/bin && \cp -f * $(BINPATH)
 
 clean::
 	(! test -d $(PKGDIR)) || \rm -r $(PKGDIR)
