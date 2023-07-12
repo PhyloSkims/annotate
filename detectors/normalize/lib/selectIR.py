@@ -46,12 +46,17 @@ for line in data:
         
         for p in range(begin,end):
             chr[p]+=direction
- 
-maxSSC = float(max(abs(n) for n in chloro['SSC']))
-maxLSC = float(max(abs(n) for n in chloro['LSC']))
 
-chloro['SSC']=[n / maxSSC for n in chloro['SSC']]
-chloro['LSC']=[n / maxLSC for n in chloro['LSC']]
+# <Zafacs> 07/13/2023
+# Hack for avoiding crash when LSC and SSC have no blast similarity
+# Need to be reworked
+if (len(chloro['SSC']) > 0) : 
+    maxSSC = float(max(abs(n) for n in chloro['SSC']))
+    chloro['SSC']=[n / maxSSC for n in chloro['SSC']]
+
+if (len(chloro['LSC']) > 0) : 
+    maxLSC = float(max(abs(n) for n in chloro['LSC']))
+    chloro['LSC']=[n / maxLSC for n in chloro['LSC']]
 
 scoreMax=0
 len1Max=0
