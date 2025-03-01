@@ -32,15 +32,8 @@ include $(CFGDIR)targets/help.targ
 .PHONY: extract install
 
 all:: install
-
-extract: $(PKGDIR)
-
-$(PKGDIR): $(PKGTAR)
-	test -d $(PKGDIR) || mkdir $(PKGDIR)
-	test -d $(PKGDIR)/bin || $(TAR) zxf $(PKGTAR) -C $(PKGDIR) --strip-components 1
 	
 install: extract
-	test -d $(BINDIR) || mkdir $(BINDIR)
 	cd $(PKGDIR)/bin && \cp -f $(PROGS) $(BINPATH)
 
 clean::
