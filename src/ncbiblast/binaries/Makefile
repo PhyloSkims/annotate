@@ -19,7 +19,7 @@ PKG = ncbi-blast-2.2.31
 
 PKGTAR = $(PKG).$(PORTNAME).tgz
 
-PKGDIR = bin.$(PORTNAME)
+PKGDIR = ${PKG}.$(PORTNAME)
 
 PROGS = blast_formatter makeblastdb \
         blastn blastp blastx
