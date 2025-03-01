@@ -32,7 +32,7 @@ pushTmpDir ORG.trna
 
 	TRNA=$(basename ${QUERY})
 	
-	aragorn -i -w -seq -gc11 ${QUERY} | \
+	aragorn -i -w -seq -gc${2} ${QUERY} | \
 		${AwkCmd} -f ${PROG_DIR}/../lib/aragorn_wrapper.awk
 	
 

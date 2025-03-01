@@ -1,4 +1,0 @@
->RRNA5S_NC_019628_175 count=1; cluster_weight=2; cluster=RRNA5S_NC_019628_175; cluster_score=1.000000; cluster_center=True; 
-ttctggtgtcttaggcgtggaggaaccacaccaatccatcccgaacttggtggtgaaactccattgcggtgacgatactatgggggaagccccatggaaaaatagctcgatgccaggat
->RRNA5S_NC_010359_176 count=1; cluster_weight=2; cluster=RRNA5S_NC_019628_175; cluster_score=0.983193; cluster_center=False; 
-ttctggtgtcttaggcgtggaggaaccacaccaatccatcccgaacttggtggtgaaactccattgcggtgacgatactgtgggggaagccccatggaaaaatagctcgacgccaggat

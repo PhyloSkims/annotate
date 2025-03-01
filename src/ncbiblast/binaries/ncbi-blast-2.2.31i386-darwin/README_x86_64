@@ -1,0 +1,8 @@
+#
+# these are non-universal, x84_64 architecture only, binaries
+# from the original NCBI distribution
+#
+# binaries have been liposucted by: 
+# ditto --rsrc -arch x84_64
+#
+

@@ -1,4 +1,0 @@
->RRNA5S_NC_025744_142 count=1; cluster_weight=2; cluster=RRNA5S_NC_025744_142; cluster_score=1.000000; cluster_center=True; 
-tctcacggagagtttgatcctggctcaggatgaacgctggcggcatgctttacacatgcaagtcggacggggag
->RRNA5S_NC_025745_143 count=1; cluster_weight=2; cluster=RRNA5S_NC_025744_142; cluster_score=0.986486; cluster_center=False; 
-tctcacggagagtttgatcctggctcaggatgagcgctggcggcatgctttacacatgcaagtcggacggggag

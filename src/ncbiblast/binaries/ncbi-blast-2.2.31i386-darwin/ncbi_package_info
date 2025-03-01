@@ -1,0 +1,186 @@
+PACKAGE_NAME: blast
+PACKAGE_VERSION: 2.2.31
+PACKAGE_SIGNATURE: LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+PACKAGE_CONFIG: IntelMAC : universal : ./c++/compilers/unix/GCC.sh 4.2 --without-debug --without-pcre --with-mt --with-openmp --with-flat-makefile --with-universal=i386,x86_64 --with-ncbi-public --with-build-root-sfx=--IntelMAC-universal --without-ccache --without-caution --without-makefile-auto-update --with-projects=scripts/projects/blast/project.lst --with-internal
+
+>>>>>  blastp
+
+blastp: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  blastn
+
+blastn: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  blastx
+
+blastx: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  tblastn
+
+tblastn: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  tblastx
+
+tblastx: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  psiblast
+
+psiblast: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  rpsblast
+
+rpsblast: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  rpstblastn
+
+rpstblastn: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  makembindex
+
+makembindex: 0.0.0
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  segmasker
+
+segmasker: 1.0.0
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  dustmasker
+
+dustmasker: 1.0.0
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  windowmasker
+
+windowmasker: 1.0.0
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  deltablast
+
+deltablast: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  makeblastdb
+
+makeblastdb: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  blastdbcmd
+
+blastdbcmd: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  blastdb_aliastool
+
+blastdb_aliastool: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  convert2blastmask
+
+convert2blastmask: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  blastdbcheck
+
+blastdbcheck: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  makeprofiledb
+
+makeprofiledb: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+>>>>>  blast_formatter
+
+blast_formatter: 2.2.31+
+Package: blast 2.2.31, build Jun  2 2015 10:47:46
+ LLVMGCC_421-ReleaseMT--x86_64-apple-darwin12.6.0-xcoremake2
+ 
+
+
+
+

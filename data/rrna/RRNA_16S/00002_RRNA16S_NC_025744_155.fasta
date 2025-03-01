@@ -1,4 +1,0 @@
->RRNA16S_NC_025744_155 count=1; cluster_weight=2; cluster=RRNA16S_NC_025744_155; cluster_score=1.000000; cluster_center=True; 
-tctcacggagagtttgatcctggctcaggatgaacgctggcggcatgctttacacatgcaagtcggacggggag
->RRNA16S_NC_025745_156 count=1; cluster_weight=2; cluster=RRNA16S_NC_025744_155; cluster_score=0.986486; cluster_center=False; 
-tctcacggagagtttgatcctggctcaggatgagcgctggcggcatgctttacacatgcaagtcggacggggag

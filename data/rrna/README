@@ -16,3 +16,14 @@ hmmbuild --dna -n RRNA_5S_RC   --wpb plast_RRNA_5S_RC.hmm 5S.goodali.rc.fst
 hmmbuild --dna -n RRNA_4.5S_RC --wpb plast_RRNA_4.5S_RC.hmm 4.5S.goodali.rc.fst
 
 cat plast_RRNA_*.hmm > plast_RRNA.hmm
+
+
+#
+# Command for mitochondrion rRNA models
+#
+
+splitgbk.sh mitochondrion.1.genomic.gbff
+pushd mitochondrion
+rm $(grep -H "^CONTIG" * | awk -F ":" '{print $1}')
+popd
+buildRRNAModels_mito.sh $(pwd)/mitochondrion/*.gbk

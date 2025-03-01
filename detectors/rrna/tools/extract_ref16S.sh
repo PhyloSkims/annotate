@@ -2,7 +2,12 @@
 #
 
 
-  gawk 'function printfasta(seq) {                                            \
+# -- CAUTION -- Works as long than the script 
+#               is not called through a symlink
+THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
+source "${THIS_DIR}/../../../scripts/bash_init.sh"
+
+  $AwkCmd 'function printfasta(seq) {                                            \
              seqlen=length(seq);                                             \
              for (i=1; i <= seqlen; i+=60)                                   \
                  print substr(seq,i,60);                                    \

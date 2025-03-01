@@ -1,4 +1,0 @@
->RRNA4.5S_NC_020321_48 count=1; cluster_weight=2; cluster=RRNA4.5S_NC_020321_48; cluster_score=1.000000; cluster_center=True; 
-taaggtcaaggcgagacgagccttttatcaaacgataggtatcaagtggaagtgcagtgatgtacgcagctgaggcatcctaacagaccgaaagattttaac
->RRNA4.5S_NC_024945_78 count=1; cluster_weight=2; cluster=RRNA4.5S_NC_020321_48; cluster_score=0.911765; cluster_center=False; 
-taaggtcacggcgagatgagccgtttatcagacgataggtgtcaagtggaagtgcagtgatgtatgcagctgaggcatcctaacagactaaaagatttgaac
