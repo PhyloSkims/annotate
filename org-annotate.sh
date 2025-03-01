@@ -73,8 +73,8 @@ function usage {
 	echo '  -r     | --nuclear-rdna'
 	echo '      Selects for the annotation of the rDNA nuclear cistron'
 	echo
-#	echo '  -m     | --mitochondrion'
-#	echo '      Selects for the annotation of an animal mitochondrion genome'
+	echo '  -m     | --mitochondrion'
+	echo '      Selects for the annotation of an animal mitochondrion genome'
 	echo
 	echo ' Providing information about the sequence'
 	echo '  -s     | --specimen ###'
@@ -412,7 +412,7 @@ do
     case $1 in
     -c|--chloroplast) types="chloro" ;;
     -r|--nuclear-rdna) types="nucrdna" ;;
-#    -m|--mitochondrion) types="mito" ;;
+    -m|--mitochondrion) types="mito" ;;
     -t|--ncbi-taxid) taxid="$2" ; shift ;;
 	-s|--specimen) specimen="$2" ; shift ;;
 	-b|--country) country="$2" ; shift ;;
@@ -557,7 +557,7 @@ pushTmpDir ORG.organnot
 						
 						if [[ "$trnadetection" == "yes" ]] ; then
 							loginfo "Annotating the tRNA..."
-							${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+							${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" "11" >> "${RESULTS}.annot"
 							loginfo "Done."
 						fi
 						
@@ -645,7 +645,7 @@ pushTmpDir ORG.organnot
 						
 					mito) 
 						loginfo "Annotating an animal mitochondrial genome..."
-						logerror "Not yet implemented"
+						# logerror "Not yet implemented"
 			
 						if (( partial == 0 )) ; then 
 							topology="circular"
@@ -655,7 +655,54 @@ pushTmpDir ORG.organnot
 							defline="mitochondrion, partial sequence"
 						fi
 						
-						exit 1
+						loginfo "No normalization of the structure of the Mitochondrial sequence..."
+						cat toannotate.fasta > "${RESULTS}.norm.fasta"
+						rm -f "${RESULTS}.annot"
+						touch "${RESULTS}.annot"
+
+						#
+						# We are annotating a circular sequence
+						#
+						# 2kb of the beginnig of the sequence is added to its end
+						# to allow for overlaping feature
+						#
+						add_circular_extension=0
+						if (( partial == 0 )) ; then
+							loginfo "Extends the sequence to allows for features overlaping juction"
+							cp "${RESULTS}.norm.fasta" "${RESULTS}.norm.orig.fasta"
+							cp "${RESULTS}.norm.fasta" "${RESULTS}.norm.frgs.fasta"
+							cutseq "${RESULTS}.norm.orig.fasta" 1 2000 >> "${RESULTS}.norm.frgs.fasta"
+							joinfasta "${RESULTS}.norm.frgs.fasta" > "${RESULTS}.norm.fasta"
+							add_circular_extension=1
+						fi
+						
+						if [[ "$trnadetection" == "yes" ]] ; then
+							loginfo "Annotating the tRNA..."
+							${PROG_DIR}/detectors/trna/bin/go_trna.sh "${RESULTS}.norm.fasta" "vert" >> "${RESULTS}.annot"
+							loginfo "Done."
+						fi
+						
+						if [[ "$rrnadetection" == "yes" ]] ; then
+							loginfo "Annotating the rRNA genes..."
+							${PROG_DIR}/detectors/rrna/bin/go_rrna.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+							loginfo "Done."
+						fi
+					
+						if (( add_circular_extension == 1 )) ; then
+							mv "${RESULTS}.norm.orig.fasta" "${RESULTS}.norm.fasta"
+							cp "${RESULTS}.annot" "${CALL_DIR}/${RESULTS}.annot.circular"
+							over_junction $sl "${RESULTS}.annot" > "${RESULTS}.circular.annot"
+							mv "${RESULTS}.circular.annot" "${RESULTS}.annot"
+							add_circular_extension=0
+						fi
+						
+						if (( partial == 0 )) ; then 
+							topology="circular"
+							defline="mitochondrion, complete genome"
+						else
+							topology="linear"
+							defline="mitochondrion, partial sequence"
+						fi
 						;;
 						
 					*) 
