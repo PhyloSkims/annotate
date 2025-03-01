@@ -1,5 +1,10 @@
+**/*.fasta.gz
+**/*.fasta
+**/*.gbk
+**/.DS_Store
+**/*.log
+**/*.dat
 /test/
-/.DS_Store
 /samples/
 /toto.embl
 /toto.fasta
@@ -8,3 +13,4 @@ data/cds/sp_chlorodb/genes
 data/cds/sp_chlorodb/rawdata
 phylonorway
 src/gnuparallel/build.i386-darwin
+!data/** 
