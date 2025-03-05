@@ -1,4 +1,4 @@
-FROM ubuntu:lunar as builder
+FROM ubuntu:jammy AS builder
 LABEL dockerfile.version="1"
 LABEL software="phyloskims"
 
@@ -9,10 +9,10 @@ LABEL software="phyloskims"
 ##
 
 WORKDIR /
-RUN apt update  --fix-missing && apt upgrade -y
-RUN apt install -y build-essential 
-RUN apt install -y git tcsh bash gawk parallel gettext zlib1g-dev libglib2.0-0
-RUN git clone https://git.metabarcoding.org/org-asm/org-annotate.git
+RUN apt-get update  --fix-missing && apt upgrade -y
+RUN apt-get install -y build-essential 
+RUN apt-get install -y git tcsh bash gawk parallel gettext zlib1g-dev libglib2.0-0
+RUN git clone https://github.com/PhyloSkims/annotate.git org-annotate
 
 #
 # Compile tools
@@ -28,14 +28,14 @@ RUN make
 #
 ##
 
-WORKDIR "/" 
-RUN apt install -y python3-pip python3-dev python3-venv
-RUN git clone https://git.metabarcoding.org/org-asm/org-asm.git
-RUN python3 -m venv org-assembler 
-WORKDIR "/org-asm" 
-RUN bash -c '../org-assembler/bin/pip3 install -r requirements.txt'
-RUN bash -c '../org-assembler/bin/python3 setup.py install --no-serenity' 
-WORKDIR "/" 
+# WORKDIR "/" 
+# RUN apt install -y python3-pip python3-dev python3-venv
+# RUN git clone https://git.metabarcoding.org/org-asm/org-asm.git
+# RUN python3 -m venv org-assembler 
+# WORKDIR "/org-asm" 
+# RUN bash -c '../org-assembler/bin/pip3 install -r requirements.txt'
+# RUN bash -c '../org-assembler/bin/python3 setup.py install --no-serenity' 
+# WORKDIR "/" 
 
 ##
 #
@@ -43,14 +43,14 @@ WORKDIR "/"
 #
 ##
 
-FROM ubuntu:lunar as phyloskims
+FROM ubuntu:jammy AS phyloskims
 WORKDIR /
 RUN apt update  --fix-missing && apt upgrade -y
-RUN apt install -y tcsh bash gawk parallel zlib1g libglib2.0-0 clustalo muscle cd-hit hmmer
+RUN apt-get install -y tcsh bash gawk parallel zlib1g libglib2.0-0 clustalo muscle cd-hit hmmer
 COPY --from=builder /org-annotate /org-annotate
 RUN rm -rf /org-annotate/src
-COPY --from=builder /org-assembler /org-assembler
-COPY --from=builder /org-assembler/bin/oa /bin
+# COPY --from=builder /org-assembler /org-assembler
+# COPY --from=builder /org-assembler/bin/oa /bin
 COPY organnot /bin
 RUN  chmod +x /bin/organnot
 #

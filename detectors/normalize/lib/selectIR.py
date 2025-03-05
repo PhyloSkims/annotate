@@ -50,13 +50,15 @@ for line in data:
 # <Zafacs> 07/13/2023
 # Hack for avoiding crash when LSC and SSC have no blast similarity
 # Need to be reworked
-if (len(chloro['SSC']) > 0) : 
-    maxSSC = float(max(abs(n) for n in chloro['SSC']))
-    chloro['SSC']=[n / maxSSC for n in chloro['SSC']]
+if (len(chloro['SSC']) > 0) :
+    sSSC = sum(abs(x) for x in chloro['SSC'])
+    # maxSSC = float(max(abs(n) for n in chloro['SSC']))
+    chloro['SSC']=[n / sSSC for n in chloro['SSC']]
 
 if (len(chloro['LSC']) > 0) : 
-    maxLSC = float(max(abs(n) for n in chloro['LSC']))
-    chloro['LSC']=[n / maxLSC for n in chloro['LSC']]
+    sLSC = sum(abs(x) for x in chloro['LSC'])
+    # maxLSC = float(max(abs(n) for n in chloro['LSC']))
+    chloro['LSC']=[n / sLSC for n in chloro['LSC']]
 
 scoreMax=0
 len1Max=0
@@ -105,17 +107,19 @@ for line in repeats:
     c = float(c_lsc + c_ssc)
     o = float(o_lsc + o_ssc)
         
-    if c > 0:
-        c_lsc /= c
-        c_ssc /= c 
+    # if c > 0:
+    #     c_lsc /= c
+    #     c_ssc /= c 
     
-    if o > 0:
-        o_lsc /= o 
-        o_ssc /= o 
+    # if o > 0:
+    #     o_lsc /= o 
+    #     o_ssc /= o 
     
-    score = ((c_lsc - c_ssc) ** 2 + (o_lsc - o_ssc) ** 2) / 2.0
+    #score = ((c_lsc - c_ssc) ** 2 + (o_lsc - o_ssc) ** 2) / 2.0
+    score = abs(abs(c_lsc) + abs(o_ssc) - abs(o_lsc) - abs(c_ssc)) 
     # pvalue= 
-    # print >>sys.stderr,"c.lsc = %f c.ssc = %f   o.lsc = %f o.ssc = %f score = %6.4f (len=%d)" % (c_lsc,c_ssc,o_lsc,o_ssc,score,len1)
+    # print("c.lsc = %f c.ssc = %f   o.lsc = %f o.ssc = %f score = %6.4f (len=%d)" % (c_lsc,c_ssc,o_lsc,o_ssc,score,len1),
+    #      file=sys.stderr)
         
     if (score >= scoreMax) and ((len1 > len1Max) or (len2 > len2Max)):
         scoreMax = score

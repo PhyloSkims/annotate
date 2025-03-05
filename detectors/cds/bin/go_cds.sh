@@ -26,7 +26,7 @@ needarg 1
 
 Fasta=$1; shift
 
-needfile $Fasta
+needfile "$Fasta"
 
 # Genome names is set from the base
 # name of the genome file without its extension

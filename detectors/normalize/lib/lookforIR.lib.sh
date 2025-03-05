@@ -27,9 +27,9 @@ function lookForIR {
 		       -outfmt 6 \
 		       -max_target_seqs 10000  | \
 		  awk -v id_match=80 -v lmin=100 \
-		     '($4 > lmin) && (($3+0)>id_match) { 
-		             SAME=(($7 < $8) && ($9 < $10)) || (($7 > $8) && ($9 > $10)); 
-			 		 if ($7 < $8) 
+		     '($4+0 > lmin) && (($3+0)>id_match) { 
+		             SAME=(($7+0 < $8+0) && ($9+0 < $10+0)) || (($7+0 > $8+0) && ($9+0 > $10+0)); 
+			 		 if ($7+0 < $8+0) 
 			 			{print substr($2,1,3),$7,$8,SAME}  
 			 		 else 
 			 			{print substr($2,1,3),$8,$7,SAME}
