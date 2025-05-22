@@ -18,3 +18,15 @@ data/**/*.log
 data/rrna/RRNA_*/*.fasta.gz 
 data/rrna/RRNA_*/*/*.fasta.gz 
 data/ir/*.fasta.gz 
+data/cds/sp_chlorodb/.DS_Store
+data/cds/sp_chlorodb/genes/** 
+data/cds/sp_chlorodb.old/**
+data/cds/sp_chlorodb/rawdata/**
+SAMEA112993511_mito.annot.circular
+..bfg-report/2025-02-28/21-19-02/cache-stats.txt
+..bfg-report/2025-02-28/21-19-02/deleted-files.txt
+..bfg-report/2025-02-28/21-19-02/object-id-map.old-new.txt
+..bfg-report/2025-02-28/21-19-02/protected-dirt/2ed9c642-HEAD.csv
+config/ports/arm64-darwin.conf
+data/cds/.DS_Store
+data/trna/.DS_Store

@@ -22,8 +22,8 @@ CORE_GENES="$CORE_GENES infA"
 CORE_GENES="$CORE_GENES matK"
 CORE_GENES="$CORE_GENES ndhA ndhB ndhC ndhD ndhE ndhF ndhG ndhH ndhI ndhJ ndhK"
 CORE_GENES="$CORE_GENES petA petB petD petG petL petN"
-CORE_GENES="$CORE_GENES psaA psaB psaC psaI psaJ psbA"
-CORE_GENES="$CORE_GENES psbB psbC psbD psbE psbF psbH psbI psbJ psbK psbL psbM psbN psbT psbZ"
+CORE_GENES="$CORE_GENES psaA psaB psaC psaI psaJ"
+CORE_GENES="$CORE_GENES psbA psbB psbC psbD psbE psbF psbH psbI psbJ psbK psbL psbM psbN psbT psbZ"
 CORE_GENES="$CORE_GENES rbcL"
 CORE_GENES="$CORE_GENES rpl14 rpl16 rpl2 rpl20 rpl22 rpl23 rpl32 rpl33 rpl36"
 CORE_GENES="$CORE_GENES rpoA rpoB rpoC1 rpoC2"
@@ -297,7 +297,7 @@ function dereplicate_genes() {
 
 function buildGeneBlastDB() {
  	local gene="${1}"
- 	local fastain="${gene}/${gene}.cdhit.fst"
+ 	local fastain="${gene}/${gene}.fst"
 
     loginfo "  formatting Blast $gene DB"
     timeoutcmd 300 makeblastdb -dbtype prot -in ${fastain} >& /dev/null
@@ -313,7 +313,7 @@ function buildBlastDBs() {
 }
 
 function list_shell_genes() {
-    pushd $SPDIR
+    pushd $SPDIR  1>&2
 
     ls genes \
     | grep -v '\.' \
@@ -321,7 +321,7 @@ function list_shell_genes() {
     | grep -iv '^orf' \
     | grep -iv "$RPS12_GENE"
 
-    popd
+    popd  1>&2
 }
 
 function list_dust_genes() {
@@ -342,10 +342,10 @@ function build_core_libraries() {
     mkdir -p core
 
     for gene in $CORE_GENES ; do 
-        cp genes/$gene/$gene.cdhit.fst core/$gene.fst
-        cp genes/$gene/$gene.cdhit.fst.phr core/$gene.fst.phr
-        cp genes/$gene/$gene.cdhit.fst.pin core/$gene.fst.pin
-        cp genes/$gene/$gene.cdhit.fst.psq core/$gene.fst.psq
+        cp genes/$gene/$gene.fst core/$gene.fst
+        cp genes/$gene/$gene.fst.phr core/$gene.fst.phr
+        cp genes/$gene/$gene.fst.pin core/$gene.fst.pin
+        cp genes/$gene/$gene.fst.psq core/$gene.fst.psq
     done
 
     popd 1>&2
@@ -359,10 +359,10 @@ function build_rps12_library() {
     rm -rf RPS12
     mkdir -p RPS12
     
-    cp genes/$gene/$gene.cdhit.fst RPS12/$gene.fst
-    cp genes/$gene/$gene.cdhit.fst.phr RPS12/$gene.fst.phr
-    cp genes/$gene/$gene.cdhit.fst.pin RPS12/$gene.fst.pin
-    cp genes/$gene/$gene.cdhit.fst.psq RPS12/$gene.fst.psq
+    cp genes/$gene/$gene.fst RPS12/$gene.fst
+    cp genes/$gene/$gene.fst.phr RPS12/$gene.fst.phr
+    cp genes/$gene/$gene.fst.pin RPS12/$gene.fst.pin
+    cp genes/$gene/$gene.fst.psq RPS12/$gene.fst.psq
 
     popd 1>&2
 }
@@ -373,11 +373,12 @@ function build_shell_libraries() {
     rm -rf shell
     mkdir -p shell
 
-    for gene in $(list_shell_genes) ; do 
-        cp genes/$gene/$gene.cdhit.fst shell/$gene.fst
-        cp genes/$gene/$gene.cdhit.fst.phr shell/$gene.fst.phr
-        cp genes/$gene/$gene.cdhit.fst.pin shell/$gene.fst.pin
-        cp genes/$gene/$gene.cdhit.fst.psq shell/$gene.fst.psq
+    for gene in $(list_shell_genes) ; do
+        echo installing shell gene $gene into shell library... 1>&2
+        cp genes/$gene/$gene.fst shell/$gene.fst
+        cp genes/$gene/$gene.fst.phr shell/$gene.fst.phr
+        cp genes/$gene/$gene.fst.pin shell/$gene.fst.pin
+        cp genes/$gene/$gene.fst.psq shell/$gene.fst.psq
     done
 
     popd 1>&2
@@ -390,10 +391,10 @@ function build_dust_libraries() {
     mkdir -p dust
 
     for gene in $(list_dust_genes) ; do 
-        cp genes/$gene/$gene.cdhit.fst dust/$gene.fst
-        cp genes/$gene/$gene.cdhit.fst.phr dust/$gene.fst.phr
-        cp genes/$gene/$gene.cdhit.fst.pin dust/$gene.fst.pin
-        cp genes/$gene/$gene.cdhit.fst.psq dust/$gene.fst.psq
+        cp genes/$gene/$gene.fst dust/$gene.fst
+        cp genes/$gene/$gene.fst.phr dust/$gene.fst.phr
+        cp genes/$gene/$gene.fst.pin dust/$gene.fst.pin
+        cp genes/$gene/$gene.fst.psq dust/$gene.fst.psq
     done
 
     popd 1>&2
@@ -482,7 +483,7 @@ mkdir -p rawdata
 
 pushd rawdata
 
-download_swissprot | extract_chloro_entries > SP_Chloro.dat
+download_swissprot | gzip -dc | extract_chloro_entries > SP_Chloro.dat
 
 extract_fasta_protein SP_Chloro.dat > SP_Chloro_gene_db.fst
 
