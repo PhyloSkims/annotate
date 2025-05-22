@@ -80,27 +80,34 @@ BEGIN {
 END {
   ClustScoreMax=0
   # make clusters
+
+
   pi = -1
   for (i in Cover) {
     if (i+0 > pi+1)
       Clust[++NbClust]["from"] = i
     pi = Clust[NbClust]["to"] = i
   }
-  
+
   # get highest scoring clusters
   for (i = 1 ; i <= NbEntry ; i++) {
     valid = Entry[i]["valid"]
+
     if (! valid) continue
+
     clusno = 0
     for (j = 1; j <= NbClust; j++) {
-      if ((Entry[i]["from"] >= Clust[j]["from"]) && (Entry[i]["to"] <= Clust[j]["to"]))
+      if ((Entry[i]["from"]+0 >= Clust[j]["from"]+0) && (Entry[i]["to"]+0 <= Clust[j]["to"]+0)) {
         clusno = j
+      }        
     }
     valid = (clusno != 0)
     if (! valid) continue
     
     score = Entry[i]["score"]
-    if (score > Clust[clusno]["score"]+0) {
+    pfrom = Entry[i]["from"]
+    if (score > Clust[clusno]["score"]+0 ||
+      (score == Clust[clusno]["score"]+0 && pfrom < Clust[clusno]["from"]+0)) {
       Clust[clusno]["score"] = score
       Clust[clusno]["strand"] = Entry[i]["strand"]
       Clust[clusno]["entry"] = i
@@ -115,7 +122,7 @@ END {
   
   NbClustOk=0
   for (i = 1 ; i <= NbClust ; i++) {
-    if (Clust[i]["score"] >= ClustScoreMax * 0.95) 
+    if (Clust[i]["score"]+0 >= ClustScoreMax * 0.95) 
     	NbClustOk++
     else
     	Clust[i]["score"]=0
@@ -126,14 +133,14 @@ END {
   # print cluster info
   print "c nclust", NbClustOk+0
   for (i = 1 ; i <= NbClust ; i++) {
-  	if (Clust[i]["score"] == 0) continue
+  	if (Clust[i]["score"]+0 == 0) continue
     print "c cluster", i, "from", Clust[i]["from"], "to", Clust[i]["to"],\
           "strand", Clust[i]["strand"], "score", Clust[i]["score"]
   }
   
   # print best clusters
   for (i = 1 ; i <= NbClust ; i++) {
-    if (Clust[i]["score"] == 0) continue
+    if (Clust[i]["score"]+0 == 0) continue
     j = Clust[i]["entry"]
     s = Clust[i]["strand"]
     n = Entry[j]["nbline"]
