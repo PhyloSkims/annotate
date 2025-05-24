@@ -22,6 +22,12 @@
 THIS_DIR="$(dirname ${BASH_SOURCE[0]})"
 source "${THIS_DIR}/../../../scripts/bash_init.sh"
 
+if [[ -z "$ANNOT_MAXCPU" ]] ; then
+  Threads=$(nproc)
+else
+  Threads=$ANNOT_MAXCPU
+fi
+
 needarg 1
 
 Fasta=$1; shift
@@ -74,7 +80,7 @@ if [[ "$cdsdetection_pass1" == "yes" ]] ; then
         echo tcsh -f $PROG_DIR/do_exonerate.csh Pass1 $Fasta $f $AnnotFile $DbRoot/models $temp
         done
     fi
-    done ) | parallel -j 8
+    done ) | parallel -j $Threads
 
     mv $temp/genome.cds.fasta $Genome.cds_pass1.fasta 
 fi
@@ -103,7 +109,7 @@ if [[ "$cdsdetection_pass3" == "yes" ]] ; then
           echo tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
         done
     fi
-    done) | parallel -j 8
+    done) | parallel -j $Threads
     mv $temp/genome.cds.fasta $Genome.cds_pass2.fasta 
 fi
 
