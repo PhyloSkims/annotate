@@ -111,7 +111,7 @@ if [[ "$cdsdetection_pass3" == "yes" ]] ; then
         loginfo $fams
         loginfo "running pass3:$dir exonerate of $Genome on $DbRoot"
         for f in $fams ; do
-          tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
+          echo tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
         done
     fi
     done) | parallel -j $Threads

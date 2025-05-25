@@ -120,8 +120,7 @@ for line in repeats:
     # pvalue= 
     # print("c.lsc = %f c.ssc = %f   o.lsc = %f o.ssc = %f score = %6.4f (len=%d)" % (c_lsc,c_ssc,o_lsc,o_ssc,score,len1),
     #      file=sys.stderr)
-        
-    if (score >= scoreMax) and ((len1 > len1Max) or (len2 > len2Max)):
+    if (int(score*100) >= int(scoreMax*100)) and ((len1 > len1Max) or (len2 > len2Max)):
         scoreMax = score
         pos1Max  = pos1
         pos2Max  = pos2
