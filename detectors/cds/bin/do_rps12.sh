@@ -31,6 +31,10 @@ else
 	QUERY="$1"
 fi
 
+shift
+
+GENOME_LENGHT="$2"
+
 if (( $# > 1 )) ; then
     TEMP=$2
 else
@@ -45,7 +49,6 @@ AnnotFile="$CDS_DATA_DIR/sp_chlorodb/Annot.lst"
 ModelsDir="$CDS_DATA_DIR/sp_chlorodb/models"
 
 SEQLEN=$(seqlength "${QUERY}")
-SEQUENCE=$(readfirstfastaseq "${QUERY}") 
 
 pushTmpDir ORG.RPS12
 
@@ -78,7 +81,10 @@ blastx \
                 {PREV_CDS = $2;}
                 
                 (BEST_EVAL > ($11 + 0.0)) {BEST_EVAL = ($11 + 0.0)} 
-          ' > "rps12_locate.hsps"
+          ' \
+    | $AwkCmd -v glength=${GENOME_LENGHT}  \
+              '!($7 + 0 > glength +  0 && $8  + 0 > glength +  0)' \
+    > "rps12_locate.hsps"
 
     
     #

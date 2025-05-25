@@ -34,6 +34,7 @@ function convert(p1,p2) {
     r = $0
     while (length(s) > 0) {
         match(s,/[0-9]+\.\.[0-9]+/)
+        if (RLENGTH+0 < 0) break
         range = substr(s,RSTART,RLENGTH)
         s = substr(s,RSTART+RLENGTH+1)
         match(range,/^[0-9]+/)

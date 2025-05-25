@@ -9,6 +9,7 @@
 #  go_cds.sh <FASTAFILE> [DBROOT]
 #
 #		- <FASTAFILE> : The fasta file containing the genome to annotate
+#   - <GENOME_LENGHT> : The length of the genome to annotate
 #       - [DBROOT]    : optionnal argument allowing to specify database directory
 #
 #  Results are printed to the standard output
@@ -28,11 +29,13 @@ else
   Threads=$ANNOT_MAXCPU
 fi
 
-needarg 1
+needarg 2
 
 Fasta=$1; shift
 
 needfile "$Fasta"
+
+GenomeLength=$1; shift
 
 # Genome names is set from the base
 # name of the genome file without its extension
@@ -92,7 +95,7 @@ fi
 
 if [[ "$cdsdetection_pass2" == "yes" ]] ; then
     loginfo "running pass2:rps12 exonerate of $Genome on $DbRoot"
-    $PROG_DIR/do_rps12.sh $Fasta $temp
+    $PROG_DIR/do_rps12.sh $Fasta $GenomeLength $temp
 fi
 
 #

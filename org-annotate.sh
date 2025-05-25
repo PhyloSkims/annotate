@@ -441,6 +441,7 @@ do
     shift
 done
 
+
 loginfo "Locus tag prefix provided: $tagprefix"
 loginfo "Locus tag numbered from..: $locusshift"
 loginfo "NCBI taxid provided......: $taxid"
@@ -572,7 +573,7 @@ pushTmpDir ORG.organnot
 							    cdsdetection_pass1=$cdsdetection_pass1 \
 								cdsdetection_pass2=$cdsdetection_pass2 \
 								cdsdetection_pass3=$cdsdetection_pass3 \
-								${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" >> "${RESULTS}.annot"
+								${PROG_DIR}/detectors/cds/bin/go_cds.sh "${RESULTS}.norm.fasta" "$sl" >> "${RESULTS}.annot"
 							loginfo "Done."
 						fi
 
