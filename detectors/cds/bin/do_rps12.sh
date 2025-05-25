@@ -276,11 +276,7 @@ blastx \
     #
 
         n=0
-        for f in *.res ; do
-            loginfo "processing $f"
-            xxx=$(cat $f)
-            echo -e "\n==============\n$xxx\n==============\n" 1>&2
-            
+        for f in *.res ; do            
             ((n=n+1))
             mv $f $f.ori
             if [[ -z "$TEMP" ]] ; then
@@ -288,7 +284,6 @@ blastx \
             else
                 dest="$TEMP/$f"
             fi
-            loginfo "Destination file $dest"
             header=$(head -1 ${f/.rps12.res/.fasta})
             loginfo "Header: $header"
             L2=$(sed -E 's/^.*limit=([0-9]+);.*$/\1/' <<< $header)
