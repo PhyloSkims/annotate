@@ -33,7 +33,7 @@ fi
 
 shift
 
-GENOME_LENGHT="$2"
+GENOME_LENGTH="$1"
 
 if (( $# > 1 )) ; then
     TEMP=$2
@@ -54,7 +54,7 @@ pushTmpDir ORG.RPS12
 
 # localize the gene on the chloroplast genome using blast
 loginfo "Locating RPS12 gene by similarity..."
-
+loginfo "  Considered genome length : $GENOME_LENGTH"
 
 blastx \
     -query ${QUERY} \
@@ -82,11 +82,126 @@ blastx \
                 
                 (BEST_EVAL > ($11 + 0.0)) {BEST_EVAL = ($11 + 0.0)} 
           ' \
-    | $AwkCmd -v glength=${GENOME_LENGHT}  \
-              '!($7 + 0 > glength +  0 && $8  + 0 > glength +  0)' \
+    | $AwkCmd -v glength="${GENOME_LENGTH}"  \
+              '!(($7 + 0) > (glength +  0) && $8  + (0 > glength +  0))' \
+    | $AwkCmd ' BEGIN { FS = OFS = "\t" }
+
+                {
+                    subject = $2
+                    bitscore = $12 + 0
+                    s_start = $9 + 0
+                    s_end = $10 + 0
+
+                    # Ajuster l ordre des coordonnées
+                    actual_start = (s_start < s_end) ? s_start : s_end
+                    actual_end = (s_start < s_end) ? s_end : s_start
+
+                    # Stocker les données
+                    count[subject]++
+                    idx = count[subject]
+                    starts[subject, idx] = actual_start
+                    ends[subject, idx] = actual_end
+                    scores[subject, idx] = bitscore
+                    lines[subject, idx] = $0
+                }
+
+                END {
+                    for (subject in count) {
+                        n = count[subject]
+                        
+                        # Tri par score (décroissant) puis position (croissante)
+                        for (i = 1; i <= n; i++) {
+                            for (j = i + 1; j <= n; j++) {
+                                if (scores[subject, i] < scores[subject, j] || 
+                                (scores[subject, i] == scores[subject, j] && 
+                                    starts[subject, i] > starts[subject, j])) {
+                                    swap(starts, subject, i, j)
+                                    swap(ends, subject, i, j)
+                                    swap(scores, subject, i, j)
+                                    swap(lines, subject, i, j)
+                                }
+                            }
+                        }
+
+                        # Sélection des HSPs optimaux
+                        selected_count = 0
+                        delete selected_starts
+                        delete selected_ends
+                        delete selected_scores
+                        delete selected_lines
+
+                        for (i = 1; i <= n; i++) {
+                            current_start = starts[subject, i]
+                            current_end = ends[subject, i]
+                            current_score = scores[subject, i]
+                            current_line = lines[subject, i]
+                            
+                            # Vérifier les chevauchements avec les HSPs sélectionnés
+                            overlap_max = 0
+                            overlap_indices = ""
+                            for (j = 1; j <= selected_count; j++) {
+                                os = (current_start > selected_starts[j]) ? current_start : selected_starts[j]
+                                oe = (current_end < selected_ends[j]) ? current_end : selected_ends[j]
+                                if (os <= oe && (oe - os + 1) >= 15) {
+                                    if (selected_scores[j] > overlap_max) overlap_max = selected_scores[j]
+                                    overlap_indices = overlap_indices j " "
+                                }
+                            }
+
+                            # Appliquer les règles de sélection
+                            if (overlap_indices == "") {
+                                # Aucun chevauchement : sélectionner
+                                add_to_selected(current_start, current_end, current_score, current_line)
+                            }
+                            else if (current_score >= overlap_max) {
+                                # Supprimer les HSPs moins bons et conserver les ex æquo
+                                new_selected_count = 0
+                                delete temp_selected
+
+                                # Garder les non-chevauchants et les ex æquo
+                                for (j = 1; j <= selected_count; j++) {
+                                    if (!index(overlap_indices, j " ") || selected_scores[j] == current_score) {
+                                        temp_selected[++new_selected_count] = j
+                                    }
+                                }
+                                
+                                # Mettre à jour la liste sélectionnée
+                                selected_count = 0
+                                for (j = 1; j <= new_selected_count; j++) {
+                                    idx = temp_selected[j]
+                                    selected_count++
+                                    selected_starts[selected_count] = selected_starts[idx]
+                                    selected_ends[selected_count] = selected_ends[idx]
+                                    selected_scores[selected_count] = selected_scores[idx]
+                                    selected_lines[selected_count] = selected_lines[idx]
+                                }
+                                add_to_selected(current_start, current_end, current_score, current_line)
+                            }
+                        }
+
+                        # Affichage des résultats
+                        for (j = 1; j <= selected_count; j++) {
+                            print selected_lines[j]
+                        }
+                    }
+                }
+
+                function add_to_selected(start, end, score, line) {
+                    selected_count++
+                    selected_starts[selected_count] = start
+                    selected_ends[selected_count] = end
+                    selected_scores[selected_count] = score
+                    selected_lines[selected_count] = line
+                }
+
+                function swap(arr, subject, i, j,    tmp) {
+                    tmp = arr[subject, i]
+                    arr[subject, i] = arr[subject, j]
+                    arr[subject, j] = tmp
+                }
+                ' \
     > "rps12_locate.hsps"
 
-    
     #
     # Extracting protein ids from selected blast HSPs
     #
@@ -127,6 +242,7 @@ blastx \
                   -v chloro="${QUERY}" \
                   -f $LIB_DIR/rps12_filter_3.awk
 
+    
     nrps12=$(ls -1 rps12_fragments_*.fasta | wc -l)
 
     if (( nrps12 > 1 )) ; then
@@ -161,6 +277,10 @@ blastx \
 
         n=0
         for f in *.res ; do
+            loginfo "processing $f"
+            xxx=$(cat $f)
+            echo -e "\n==============\n$xxx\n==============\n" 1>&2
+            
             ((n=n+1))
             mv $f $f.ori
             if [[ -z "$TEMP" ]] ; then
@@ -168,7 +288,9 @@ blastx \
             else
                 dest="$TEMP/$f"
             fi
+            loginfo "Destination file $dest"
             header=$(head -1 ${f/.rps12.res/.fasta})
+            loginfo "Header: $header"
             L2=$(sed -E 's/^.*limit=([0-9]+);.*$/\1/' <<< $header)
             S1=$(sed -E 's/^.*strand1=(R|F);.*$/\1/' <<< $header)
             S2=$(sed -E 's/^.*strand2=(R|F);.*$/\1/' <<< $header)
@@ -179,7 +301,7 @@ blastx \
             cat $f.ori \
             | $AwkCmd -v S1="$S1" -v F1="$F1" -v T1="$T1" \
                       -v S2="$S2" -v F2="$F2" -v T2="$T2" -v L2="$L2" \
-                      -f $LIB_DIR/rps12_filter_4.awk  \
+                      -f $LIB_DIR/rps12_filter_4.awk \
             | $AwkCmd '
               #
               # Normalize join(complement(A),complement(B),complement(C)) locations
@@ -201,7 +323,7 @@ blastx \
                     sub(positions,rexons,$0)
                 }
                 { print $0}
-            ' \
+            '  \
         | $AwkCmd '
           /^FT   [^ ]/ && (length($0) > 80) {
                  n = split($0,parts,",")
@@ -237,10 +359,9 @@ blastx \
             {
                 print $0
             }       
-        ' > $dest
-        done
-         
-    
+        '  > "$dest" 
+        done   
+
 popTmpDir
 
 exit 0

@@ -37,6 +37,8 @@ needfile "$Fasta"
 
 GenomeLength=$1; shift
 
+loginfo "Genome length set to : $GenomeLength bp"
+
 # Genome names is set from the base
 # name of the genome file without its extension
 Genome=$(basename ${Fasta%.*})
@@ -95,7 +97,7 @@ fi
 
 if [[ "$cdsdetection_pass2" == "yes" ]] ; then
     loginfo "running pass2:rps12 exonerate of $Genome on $DbRoot"
-    $PROG_DIR/do_rps12.sh $Fasta $GenomeLength $temp
+    "$PROG_DIR/do_rps12.sh" "$Fasta" "$GenomeLength" $temp
 fi
 
 #
@@ -109,7 +111,7 @@ if [[ "$cdsdetection_pass3" == "yes" ]] ; then
         loginfo $fams
         loginfo "running pass3:$dir exonerate of $Genome on $DbRoot"
         for f in $fams ; do
-          echo tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
+          tcsh -f $PROG_DIR/do_exonerate.csh Pass3 $Fasta $f $AnnotFile $DbRoot/models $temp
         done
     fi
     done) | parallel -j $Threads

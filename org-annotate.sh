@@ -507,9 +507,9 @@ pushTmpDir ORG.organnot
 		if [[ ! -z "${sequence}" ]] ; then
 			echo "${sequence}" > toannotate.fasta
 			sl=$(seqlength "toannotate.fasta")
-			
+		
 			if (( sl >= minlength )) ; then
-			
+				loginfo "Annotated genome length: $sl bp"	
 				seqid=$($AwkCmd '(NR==1) {print substr($1,2,1000)}' toannotate.fasta)
 				# seqid=$(tr "." "_" <<< ${seqid})
 
